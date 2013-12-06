@@ -1,11 +1,3 @@
-jonathansblog
-=============
-
-jonathansblog v6 theme for wordpress
-
-
-
-
 this is the readme.txt for jonathansblog theme v6
 
 this theme has 10 widget areas:
