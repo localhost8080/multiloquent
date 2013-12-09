@@ -9,7 +9,7 @@ get_template_part('classes/Shoestrap_Walker_Comment.class');
  */
 
 function version(){
-	$version = '6.0.2';
+	$version = '6.0.3';
 	return $version;
 }
 
@@ -24,12 +24,6 @@ function featured_image_in_feed( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'featured_image_in_feed' );
-remove_filter('the_content','tptn_add_viewed_count');
-
-// remove jetpack open graph tags
-remove_action('wp_head','jetpack_og_tags');
-
-
 
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
@@ -46,11 +40,10 @@ if ( ! isset( $content_width ) ) $content_width = 900;
  */
 
 function my_init() {
-
+	/* these files are loaded via CDN in the js_load.php file to improve render speed*/
 	if( !is_admin()){
 		wp_deregister_script('jquery');
 	}
-
 
 	add_theme_support( 'automatic-feed-links' );
 
@@ -58,11 +51,7 @@ function my_init() {
 	remove_action('wp_head', 'wp_print_head_scripts', 9);
 	remove_action('wp_head', 'wp_enqueue_scripts', 1);
 
-	remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
-	remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
-	remove_action( 'personal_options', '_admin_bar_preferences' );
-
-	// put the wp head at the bottom, to see if the pageloads are faster....
+	// put the wp head at the bottom, to get the pageloads are faster....
 	add_action('wp_footer', 'wp_print_scripts', 5);
 	add_action('wp_footer', 'wp_enqueue_scripts', 5);
 	add_action('wp_footer', 'wp_print_head_scripts', 5);
@@ -169,20 +158,6 @@ function breadcrumbs() {
 	//TODO - make it return rather than echo
 }
 
-
-function theimg2(){
-	global $theimg2;
-	// if its empty, set a random value upto 40 [I have 40 images that i want to return..]
-	if (empty($theimg2)){
-		$theimg2 = rand(1,39);
-	} else {
-		$theimg2++;
-		if ($theimg2 > 39){
-			$theimg2 = rand(1,39);
-		}
-	}
-	return $theimg2;
-}
 
 /**
  *
@@ -718,17 +693,6 @@ function post_column_views($newcolumn){
 	return $newcolumn;
 }
 
-function post_custom_column_views($column_name, $id){
-	if($column_name === 'post_views'){
-		echo get_PostViews(get_the_ID());
-	}
-}
-
-function register_post_column_views_sortable( $newcolumn ) {
-	$newcolumn['post_views'] = 'post_views';
-	return $newcolumn;
-}
-
 // Add the sorting SQL for the themes
 function new_posts_orderby($orderby, $wp_query)
 {
@@ -743,15 +707,6 @@ function new_posts_orderby($orderby, $wp_query)
 		}
 		return $orderby;
 	}
-}
-
-if(is_admin()){
-	add_filter( 'manage_posts_columns', 'post_column_views' );
-	add_action('manage_posts_custom_column', 'post_custom_column_views',10,2);
-	add_filter( 'manage_edit-post_sortable_columns', 'register_post_column_views_sortable' );
-	add_filter('posts_orderby', 'new_posts_orderby', 10, 2);
-	add_editor_style('style.css');
-	add_editor_style('bootstrap/bootstrap-min.css');
 }
 
 function make_category_list_as_hierarchy($cat='0'){
