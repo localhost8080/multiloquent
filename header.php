@@ -37,6 +37,5 @@
     <link type='text/css' rel='stylesheet' media='screen' href='<?php echo  get_template_directory_uri(); ?>/bootstrap/css/metro-bootstrap.css?v=<?php echo version();?>'>
         <link type='text/css' rel='stylesheet' media='screen' href='<?php echo  get_template_directory_uri(); ?>/bootstrap/css/custom.css?v=<?php echo version();?>'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet" media="screen" type="text/css">
-    <link type='text/css' rel='stylesheet' media='print' href='<?php echo  get_template_directory_uri()  ; ?>/styles/print.css'>
 </head>
 <body <?php if ( is_home() ) { ?> id="home" <?php } body_class();?>>
