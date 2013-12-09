@@ -9,7 +9,7 @@ get_template_part('classes/Shoestrap_Walker_Comment.class');
  */
 
 function version(){
-	$version = '6.0.3';
+	$version = '6.0.4';
 	return $version;
 }
 

@@ -13,6 +13,7 @@
 
  if (have_comments()) : ?>
   <section id="comments">
+    <div>
     <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'shoestrap'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
 
     <ol class="media-list">
@@ -38,6 +39,7 @@
       <p><?php _e('Comments are closed.', 'shoestrap'); ?></p>
     </div>
     <?php endif; ?>
+  </div>
   </section><!-- /#comments -->
 <?php endif; ?>
 
@@ -51,12 +53,14 @@
 <?php endif; ?>
 
 <?php if (comments_open()) : ?>
-  <section id="respond">
+  <section>
+    <div>
     <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) : ?>
       <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'shoestrap'), wp_login_url(get_permalink())); ?></p>
     <?php else : ?>
       <?php comment_form(); ?>
     <?php endif; ?>
+  </div>
   </section><!-- /#respond -->
 <?php endif; ?>

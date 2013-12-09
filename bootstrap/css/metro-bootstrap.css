@@ -7626,3 +7626,22 @@ body.rtl .sharing li {
   list-style: none outside none;
 }
 
+.comment .media-body {
+  margin-left: 50px;
+}
+li.comment{
+  list-style:none;
+}
+ol.media-list{
+  margin-left:0;
+  font-size:0.6em;
+}
+
+.media-list img.avatar{
+  width:32px;
+  height:32px;
+}
+#respond input, #respond textarea{
+  width:100%;
+  padding:5px 0;
+}

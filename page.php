@@ -27,7 +27,14 @@
 		 				the_post();
 		 			  	the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') ." &raquo;</p>");
 					 } ?>
-				</article>		
+				</article>	
+				<section>
+					<h3 class="hidden-desktop">Comments for <?php the_title(); ?></h3>
+					<?php 
+					comments_template();
+					get_template_part('advert');
+					?>
+				</section>	
 			<!-- google_ad_section_end-->
 			<?php get_template_part('advert');?>
 		</div>
