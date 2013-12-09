@@ -5,7 +5,7 @@ Template Name: Tag Index
 get_header ();?>
 <div class="hero-unit">
 	<div class="container">
-		<h1>Jonathans Blog Tag list</h1>
+		<h1>Tag list</h1>
 	</div>			
 </div>
 <div class="container">

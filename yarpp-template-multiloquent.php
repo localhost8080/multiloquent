@@ -1,6 +1,6 @@
 <?php 
 /*
-YARPP Template: jonathansblog
+YARPP Template: multiloquent
 Author: jonathan
 Description: A simple example YARPP template.
 */

@@ -1,5 +1,5 @@
 <?php
-load_theme_textdomain ('jonathansblog');
+load_theme_textdomain ('multiloquent');
 get_template_part('classes/Bootstrap_Walker.class');
 get_template_part('classes/Shoestrap_Walker_Comment.class');
 
@@ -87,8 +87,8 @@ add_action( 'after_setup_theme', 'register_my_menus' );
 
 function register_my_menus() {
 	register_nav_menus( array(
-		'header_menu' => __( 'Header Navigation', 'jonathansblog' ),
-		'footer_menu' => __( 'Footer Navigation', 'jonathansblog' ),
+		'header_menu' => __( 'Header Navigation', 'multiloquent' ),
+		'footer_menu' => __( 'Footer Navigation', 'multiloquent' ),
 
 		) );
 }
@@ -199,7 +199,7 @@ function jb_get_previous_posts_link( $label = null ) {
 	global $paged;
 
 	if ( null === $label )
-		$label = __( '&laquo; Previous Page','jonathansblog' );
+		$label = __( '&laquo; Previous Page','multiloquent' );
 
 	if ( !is_single() && $paged > 1 ) {
 		$attr = apply_filters( 'previous_posts_link_attributes', '' );
@@ -714,7 +714,7 @@ function get_PostViews($post_ID){
 //Function: Add/Register the Non-sortable 'Views' Column to your Posts tab in WP Dashboard.
 function post_column_views($newcolumn){
 	//Retrieves the translated string, if translation exists, and assign it to the 'default' array.
-	$newcolumn['post_views'] = __('Views','jonathansblog');
+	$newcolumn['post_views'] = __('Views','multiloquent');
 	return $newcolumn;
 }
 

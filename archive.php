@@ -5,30 +5,30 @@ if (have_posts()) { ?>
 	<div class="container">
 		<header>
 			<?php /* If this is a category archive */ if (is_category()) { ?>
-			<h1 class="article_title"><?php printf( __('%s','jonathansblog'), single_cat_title('', false)); ?></h1>
+			<h1 class="article_title"><?php printf( __('%s','multiloquent'), single_cat_title('', false)); ?></h1>
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
 			<h1 class="article_title">
-				<?php _e('Posts Tagged','jonathansblog'); ?>
+				<?php _e('Posts Tagged','multiloquent'); ?>
 				&#8216;
 				<?php single_tag_title(); ?>
 				&#8217;</h1>
 				<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-				<h1 class="article_title"><?php printf( __('Archive for %s','jonathansblog'), get_the_time(__('F jS, Y','jonathansblog'))); ?></h1>
+				<h1 class="article_title"><?php printf( __('Archive for %s','multiloquent'), get_the_time(__('F jS, Y','multiloquent'))); ?></h1>
 				<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-				<h1 class="article_title"><?php printf( __('Archive for %s','jonathansblog'), get_the_time(__('F Y','jonathansblog'))); ?></h1>
+				<h1 class="article_title"><?php printf( __('Archive for %s','multiloquent'), get_the_time(__('F Y','multiloquent'))); ?></h1>
 				<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-				<h1 class="article_title"><?php printf( __('Archive for %s','jonathansblog'), get_the_time('Y')); ?></h1>
+				<h1 class="article_title"><?php printf( __('Archive for %s','multiloquent'), get_the_time('Y')); ?></h1>
 				<?php /* If this is a search */ } elseif (is_search()) { ?>
 				<h1 class="article_title">
-					<?php __('Search Results','jonathansblog'); ?>
+					<?php __('Search Results','multiloquent'); ?>
 				</h1>
 				<?php /* If this is an author archive */ } elseif (is_author()) { ?>
 				<h1 class="article_title">
-					<?php _e('All entries by this author','jonathansblog'); ?>
+					<?php _e('All entries by this author','multiloquent'); ?>
 				</h1>
 				<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
 				<h1 class="article_title">
-					<?php _e('Blog Archives','jonathansblog'); ?>
+					<?php _e('Blog Archives','multiloquent'); ?>
 				</h1>
 				<?php } ?>
 			</header>

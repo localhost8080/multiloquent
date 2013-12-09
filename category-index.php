@@ -5,7 +5,7 @@ Template Name: Category Index
 get_header ();?>
 <div class="hero-unit">
  	<div class="container">
-		<h1>Jonathans Blog Category list</h1>
+		<h1>Category list</h1>
 	</div>			
  </div>
 <div class="container">

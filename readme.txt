@@ -1,4 +1,4 @@
-this is the readme.txt for jonathansblog theme v6
+this is the readme.txt for multiloquent theme v6
 
 this theme has 10 widget areas:
 1) [not used]
