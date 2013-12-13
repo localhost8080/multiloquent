@@ -6,11 +6,11 @@
 <div class="row">
 <?php
 
-if (have_posts()) :
+if (have_posts()) {
     $post = $posts[0];
     
     $tile_colour = get_random_blue_class();
-    while (have_posts()) :
+    while (have_posts()) {
         the_post();
         
         // set it to blank so that it doesnt keep the previous one
@@ -52,15 +52,14 @@ if (have_posts()) :
         }
         ?>
 						</p>
-
         </div>
     </div>
 				
 			
-	<?php endwhile; ?>
+	<?php } ?>
 </div>
-<?php else: ?>
+<?php }else{ ?>
 <p>No related posts.</p>
-<?php endif; ?>
+<?php } ?>
 
  
