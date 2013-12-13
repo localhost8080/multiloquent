@@ -26,8 +26,14 @@ if (have_posts()) {
             $height = '500';
         }
         ?>
+<<<<<<< HEAD
     	<div class="paralax_image_holder span4"
         style="margin-bottom: 30px;">
+=======
+			
+				
+    <div class="paralax_image_holder span4" style="margin-bottom: 30px;">
+>>>>>>> a6c576076b3292dcb749f869bbc16fe9ed363f34
         <img src="<?php echo $theimg?>" class="grayscale"
             alt="<?php the_title()?>" width="<?php echo $width ?>"
             height="<?php echo $height ?>">
@@ -38,7 +44,11 @@ if (have_posts()) {
             </h1>
             <p>
 		
+<<<<<<< HEAD
         <?php
+=======
+<?php
+>>>>>>> a6c576076b3292dcb749f869bbc16fe9ed363f34
         $posttags = wp_get_post_tags($post->ID);
         if ($posttags) {
             foreach ($posttags as $tag) {
