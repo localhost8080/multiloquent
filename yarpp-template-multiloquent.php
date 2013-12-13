@@ -12,11 +12,9 @@ if (have_posts()) {
     $tile_colour = get_random_blue_class();
     while (have_posts()) {
         the_post();
-        
         // set it to blank so that it doesnt keep the previous one
         $slider_image = array();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
-        
         if (! empty($slider_image)) {
             $theimg = $slider_image[0];
             $width = $slider_image[1];
@@ -27,7 +25,8 @@ if (have_posts()) {
             $height = '500';
         }
         ?>
-    	<div class="paralax_image_holder span4" style="margin-bottom: 30px;">
+    	<div class="paralax_image_holder span4"
+        style="margin-bottom: 30px;">
         <img src="<?php echo $theimg?>" class="grayscale"
             alt="<?php the_title()?>" width="<?php echo $width ?>"
             height="<?php echo $height ?>">
@@ -51,13 +50,15 @@ if (have_posts()) {
         ?>
             </p>
         </div>
-    </div>
-				
-			
+    </div>		
 	<?php } ?>
 </div>
-<?php }else{ ?>
+<?php
+} else {
+    ?>
 <p>No related posts.</p>
-<?php } ?>
+<?php
+}
+?>
 
  
