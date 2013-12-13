@@ -37,7 +37,7 @@
     <?php wp_head();?>
     <?php
     
-if (function_exists('yoast_analytics')) {
+    if (function_exists('yoast_analytics')) {
         yoast_analytics();
     }
     ?>

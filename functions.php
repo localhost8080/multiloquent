@@ -5,7 +5,7 @@ get_template_part('classes/Shoestrap_Walker_Comment.class');
 
 /**
  * Returns a version number
- * 
+ *
  * @return string
  */
 function version()
@@ -19,9 +19,10 @@ function featured_image_in_feed($content)
     global $post;
     if (is_feed()) {
         if (has_post_thumbnail($post->ID)) {
-            $output = get_the_post_thumbnail($post->ID, 'medium', array(
-                'style' => 'float:right; margin:0 0 10px 10px;'
-            ));
+            $output = get_the_post_thumbnail($post->ID, 'medium', 
+                array(
+                    'style' => 'float:right; margin:0 0 10px 10px;'
+                ));
             $content = $output . $content;
         }
     }
@@ -81,11 +82,11 @@ add_action('after_setup_theme', 'register_my_menus');
 
 function register_my_menus()
 {
-    register_nav_menus(array(
-        'header_menu' => __('Header Navigation', 'multiloquent'),
-        'footer_menu' => __('Footer Navigation', 'multiloquent')
-    )
-    );
+    register_nav_menus(
+        array(
+            'header_menu' => __('Header Navigation', 'multiloquent'),
+            'footer_menu' => __('Footer Navigation', 'multiloquent')
+        ));
 }
 
 function add_class_the_tags($html)
@@ -98,13 +99,14 @@ add_filter('the_tags', 'add_class_the_tags', 10, 1);
 
 // Widgetized sidebar
 if (function_exists('register_sidebar')) {
-    register_sidebars((10), array(
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<p class="nav-header">',
-        'after_title' => '</p>',
-        'class' => ''
-    ));
+    register_sidebars((10), 
+        array(
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<p class="nav-header">',
+            'after_title' => '</p>',
+            'class' => ''
+        ));
 }
 
 add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
@@ -198,7 +200,8 @@ function jb_get_previous_posts_link($label = null)
     
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
-        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
+        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" .
+             preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
     }
 }
 
@@ -304,11 +307,13 @@ function pagenavi($before = '', $after = '')
             echo '<li>' . $prev_link . '</li>';
             
             if ($start_page >= 2 && $pages_to_show < $max_page) {
-                $first_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), $pagenavi_options['first_text']);
+                $first_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), 
+                    $pagenavi_options['first_text']);
                 // esc_url(): Encodes < > & " ' (less than, greater than, ampersand, double quote, single quote).
                 /* http://codex.wordpress.org/Data_Validation */
                 // get_pagenum_link():(wp-includes/link-template.php)-Retrieve get links for page numbers.
-                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link())) . '" class="first" title="' . $first_page_text . '">1</a></li>';
+                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link())) . '" class="first" title="' .
+                     $first_page_text . '">1</a></li>';
                 if (! empty($pagenavi_options['dotleft_text'])) {
                     echo '<li><span>' . $pagenavi_options['dotleft_text'] . '</span></li>';
                 }
@@ -317,17 +322,20 @@ function pagenavi($before = '', $after = '')
             if ($larger_page_to_show > 0 && $larger_start_page_start > 0 && $larger_start_page_end <= $max_page) {
                 for ($i = $larger_start_page_start; $i < $larger_start_page_end; $i += $larger_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
+                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             
             for ($i = $start_page; $i <= $end_page; $i ++) {
                 if ($i == $paged) {
-                    $current_page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['current_text']);
+                    $current_page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), 
+                        $pagenavi_options['current_text']);
                     echo '<li><span>' . $current_page_text . '</span></li>';
                 } else {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
+                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             
@@ -335,8 +343,10 @@ function pagenavi($before = '', $after = '')
                 if (! empty($pagenavi_options['dotright_text'])) {
                     echo '<li><span>' . $pagenavi_options['dotright_text'] . '</span></li>';
                 }
-                $last_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), $pagenavi_options['last_text']);
-                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($max_page))) . '" class="last" title="' . $last_page_text . '">' . $max_page . '</a></li>';
+                $last_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), 
+                    $pagenavi_options['last_text']);
+                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($max_page))) . '" class="last" title="' .
+                     $last_page_text . '">' . $max_page . '</a></li>';
             }
             
             $next_link = get_next_posts_link($pagenavi_options['next_text'], $max_page);
@@ -345,7 +355,8 @@ function pagenavi($before = '', $after = '')
             if ($larger_page_to_show > 0 && $larger_end_page_start < $max_page) {
                 for ($i = $larger_end_page_start; $i <= $larger_end_page_end; $i += $larger_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
+                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             echo '</ul></div>' . $after . "\n";
@@ -401,11 +412,13 @@ function jb_flex_slider()
         if ($firsttime == '1') {
             $output .= ' active';
         }
-        $output .= '"><img ' . $widthheight . ' src="' . $theimg . '" alt="image for ' . trim(stripslashes(get_the_title($val->ID))) . '"/>';
+        $output .= '"><img ' . $widthheight . ' src="' . $theimg . '" alt="image for ' .
+             trim(stripslashes(get_the_title($val->ID))) . '"/>';
         $output .= '<div class="container">
 		<div class="carousel-caption">
 		<p><a href="' . get_permalink($val->ID) . '">';
-        $output .= '<marquee scrollamount="6" behavior="alternate">' . trim(stripslashes(get_the_title($val->ID))) . '</marquee>';
+        $output .= '<marquee scrollamount="6" behavior="alternate">' . trim(stripslashes(get_the_title($val->ID))) .
+             '</marquee>';
         $output .= '</a></p></div></div></article>';
         
         $firsttime ++;
@@ -427,8 +440,7 @@ function get_random_solid_class($class = '')
         "swatch-pink",
         "swatch-mid-gray",
         "swatch-gray"
-    )
-    ;
+    );
     
     $apps = array(
         "phone",
@@ -472,8 +484,7 @@ function get_random_blue_class()
         "swatch-blue",
         "swatch-gray",
         "swatch-violet"
-    )
-    ;
+    );
     
     $apps = array(
         "phone",
@@ -639,9 +650,11 @@ function jb_tiled_slider()
             $output .= '</a></h3>';
         } else {
             if (strlen(trim(stripslashes(get_the_title($val->ID)))) > 40) {
-                $output .= '<h3 class="nowrap"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) . '</a></h3>';
+                $output .= '<h3 class="nowrap"><a href="' . get_permalink($val->ID) . '">' .
+                     trim(stripslashes(get_the_title($val->ID))) . '</a></h3>';
             } else {
-                $output .= '<h2 class="nowrap"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) . '</a></h2>';
+                $output .= '<h2 class="nowrap"><a href="' . get_permalink($val->ID) . '">' .
+                     trim(stripslashes(get_the_title($val->ID))) . '</a></h2>';
             }
         }
         $output .= '</li>';
@@ -673,9 +686,7 @@ function get_user_agents_list()
         "bada", // Samsung Dolphin browser
         "Googlebot-Mobile", // the Google mobile crawler
         "MSIE" // force internet explorer to not get the cool stuff cos its crap
-        )
-
-    ;
+        );
     
     asort($useragents);
     return $useragents;
@@ -730,7 +741,8 @@ function new_posts_orderby($orderby, $wp_query)
         $table_name = $wpdb->prefix . "top_ten";
         $wp_query->query = wp_parse_args($wp_query->query);
         if ('post_views' == @$wp_query->query['orderby']) {
-            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " . $wp_query->get('order') . "";
+            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " .
+                 $wp_query->get('order') . "";
         }
         return $orderby;
     }
@@ -759,15 +771,18 @@ function make_category_list_as_hierarchy($cat = '0')
             }
             $tag_link = get_category_link($tag->term_id);
             if (strlen($tag->name) > '30') {
-                $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour . '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour .
+                     '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } elseif (strlen($tag->name) > '10') {
-                $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
+                     '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } elseif (strlen($tag->name) > '5') {
-                $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
+                     '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } else {
@@ -776,13 +791,16 @@ function make_category_list_as_hierarchy($cat = '0')
                 $html .= '" >';
             }
             if (strlen($tag->name) > '30') {
-                $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h2>';
+                $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name .
+                     '" >' . $tag->name . '</a></h2>';
                 $html .= "<h4>{$tag->count}</h4>";
             } elseif (strlen($tag->name) > '10') {
-                $html .= '<h3><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h3>';
+                $html .= '<h3><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' .
+                     $tag->name . '</a></h3>';
                 $html .= "<h4>{$tag->count}</h4>";
             } else {
-                $html .= '<h2><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h2>';
+                $html .= '<h2><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' .
+                     $tag->name . '</a></h2>';
                 $html .= "<h4>{$tag->count}</h4>";
             }
             $html .= "</li>";
@@ -840,37 +858,44 @@ function jb_paralax_slider()
         }
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left span8 alpha omega doubleheight"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(
+                stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
         }
         if ($count == '2') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(
+                stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(
+                stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
         }
         if ($count == '4') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(
+                stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue"></div>';
         }
         if ($count == '5') {
             $output .= '<div class="paralax_image_holder float_left span8 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(
+                stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
-        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) . '</a></h1>';
+        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' .
+             trim(stripslashes(get_the_title($val->ID))) . '</a></h1>';
         $output .= '<p>';
         $posttags = wp_get_post_tags($val->ID);
         if ($posttags) {
             foreach ($posttags as $tag) {
                 $output .= '<a class="label ';
                 $output .= get_random_solid_class($tag->slug);
-                $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' .
+                     $tag->name . '</a>';
             }
         }
         $output .= '</p></div>';
