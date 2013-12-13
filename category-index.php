@@ -1,13 +1,14 @@
-<?php 
+<?php
 /*
-Template Name: Category Index
-*/
-get_header ();?>
+ * Template Name: Category Index
+ */
+get_header();
+?>
 <div class="hero-unit">
- 	<div class="container">
+	<div class="container">
 		<h1>Category list</h1>
-	</div>			
- </div>
+	</div>
+</div>
 <div class="container">
 	<!-- google_ad_section_start-->
 	<article>

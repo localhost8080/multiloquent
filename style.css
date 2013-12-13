@@ -13,26 +13,28 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-
 /* these should be my custom things on top of the bootstrap, so that when versioning happens I can switch */
-
-
 .wp-caption {
- /* present in bootsrtap custom file*/	
+	/* present in bootsrtap custom file*/
+	
 }
 
 .wp-caption-text {
-	/* present in bootsrtap custom file*/	
+	/* present in bootsrtap custom file*/
+	
 }
 
 .sticky {
-	/* present in bootsrtap custom file*/		
+	/* present in bootsrtap custom file*/
+	
 }
 
 .gallery-caption {
-	/* present in bootsrtap custom file*/	
+	/* present in bootsrtap custom file*/
+	
 }
 
 .bypostauthor {
-	/* present in bootsrtap custom file*/	
+	/* present in bootsrtap custom file*/
+	
 }

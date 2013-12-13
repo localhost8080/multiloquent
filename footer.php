@@ -32,7 +32,6 @@
 <?php get_template_part('js_load'); ?>
 <?php
 
-
 if (function_exists('tptn_add_viewed_count')) {
     echo tptn_add_viewed_count(' ');
 }

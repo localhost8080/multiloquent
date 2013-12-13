@@ -5,8 +5,8 @@
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        ?>	
-		<?php get_template_part('featuredimage');?>
+        get_template_part('featuredimage');
+        ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class("container post");?>>
 			
 			<?php
@@ -46,8 +46,8 @@ if (have_posts()) {
 			<div class="container">
 				<h5 class="span1 hidden-phone">Sharing</h5>
 				<div class="span">
-							<?php 
-// in here goes the jetpack plugin thing
+							<?php
+        // in here goes the jetpack plugin thing
         if (function_exists('sharing_display')) {
             echo sharing_display();
         }
