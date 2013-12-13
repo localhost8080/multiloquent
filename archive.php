@@ -89,6 +89,6 @@ if (have_posts()) { ?>
 		<?php  get_template_part('error_snippet');?>
 	</div>
 </div>
-<?php } ?>	
-<?php wp_reset_query(); ?>
+<?php } 
+wp_reset_query(); ?>
 <?php get_footer(); ?>
