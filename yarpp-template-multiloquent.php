@@ -7,7 +7,6 @@
 <?php
 if (have_posts()) {
     $post = $posts[0];
-    
     $tile_colour = get_random_blue_class();
     while (have_posts()) {
         the_post();
@@ -18,8 +17,7 @@ if (have_posts()) {
             $theimg = $slider_image[0];
             $width = $slider_image[1];
             $height = $slider_image[2];
-        }
-        else {
+        } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
             $width = '1100';
             $height = '500';
@@ -54,8 +52,7 @@ if (have_posts()) {
 	<?php } ?>
 </div>
 <?php
-}
-else {
+} else {
     ?>
 <p>No related posts.</p>
 <?php
