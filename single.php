@@ -24,7 +24,7 @@ if (have_posts()) {
         }
         ?>
 			<div class="container">
-		<div class="content">
+        <div class="content">
 					<?php
         get_template_part('advert');
         remove_filter('the_content', 'sharing_display', 19);
@@ -33,19 +33,19 @@ if (have_posts()) {
         wp_link_pages("<p><strong>" . __('Pages', 'multiloquent') . ":</strong>", '</p>', __('number', 'multiloquent'));
         ?>						
 				</div>
-		<section class="comments">
-			<h3 class="hidden-desktop">Comments for <?php the_title(); ?></h3>
+        <section class="comments">
+            <h3 class="hidden-desktop">Comments for <?php the_title(); ?></h3>
 					<?php
         comments_template();
         get_template_part('advert');
         ?>
 				</section>
-	</div>
-	<section class="navbar navbar-fixed-bottom">
-		<div class="navbar-inner">
-			<div class="container">
-				<h5 class="span1 hidden-phone">Sharing</h5>
-				<div class="span">
+    </div>
+    <section class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner">
+            <div class="container">
+                <h5 class="span1 hidden-phone">Sharing</h5>
+                <div class="span">
 							<?php
         // in here goes the jetpack plugin thing
         if (function_exists('sharing_display')) {
@@ -53,13 +53,13 @@ if (have_posts()) {
         }
         ?>
 						</div>
-			</div>
-		</div>
-	</section>
-	<section class="container post">
-		<div class="tagcloud">
-			<div class="tag-cloud">
-				<h3>Tags for <?php the_title(); ?></h3>
+            </div>
+        </div>
+    </section>
+    <section class="container post">
+        <div class="tagcloud">
+            <div class="tag-cloud">
+                <h3>Tags for <?php the_title(); ?></h3>
 						<?php
         $posttags = get_the_tags();
         if ($posttags) {
@@ -74,8 +74,8 @@ if (have_posts()) {
         }
         ?>
 					</div>
-		</div>
-	</section>
+        </div>
+    </section>
 			<?php if(function_exists('related_posts')){?>
 				<section class="container post">
 					<?php related_posts();?>
@@ -87,7 +87,8 @@ if (have_posts()) {
 		</div>
 <?php
     }
-} else {
+}
+else {
     ?>
 <p>
 	<?php __('Sorry, no posts matched your criteria.','multiloquent');?>
