@@ -84,11 +84,17 @@ if (have_posts()) {
             <?php get_template_part('advert');?>
         </section>
         <nav class="navitems article white2">
-            <?php if(function_exists('pagenavi')) { pagenavi(); } ?>
+            <?php
+    if (function_exists('pagenavi')) {
+        pagenavi();
+    }
+    ?>
         </nav>
     </div>
 </div>
-<?php } else { ?>
+<?php
+} else {
+    ?>
 <div class="container post">
     <div class="featurette">
         <?php  get_template_part('error_snippet');?>
@@ -98,4 +104,3 @@ if (have_posts()) {
 }
 wp_reset_query();
 get_footer();
-?>

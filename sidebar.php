@@ -1,44 +1,38 @@
 <div class="container footer">
     <div class="row">
-		<?php if ( function_exists('dynamic_sidebar') && is_active_sidebar(4) ) { ?>
-			<div class="span6">
-				<?php
-    /* recent posts. */
-    if (! function_exists('dynamic_sidebar') || ! dynamic_sidebar(4)) {}
-    ?>
-			</div>
 		<?php
+if (function_exists('dynamic_sidebar') && is_active_sidebar(4)) {
+    echo '<div class="span6">';
+    /* recent posts. */
+    dynamic_sidebar(4);
+    echo '</div>';
 }
 if (function_exists('dynamic_sidebar') && is_active_sidebar(5)) {
-    ?>
-			<div class="span6">	
-			<?php
+    echo '<div class="span6">';
     // this is my top ten posts
-    if (! function_exists('dynamic_sidebar') || ! dynamic_sidebar(5)) {}
-    ?>
-			</div>
-		<?php }?>
+    dynamic_sidebar(5);
+    echo '</div>';
+}
+?>
 	
 	</div>
 </div>
 <div class="container footer">
     <div class="row">	
-		<?php if ( function_exists('dynamic_sidebar') && is_active_sidebar(6) ) { ?>
-			<div class="span6">
-				<?php
+		<?php
+if (function_exists('dynamic_sidebar') && is_active_sidebar(6)) {
+    echo '<div class="span6">';
     /* twitter */
-    if (! function_exists('dynamic_sidebar') || ! dynamic_sidebar(6)) {}
-    ?>
-			</div>
-			<?php }?>
-			<?php if ( function_exists('dynamic_sidebar') && is_active_sidebar(7) ) { ?>
-			<div class="span6">
-				<?php
+    dynamic_sidebar(6);
+    echo '</div>';
+}
+if (function_exists('dynamic_sidebar') && is_active_sidebar(7)) {
+    echo '<div class="span6">';
     /* facebook */
-    if (! function_exists('dynamic_sidebar') || ! dynamic_sidebar(7)) {}
-    ?>
-			</div>
-		<?php }?>	
+    dynamic_sidebar(7);
+    echo '</div>';
+}
+?>	
 	</div>
 </div>
 <hr />

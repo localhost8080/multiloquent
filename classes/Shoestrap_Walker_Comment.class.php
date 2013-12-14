@@ -42,18 +42,21 @@ class Shoestrap_Walker_Comment extends Walker_Comment
             <time datetime="<?php echo comment_date('c'); ?>">
                 <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>"><?php printf(__('%1$s', 'shoestrap'), get_comment_date(),  get_comment_time()); ?></a>
             </time>
-      <?php edit_comment_link(__('(Edit)', 'shoestrap'), '', ''); ?>
-
-      <?php if ($comment->comment_approved == '0') : ?>
+      <?php
+        edit_comment_link(__('(Edit)', 'shoestrap'), '', '');
+        if ($comment->comment_approved == '0') {
+            ?>
         <div class="alert alert-block fade in">
                 <a class="close" data-dismiss="alert">&times;</a>
                 <p><?php _e('Your comment is awaiting moderation.', 'shoestrap'); ?></p>
             </div>
-      <?php endif; ?>
-
-      <?php comment_text(); ?>
-      <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-  <?php
+      <?php
+        }
+        comment_text();
+        comment_reply_link(array_merge($args, array(
+            'depth' => $depth,
+            'max_depth' => $args['max_depth']
+        )));
     }
 
     function end_el(&$output, $comment, $depth = 0, $args = array())
