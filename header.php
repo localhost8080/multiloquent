@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
     <?php
     if (preg_match('/^FacebookExternalHit\/.*?/i', $_SERVER['HTTP_USER_AGENT'])) {
-        ?>
-    <meta name="apple-mobile-web-app-capable" content="yes"><?php } ?>
+        echo '<meta name="apple-mobile-web-app-capable" content="yes">';
+    }
+    ?>
     <title><?php
     if (function_exists('ghpseo_output')) {
         ghpseo_output('main_title');
