@@ -33,14 +33,13 @@ if (have_posts()) {
         </header>
     </div>
 </div>
-<?php
-    $post = $posts[0]; // Hack. Set $post so that the_date() works.    ?>
 <div class="container post">
     <div class="featurette">
         <section class="row">
                 <?php
+    $post = $posts[0]; // Hack. Set $post so that the_date() works.
     $tile_colour = get_random_blue_class();
-    while (have_posts()) :
+    while (have_posts()) {
         the_post();
         // set it to blank so that it doesnt get the previous one..
         $slider_image = array();
@@ -62,7 +61,7 @@ if (have_posts()) {
                 <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
                 <div class="paralax_image_text">
                     <h1>
-                        <a href="<?php the_permalink() ?>"><?php  the_title()?></a>
+                        <a href="<?php the_permalink() ?>"><?php the_title()?></a>
                     </h1>
                     <p>
                             <?php
@@ -79,7 +78,7 @@ if (have_posts()) {
                         </p>
                 </div>
             </div>
-            <?php endwhile; ?>
+            <?php } ?>
         </section>
         <section>
             <?php get_template_part('advert');?>
