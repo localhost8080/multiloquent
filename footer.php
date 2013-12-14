@@ -20,7 +20,7 @@
             </div>
             <div class="span6">
                 <h3>More Useful Stuff</h3>
-				<?php wp_nav_menu( array('menu' => 'footer' )); ?>
+				<?php wp_nav_menu(array('menu' => 'footer' )); ?>
 			</div>
         </div>
     </div>
