@@ -35,9 +35,10 @@ if (function_exists('add_theme_support')) {
 if (function_exists('add_image_size')) {
     add_image_size('featured-post-thumbnail', 605, 100);
 }
-if (! isset($content_width)){
+if (! isset($content_width)) {
     $content_width = 900;
 }
+
 /**
  * performs my initialisation stuff
  */
@@ -66,7 +67,7 @@ add_filter('post_class', 'remove_hentry_function', 20);
 
 function remove_hentry_function($classes)
 {
-    if (($key = array_search('hentry', $classes)) !== false){
+    if (($key = array_search('hentry', $classes)) !== false) {
         unset($classes[$key]);
     }
     return $classes;
@@ -180,13 +181,13 @@ function round_num($num, $to_nearest)
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;
-    if (null === $label){
+    if (null === $label) {
         $label = __('&laquo; Previous Page', 'multiloquent');
     }
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
-        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) .
-             '</a>';
+        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" .
+             preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
     }
 }
 
@@ -379,8 +380,8 @@ function jb_flex_slider()
         if ($firsttime == '1') {
             $output .= ' active';
         }
-        $output .= '"><img ' . $widthheight . ' src="' . $theimg . '" alt="image for ' . trim(stripslashes(get_the_title($val->ID))) .
-             '"/>';
+        $output .= '"><img ' . $widthheight . ' src="' . $theimg . '" alt="image for ' .
+             trim(stripslashes(get_the_title($val->ID))) . '"/>';
         $output .= '<div class="container">
 		<div class="carousel-caption">
 		<p><a href="' . get_permalink($val->ID) . '">';
@@ -610,11 +611,11 @@ function jb_tiled_slider()
             $output .= '</a></h3>';
         } else {
             if (strlen(trim(stripslashes(get_the_title($val->ID)))) > 40) {
-                $output .= '<h3 class="nowrap"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) .
-                     '</a></h3>';
+                $output .= '<h3 class="nowrap"><a href="' . get_permalink($val->ID) . '">' .
+                     trim(stripslashes(get_the_title($val->ID))) . '</a></h3>';
             } else {
-                $output .= '<h2 class="nowrap"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) .
-                     '</a></h2>';
+                $output .= '<h2 class="nowrap"><a href="' . get_permalink($val->ID) . '">' .
+                     trim(stripslashes(get_the_title($val->ID))) . '</a></h2>';
             }
         }
         $output .= '</li>';
@@ -698,8 +699,8 @@ function new_posts_orderby($orderby, $wp_query)
         $table_name = $wpdb->prefix . "top_ten";
         $wp_query->query = wp_parse_args($wp_query->query);
         if ('post_views' == @$wp_query->query['orderby']) {
-            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " . $wp_query->get('order') .
-                 "";
+            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " .
+                 $wp_query->get('order') . "";
         }
         return $orderby;
     }
@@ -844,8 +845,8 @@ function jb_paralax_slider()
                  '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
-        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) .
-             '</a></h1>';
+        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' .
+             trim(stripslashes(get_the_title($val->ID))) . '</a></h1>';
         $output .= '<p>';
         $posttags = wp_get_post_tags($val->ID);
         if ($posttags) {
