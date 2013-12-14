@@ -10,4 +10,6 @@ test:
 complete:
     email:
         addresses:
-        - "jonathan@jonathansblog.co.uk"    
+        - "jonathan@jonathansblog.co.uk"
+    shell:
+        /usr/local/bin/deploy_wordpress
