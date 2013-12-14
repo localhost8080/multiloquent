@@ -9,21 +9,21 @@ if (have_comments()) {
     ?>
 <section id="comments">
     <div>
-        <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'shoestrap'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
+        <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
         <ol class="media-list">
-          <?php wp_list_comments(array('walker' => new Shoestrap_Walker_Comment)); ?>
+          <?php wp_list_comments(); ?>
         </ol>
     
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
         <nav>
             <ul class="pager">
             <?php if (get_previous_comments_link()) { ?>
-              <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'shoestrap')); ?></li>
+              <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'multiloquent')); ?></li>
             <?php
         }
         if (get_next_comments_link()) {
             ?>
-              <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'shoestrap')); ?></li>
+              <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'multiloquent')); ?></li>
             <?php
         }
         ?>
@@ -62,7 +62,7 @@ if (comments_open()) {
     <div>
         <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) { ?>
-      <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'shoestrap'), wp_login_url(get_permalink())); ?></p>
+      <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'multiloquent'), wp_login_url(get_permalink())); ?></p>
     <?php
     } else {
         comment_form();
