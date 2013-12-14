@@ -20,9 +20,7 @@ function featured_image_in_feed($content)
     if (is_feed()) {
         if (has_post_thumbnail($post->ID)) {
             $output = get_the_post_thumbnail($post->ID, 'medium', 
-                array(
-                    'style' => 'float:right; margin:0 0 10px 10px;'
-                ));
+                array('style' => 'float:right; margin:0 0 10px 10px;'));
             $content = $output . $content;
         }
     }
@@ -77,10 +75,8 @@ add_action('after_setup_theme', 'register_my_menus');
 function register_my_menus()
 {
     register_nav_menus(
-        array(
-            'header_menu' => __('Header Navigation', 'multiloquent'),
-            'footer_menu' => __('Footer Navigation', 'multiloquent')
-        ));
+        array('header_menu' => __('Header Navigation', 'multiloquent'),'footer_menu' => __('Footer Navigation', 
+            'multiloquent')));
 }
 
 function add_class_the_tags($html)
@@ -93,13 +89,7 @@ add_filter('the_tags', 'add_class_the_tags', 10, 1);
 // Widgetized sidebar
 if (function_exists('register_sidebar')) {
     register_sidebars((10), 
-        array(
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '<p class="nav-header">',
-            'after_title' => '</p>',
-            'class' => ''
-        ));
+        array('before_widget' => '','after_widget' => '','before_title' => '<p class="nav-header">','after_title' => '</p>','class' => ''));
 }
 add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
 add_action('wp_tag_cloud', 'add_tag_class');
@@ -351,17 +341,7 @@ function jb_flex_slider()
 		ORDER BY sumCount DESC LIMIT 10;";
         $recent_posts = $wpdb->get_results($sql);
     } else {
-        $args = array(
-            'numberposts' => $total_posts,
-            'offset' => 0,
-            'category' => '',
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-            'include' => '',
-            'exclude' => '',
-            'post_type' => 'post',
-            'post_status' => 'publish'
-        );
+        $args = array('numberposts' => $total_posts,'offset' => 0,'category' => '','orderby' => 'post_date','order' => 'DESC','include' => '','exclude' => '','post_type' => 'post','post_status' => 'publish');
         $recent_posts = get_posts($args);
     }
     $output = '<section id="myCarousel" class="carousel slide"><div class="carousel-inner">';
@@ -399,40 +379,8 @@ function jb_flex_slider()
 
 function get_random_solid_class($class = '')
 {
-    $input = array(
-        "swatch-red",
-        "swatch-orange",
-        "swatch-yellow",
-        "swatch-green",
-        "swatch-teal",
-        "swatch-blue",
-        "swatch-violet",
-        "swatch-pink",
-        "swatch-mid-gray",
-        "swatch-gray"
-    );
-    $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
-    );
+    $input = array("swatch-red","swatch-orange","swatch-yellow","swatch-green","swatch-teal","swatch-blue","swatch-violet","swatch-pink","swatch-mid-gray","swatch-gray");
+    $apps = array("phone","appstore","calculator","compass","itunes","mail","music","weather","maps","videos","notes","reminders","calendar","facebook","google","twitter","linkedin","finder","safari","firefox");
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -443,38 +391,8 @@ function get_random_solid_class($class = '')
 
 function get_random_blue_class()
 {
-    $input = array(
-        "swatch-blue1",
-        "swatch-blue2",
-        "swatch-blue3",
-        "swatch-blue4",
-        "swatch-blue5",
-        "swatch-blue",
-        "swatch-gray",
-        "swatch-violet"
-    );
-    $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
-    );
+    $input = array("swatch-blue1","swatch-blue2","swatch-blue3","swatch-blue4","swatch-blue5","swatch-blue","swatch-gray","swatch-violet");
+    $apps = array("phone","appstore","calculator","compass","itunes","mail","music","weather","maps","videos","notes","reminders","calendar","facebook","google","twitter","linkedin","finder","safari","firefox");
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -485,40 +403,8 @@ function get_random_blue_class()
 
 function get_random_colour_class($class = '')
 {
-    $input = array(
-        "gradient-red",
-        "gradient-orange",
-        "gradient-yellow",
-        "gradient-green",
-        "gradient-teal",
-        "gradient-blue",
-        "gradient-violet",
-        "gradient-magenta",
-        "gradient-black",
-        "gradient-silver"
-    );
-    $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
-    );
+    $input = array("gradient-red","gradient-orange","gradient-yellow","gradient-green","gradient-teal","gradient-blue","gradient-violet","gradient-magenta","gradient-black","gradient-silver");
+    $apps = array("phone","appstore","calculator","compass","itunes","mail","music","weather","maps","videos","notes","reminders","calendar","facebook","google","twitter","linkedin","finder","safari","firefox");
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -542,17 +428,7 @@ function jb_tiled_slider()
 		ORDER BY sumCount DESC LIMIT 10;";
         $recent_posts = $wpdb->get_results($sql);
     } else {
-        $args = array(
-            'numberposts' => $total_posts,
-            'offset' => 0,
-            'category' => '',
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-            'include' => '',
-            'exclude' => '',
-            'post_type' => 'post',
-            'post_status' => 'publish'
-        );
+        $args = array('numberposts' => $total_posts,'offset' => 0,'category' => '','orderby' => 'post_date','order' => 'DESC','include' => '','exclude' => '','post_type' => 'post','post_status' => 'publish');
         $recent_posts = get_posts($args);
     }
     $count = 1;
@@ -631,26 +507,25 @@ function jb_tiled_slider()
 
 function get_user_agents_list()
 {
-    $useragents = array(
-        "iPhone", // Apple iPhone
-        "iPod", // Apple iPod touch
-        "incognito", // Other iPhone browser
-        "iPad", // iPad
-        "webmate", // Other iPhone browser
-        "Android", // 1.5+ Android
-        "dream", // Pre 1.5 Android
-        "CUPCAKE", // 1.5+ Android
-        "blackberry9500", // Storm
-        "blackberry9530", // Storm
-        "blackberry9520", // Storm v2
-        "blackberry9550", // Storm v2
-        "blackberry 9800", // Torch
-        "webOS", // Palm Pre Experimental
-        "s8000", // Samsung Dolphin browser
-        "bada", // Samsung Dolphin browser
-        "Googlebot-Mobile", // the Google mobile crawler
-        "MSIE" // force internet explorer to not get the cool stuff cos its crap
-        );
+    $useragents = array("iPhone",    // Apple iPhone
+    "iPod",    // Apple iPod touch
+    "incognito",    // Other iPhone browser
+    "iPad",    // iPad
+    "webmate",    // Other iPhone browser
+    "Android",    // 1.5+ Android
+    "dream",    // Pre 1.5 Android
+    "CUPCAKE",    // 1.5+ Android
+    "blackberry9500",    // Storm
+    "blackberry9530",    // Storm
+    "blackberry9520",    // Storm v2
+    "blackberry9550",    // Storm v2
+    "blackberry 9800",    // Torch
+    "webOS",    // Palm Pre Experimental
+    "s8000",    // Samsung Dolphin browser
+    "bada",    // Samsung Dolphin browser
+    "Googlebot-Mobile",    // the Google mobile crawler
+    "MSIE")    // force internet explorer to not get the cool stuff cos its crap
+    ;
     asort($useragents);
     return $useragents;
 }
@@ -789,17 +664,7 @@ function jb_paralax_slider()
 		ORDER BY sumCount DESC LIMIT 5;";
         $recent_posts = $wpdb->get_results($sql);
     } else {
-        $args = array(
-            'numberposts' => $total_posts,
-            'offset' => 0,
-            'category' => '',
-            'orderby' => 'post_date',
-            'order' => 'DESC',
-            'include' => '',
-            'exclude' => '',
-            'post_type' => 'post',
-            'post_status' => 'publish'
-        );
+        $args = array('numberposts' => $total_posts,'offset' => 0,'category' => '','orderby' => 'post_date','order' => 'DESC','include' => '','exclude' => '','post_type' => 'post','post_status' => 'publish');
         $recent_posts = get_posts($args);
     }
     $count = 1;
