@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <!-- google_ad_section_start-->
 <?php
-
 if (have_posts()) {
     while (have_posts()) {
         the_post();
@@ -17,7 +16,6 @@ if (have_posts()) {
 				</h1>
 			<?php
         }
-        
         get_template_part('breadcrumb');
         if ($values = get_post_custom_values("leadvideo")) {
             echo $values[0];
@@ -87,8 +85,7 @@ if (have_posts()) {
 		</div>
 <?php
     }
-}
-else {
+} else {
     ?>
 <p>
 	<?php __('Sorry, no posts matched your criteria.','multiloquent');?>

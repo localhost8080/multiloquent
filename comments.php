@@ -1,5 +1,6 @@
 <?php
-// this is a direct lift of the comments from shoestrap; I personally use disqus for my comments, but this comment system was already done :D
+// this is a direct lift of the comments from shoestrap; I personally use disqus for my comments, but this comment
+// system was already done :D
 // http://shoestrap.org/
 if (post_password_required()) {
     return;
@@ -38,7 +39,8 @@ if (have_comments()) {
 <!-- /#comments -->
 <?php
 }
-if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments'))?>
+if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments'))
+    ?>
 <section id="comments">
     <div class="alert alert-block fade in">
         <a class="close" data-dismiss="alert">&times;</a>

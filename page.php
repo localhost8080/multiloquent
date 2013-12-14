@@ -5,7 +5,6 @@ if (is_front_page()) {
 <!-- google_ad_section_start-->
 <div class="hero-unit">
 				 <?php
-    
     rewind_posts();
     while (have_posts()) {
         the_post();
@@ -22,16 +21,14 @@ if (is_front_page()) {
 			<?php get_sidebar(); ?>
 		</aside>
 <?php
-    
     get_footer();
 } else {
     get_header();
     ?>
 <div class="container">
-	<!-- google_ad_section_start-->
-	<article>
+    <!-- google_ad_section_start-->
+    <article>
 					 <?php
-    
     rewind_posts();
     while (have_posts()) {
         the_post();
@@ -39,21 +36,20 @@ if (is_front_page()) {
     }
     ?>
 				</article>
-	<section>
-		<h3 class="hidden-desktop">Comments for <?php the_title(); ?></h3>
+    <section>
+        <h3 class="hidden-desktop">Comments for <?php the_title(); ?></h3>
 					<?php
     comments_template();
     get_template_part('advert');
     ?>
 				</section>
-	<!-- google_ad_section_end-->
+    <!-- google_ad_section_end-->
 			<?php get_template_part('advert');?>
 		</div>
 <aside>
 				<?php get_sidebar(); ?>
 			</aside>
 <?php
-    
     get_footer();
 }
 ?>

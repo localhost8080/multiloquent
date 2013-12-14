@@ -5,13 +5,13 @@
 get_header();
 ?>
 <div class="hero-unit">
-	<div class="container">
-		<h1>Tag list</h1>
-	</div>
+    <div class="container">
+        <h1>Tag list</h1>
+    </div>
 </div>
 <div class="container">
-	<!-- google_ad_section_start-->
-	<article>
+    <!-- google_ad_section_start-->
+    <article>
 			 <?php
     // Make an array from A to Z.
     $characters = range('a', 'z');
@@ -93,7 +93,7 @@ get_header();
     }
     ?>
 		</article>
-	<!-- google_ad_section_end-->
+    <!-- google_ad_section_end-->
 		<?php get_template_part('advert');?>
 	</div>
 <?php get_footer(); ?>

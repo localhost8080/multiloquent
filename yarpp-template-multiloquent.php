@@ -23,10 +23,8 @@ if (have_posts()) {
             $height = '500';
         }
         ?>
-    	<div class="paralax_image_holder span4"
-        style="margin-bottom: 30px;">
-        <img src="<?php echo $theimg?>" class="grayscale"
-            alt="<?php the_title()?>" width="<?php echo $width ?>"
+    	<div class="paralax_image_holder span4" style="margin-bottom: 30px;">
+        <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>"
             height="<?php echo $height ?>">
         <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
         <div class="paralax_image_text">
