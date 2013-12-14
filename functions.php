@@ -612,7 +612,6 @@ function jb_paralax_slider()
 {
     global $wpdb;
     $output = '';
-    $post_per_slide = '1';
     $total_posts = '5';
     if (function_exists('tptn_pop_posts')) {
         $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
@@ -639,7 +638,6 @@ function jb_paralax_slider()
     $count = 1;
     $output = '<div class="container"><div class="row alpha">';
     foreach ($recent_posts as $key => $val) {
-        $tile_colour = get_random_blue_class();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         ;
         if ($slider_image) {
