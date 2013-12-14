@@ -210,7 +210,7 @@ body {
   background-color: #ffffff;
 	padding-top:52px;
 }
-body.admin_bar{
+body.admin-bar{
     margin-top:28px;
 }
 a {
@@ -3777,7 +3777,7 @@ input[type="submit"].btn.btn-mini {
   z-index: 1030;
   margin-bottom: 0;
 }
-.admin_bar .navbar-fixed-top{
+.admin-bar .navbar-fixed-top{
     margin-top:28px;
 }
 .navbar-fixed-top .navbar-inner,
