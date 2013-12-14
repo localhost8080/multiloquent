@@ -529,7 +529,7 @@ function post_column_views($newcolumn)
 // Add the sorting SQL for the themes
 function new_posts_orderby($orderby, $wp_query)
 {
-    global $wpdb, $post;
+    global $wpdb;
     // $orderby = '';
     if (is_admin()) {
         $table_name = $wpdb->prefix . "top_ten";
