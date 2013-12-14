@@ -6,11 +6,11 @@ if (have_posts()) {
 <div class="hero-unit">
     <div class="container">
         <header>
-            <?php
+<?php
     if (is_category()) {
         ?><h1 class="article_title"><?php printf( __('%s', 'multiloquent'), single_cat_title('', false)); ?></h1>
-            <?php  } elseif( is_tag() ) { ?>
-            <h1 class="article_title"><?php _e('Posts Tagged','multiloquent'); ?>&#8216;<?php single_tag_title(); ?>&#8217;</h1>
+                <?php  } elseif( is_tag() ) { ?>
+                <h1 class="article_title"><?php _e('Posts Tagged','multiloquent'); ?>&#8216;<?php single_tag_title(); ?>&#8217;</h1>
                 <?php  } elseif (is_day()) { ?>
                 <h1 class="article_title"><?php printf( __('Archive for %s', 'multiloquent'), get_the_time(__('F jS, Y', 'multiloquent'))); ?></h1>
                 <?php  } elseif (is_month()) { ?>
@@ -18,22 +18,17 @@ if (have_posts()) {
                 <?php  } elseif (is_year()) { ?>
                 <h1 class="article_title"><?php printf( __('Archive for %s', 'multiloquent'), get_the_time('Y')); ?></h1>
                 <?php } elseif (is_search()) { ?>
-                <h1 class="article_title">
-                    <?php __('Search Results','multiloquent'); ?>
-                </h1>
+                <h1 class="article_title"><?php __('Search Results','multiloquent'); ?></h1>
                 <?php  } elseif (is_author()) { ?>
-                <h1 class="article_title">
-                    <?php _e('All entries by this author','multiloquent'); ?>
-                </h1>
+                <h1 class="article_title"><?php _e('All entries by this author','multiloquent'); ?></h1>
                 <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-                <h1 class="article_title">
-                    <?php _e('Blog Archives', 'multiloquent'); ?>
-                </h1>
+                <h1 class="article_title"><?php _e('Blog Archives', 'multiloquent'); ?></h1>
                 <?php } ?>
-        </header>
+            </header>
     </div>
 </div>
-<?php      $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
+<?php
+    $post = $posts[0]; // Hack. Set $post so that the_date() works.    ?>
 <div class="container post">
     <div class="featurette">
         <section class="row">
@@ -55,7 +50,7 @@ if (have_posts()) {
             $height = '500';
         }
         ?>
-                <div class="paralax_image_holder span4" style="margin-bottom: 30px;">
+            <div class="paralax_image_holder span4" style="margin-bottom: 30px;">
                 <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>"
                     height="<?php echo $height ?>">
                 <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
