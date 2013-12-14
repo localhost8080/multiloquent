@@ -3,9 +3,7 @@
  * Template Name Posts: Full width
  */
 get_header();
-?>
-<!-- google_ad_section_start-->
-<?php
+echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
@@ -93,11 +91,8 @@ if (have_posts()) {
 <?php
     }
 } else {
-    ?>
-<p>
-			<?php __('Sorry, no posts matched your criteria.','multiloquent');?>
-		</p>
-<?php } ?>
-<!-- google_ad_section_end-->
-<?php get_footer(); ?>
+    echo '<p>' . __('Sorry, no posts matched your criteria.', 'multiloquent') . '</p>';
+}
+echo '<!-- google_ad_section_end-->';
+get_footer();
 

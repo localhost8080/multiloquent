@@ -53,9 +53,7 @@ if (have_posts()) {
 </div>
 <?php
 } else {
-    ?>
-<p>No related posts.</p>
-<?php
+    echo '<p>No related posts.</p>';
 }
 ?>
 </section>
