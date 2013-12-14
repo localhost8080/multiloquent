@@ -85,7 +85,6 @@ function register_my_menus()
 
 function add_class_the_tags($html)
 {
-    $postid = get_the_ID();
     $html = str_replace('<a', '<a class="label"', $html);
     return $html;
 }
@@ -124,7 +123,7 @@ function add_tag_class($taglinks)
     return $taglinks;
 }
 
-function wp_tag_cloud_filter($return, $args)
+function wp_tag_cloud_filter($return)
 {
     return '<div id="tag-cloud">' . $return . '</div>';
 }
@@ -144,8 +143,8 @@ function breadcrumbs()
     }
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
-        $ID = $category[0]->cat_ID;
-        echo '<li>' . get_category_parents($ID, true, '<span class="divider">/</span>', false);
+        $catid = $category[0]->cat_ID;
+        echo '<li>' . get_category_parents($catid, true, '<span class="divider">/</span>', false);
     }
     if (is_single()) {
         echo '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
@@ -197,7 +196,7 @@ function jb_get_previous_posts_link($label = null)
  */
 function pagenavi($before = '', $after = '')
 {
-    global $wpdb, $wp_query;
+    global $wp_query;
     $pagenavi_options = array();
     $pagenavi_options['pages_text'] = ('Page %CURRENT_PAGE% of %TOTAL_PAGES%:');
     $pagenavi_options['current_text'] = '%PAGE_NUMBER%';
@@ -215,14 +214,14 @@ function pagenavi($before = '', $after = '')
     // If NOT a single Post is being displayed
     /* http://codex.wordpress.org/Function_Reference/is_single) */
     if (! is_single()) {
-        $request = $wp_query->request;
+        $wp_query->request;
         // intval Get the integer value of a variable
         /* http://php.net/manual/en/function.intval.php */
-        $posts_per_page = intval(get_query_var('posts_per_page'));
+        //$posts_per_page = intval(get_query_var('posts_per_page'));
         // Retrieve variable in the WP_Query class.
         /* http://codex.wordpress.org/Function_Reference/get_query_var */
         $paged = intval(get_query_var('paged'));
-        $numposts = $wp_query->found_posts;
+        //$numposts = $wp_query->found_posts;
         $max_page = $wp_query->max_num_pages;
         // empty Determine whether a variable is empty
         /* http://php.net/manual/en/function.empty.php */
@@ -337,7 +336,7 @@ function jb_flex_slider()
 {
     global $wpdb;
     $output = '';
-    $post_per_slide = '1';
+    //$post_per_slide = '1';
     $total_posts = '10';
     if (function_exists('tptn_pop_posts')) {
         $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
