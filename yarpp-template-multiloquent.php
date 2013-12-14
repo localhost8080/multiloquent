@@ -2,8 +2,10 @@
 /*
  * YARPP Template: multiloquent Author: jonathan Description: A simple example YARPP template.
  */
-?><h3>Other Posts related to <?php the_title(); ?></h3>
-<div class="row">
+?>
+<section class="container post">
+    <h3>Other Posts related to <?php the_title(); ?></h3>
+    <div class="row">
 <?php
 if (have_posts()) {
     $post = $posts[0];
@@ -24,14 +26,14 @@ if (have_posts()) {
         }
         ?>
     	<div class="paralax_image_holder span4" style="margin-bottom: 30px;">
-        <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>"
-            height="<?php echo $height ?>">
-        <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
-        <div class="paralax_image_text">
-            <h1>
-                <a href="<?php the_permalink() ?>"><?php the_title()?></a>
-            </h1>
-            <p>
+            <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>"
+                height="<?php echo $height ?>">
+            <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
+            <div class="paralax_image_text">
+                <h1>
+                    <a href="<?php the_permalink() ?>"><?php the_title()?></a>
+                </h1>
+                <p>
 		
         <?php
         $posttags = wp_get_post_tags($post->ID);
@@ -45,8 +47,8 @@ if (have_posts()) {
         }
         ?>
             </p>
-        </div>
-    </div>		
+            </div>
+        </div>		
 	<?php } ?>
 </div>
 <?php
@@ -56,5 +58,4 @@ if (have_posts()) {
 <?php
 }
 ?>
-
- 
+</section>

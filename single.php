@@ -74,11 +74,9 @@ if (have_posts()) {
 					</div>
         </div>
     </section>
-			<?php if(function_exists('related_posts')){?>
-				<section class="container post">
-					<?php related_posts();?>
-				</section>
 			<?php
+        if (function_exists('related_posts')) {
+            related_posts();
         }
         get_template_part('advert');
         ?>
