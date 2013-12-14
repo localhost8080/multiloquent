@@ -1,6 +1,6 @@
 <?php
 load_theme_textdomain('multiloquent');
-get_template_part('classes/Bootstrap_Walker.class');
+//get_template_part('classes/Bootstrap_Walker.class');
 
 
 /**
