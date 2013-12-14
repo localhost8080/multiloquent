@@ -17,4 +17,5 @@ get_header();
     <!-- google_ad_section_end-->
 	<?php get_template_part('advert'); ?>
 </div>
-<?php get_footer();
+<?php
+get_footer();

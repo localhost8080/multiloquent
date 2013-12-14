@@ -5,8 +5,7 @@ if (has_post_thumbnail()) {
     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
     ?>
 <figure class="thumbnail" style="margin: 0 0 20px;">
-    <img class="featured-image" width="605" height="100" src="<?php echo $image[0]?>"
-        alt="image for <?php the_title(); ?>" />
+    <img class="featured-image" width="605" height="100" src="<?php echo $image[0]?>" alt="image for <?php the_title(); ?>" />
     <figcaption>
         <span class="fa fa-comment-o fa-fw"></span> <?php the_title(); ?></figcaption>
 </figure>

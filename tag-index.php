@@ -44,39 +44,32 @@ get_header();
                         $tile_colour = $first_colour;
                     }
                     if (strlen($tag->name) > '30') {
-                        $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour .
-                             '" onclick="javascript:window.location.href=';
+                        $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour . '" onclick="javascript:window.location.href=';
                         $html .= "'" . $tag_link . "'";
                         $html .= '" >';
                     } elseif (strlen($tag->name) > '10') {
-                        $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
-                             '" onclick="javascript:window.location.href=';
+                        $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '" onclick="javascript:window.location.href=';
                         $html .= "'" . $tag_link . "'";
                         $html .= '" >';
                     } elseif (strlen($tag->name) > '5') {
-                        $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
-                             '" onclick="javascript:window.location.href=';
+                        $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '" onclick="javascript:window.location.href=';
                         $html .= "'" . $tag_link . "'";
                         $html .= '" >';
                     } else {
-                        $html .= '<li class="tag-item tile ' . $tile_colour .
-                             '" onclick="javascript:window.location.href=';
+                        $html .= '<li class="tag-item tile ' . $tile_colour . '" onclick="javascript:window.location.href=';
                         $html .= "'" . $tag_link . "'";
                         $html .= '" >';
                     }
                     if (strlen($tag->name) > '30') {
-                        $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View all ' . $tag->count .
-                             ' articles with the tag of ' . $tag->name . '" >';
+                        $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View all ' . $tag->count . ' articles with the tag of ' . $tag->name . '" >';
                         $html .= "{$tag->name}</a></h2>";
                         $html .= "<h4>{$tag->count}</h4>";
                     } elseif (strlen($tag->name) > '10') {
-                        $html .= '<h3><a href="' . $tag_link . '" title="View all ' . $tag->count .
-                             ' articles with the tag of ' . $tag->name . '" >';
+                        $html .= '<h3><a href="' . $tag_link . '" title="View all ' . $tag->count . ' articles with the tag of ' . $tag->name . '" >';
                         $html .= "{$tag->name}</a></h3>";
                         $html .= "<h4>{$tag->count}</h4>";
                     } else {
-                        $html .= '<h2><a href="' . $tag_link . '" title="View all ' . $tag->count .
-                             ' articles with the tag of ' . $tag->name . '" >';
+                        $html .= '<h2><a href="' . $tag_link . '" title="View all ' . $tag->count . ' articles with the tag of ' . $tag->name . '" >';
                         $html .= "{$tag->name}</a></h2>";
                         $html .= "<h4>{$tag->count}</h4>";
                     }

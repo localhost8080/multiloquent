@@ -185,8 +185,7 @@ function jb_get_previous_posts_link($label = null)
     }
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
-        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" .
-             preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
+        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
     }
 }
 
@@ -217,11 +216,11 @@ function pagenavi($before = '', $after = '')
         $wp_query->request;
         // intval Get the integer value of a variable
         /* http://php.net/manual/en/function.intval.php */
-        //$posts_per_page = intval(get_query_var('posts_per_page'));
+        // $posts_per_page = intval(get_query_var('posts_per_page'));
         // Retrieve variable in the WP_Query class.
         /* http://codex.wordpress.org/Function_Reference/get_query_var */
         $paged = intval(get_query_var('paged'));
-        //$numposts = $wp_query->found_posts;
+        // $numposts = $wp_query->found_posts;
         $max_page = $wp_query->max_num_pages;
         // empty Determine whether a variable is empty
         /* http://php.net/manual/en/function.empty.php */
@@ -287,8 +286,7 @@ function pagenavi($before = '', $after = '')
                 // esc_url(): Encodes < > & " ' (less than, greater than, ampersand, double quote, single quote).
                 /* http://codex.wordpress.org/Data_Validation */
                 // get_pagenum_link():(wp-includes/link-template.php)-Retrieve get links for page numbers.
-                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link())) . '" class="first" title="' .
-                     $first_page_text . '">1</a></li>';
+                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link())) . '" class="first" title="' . $first_page_text . '">1</a></li>';
                 if (! empty($pagenavi_options['dotleft_text'])) {
                     echo '<li><span>' . $pagenavi_options['dotleft_text'] . '</span></li>';
                 }
@@ -296,8 +294,7 @@ function pagenavi($before = '', $after = '')
             if ($l_page_to_show > 0 && $l_start_page_start > 0 && $l_start_page_end <= $max_page) {
                 for ($i = $l_start_page_start; $i < $l_start_page_end; $i += $l_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
-                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             for ($i = $start_page; $i <= $end_page; $i ++) {
@@ -306,8 +303,7 @@ function pagenavi($before = '', $after = '')
                     echo '<li><span>' . $current_page_text . '</span></li>';
                 } else {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
-                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             if ($end_page < $max_page) {
@@ -315,16 +311,14 @@ function pagenavi($before = '', $after = '')
                     echo '<li><span>' . $pagenavi_options['dotright_text'] . '</span></li>';
                 }
                 $last_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), $pagenavi_options['last_text']);
-                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($max_page))) . '" class="last" title="' .
-                     $last_page_text . '">' . $max_page . '</a></li>';
+                echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($max_page))) . '" class="last" title="' . $last_page_text . '">' . $max_page . '</a></li>';
             }
             $next_link = get_next_posts_link($pagenavi_options['next_text'], $max_page);
             echo '<li>' . $next_link . '</li>';
             if ($l_page_to_show > 0 && $l_end_page_start < $max_page) {
                 for ($i = $l_end_page_start; $i <= $larger_end_page_end; $i += $l_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
-                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) .
-                         '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
+                    echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($i))) . '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
             echo '</ul></div>' . $after . "\n";
@@ -535,8 +529,7 @@ function new_posts_orderby($orderby, $wp_query)
         $table_name = $wpdb->prefix . "top_ten";
         $wp_query->query = wp_parse_args($wp_query->query);
         if ('post_views' == @$wp_query->query['orderby']) {
-            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " .
-                 $wp_query->get('order') . "";
+            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " . $wp_query->get('order') . "";
         }
         return $orderby;
     }
@@ -566,18 +559,15 @@ function make_category_list_as_hierarchy($cat = '0')
             }
             $tag_link = get_category_link($tag->term_id);
             if (strlen($tag->name) > '30') {
-                $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour .
-                     '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour . '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } elseif (strlen($tag->name) > '10') {
-                $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
-                     '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } elseif (strlen($tag->name) > '5') {
-                $html .= '<li class="tag-item tile tile-double ' . $tile_colour .
-                     '"onclick="javascript:window.location.href=';
+                $html .= '<li class="tag-item tile tile-double ' . $tile_colour . '"onclick="javascript:window.location.href=';
                 $html .= "'" . $tag_link . "'";
                 $html .= '" >';
             } else {
@@ -586,16 +576,13 @@ function make_category_list_as_hierarchy($cat = '0')
                 $html .= '" >';
             }
             if (strlen($tag->name) > '30') {
-                $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name .
-                     '" >' . $tag->name . '</a></h2>';
+                $html .= '<h2 class="nowrap"><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h2>';
                 $html .= "<h4>{$tag->count}</h4>";
             } elseif (strlen($tag->name) > '10') {
-                $html .= '<h3><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' .
-                     $tag->name . '</a></h3>';
+                $html .= '<h3><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h3>';
                 $html .= "<h4>{$tag->count}</h4>";
             } else {
-                $html .= '<h2><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' .
-                     $tag->name . '</a></h2>';
+                $html .= '<h2><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h2>';
                 $html .= "<h4>{$tag->count}</h4>";
             }
             $html .= "</li>";
@@ -651,44 +638,37 @@ function jb_paralax_slider()
         }
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left span8 alpha omega doubleheight"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) .
-                 '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
         }
         if ($count == '2') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) .
-                 '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) .
-                 '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
         }
         if ($count == '4') {
             $output .= '<div class="paralax_image_holder float_left span4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) .
-                 '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue"></div>';
         }
         if ($count == '5') {
             $output .= '<div class="paralax_image_holder float_left span8 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) .
-                 '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
-        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' .
-             trim(stripslashes(get_the_title($val->ID))) . '</a></h1>';
+        $output .= '<div class="paralax_image_text"><h1><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) . '</a></h1>';
         $output .= '<p>';
         $posttags = wp_get_post_tags($val->ID);
         if ($posttags) {
             foreach ($posttags as $tag) {
                 $output .= '<a class="label ';
                 $output .= get_random_solid_class($tag->slug);
-                $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' .
-                     $tag->name . '</a>';
+                $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
         $output .= '</p></div>';

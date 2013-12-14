@@ -26,8 +26,7 @@ if (have_posts()) {
         }
         ?>
     	<div class="paralax_image_holder span4" style="margin-bottom: 30px;">
-            <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>"
-                height="<?php echo $height ?>">
+            <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
             <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
             <div class="paralax_image_text">
                 <h1>
@@ -41,8 +40,7 @@ if (have_posts()) {
             foreach ($posttags as $tag) {
                 echo '<a class="label ';
                 echo get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' .
-                     $tag->name . '</a>';
+                echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
         ?>

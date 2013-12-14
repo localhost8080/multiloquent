@@ -15,8 +15,7 @@
     ?>
 					<li><a href="/about"><span class="fa fa-clock-o fa-fw"></span> &#169; 2008 - <?php echo date('Y'); ?></a></li>
                     <li><a href="/about"><span class="fa fa-folder-open-o fa-fw"></span>multiloquent <?php echo version();?></a></li>
-                    <li><a href="/about"><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This
-                                website is most definitely not best viewed in Netscape</span></a></li>
+                    <li><a href="/about"><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This website is most definitely not best viewed in Netscape</span></a></li>
                 </ul>
             </div>
             <div class="span6">

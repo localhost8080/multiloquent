@@ -65,8 +65,7 @@ if (have_posts()) {
                 // if($tag->count > 5){
                 echo '<a class="label ';
                 echo get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="icon-tag icon-white"></span> ' .
-                     $tag->name . '</a>';
+                echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="icon-tag icon-white"></span> ' . $tag->name . '</a>';
                 // }
             }
         }

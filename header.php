@@ -42,9 +42,8 @@
     ?>
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <?php $stylesheet = get_template_directory_uri() .'/bootstrap/css/metro-bootstrap.css?v='. version();?>
-    <link type='text/css' rel='stylesheet' media='screen' href='<?php echo $stylesheet;?>'>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet" media="screen"
-    type="text/css">
+<link type='text/css' rel='stylesheet' media='screen' href='<?php echo $stylesheet;?>'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet" media="screen" type="text/css">
 </head>
 <body <?php
 if (is_home()) {
