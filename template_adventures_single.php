@@ -2,8 +2,8 @@
 /*
  * Template Name Posts: Adventures
  */
+get_header();
 ?>
-<?php get_header(); ?>
 <!-- google_ad_section_start-->
 <?php
 if (have_posts()) {
