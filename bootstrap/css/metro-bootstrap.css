@@ -210,9 +210,6 @@ body {
   background-color: #ffffff;
 	padding-top:52px;
 }
-body.admin-bar{
-    margin-top:32px;
-}
 a {
   color: #1c567f;
   text-decoration: none;
