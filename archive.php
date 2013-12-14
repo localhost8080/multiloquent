@@ -85,9 +85,7 @@ if (have_posts()) {
         </section>
         <nav class="navitems article white2">
             <?php
-    if (function_exists('pagenavi')) {
-        echo pagenavi();
-    }
+    echo '<div class="pagination pagination-centered"><ul>'.paginate_links($args).'</ul></div>';
     ?>
         </nav>
     </div>

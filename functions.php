@@ -177,17 +177,6 @@ function jb_get_previous_posts_link($label = null)
     }
 }
 
-
-function pagenavi()
-{
-    global $wp_query;
-    $big = 999999999; // need an unlikely integer
-    $args = array(
-        'type' => 'list',
-    );
-    return '<div class="pagination pagination-centered"><ul>'.paginate_links($args).'</ul></div>';
-}
-
 function get_random_solid_class($class = '')
 {
     $input = array(
