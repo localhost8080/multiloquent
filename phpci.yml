@@ -4,7 +4,7 @@ build_settings:
 test:
     php_mess_detector:
     php_code_sniffer:
-        standard: "PSR2"
+        standard: "PSR2-noindent"
     php_loc:
     php_cpd:
 complete:
