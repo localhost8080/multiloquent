@@ -7,4 +7,7 @@ test:
         standard: "PSR2"
     php_loc:
     php_cpd:
-    
+complete:
+    email:
+        addresses:
+        - "jonathan@jonathansblog.co.uk"    
