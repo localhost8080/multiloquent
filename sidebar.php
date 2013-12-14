@@ -1,5 +1,5 @@
 <div class="container footer">
-	<div class="row">
+    <div class="row">
 		<?php if ( function_exists('dynamic_sidebar') && is_active_sidebar(4) ) { ?>
 			<div class="span6">
 				<?php
@@ -8,7 +8,6 @@
     ?>
 			</div>
 		<?php
-
 }
 if (function_exists('dynamic_sidebar') && is_active_sidebar(5)) {
     ?>
@@ -23,7 +22,7 @@ if (function_exists('dynamic_sidebar') && is_active_sidebar(5)) {
 	</div>
 </div>
 <div class="container footer">
-	<div class="row">	
+    <div class="row">	
 		<?php if ( function_exists('dynamic_sidebar') && is_active_sidebar(6) ) { ?>
 			<div class="span6">
 				<?php

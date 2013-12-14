@@ -1,5 +1,4 @@
 <?php
-
 get_header();
 is_tag();
 if (have_posts()) {
@@ -42,8 +41,7 @@ if (have_posts()) {
     <div class="featurette">
         <section class="row">
 				<?php
-    
-$tile_colour = get_random_blue_class();
+    $tile_colour = get_random_blue_class();
     while (have_posts()) :
         the_post();
         // set it to blank so that it doesnt get the previous one..
@@ -101,6 +99,9 @@ $tile_colour = get_random_blue_class();
 		<?php  get_template_part('error_snippet');?>
 	</div>
 </div>
-<?php } 
+<?php
+
+}
 wp_reset_query();
-get_footer(); ?>
+get_footer();
+?>
