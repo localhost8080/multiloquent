@@ -210,6 +210,9 @@ body {
   background-color: #ffffff;
 	padding-top:52px;
 }
+body.admin_bar{
+    margin-top:28px;
+}
 a {
   color: #1c567f;
   text-decoration: none;
@@ -3773,6 +3776,9 @@ input[type="submit"].btn.btn-mini {
   left: 0;
   z-index: 1030;
   margin-bottom: 0;
+}
+.admin_bar .navbar-fixed-top{
+    margin-top:28px;
 }
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner {
