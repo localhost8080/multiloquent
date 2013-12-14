@@ -26,4 +26,4 @@ if (has_post_thumbnail()) {
 <?php
     }
 }
-?>
+

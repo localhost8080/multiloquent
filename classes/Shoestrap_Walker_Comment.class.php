@@ -1,5 +1,4 @@
 <?php
-
 // this is a direct lift from shoestrap - shoestrap.org - thanks :)
 /**
  * Use Bootstrap's media object for listing comments
@@ -14,8 +13,7 @@ class Shoestrap_Walker_Comment extends Walker_Comment
     {
         $GLOBALS['comment_depth'] = $depth + 1;
         ?>
-<ul
-	<?php comment_class('media unstyled comment-' . get_comment_ID()); ?>>
+<ul <?php comment_class('media unstyled comment-' . get_comment_ID()); ?>>
     <?php
     }
 
@@ -30,30 +28,27 @@ class Shoestrap_Walker_Comment extends Walker_Comment
         $depth ++;
         $GLOBALS['comment_depth'] = $depth;
         $GLOBALS['comment'] = $comment;
-        
         if (! empty($args['callback'])) {
             call_user_func($args['callback'], $comment, $args, $depth);
             return;
         }
-        
         extract($args, EXTR_SKIP);
         ?>
 
   <li <?php comment_class('media comment-' . get_comment_ID()); ?>>
     <?php echo get_avatar($comment, $size = '64'); ?>
     <div class="media-body">
-			<h4 class="media-heading"><?php echo get_comment_author_link(); ?></h4>
-			<time datetime="<?php echo comment_date('c'); ?>">
-				<a
-					href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>"><?php printf(__('%1$s', 'shoestrap'), get_comment_date(),  get_comment_time()); ?></a>
-			</time>
+            <h4 class="media-heading"><?php echo get_comment_author_link(); ?></h4>
+            <time datetime="<?php echo comment_date('c'); ?>">
+                <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)); ?>"><?php printf(__('%1$s', 'shoestrap'), get_comment_date(),  get_comment_time()); ?></a>
+            </time>
       <?php edit_comment_link(__('(Edit)', 'shoestrap'), '', ''); ?>
 
       <?php if ($comment->comment_approved == '0') : ?>
         <div class="alert alert-block fade in">
-				<a class="close" data-dismiss="alert">&times;</a>
-				<p><?php _e('Your comment is awaiting moderation.', 'shoestrap'); ?></p>
-			</div>
+                <a class="close" data-dismiss="alert">&times;</a>
+                <p><?php _e('Your comment is awaiting moderation.', 'shoestrap'); ?></p>
+            </div>
       <?php endif; ?>
 
       <?php comment_text(); ?>
