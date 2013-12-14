@@ -14,11 +14,9 @@ if (have_posts()) {
         <span class="icon-comment"></span> <?php the_title(); ?></figcaption>
 </figure>
 <div id="post-<?php the_ID(); ?>" <?php post_class("container post");?>>
-    <h1 class="featurette-heading">
-					<?php the_title();?>
-				</h1>
-				<?php get_template_part('breadcrumb'); ?>
+    <h1 class="featurette-heading"><?php the_title();?></h1>
 				<?php
+        get_template_part('breadcrumb');
         if ($values = get_post_custom_values("leadvideo")) {
             echo $values[0];
         }
@@ -77,16 +75,12 @@ if (have_posts()) {
         </div>
     </section>
 				
-				<?php if(function_exists('related_posts')){?>
-					<section class="container post">
-						<?php related_posts();?>
-					</section>
 				<?php
-        } /*
-           * ?> <div class="container post"> <?php //get_template_part('social');?> </div>
-           */
+        if (function_exists('related_posts')) {
+            related_posts();
+        }
+        get_template_part('advert');
         ?>
-				<?php get_template_part('advert');?>
 			</div>
 <?php
     }
