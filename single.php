@@ -88,4 +88,3 @@ if (have_posts()) {
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();
-?>
