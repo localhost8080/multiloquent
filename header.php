@@ -38,7 +38,6 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php wp_head();?>
     <?php
-    
     if (function_exists('yoast_analytics')) {
         yoast_analytics();
     }

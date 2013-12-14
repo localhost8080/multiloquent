@@ -29,7 +29,6 @@ function featured_image_in_feed($content)
     return $content;
 }
 add_filter('the_content', 'featured_image_in_feed');
-
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(605, 100);
@@ -37,7 +36,6 @@ if (function_exists('add_theme_support')) {
 if (function_exists('add_image_size')) {
     add_image_size('featured-post-thumbnail', 605, 100);
 }
-
 if (! isset($content_width))
     $content_width = 900;
 
@@ -50,13 +48,10 @@ function my_init()
     if (! is_admin()) {
         wp_deregister_script('jquery');
     }
-    
     add_theme_support('automatic-feed-links');
-    
     remove_action('wp_head', 'wp_print_scripts');
     remove_action('wp_head', 'wp_print_head_scripts', 9);
     remove_action('wp_head', 'wp_enqueue_scripts', 1);
-    
     // put the wp head at the bottom, to get the pageloads are faster....
     add_action('wp_footer', 'wp_print_scripts', 5);
     add_action('wp_footer', 'wp_enqueue_scripts', 5);
@@ -76,7 +71,6 @@ function remove_hentry_function($classes)
         unset($classes[$key]);
     return $classes;
 }
-
 add_action('init', 'my_init');
 add_action('after_setup_theme', 'register_my_menus');
 
@@ -96,7 +90,6 @@ function add_class_the_tags($html)
     return $html;
 }
 add_filter('the_tags', 'add_class_the_tags', 10, 1);
-
 // Widgetized sidebar
 if (function_exists('register_sidebar')) {
     register_sidebars((10), 
@@ -108,7 +101,6 @@ if (function_exists('register_sidebar')) {
             'class' => ''
         ));
 }
-
 add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
 add_action('wp_tag_cloud', 'add_tag_class');
 add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
@@ -121,7 +113,6 @@ function my_widget_tag_cloud_args($args)
     $args['unit'] = 'px';
     return $args;
 }
-
 // filter tag clould output so that it can be styled by CSS
 function add_tag_class($taglinks)
 {
@@ -152,13 +143,11 @@ function breadcrumbs()
         echo 'home';
         echo '</a><span class="divider">/</span></li>';
     }
-    
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
         $ID = $category[0]->cat_ID;
-        echo '<li>' . get_category_parents($ID, TRUE, '<span class="divider">/</span>', FALSE);
+        echo '<li>' . get_category_parents($ID, true, '<span class="divider">/</span>', false);
     }
-    
     if (is_single()) {
         echo '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
@@ -166,7 +155,7 @@ function breadcrumbs()
         echo '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
     if (is_tag()) {
-        echo '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', FALSE) . '</h5></li>';
+        echo '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', false) . '</h5></li>';
     }
     if (is_404()) {
         echo '<li><h5 style="margin:0;padding:0">404 - Page not Found</h5><li>';
@@ -177,7 +166,6 @@ function breadcrumbs()
     if (is_year()) {
         echo '<li><h5 style="margin:0;padding:0">' . get_the_time('Y') . '</h5></li>';
     }
-    
     // TODO - make it return rather than echo
 }
 
@@ -194,10 +182,8 @@ function round_num($num, $to_nearest)
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;
-    
     if (null === $label)
         $label = __('&laquo; Previous Page', 'multiloquent');
-    
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
         return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" .
@@ -226,7 +212,6 @@ function pagenavi($before = '', $after = '')
     $pagenavi_options['always_show'] = 0;
     $pagenavi_options['num_larger_page_numbers'] = 0;
     $pagenavi_options['larger_page_numbers_multiple'] = 5;
-    
     // If NOT a single Post is being displayed
     /* http://codex.wordpress.org/Function_Reference/is_single) */
     if (! is_single()) {
@@ -239,13 +224,11 @@ function pagenavi($before = '', $after = '')
         $paged = intval(get_query_var('paged'));
         $numposts = $wp_query->found_posts;
         $max_page = $wp_query->max_num_pages;
-        
         // empty Determine whether a variable is empty
         /* http://php.net/manual/en/function.empty.php */
         if (empty($paged) || $paged == 0) {
             $paged = 1;
         }
-        
         $pages_to_show = intval($pagenavi_options['num_pages']);
         $larger_page_to_show = intval($pagenavi_options['num_larger_page_numbers']);
         $larger_page_multiple = intval($pagenavi_options['larger_page_numbers_multiple']);
@@ -254,11 +237,9 @@ function pagenavi($before = '', $after = '')
         // ceil Round fractions up (http://us2.php.net/manual/en/function.ceil.php)
         $half_page_end = ceil($pages_to_show_minus_1 / 2);
         $start_page = $paged - $half_page_start;
-        
         if ($start_page <= 0) {
             $start_page = 1;
         }
-        
         $end_page = $paged + $half_page_end;
         if (($end_page - $start_page) != $pages_to_show_minus_1) {
             $end_page = $start_page + $pages_to_show_minus_1;
@@ -270,14 +251,12 @@ function pagenavi($before = '', $after = '')
         if ($start_page <= 0) {
             $start_page = 1;
         }
-        
         $larger_per_page = $larger_page_to_show * $larger_page_multiple;
         // round_num() custom function - Rounds To The Nearest Value.
         $larger_start_page_start = (round_num($start_page, 10) + $larger_page_multiple) - $larger_per_page;
         $larger_start_page_end = round_num($start_page, 10) + $larger_page_multiple;
         $larger_end_page_start = round_num($end_page, 10) + $larger_page_multiple;
         $larger_end_page_end = round_num($end_page, 10) + ($larger_per_page);
-        
         if ($larger_start_page_end - $larger_page_multiple == $start_page) {
             $larger_start_page_start = $larger_start_page_start - $larger_page_multiple;
             $larger_start_page_end = $larger_start_page_end - $larger_page_multiple;
@@ -297,7 +276,6 @@ function pagenavi($before = '', $after = '')
 			$pages_text = str_replace("%CURRENT_PAGE%", number_format_i18n($paged), $pagenavi_options['pages_text']);
             $pages_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), $pages_text);
             echo $before . '<div class="pagination pagination-centered"><ul>' . "\n";
-            
             if (! empty($pages_text)) {
                 echo '<li><span>' . $pages_text . '</span></li>';
             }
@@ -305,7 +283,6 @@ function pagenavi($before = '', $after = '')
             /* http://codex.wordpress.org/Function_Reference/previous_post_link */
             $prev_link = jb_get_previous_posts_link($pagenavi_options['prev_text']);
             echo '<li>' . $prev_link . '</li>';
-            
             if ($start_page >= 2 && $pages_to_show < $max_page) {
                 $first_page_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), 
                     $pagenavi_options['first_text']);
@@ -318,7 +295,6 @@ function pagenavi($before = '', $after = '')
                     echo '<li><span>' . $pagenavi_options['dotleft_text'] . '</span></li>';
                 }
             }
-            
             if ($larger_page_to_show > 0 && $larger_start_page_start > 0 && $larger_start_page_end <= $max_page) {
                 for ($i = $larger_start_page_start; $i < $larger_start_page_end; $i += $larger_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
@@ -326,7 +302,6 @@ function pagenavi($before = '', $after = '')
                          '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
-            
             for ($i = $start_page; $i <= $end_page; $i ++) {
                 if ($i == $paged) {
                     $current_page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), 
@@ -338,7 +313,6 @@ function pagenavi($before = '', $after = '')
                          '" class="single_page" title="' . $page_text . '">' . $page_text . '</a></li>';
                 }
             }
-            
             if ($end_page < $max_page) {
                 if (! empty($pagenavi_options['dotright_text'])) {
                     echo '<li><span>' . $pagenavi_options['dotright_text'] . '</span></li>';
@@ -348,10 +322,8 @@ function pagenavi($before = '', $after = '')
                 echo '<li><a href="' . untrailingslashit(esc_url(get_pagenum_link($max_page))) . '" class="last" title="' .
                      $last_page_text . '">' . $max_page . '</a></li>';
             }
-            
             $next_link = get_next_posts_link($pagenavi_options['next_text'], $max_page);
             echo '<li>' . $next_link . '</li>';
-            
             if ($larger_page_to_show > 0 && $larger_end_page_start < $max_page) {
                 for ($i = $larger_end_page_start; $i <= $larger_end_page_end; $i += $larger_page_multiple) {
                     $page_text = str_replace("%PAGE_NUMBER%", number_format_i18n($i), $pagenavi_options['page_text']);
@@ -407,7 +379,6 @@ function jb_flex_slider()
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
-        
         $output .= '<article class="item';
         if ($firsttime == '1') {
             $output .= ' active';
@@ -420,7 +391,6 @@ function jb_flex_slider()
         $output .= '<marquee scrollamount="6" behavior="alternate">' . trim(stripslashes(get_the_title($val->ID))) .
              '</marquee>';
         $output .= '</a></p></div></div></article>';
-        
         $firsttime ++;
     }
     $output .= '</div><a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a><a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a></section>';
@@ -441,7 +411,6 @@ function get_random_solid_class($class = '')
         "swatch-mid-gray",
         "swatch-gray"
     );
-    
     $apps = array(
         "phone",
         "appstore",
@@ -464,7 +433,6 @@ function get_random_solid_class($class = '')
         "safari",
         "firefox"
     );
-    
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -485,7 +453,6 @@ function get_random_blue_class()
         "swatch-gray",
         "swatch-violet"
     );
-    
     $apps = array(
         "phone",
         "appstore",
@@ -508,7 +475,6 @@ function get_random_blue_class()
         "safari",
         "firefox"
     );
-    
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -531,7 +497,6 @@ function get_random_colour_class($class = '')
         "gradient-black",
         "gradient-silver"
     );
-    
     $apps = array(
         "phone",
         "appstore",
@@ -554,7 +519,6 @@ function get_random_colour_class($class = '')
         "safari",
         "firefox"
     );
-    
     if (! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -687,7 +651,6 @@ function get_user_agents_list()
         "Googlebot-Mobile", // the Google mobile crawler
         "MSIE" // force internet explorer to not get the cool stuff cos its crap
         );
-    
     asort($useragents);
     return $useragents;
 }
@@ -723,7 +686,6 @@ function get_PostViews($post_ID)
     }
     return $cntaccess;
 }
-
 // Function: Add/Register the Non-sortable 'Views' Column to your Posts tab in WP Dashboard.
 function post_column_views($newcolumn)
 {
@@ -731,7 +693,6 @@ function post_column_views($newcolumn)
     $newcolumn['post_views'] = __('Views', 'multiloquent');
     return $newcolumn;
 }
-
 // Add the sorting SQL for the themes
 function new_posts_orderby($orderby, $wp_query)
 {

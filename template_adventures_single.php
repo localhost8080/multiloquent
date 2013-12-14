@@ -6,13 +6,12 @@
 <?php get_header(); ?>
 <!-- google_ad_section_start-->
 <?php
-
 if (have_posts()) {
     while (have_posts()) {
         the_post();
         ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class("container post");?>>
-	<h1 class="featurette-heading">
+    <h1 class="featurette-heading">
 					<?php the_title();?>
 				</h1>
 				<?php
@@ -32,16 +31,16 @@ if (have_posts()) {
         ?>
 
 				<div class="span5">
-		<iframe width="100%" height="350" frameborder="0" scrolling="no"
-			marginheight="0" marginwidth="0"
-			src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
+        <iframe width="100%" height="350" frameborder="0" scrolling="no"
+            marginheight="0" marginwidth="0"
+            src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
 					<?php
         if ($values = get_post_custom_values("leadvideo")) {
             echo $values[0];
         }
         ?>
 				</div>
-	<div class="content span6">
+    <div class="content span6">
 					<?php
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
