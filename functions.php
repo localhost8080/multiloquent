@@ -35,9 +35,9 @@ if (function_exists('add_theme_support')) {
 if (function_exists('add_image_size')) {
     add_image_size('featured-post-thumbnail', 605, 100);
 }
-if (! isset($content_width))
+if (! isset($content_width)){
     $content_width = 900;
-
+}
 /**
  * performs my initialisation stuff
  */
@@ -66,8 +66,9 @@ add_filter('post_class', 'remove_hentry_function', 20);
 
 function remove_hentry_function($classes)
 {
-    if (($key = array_search('hentry', $classes)) !== false)
+    if (($key = array_search('hentry', $classes)) !== false){
         unset($classes[$key]);
+    }
     return $classes;
 }
 add_action('init', 'my_init');
@@ -179,8 +180,9 @@ function round_num($num, $to_nearest)
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;
-    if (null === $label)
+    if (null === $label){
         $label = __('&laquo; Previous Page', 'multiloquent');
+    }
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
         return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) .
