@@ -85,7 +85,10 @@ if (have_posts()) {
         </section>
         <nav class="navitems article white2">
             <?php
-    echo '<div class="pagination pagination-centered"><ul>'.paginate_links($args).'</ul></div>';
+            $args = array(
+                'type' => 'list',
+            );
+            echo '<div class="pagination pagination-centered"><ul>'.paginate_links($args).'</ul></div>';
     ?>
         </nav>
     </div>
