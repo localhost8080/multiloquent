@@ -165,16 +165,6 @@ function breadcrumbs()
     // TODO - make it return rather than echo
 }
 
-/**
- * Function that Rounds To The Nearest Value.
- * Needed for the pagenavi() function
- */
-function round_num($num, $to_nearest)
-{
-    /* Round fractions down (http://php.net/manual/en/function.floor.php) */
-    return floor($num / $to_nearest) * $to_nearest;
-}
-
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;

@@ -86,7 +86,7 @@ if (have_posts()) {
         <nav class="navitems article white2">
             <?php
     if (function_exists('pagenavi')) {
-        pagenavi();
+        echo pagenavi();
     }
     ?>
         </nav>
