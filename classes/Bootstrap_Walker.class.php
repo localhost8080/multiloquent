@@ -2,6 +2,7 @@
 
 // https://gist.github.com/FStop/2025312
 
+namespace Bootstrap;
 class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	
