@@ -110,4 +110,3 @@ class Bootstrap_Walker extends Walker_Nav_Menu
         return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
     }
 }
-?>

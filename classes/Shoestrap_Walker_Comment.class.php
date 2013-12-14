@@ -65,4 +65,3 @@ class Shoestrap_Walker_Comment extends Walker_Comment
         echo "</li>\n";
     }
 }
-?>
