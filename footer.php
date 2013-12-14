@@ -8,11 +8,11 @@
 					<?php
     global $user_ID;
     if ($user_ID && current_user_can('update_core')) {
-        ?>
-							<li><a href="/wp-admin"><span class="fa fa-user fa-fw"></span> Dashboard</a></li>
-						<?php }else{ ?>
-							<li><a href="/wp-login.php"><span class="fa fa-lock fa-fw"></span> Login</a></li>
-						<?php } ?>
+        echo '<li><a href="/wp-admin"><span class="fa fa-user fa-fw"></span> Dashboard</a></li>';
+    } else {
+        echo '<li><a href="/wp-login.php"><span class="fa fa-lock fa-fw"></span> Login</a></li>';
+    }
+    ?>
 					<li><a href="/about"><span class="fa fa-clock-o fa-fw"></span> &#169; 2008 - <?php echo date('Y'); ?></a></li>
                     <li><a href="/about"><span class="fa fa-folder-open-o fa-fw"></span>multiloquent <?php echo version();?></a></li>
                     <li><a href="/about"><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This
@@ -26,13 +26,12 @@
         </div>
     </div>
 </section>
-<?php get_template_part('js_load'); ?>
 <?php
-
+get_template_part('js_load');
 if (function_exists('tptn_add_viewed_count')) {
     echo tptn_add_viewed_count(' ');
 }
+wp_footer();
 ?>
-<?php wp_footer(); ?>
 </body>
 </html>

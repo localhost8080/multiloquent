@@ -14,7 +14,7 @@
                     Menu <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu" role="menu">
-  <?php wp_nav_menu( array('menu' => 'header' )); ?>
+  <?php wp_nav_menu(array('menu' => 'header' )); ?>
 </div>
             </div>
             <ul class="nav nav-collapse collapse search-box">
