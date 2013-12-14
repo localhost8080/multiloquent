@@ -269,8 +269,8 @@ function pagenavi($before = '', $after = '')
         }
         if ($max_page > 1 || intval($pagenavi_options['always_show']) == 1) {
             /* http://php.net/manual/en/function.str-replace.php */
-		/*number_format_i18n(): Converts integer number to format based on locale (wp-includes/functions.php*/
-			$pages_text = str_replace("%CURRENT_PAGE%", number_format_i18n($paged), $pagenavi_options['pages_text']);
+            /*number_format_i18n(): Converts integer number to format based on locale (wp-includes/functions.php*/
+            $pages_text = str_replace("%CURRENT_PAGE%", number_format_i18n($paged), $pagenavi_options['pages_text']);
             $pages_text = str_replace("%TOTAL_PAGES%", number_format_i18n($max_page), $pages_text);
             echo $before . '<div class="pagination pagination-centered"><ul>' . "\n";
             if (! empty($pages_text)) {
