@@ -49,7 +49,9 @@ if (have_posts()) {
             </p>
             </div>
         </div>		
-	<?php } ?>
+	<?php
+    }
+    ?>
 </div>
 <?php
 } else {
