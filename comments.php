@@ -19,10 +19,14 @@ if (have_comments()) {
             <ul class="pager">
             <?php if (get_previous_comments_link()) { ?>
               <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'shoestrap')); ?></li>
-            <?php } ?>
-            <?php if (get_next_comments_link()) { ?>
+            <?php
+        }
+        if (get_next_comments_link()) {
+            ?>
               <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'shoestrap')); ?></li>
-            <?php } ?>
+            <?php
+        }
+        ?>
           </ul>
         </nav>
         <?php
@@ -33,7 +37,9 @@ if (have_comments()) {
             <a class="close" data-dismiss="alert">&times;</a>
             <p><?php _e('Comments are closed.', 'shoestrap'); ?></p>
         </div>
-        <?php } ?>
+        <?php
+    }
+    ?>
       </div>
 </section>
 <!-- /#comments -->
@@ -65,4 +71,5 @@ if (comments_open()) {
   </div>
 </section>
 <!-- /#respond -->
-<?php } ?>
+<?php
+}

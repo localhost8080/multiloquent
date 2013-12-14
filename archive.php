@@ -78,7 +78,9 @@ if (have_posts()) {
                         </p>
                 </div>
             </div>
-            <?php } ?>
+            <?php
+    }
+    ?>
         </section>
         <section>
             <?php get_template_part('advert');?>
