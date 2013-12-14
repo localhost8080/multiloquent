@@ -39,7 +39,7 @@ if (have_comments()) {
 <!-- /#comments -->
 <?php
 }
-if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments'))
+if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
     ?>
 <section id="comments">
     <div class="alert alert-block fade in">
@@ -48,16 +48,20 @@ if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(
     </div>
 </section>
 <!-- /#comments -->
-<?php }
-if (comments_open()) { ?>
+<?php
+}
+if (comments_open()) {
+    ?>
 <section>
     <div>
         <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) { ?>
       <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'shoestrap'), wp_login_url(get_permalink())); ?></p>
-    <?php } else { 
-    comment_form();
-    } ?>
+    <?php
+    } else {
+        comment_form();
+    }
+    ?>
   </div>
 </section>
 <!-- /#respond -->
