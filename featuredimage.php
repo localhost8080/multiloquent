@@ -1,4 +1,4 @@
-ß<?php
+<?php
 if (has_post_thumbnail()) {
     // the current post has a thumbnail
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails
@@ -14,7 +14,7 @@ if (has_post_thumbnail()) {
 } else {
     // the current post lacks a thumbnail
     // use the old method
-    if (get_post_meta($post->ID, 'leadimage', true)) {} else {
+    if (! get_post_meta($post->ID, 'leadimage', true)) {
         global $hide_h1_tag;
         $hide_h1_tag = 1;
         ?>
