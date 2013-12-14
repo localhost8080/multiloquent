@@ -42,7 +42,6 @@ if (have_comments()) {
     ?>
       </div>
 </section>
-<!-- /#comments -->
 <?php
 }
 if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
@@ -53,7 +52,6 @@ if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(
         <p><?php _e('Comments are closed.', 'shoestrap'); ?></p>
     </div>
 </section>
-<!-- /#comments -->
 <?php
 }
 if (comments_open()) {
@@ -70,6 +68,5 @@ if (comments_open()) {
     ?>
   </div>
 </section>
-<!-- /#respond -->
 <?php
 }
