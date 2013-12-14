@@ -8,7 +8,7 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         ?>
-<div <? echo 'id="post-'.get_ the_ID().'" '. get_post_class("container post")?>>
+<div <?php echo 'id="post-'.get_the_ID().'" '. get_post_class("container post")?>>
     <h1 class="featurette-heading">
 					<?php the_title();?>
 				</h1>

@@ -13,7 +13,7 @@ if (have_posts()) {
 					<figcaption>
         <span class="icon-comment"></span> <?php the_title(); ?></figcaption>
 </figure>
-<div id="post-<?php the_ID(); ?>" <?php post_class("container post");?>>
+<div <? echo 'id="post-'.get_the_ID().'" '. get_post_class("container post")?>>
     <h1 class="featurette-heading"><?php the_title();?></h1>
 				<?php
         get_template_part('breadcrumb');

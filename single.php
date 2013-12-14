@@ -6,7 +6,7 @@ if (have_posts()) {
         the_post();
         get_template_part('featuredimage');
         ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class("container post");?>>
+<div <?php echo 'id="post-'.get_the_ID().'" '. get_post_class("container post")?>>
 			
 			<?php
         if (empty($hide_h1_tag)) {
