@@ -12,5 +12,4 @@ test:
 complete:
     email:
         committer: true
-        addresses: 
-        - "jonathan@jonathansblog.co.uk"
+ 
