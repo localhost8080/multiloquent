@@ -8,5 +8,6 @@ test:
     php_cpd:
 complete:
     email:
-        addresses: "jonathan@jonathansblog.co.uk"
+        addresses: 
+        - "jonathan@jonathansblog.co.uk"
     
