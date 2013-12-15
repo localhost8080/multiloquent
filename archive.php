@@ -84,6 +84,7 @@ if (have_posts()) {
             <?php get_template_part('advert');?>
         </section>
         <nav class="navitems article white2">
+            <div class="pagination pagination-centered">
             <?php
     $total_pages = $wp_query->max_num_pages;
     if ($total_pages > 1) {
@@ -97,6 +98,7 @@ if (have_posts()) {
         ));
     }
     ?>
+    </div>
         </nav>
     </div>
 </div>
