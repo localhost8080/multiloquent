@@ -3,7 +3,7 @@ build_settings:
     ignore:
 test:
     php_code_sniffer:
-        standard: "Wordpress-Coding-Standards"
+        standard: "PSR2-noindent"
     php_loc:
     php_cpd:
 complete:
