@@ -11,6 +11,5 @@ test:
     php_loc:
 complete:
     email:
-        committer: true
- 
+        committer: "yes"
  
