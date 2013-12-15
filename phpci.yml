@@ -4,11 +4,14 @@ build_settings:
 test:
     php_code_sniffer:
         standard: "PSR2-noindent"
-    php_loc:
+    php_mess_detector:
+        allow_failures: true
     php_cpd:
+        allow_failures: true
+    php_loc:
 complete:
     email:
-    	committer: "true"
+    	committer: true
         addresses: 
         - "jonathan@jonathansblog.co.uk"
     
