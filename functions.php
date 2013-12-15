@@ -1,5 +1,26 @@
 <?php
 load_theme_textdomain('multiloquent');
+add_filter('the_content', 'featured_image_in_feed');
+add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
+add_filter('post_class', 'remove_hentry_function', 20);
+add_action('init', 'my_init');
+add_action('after_setup_theme', 'register_my_menus');
+add_filter('the_tags', 'add_class_the_tags', 10, 1);
+add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
+add_action('wp_tag_cloud', 'add_tag_class');
+add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
+add_filter('get_avatar', 'shoestrap_get_avatar');
+
+// Widgetized sidebar
+if (function_exists('register_sidebar')) {
+    register_sidebars((10), array(
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '<p class="nav-header">',
+    'after_title' => '</p>',
+    'class' => ''
+        ));
+}
 
 /**
  * Returns a version number
@@ -25,7 +46,7 @@ function featured_image_in_feed($content)
     }
     return $content;
 }
-add_filter('the_content', 'featured_image_in_feed');
+
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(605, 100);
@@ -60,8 +81,7 @@ function dequeue_devicepx()
 {
     wp_dequeue_script('devicepx');
 }
-add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
-add_filter('post_class', 'remove_hentry_function', 20);
+
 
 function remove_hentry_function($classes)
 {
@@ -70,8 +90,7 @@ function remove_hentry_function($classes)
     }
     return $classes;
 }
-add_action('init', 'my_init');
-add_action('after_setup_theme', 'register_my_menus');
+
 
 function register_my_menus()
 {
@@ -86,20 +105,7 @@ function add_class_the_tags($html)
     $html = str_replace('<a', '<a class="label"', $html);
     return $html;
 }
-add_filter('the_tags', 'add_class_the_tags', 10, 1);
-// Widgetized sidebar
-if (function_exists('register_sidebar')) {
-    register_sidebars((10), array(
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<p class="nav-header">',
-        'after_title' => '</p>',
-        'class' => ''
-    ));
-}
-add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
-add_action('wp_tag_cloud', 'add_tag_class');
-add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
+
 
 function my_widget_tag_cloud_args($args)
 {
@@ -537,4 +543,4 @@ function shoestrap_get_avatar($avatar)
     $avatar = str_replace("class='avatar", "class='avatar pull-left media-object", $avatar);
     return $avatar;
 }
-add_filter('get_avatar', 'shoestrap_get_avatar');
+
