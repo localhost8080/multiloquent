@@ -131,38 +131,40 @@ function wp_tag_cloud_filter($return)
  */
 function breadcrumbs()
 {
+    $return = '';
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
-        echo '<li><a href="';
-        echo home_url();
-        echo '">';
-        echo 'home';
-        echo '</a><span class="divider">/</span></li>';
+        $return .= '<li><a href="';
+        $return .=  home_url();
+        $return .=  '">';
+        $return .=  'home';
+        $return .=  '</a><span class="divider">/</span></li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
         $catid = $category[0]->cat_ID;
-        echo '<li>' . get_category_parents($catid, true, '<span class="divider">/</span>', false);
+        $return .=  '<li>' . get_category_parents($catid, true, '<span class="divider">/</span>', false);
     }
     if (is_single()) {
-        echo '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
     if (is_page()) {
-        echo '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
     if (is_tag()) {
-        echo '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', false) . '</h5></li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', false) . '</h5></li>';
     }
     if (is_404()) {
-        echo '<li><h5 style="margin:0;padding:0">404 - Page not Found</h5><li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">404 - Page not Found</h5><li>';
     }
     if (is_search()) {
-        echo '<li><h5 style="margin:0;padding:0">Search</span></li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">Search</span></li>';
     }
     if (is_year()) {
-        echo '<li><h5 style="margin:0;padding:0">' . get_the_time('Y') . '</h5></li>';
+        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_time('Y') . '</h5></li>';
     }
-    // TODO - make it return rather than echo
+    
+    return $return;
 }
 
 function jb_get_previous_posts_link($label = null)
