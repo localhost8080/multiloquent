@@ -8,6 +8,5 @@ test:
     php_cpd:
 complete:
     email:
-        addresses:
-        - "jonathan@jonathansblog.co.uk"
+        committer: "true"
     
