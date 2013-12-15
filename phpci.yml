@@ -11,4 +11,6 @@ test:
     php_loc:
 complete:
     email:
-        committer: true
+        addresses: 
+        - "jonathan@jonathansblog.co.uk"
+        - "committer"
