@@ -13,5 +13,5 @@ if (have_posts()) {
     echo '<p>No related posts.</p>';
 }
 ?>
-</div>
+    </div>
 </section>

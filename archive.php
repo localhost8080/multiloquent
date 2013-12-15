@@ -36,29 +36,15 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-                <?php
-    render_the_archive($posts);
-    ?>
+            <?php render_the_archive($posts);?>
         </section>
         <section>
             <?php get_template_part('advert');?>
         </section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
-            <?php
-    $total_pages = $wp_query->max_num_pages;
-    if ($total_pages > 1) {
-        $current_page = max(1, get_query_var('paged'));
-        echo paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
-            'format' => '/page/%#%',
-            'current' => $current_page,
-            'total' => $total_pages,
-            'type' => 'list'
-        ));
-    }
-    ?>
-    </div>
+            <?php render_pagingation(); ?>
+            </div>
         </nav>
     </div>
 </div>
