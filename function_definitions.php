@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Returns a version number
  *
@@ -22,17 +23,6 @@ function featured_image_in_feed($content)
         }
     }
     return $content;
-}
-
-if (function_exists('add_theme_support')) {
-    add_theme_support('post-thumbnails');
-    set_post_thumbnail_size(605, 100);
-}
-if (function_exists('add_image_size')) {
-    add_image_size('featured-post-thumbnail', 605, 100);
-}
-if (! isset($content_width)) {
-    $content_width = 900;
 }
 
 /**
@@ -59,7 +49,6 @@ function dequeue_devicepx()
     wp_dequeue_script('devicepx');
 }
 
-
 function remove_hentry_function($classes)
 {
     if (($key = array_search('hentry', $classes)) !== false) {
@@ -68,12 +57,11 @@ function remove_hentry_function($classes)
     return $classes;
 }
 
-
 function register_my_menus()
 {
     register_nav_menus(array(
-    'header_menu' => __('Header Navigation', 'multiloquent'),
-    'footer_menu' => __('Footer Navigation', 'multiloquent')
+        'header_menu' => __('Header Navigation', 'multiloquent'),
+        'footer_menu' => __('Footer Navigation', 'multiloquent')
     ));
 }
 
@@ -82,7 +70,6 @@ function add_class_the_tags($html)
     $html = str_replace('<a', '<a class="label"', $html);
     return $html;
 }
-
 
 function my_widget_tag_cloud_args($args)
 {
@@ -118,35 +105,34 @@ function breadcrumbs()
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
         $return .= '<li><a href="';
-        $return .=  home_url();
-        $return .=  '">';
-        $return .=  'home';
-        $return .=  '</a><span class="divider">/</span></li>';
+        $return .= home_url();
+        $return .= '">';
+        $return .= 'home';
+        $return .= '</a><span class="divider">/</span></li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
         $catid = $category[0]->cat_ID;
-        $return .=  '<li>' . get_category_parents($catid, true, '<span class="divider">/</span>', false);
+        $return .= '<li>' . get_category_parents($catid, true, '<span class="divider">/</span>', false);
     }
     if (is_single()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
+        $return .= '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
     if (is_page()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
+        $return .= '<li><h5 style="margin:0;padding:0">' . get_the_title() . '</h5></li>';
     }
     if (is_tag()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', false) . '</h5></li>';
+        $return .= '<li><h5 style="margin:0;padding:0">Tag: ' . single_tag_title('', false) . '</h5></li>';
     }
     if (is_404()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">404 - Page not Found</h5><li>';
+        $return .= '<li><h5 style="margin:0;padding:0">404 - Page not Found</h5><li>';
     }
     if (is_search()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">Search</span></li>';
+        $return .= '<li><h5 style="margin:0;padding:0">Search</span></li>';
     }
     if (is_year()) {
-        $return .=  '<li><h5 style="margin:0;padding:0">' . get_the_time('Y') . '</h5></li>';
+        $return .= '<li><h5 style="margin:0;padding:0">' . get_the_time('Y') . '</h5></li>';
     }
-
     return $return;
 }
 
