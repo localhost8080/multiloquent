@@ -9,7 +9,12 @@ test:
     php_cpd:
         allow_failures: true
     php_loc:
-complete:
+failure:
     email:
         committer: true
- 
+success:
+    email:
+        committer: true
+    shell:
+        "deploy_wordpress"
+
