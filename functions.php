@@ -1,4 +1,5 @@
 <?php
+get_template_part('function_definitions');
 add_filter('the_content', 'featured_image_in_feed');
 remove_filter('the_content', 'tptn_add_viewed_count');
 add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
