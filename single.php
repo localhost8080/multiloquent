@@ -43,7 +43,7 @@ if (have_posts()) {
         <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
             <h3>Tags for <?php the_title(); ?></h3>
             <div>
-                                    <?php
+        <?php
         $posttags = get_the_tags();
         if ($posttags) {
             foreach ($posttags as $tag) {
