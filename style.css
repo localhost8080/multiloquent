@@ -47,7 +47,7 @@ body {
     line-height: 1.6;
     color: #333333;
     background-color: #ffffff;
-    padding-top: 52px;
+    padding-top: 55px;
 }
 
 h1,.h1 {
@@ -1298,4 +1298,8 @@ body.rtl .sharing li {
     padding: 6px 12px;
     position: relative;
     text-decoration: none;
+}
+
+.admin-bar .navbar-fixed-top {
+  top: 32px;
 }
