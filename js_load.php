@@ -36,7 +36,7 @@ else if (window.attachEvent){
     window.attachEvent("onload", loadjs);
 }
 else {
-	window.onload = loadjs;
+    window.onload = loadjs;
 }
 
  setTimeout(function() {

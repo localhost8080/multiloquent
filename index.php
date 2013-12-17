@@ -1,5 +1,6 @@
 <?php 
-get_header();
-get_template_part('featured_articles');
-get_footer();
-?>
+/**
+ *  not used...
+ *  totally should test this though...
+ */
+

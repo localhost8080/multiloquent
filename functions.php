@@ -31,3 +31,13 @@ add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
 add_action('wp_tag_cloud', 'add_tag_class');
 add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
 add_filter('get_avatar', 'shoestrap_get_avatar');
+if (is_admin()) {
+    add_filter('manage_posts_columns', 'post_column_views');
+    add_action('manage_posts_custom_column', 'post_custom_column_views', 10, 2);
+    add_filter('manage_edit-post_sortable_columns', 'register_post_column_views_sortable');
+    add_filter('posts_orderby', 'new_posts_orderby', 10, 2);
+    add_editor_style('style.css');
+    add_editor_style('bootstrap/bootstrap-min.css');
+}
+add_action('init', 'my_init');
+add_action('after_setup_theme', 'register_my_menus');

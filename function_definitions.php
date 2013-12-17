@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Returns a version number
  *
@@ -56,8 +57,6 @@ function remove_hentry_function($classes)
         unset($classes[$key]);
     return $classes;
 }
-add_action('init', 'my_init');
-add_action('after_setup_theme', 'register_my_menus');
 
 function register_my_menus()
 {
@@ -411,14 +410,6 @@ function new_posts_orderby($orderby, $wp_query)
         return $orderby;
     }
 }
-if (is_admin()) {
-    add_filter('manage_posts_columns', 'post_column_views');
-    add_action('manage_posts_custom_column', 'post_custom_column_views', 10, 2);
-    add_filter('manage_edit-post_sortable_columns', 'register_post_column_views_sortable');
-    add_filter('posts_orderby', 'new_posts_orderby', 10, 2);
-    add_editor_style('style.css');
-    add_editor_style('bootstrap/bootstrap-min.css');
-}
 
 function make_category_list_as_hierarchy($cat = '0')
 {
@@ -568,4 +559,46 @@ function shoestrap_get_avatar($avatar)
 {
     $avatar = str_replace("class='avatar", "class='avatar pull-left media-object", $avatar);
     return $avatar;
+}
+
+function render_the_archive()
+{
+    $tile_colour = get_random_blue_class();
+    while (have_posts()) {
+        the_post();
+        // set it to blank so that it doesnt get the previous one..
+        $slider_image = array();
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+        if (! empty($slider_image)) {
+            $theimg = $slider_image[0];
+            $width = $slider_image[1];
+            $height = $slider_image[2];
+            // in here I need to check if its a mobile, and then give a different image:
+        } else {
+            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+            $width = '1100';
+            $height = '500';
+        }
+        ?>
+<div class="paralax_image_holder col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 30px;">
+    <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+    <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
+    <div class="paralax_image_text">
+        <span class="h1"><a href="<?php the_permalink() ?>"><?php  the_title()?></a></span>
+        <p>
+    	<?php
+        $posttags = wp_get_post_tags($post->ID);
+        if ($posttags) {
+            foreach ($posttags as $tag) {
+                echo '<a class="label ';
+                echo get_random_solid_class($tag->slug);
+                echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+            }
+        }
+        ?>
+    	</p>
+    </div>
+</div>
+<?php
+    }
 }
