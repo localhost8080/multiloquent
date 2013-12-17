@@ -39,11 +39,4 @@ else {
     window.onload = loadjs;
 }
 
- setTimeout(function() {
-    window.onscroll = function() {
-      window.onscroll = null; // Only track the event once
-      _gaq.push(['_trackEvent', 'scroll', 'read']);
-    }
-  }, 5000);
-
 </script>
