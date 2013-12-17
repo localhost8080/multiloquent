@@ -1162,6 +1162,9 @@ body.rtl .sharing li {
         height: 80px;
         margin: 0;
     }
+    .admin-bar .navbar-fixed-top {
+        top: 32px;
+    }
 }
 
 @media ( max-width : 979px) {
@@ -1235,6 +1238,9 @@ body.rtl .sharing li {
         height: 80px;
         margin: 0;
     }
+    .admin-bar .navbar-fixed-top {
+        top: 32px;
+    }
 }
 
 .alpha {
@@ -1298,8 +1304,4 @@ body.rtl .sharing li {
     padding: 6px 12px;
     position: relative;
     text-decoration: none;
-}
-
-.admin-bar .navbar-fixed-top {
-  top: 32px;
 }

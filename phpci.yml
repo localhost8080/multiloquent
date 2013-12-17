@@ -15,6 +15,4 @@ failure:
 success:
     email:
         committer: true
-    shell:
-        - "deploy_wordpress"
-
+        
