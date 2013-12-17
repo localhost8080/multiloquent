@@ -12,14 +12,14 @@ if (have_posts()) {
         if (empty($hide_h1_tag)) {
             ?>
 <h1 class="featurette-heading container">
-                    <?php the_title();?>
-                </h1>
-<?
+<?php the_title();?>
+</h1>
+<?php
         }
         get_template_part('breadcrumb');
         ?>
 <div class="container">
-                    <?php
+        <?php
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];
@@ -30,11 +30,11 @@ if (have_posts()) {
         the_content("<p class=\"serif\">" . __('Read the rest of this page', 'jonathansblog') . " &raquo;</p>");
         wp_link_pages("<p><strong>" . __('Pages', 'jonathansblog') . ":</strong>", '</p>', __('number', 'jonathansblog'));
         ?>
-                    
-                </div>
-<?php get_template_part('advert');?>
-                    
-                    <?php get_template_part('social');?>
+        </div>
+<?php
+        get_template_part('advert');
+        get_template_part('social');
+        ?>
 <section class="comments_full container">
     <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
                     <?php comments_template(); ?>    
@@ -44,7 +44,7 @@ if (have_posts()) {
     <div class="tagcloud">
         <div class="tag-cloud">
             <h3>Tags for <?php the_title(); ?></h3>
-                            <?php
+            <?php
         $posttags = get_the_tags();
         if ($posttags) {
             foreach ($posttags as $tag) {
@@ -56,19 +56,15 @@ if (have_posts()) {
             }
         }
         ?>
-                        </div>
+        </div>
     </div>
 </section>
-<?php if(function_exists('related_posts')){?>
-<section class="container post">
-                        <?php related_posts();?>
-                    </section>
 <?php
+        if (function_exists('related_posts')) {
+            related_posts();
         }
         get_template_part('advert');
-        ?>
-</div>
-<?php
+        echo '</div>';
     }
 } else {
     echo '<p>' . __('Sorry, no posts matched your criteria.', 'multiloquent') . '<p>';
