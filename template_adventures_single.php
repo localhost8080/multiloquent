@@ -14,7 +14,7 @@ if (have_posts()) {
 <h1 class="featurette-heading container">
 					<?php the_title();?>
 				</h1>
-<?
+<?php
         }
         $title_string = get_the_title();
         $title_string = str_replace('plan', '', $title_string);

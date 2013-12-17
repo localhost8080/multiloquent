@@ -59,7 +59,7 @@ if (have_posts()) {
         </div>
     </div>
 </section>
-<?php if(function_exists('related_posts')){?>
+<?php if(function_exists('related_posts')) {?>
 <section class="container post">
     <div class="col-sm-12 col-md-12 col-lg-12">
                             <?php related_posts();?>
