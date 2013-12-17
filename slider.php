@@ -1,2 +1,1 @@
-<?php 
-echo jb_paralax_slider();
+<?php echo jb_paralax_slider();?>

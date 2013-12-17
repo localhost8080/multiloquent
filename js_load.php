@@ -3,7 +3,7 @@
 var dfLoadStatus = 0;
 var dfLoadFiles = [
       ["//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"],
-      ["<?php echo get_template_directory_uri() ; ?>/bootstrap/js/bootstrap.min.js"]
+      ["//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"]
      ];
 
 function loadjs() {
@@ -30,15 +30,20 @@ function loadjs() {
 }
 
 if (window.addEventListener){
-	//window.addEventListener("load", fire_the_css, false);
     window.addEventListener("load", loadjs, false);
 }
 else if (window.attachEvent){
-	//window.attachEvent("onload", fire_the_css);
     window.attachEvent("onload", loadjs);
 }
 else {
-	//window.onload = fire_the_css;
 	window.onload = loadjs;
 }
+
+ setTimeout(function() {
+    window.onscroll = function() {
+      window.onscroll = null; // Only track the event once
+      _gaq.push(['_trackEvent', 'scroll', 'read']);
+    }
+  }, 5000);
+
 </script>

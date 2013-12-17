@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="ads">
+<div class="ads">
 <?php
 if (is_mobile_device()) {
-    /* Widgetized sidebar, if you have the plugin installed. */
     if (function_exists('dynamic_sidebar') && is_active_sidebar(2)) {
         dynamic_sidebar(2);
     }
@@ -12,5 +10,4 @@ if (is_mobile_device()) {
     }
 }
 ?>
-</div>
 </div>
