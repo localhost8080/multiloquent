@@ -1,11 +1,3 @@
-multiloquent
-=============
-
-multiloquent v6 theme for wordpress
-
-
-
-
 this is the readme.txt for multiloquent theme v6
 
 this theme has 10 widget areas:
@@ -39,7 +31,7 @@ other things:
 
 the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
 http://ajaydsouza.com/wordpress/plugins/top-10/
-it gets the image form the 'featured image' against the post if it exists, if it doesnt then it uses a default image
+it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image
 
 
 has a theme for TW Recent Posts Widget 'yarpp' - yet another related posts plugin and it will auto include the related posts in the post page if its installed
@@ -53,4 +45,4 @@ has support for jetpack sharing plugins [and puts them in the correct position i
 http://wordpress.org/extend/plugins/jetpack/
 
 
-moves as much js to the footer as possible without breaking wordpress for faster page loads.
+moves as much js to the footer as possible without breaking wordpress for faster page loads
