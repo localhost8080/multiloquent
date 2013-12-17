@@ -30,7 +30,7 @@ function featured_image_in_feed($content)
  */
 function my_init()
 {
-    if (! is_admin()) {
+    if (!is_admin() || is_login_page()) {
         wp_deregister_script('jquery');
     }
     add_theme_support('automatic-feed-links');
@@ -49,6 +49,14 @@ function my_init()
 function dequeue_devicepx()
 {
     wp_dequeue_script('devicepx');
+}
+
+function is_login_page()
+{
+    return in_array($GLOBALS['pagenow'], array(
+        'wp-login.php',
+        'wp-register.php'
+    ));
 }
 
 function remove_hentry_function($classes)
