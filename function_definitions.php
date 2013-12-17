@@ -562,6 +562,7 @@ function shoestrap_get_avatar($avatar)
 
 function render_the_archive()
 {
+    global $post;
     $tile_colour = get_random_blue_class();
     while (have_posts()) {
         the_post();
