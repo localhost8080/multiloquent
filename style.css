@@ -1239,7 +1239,9 @@ body.rtl .sharing li {
         margin: 0;
     }
     .admin-bar .navbar-fixed-top {
-        top: 49px;
+        height: 55px;
+        position: absolute;
+        top: 45px;
     }
 }
 
