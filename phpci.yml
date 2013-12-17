@@ -16,5 +16,5 @@ success:
     email:
         committer: true
     shell:
-        "deploy_wordpress"
+        - "deploy_wordpress"
 
