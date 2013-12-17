@@ -3,26 +3,22 @@
  * Template Name Posts: Full width
  */
 get_header();
-?>
-<!-- google_ad_section_start-->
-<?php
+echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
         get_template_part('featuredimage');
-        ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class("post");?>>
-                
-                
-                <?php if(empty($hide_h1_tag)){?>
-                <h1 class="featurette-heading container">
+        echo '<div id="post-' . the_ID() . '" ' . post_class("post") . '>';
+        if (empty($hide_h1_tag)) {
+            ?>
+<h1 class="featurette-heading container">
                     <?php the_title();?>
                 </h1>
-                <?
+<?
         }
         get_template_part('breadcrumb');
         ?>
-                <div class="container">
+<div class="container">
                     <?php
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
@@ -36,22 +32,18 @@ if (have_posts()) {
         ?>
                     
                 </div>
-                    
-                    <?php get_template_part('advert');?>
+<?php get_template_part('advert');?>
                     
                     <?php get_template_part('social');?>
-                    
-                <section class="comments_full container">
-        <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
+<section class="comments_full container">
+    <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
                     <?php comments_template(); ?>    
                 </section>
-            
-                <?php get_template_part('advert');?>
-
-                <section class="container">
-        <div class="tagcloud">
-            <div class="tag-cloud">
-                <h3>Tags for <?php the_title(); ?></h3>
+<?php get_template_part('advert');?>
+<section class="container">
+    <div class="tagcloud">
+        <div class="tag-cloud">
+            <h3>Tags for <?php the_title(); ?></h3>
                             <?php
         $posttags = get_the_tags();
         if ($posttags) {
@@ -65,26 +57,21 @@ if (have_posts()) {
         }
         ?>
                         </div>
-        </div>
-    </section>
-                
-                <?php if(function_exists('related_posts')){?>
-                    <section class="container post">
+    </div>
+</section>
+<?php if(function_exists('related_posts')){?>
+<section class="container post">
                         <?php related_posts();?>
                     </section>
-                <?php
+<?php
         }
         get_template_part('advert');
         ?>
-            </div>
+</div>
 <?php
     }
 } else {
-    ?>
-<p>
-            <?php __('Sorry, no posts matched your criteria.','jonathansblog');?>
-        </p>
-<?php } ?>
-<!-- google_ad_section_end-->
-<?php get_footer(); ?>
-
+    echo '<p>' . __('Sorry, no posts matched your criteria.', 'multiloquent') . '<p>';
+}
+echo '<!-- google_ad_section_end-->';
+get_footer();
