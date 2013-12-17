@@ -69,7 +69,6 @@ function register_my_menus()
 
 function add_class_the_tags($html)
 {
-    $postid = get_the_ID();
     $html = str_replace('<a', '<a class="label"', $html);
     return $html;
 }
@@ -94,7 +93,7 @@ function add_tag_class($taglinks)
     return $taglinks;
 }
 
-function wp_tag_cloud_filter($return, $args)
+function wp_tag_cloud_filter($return)
 {
     return '<div id="tag-cloud">' . $return . '</div>';
 }
@@ -114,8 +113,8 @@ function breadcrumbs()
     }
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
-        $ID = $category[0]->cat_ID;
-        echo get_category_parents($ID, true, '</li><li>', false);
+        $catID = $category[0]->cat_ID;
+        echo get_category_parents($catID, true, '</li><li>', false);
     }
     if (is_single()) {
         echo get_the_title() . '</li>';
@@ -386,7 +385,7 @@ function post_column_views($newcolumn)
     return $newcolumn;
 }
 
-function post_custom_column_views($column_name, $id)
+function post_custom_column_views($column_name)
 {
     if ($column_name === 'post_views') {
         echo get_PostViews(get_the_ID());
@@ -401,7 +400,7 @@ function register_post_column_views_sortable($newcolumn)
 // Add the sorting SQL for the themes
 function new_posts_orderby($orderby, $wp_query)
 {
-    global $wpdb, $post;
+    global $wpdb;
     // $orderby = '';
     if (is_admin()) {
         $table_name = $wpdb->prefix . "top_ten";
@@ -475,7 +474,6 @@ function jb_paralax_slider()
 {
     global $wpdb;
     $output = '';
-    $post_per_slide = '1';
     $total_posts = '5';
     if (function_exists('tptn_pop_posts')) {
         $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
@@ -502,7 +500,6 @@ function jb_paralax_slider()
     $count = 1;
     $output = '<div class="container"><div class="row alpha">';
     foreach ($recent_posts as $key => $val) {
-        $tile_colour = get_random_blue_class();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         ;
         if ($slider_image) {
