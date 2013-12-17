@@ -1243,6 +1243,12 @@ body.rtl .sharing li {
         position: absolute;
         top: 45px;
     }
+    #wpadminbar {
+        height: 46px;
+        left: 0 !important;
+        min-width: 300px;
+        z-index: 500 !important;
+    }
 }
 
 .alpha {
