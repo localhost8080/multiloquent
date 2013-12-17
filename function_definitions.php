@@ -53,7 +53,7 @@ function dequeue_devicepx()
 
 function remove_hentry_function($classes)
 {
-    if (($key = array_search('hentry', $classes)) !== false){
+    if (($key = array_search('hentry', $classes)) !== false) {
         unset($classes[$key]);
     }
     return $classes;
@@ -166,7 +166,7 @@ function round_num($num, $to_nearest)
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;
-    if (null === $label){
+    if (null === $label) {
         $label = __('&laquo; Previous Page');
     }
     if (! is_single() && $paged > 1) {
