@@ -59,4 +59,3 @@ if (have_posts()) {
 }
 wp_reset_query();
 get_footer();
-?>

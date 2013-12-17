@@ -53,8 +53,9 @@ function dequeue_devicepx()
 
 function remove_hentry_function($classes)
 {
-    if (($key = array_search('hentry', $classes)) !== false)
+    if (($key = array_search('hentry', $classes)) !== false){
         unset($classes[$key]);
+    }
     return $classes;
 }
 
@@ -114,7 +115,7 @@ function breadcrumbs()
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
         $ID = $category[0]->cat_ID;
-        echo get_category_parents($ID, TRUE, '</li><li>', FALSE);
+        echo get_category_parents($ID, true, '</li><li>', false);
     }
     if (is_single()) {
         echo get_the_title() . '</li>';
@@ -123,7 +124,7 @@ function breadcrumbs()
         echo get_the_title() . '</li>';
     }
     if (is_tag()) {
-        echo 'Tag: ' . single_tag_title('', FALSE) . '</li>';
+        echo 'Tag: ' . single_tag_title('', false) . '</li>';
     }
     if (is_404()) {
         echo '404 - Page not Found<li>';
@@ -165,8 +166,9 @@ function round_num($num, $to_nearest)
 function jb_get_previous_posts_link($label = null)
 {
     global $paged;
-    if (null === $label)
+    if (null === $label){
         $label = __('&laquo; Previous Page');
+    }
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');
         return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
