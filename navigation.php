@@ -4,7 +4,7 @@
             <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" title="<?php bloginfo('name'); ?>" href="<?php echo home_url(); ?>/"><span class="fa fa-desktop fa-fw"></span><?php bloginfo('name'); ?></a>
+            <?php echo '<a class="navbar-brand" title="'. bloginfo('name').'" href="'. home_url().'/"><span class="fa fa-desktop fa-fw"></span>'. bloginfo('name').'</a>';?>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
