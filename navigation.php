@@ -8,8 +8,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/category"><span class="fa fa-folder-o fa-fw"></span>categories</a></li>
-                    <?php /*<li><a href="/tags"><span class="fa fa-folder-o fa-fw"></span>tags</a></li>    */?>
+                <?php /*<li><a href="/category"><span class="fa fa-folder-o fa-fw"></span>categories</a></li>
+                    <li><a href="/tags"><span class="fa fa-folder-o fa-fw"></span>tags</a></li>    */?>
                     <li><?php get_search_form();?></li>
             </ul>
         </div>
