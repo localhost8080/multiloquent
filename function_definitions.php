@@ -384,8 +384,8 @@ function get_PostViews($post_ID)
             $resultscount = $wpdb->get_row("select postnumber, cntaccess from $table_name WHERE postnumber = $post_ID");
             $cntaccess = number_format((($resultscount) ? $resultscount->cntaccess : 0));
         }
-    }
     return $cntaccess;
+    }
 }
 // Function: Add/Register the Non-sortable 'Views' Column to your Posts tab in WP Dashboard.
 function post_column_views($newcolumn)
