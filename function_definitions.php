@@ -174,7 +174,7 @@ function jb_get_previous_posts_link($label = null)
 {
     global $paged;
     if (null === $label) {
-        $label = __('&laquo; Previous Page');
+        $label = __('&laquo; Previous Page', 'multiloquent');
     }
     if (! is_single() && $paged > 1) {
         $attr = apply_filters('previous_posts_link_attributes', '');

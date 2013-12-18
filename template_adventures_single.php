@@ -24,14 +24,13 @@ if (have_posts()) {
         $title_string = str_replace('in', '', $title_string);
         $title_string = str_replace('off', '', $title_string);
         $title_string = str_replace(':', '', $title_string);
-        $title_string = str_replace('–', '', $title_string);
         $title_string = preg_replace('(\d+)', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
         get_template_part('breadcrumb');
         ?>
 <div class="container">
-    <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?=$title_string?>&amp;saddr=<?=trim($locations[0])?>&amp;daddr=<?=trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
+    <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?=trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
 					<?php
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
