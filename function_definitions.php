@@ -30,7 +30,7 @@ function featured_image_in_feed($content)
  */
 function my_init()
 {
-    if (!is_admin() || is_login_page()) {
+    if (! is_admin() || is_login_page()) {
         wp_deregister_script('jquery');
     }
     add_theme_support('automatic-feed-links');
@@ -377,11 +377,13 @@ function is_mobile_device()
 function get_PostViews($post_ID)
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . "top_ten";
-    $cntaccess = '';
-    if (is_admin()) {
-        $resultscount = $wpdb->get_row("select postnumber, cntaccess from $table_name WHERE postnumber = $post_ID");
-        $cntaccess = number_format((($resultscount) ? $resultscount->cntaccess : 0));
+    if (function_exists('tptn_pop_posts')) {
+        $table_name = $wpdb->prefix . "top_ten";
+        $cntaccess = '';
+        if (is_admin()) {
+            $resultscount = $wpdb->get_row("select postnumber, cntaccess from $table_name WHERE postnumber = $post_ID");
+            $cntaccess = number_format((($resultscount) ? $resultscount->cntaccess : 0));
+        }
     }
     return $cntaccess;
 }
@@ -410,7 +412,7 @@ function new_posts_orderby($orderby, $wp_query)
 {
     global $wpdb;
     // $orderby = '';
-    if (is_admin()) {
+    if (is_admin() && function_exists('tptn_pop_posts') ) {
         $table_name = $wpdb->prefix . "top_ten";
         $wp_query->query = wp_parse_args($wp_query->query);
         if ('post_views' == @$wp_query->query['orderby']) {

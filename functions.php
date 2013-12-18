@@ -38,7 +38,7 @@ if (is_admin()) {
     add_filter('manage_edit-post_sortable_columns', 'register_post_column_views_sortable');
     add_filter('posts_orderby', 'new_posts_orderby', 10, 2);
     add_editor_style('style.css');
-    add_editor_style('bootstrap/bootstrap-min.css');
+   
 }
 add_action('init', 'my_init');
 add_action('after_setup_theme', 'register_my_menus');
