@@ -70,8 +70,8 @@ function remove_hentry_function($classes)
 function register_my_menus()
 {
     register_nav_menus(array(
-        'header_menu' => __('Header Navigation', 'jonathansblog7'),
-        'footer_menu' => __('Footer Navigation', 'jonathansblog7')
+        'header_menu' => __('Header Navigation', 'multiloquent'),
+        'footer_menu' => __('Footer Navigation', 'multiloquent')
     ));
 }
 
@@ -389,7 +389,7 @@ function get_PostViews($post_ID)
 function post_column_views($newcolumn)
 {
     // Retrieves the translated string, if translation exists, and assign it to the 'default' array.
-    $newcolumn['post_views'] = __('Views', 'jonathansblog');
+    $newcolumn['post_views'] = __('Views', 'multiloquent');
     return $newcolumn;
 }
 

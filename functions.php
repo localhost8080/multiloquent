@@ -6,7 +6,7 @@ add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
 add_filter('post_class', 'remove_hentry_function', 20);
 // remove jetpack open graph tags
 // remove_action('wp_head','jetpack_og_tags');
-load_theme_textdomain('jonathansblog');
+load_theme_textdomain('multiloquent');
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(605, 100);

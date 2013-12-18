@@ -25,8 +25,8 @@ if (have_posts()) {
         }
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'jonathansblog') . " &raquo;</p>");
-        wp_link_pages("<p><strong>" . __('Pages', 'jonathansblog') . ":</strong>", '</p>', __('number', 'jonathansblog'));
+        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
+        wp_link_pages("<p><strong>" . __('Pages', 'multiloquent') . ":</strong>", '</p>', __('number', 'multiloquent'));
         get_template_part('advert');
         ?>                    
                         </div>

@@ -9,7 +9,7 @@ if (is_front_page()) {
     rewind_posts();
     while (have_posts()) {
         the_post();
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'jonathansblog') . " &raquo;</p>");
+        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
     }
     ?>    
     </div>
@@ -29,7 +29,7 @@ if (is_front_page()) {
     rewind_posts();
     while (have_posts()) {
         the_post();
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'jonathansblog') . " &raquo;</p>");
+        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
     }
     ?>
     </article>

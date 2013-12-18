@@ -32,8 +32,6 @@ if (preg_match('/^FacebookExternalHit\/.*?/i', $_SERVER['HTTP_USER_AGENT'])) {
         }
     }
     ?></title>
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo  get_template_directory_uri()  ; ?>/images/icons/logo-large.png">
-<link rel="apple-touch-icon" href="<?php echo  get_template_directory_uri()  ; ?>/images/icons/logo-large.png">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php
     wp_head();

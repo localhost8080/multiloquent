@@ -9,24 +9,24 @@ if (have_posts()) {
             <h1 class="article_title">
 			<?php
     if (is_category()) {
-        printf(__('%s', 'jonathansblog'), single_cat_title('', false));
+        printf(__('%s', 'multiloquent'), single_cat_title('', false));
     } elseif (is_tag()) {
-        _e('Posts Tagged', 'jonathansblog');
+        _e('Posts Tagged', 'multiloquent');
         echo '&#8216;';
         single_tag_title();
         echo '&#8217;';
     } elseif (is_day()) {
-        printf(__('Archive for %s', 'jonathansblog'), get_the_time(__('F jS, Y', 'jonathansblog')));
+        printf(__('Archive for %s', 'multiloquent'), get_the_time(__('F jS, Y', 'multiloquent')));
     } elseif (is_month()) {
-        printf(__('Archive for %s', 'jonathansblog'), get_the_time(__('F Y', 'jonathansblog')));
+        printf(__('Archive for %s', 'multiloquent'), get_the_time(__('F Y', 'multiloquent')));
     } elseif (is_year()) {
-        printf(__('Archive for %s', 'jonathansblog'), get_the_time('Y'));
+        printf(__('Archive for %s', 'multiloquent'), get_the_time('Y'));
     } elseif (is_search()) {
-        __('Search Results', 'jonathansblog');
+        __('Search Results', 'multiloquent');
     } elseif (is_author()) {
-        _e('All entries by this author', 'jonathansblog');
+        _e('All entries by this author', 'multiloquent');
     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
-        _e('Blog Archives', 'jonathansblog');
+        _e('Blog Archives', 'multiloquent');
     }
     ?>
             </h1>
