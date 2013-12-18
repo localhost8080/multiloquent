@@ -14,7 +14,9 @@ if (function_exists('add_theme_support')) {
 if (function_exists('add_image_size')) {
     add_image_size('featured-post-thumbnail', 605, 100);
 }
-
+if (! isset($content_width)) {
+    $content_width = 900;
+}
 add_filter('the_tags', 'add_class_the_tags', 10, 1);
 // Widgetized sidebar
 if (function_exists('register_sidebar')) {
