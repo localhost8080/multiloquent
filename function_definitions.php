@@ -412,7 +412,7 @@ function new_posts_orderby($orderby, $wp_query)
 {
     global $wpdb;
     // $orderby = '';
-    if (is_admin() && function_exists('tptn_pop_posts') ) {
+    if (is_admin() && function_exists('tptn_pop_posts')) {
         $table_name = $wpdb->prefix . "top_ten";
         $wp_query->query = wp_parse_args($wp_query->query);
         if ('post_views' == @$wp_query->query['orderby']) {
