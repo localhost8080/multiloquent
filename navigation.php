@@ -11,8 +11,8 @@
                 <li><?php get_search_form();?></li>
             </ul>
             <?php
-            if (function_exists('dynamic_sidebar') && is_active_sidebar(9)) {
-                dynamic_sidebar(9);
+            if (function_exists('dynamic_sidebar') && is_active_sidebar(1)) {
+                dynamic_sidebar(1);
             }
             ?>
             
