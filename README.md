@@ -1,7 +1,7 @@
 this is the readme.txt for multiloquent theme v6
 
 this theme has 10 widget areas:
-1) [not used] used in the head section: add a text widget in your widget area and put your custom meta tags in here
+1) not used
 2) in advert snippet, included on posts if device is a mobile device - you can use text widgets, or a more advanced advert plugin and place widgets to suit
 3) in advert snippet, included on posts if device is not mobile device - you can use text widgets, or a more advanced advert plugin and place widgets to suit
 4) in sidebar.php [so it goes under the content, but above the footer]
