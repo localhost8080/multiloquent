@@ -38,6 +38,9 @@ if (preg_match('/^FacebookExternalHit\/.*?/i', $_SERVER['HTTP_USER_AGENT'])) {
     if (function_exists('yoast_analytics')) {
         yoast_analytics();
     }
+    if (function_exists('dynamic_sidebar') && is_active_sidebar(1)) {
+        dynamic_sidebar(1);
+    }
     ?>
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <link type="text/css" rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">

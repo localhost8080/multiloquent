@@ -8,8 +8,11 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <?php /*<li><a href="/category"><span class="fa fa-folder-o fa-fw"></span>categories</a></li>
-                    <li><a href="/tags"><span class="fa fa-folder-o fa-fw"></span>tags</a></li>    */?>
+                <?php
+                if (function_exists('dynamic_sidebar') && is_active_sidebar(9)) {
+                    dynamic_sidebar(9);
+                }
+                ?>
                     <li><?php get_search_form();?></li>
             </ul>
         </div>
