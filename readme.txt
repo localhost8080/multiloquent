@@ -1,7 +1,7 @@
 this is the readme.txt for multiloquent theme v6
 
 this theme has 10 widget areas:
-1) not used
+1) used in the top navigation bar, next to the search
 2) in advert snippet, included on posts if device is a mobile device - you can use text widgets, or a more advanced advert plugin and place widgets to suit
 3) in advert snippet, included on posts if device is not mobile device - you can use text widgets, or a more advanced advert plugin and place widgets to suit
 4) in sidebar.php [so it goes under the content, but above the footer]
@@ -9,7 +9,7 @@ this theme has 10 widget areas:
 6) in sidebar.php [so it goes under the content, but above the footer]
 7) in sidebar.php [so it goes under the content, but above the footer]
 8) used in social.php [suggested that you put a text widget in it and add in your social links - to add a second lot, eg for your rss feed / facebook page]
-9) used in navigation.php and displayed in the fixed header navigation. you can drop menus etc in here
+9) [not used]
 10) footer - just above the footer menu for you to add whatever you want
 
 it also has two menus:
