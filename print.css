@@ -72,4 +72,8 @@
         page-break-inside: avoid;
         page-break-after: avoid;
     }
+    .yarpp-related, .tagcloud, footer, .navbar, .comments, .ads  {
+        display:none;
+    }
+    
 }
