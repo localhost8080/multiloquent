@@ -8,7 +8,9 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         get_template_part('featuredimage');
-        echo '<div id="post-' . get_the_ID() . '" ' . get_post_class("post") . '>';
+        echo '<div id="post-' . get_the_ID() . '" ';
+        echo post_class("post");
+        echo '>';
         if (empty($hide_h1_tag)) {
             ?>
 <h1 class="featurette-heading container">
