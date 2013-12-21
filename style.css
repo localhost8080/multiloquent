@@ -1249,6 +1249,9 @@ body.rtl .sharing li {
         min-width: 300px;
         z-index: 500 !important;
     }
+    .navbar-brand {
+      line-height: 23px;
+    }
 }
 
 .alpha {
