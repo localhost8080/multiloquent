@@ -7,7 +7,7 @@
  */
 function version()
 {
-    $version = '6.0.4';
+    $version = '6.0.5';
     return $version;
 }
 
