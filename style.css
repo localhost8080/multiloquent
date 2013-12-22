@@ -89,8 +89,8 @@ p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
     padding-top: 30px;
 }
 
-img {
-    max-width:100%;
+img, .aligncenter, .alignnone, .alignleft, .alignright {
+  max-width: 100%;
 }
 
 .main_image {
