@@ -36,12 +36,16 @@ if (have_posts()) {
 <?php
         get_template_part('advert');
         get_template_part('social');
-        ?>
+        if (comments_open()) {
+            ?>
 <section class="comments_full container">
     <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
                     <?php comments_template(); ?>    
                 </section>
-<?php get_template_part('advert');?>
+<?php
+        }
+        get_template_part('advert');
+        ?>
 <section class="container">
     <div class="tagcloud">
         <div class="tag-cloud">

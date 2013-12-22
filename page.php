@@ -33,7 +33,18 @@ if (is_front_page()) {
     }
     ?>
     </article>
+     <?php
+    if (comments_open()) {
+        ?>
+<section class="comments_full container">
+        <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
+                    <?php comments_template(); ?>    
+                </section>
+<?php
+    }
+    ?>
     <!-- google_ad_section_end-->
+    
             <?php get_template_part('advert');?>
         </div>
 <?php

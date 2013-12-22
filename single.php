@@ -32,12 +32,14 @@ if (have_posts()) {
         get_template_part('advert');
         ?>                    
                         </div>
+                        <?php if (comments_open()) {?>
     <section class="col-sm-12 col-md-6 col-lg-5 comments">
                             <?php
-        comments_template();
-        get_template_part('advert');
-        ?>
+            comments_template();
+            get_template_part('advert');
+            ?>
                         </section>
+                        <?php }?>
 </div>
 <?php get_template_part('social');?>
 <section class="container">
