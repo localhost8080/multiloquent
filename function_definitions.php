@@ -142,7 +142,10 @@ function multiloquent_post_title($post_id=''){
     } else {
         $the_title = get_the_title();
     }
-    return !empty($the_title)?$the_title:'Untitled';
+    if(empty($the_title)){
+    	return 'Untitled Post';
+    } 
+    return $the_title;
 }
 
 function multiloquent_tag_cloud_filter($return)
