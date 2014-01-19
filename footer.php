@@ -21,6 +21,7 @@
                     <li><span class="fa fa-folder-open-o fa-fw"></span> multiloquent html5 theme <?php echo multiloquent_version();?></li>
                     <li><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This website is most definitely not best viewed in Netscape</span></li>
                 </ul>
+                <?php wp_nav_menu( array( 'theme_location' => 'Footer Navigation' ) ); ?>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 no-bullets">
                 <p class="nav-header">More Useful Stuff</p>

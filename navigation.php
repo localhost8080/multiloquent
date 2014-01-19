@@ -10,7 +10,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><?php get_search_form();?></li>
             </ul>
-            <?php
+            <?php wp_nav_menu( array( 'theme_location' => 'Header Navigation' ) );
             if (is_active_sidebar(1)) {
                 dynamic_sidebar(1);
             }
