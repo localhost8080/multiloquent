@@ -7,7 +7,7 @@
  */
 function multiloquent_version()
 {
-    $version = '6.0.6';
+    $version = '6.0.7';
     return $version;
 }
 
@@ -113,8 +113,8 @@ function multiloquent_register()
 function multiloquent_generate_sidebars($array){
 	foreach ($array as $id=>$name){
 	    $args = array(
-	        'name'          => __( $name.' sidebar', 'multiloqient' ),
-	        'description'   => __( $name.' sidebar', 'multiloqient' ),
+	        'name'          => $name.' sidebar',
+	        'description'   => $name.' sidebar',
 	        'before_widget' => '',
 	        'after_widget' => '',
 	        'before_title' => '<p class="nav-header">',
