@@ -1,6 +1,6 @@
 <div class="ads">
 <?php
-if (is_mobile_device()) {
+if (multiloquent_is_mobile_device()) {
     if (is_active_sidebar(2)) {
         dynamic_sidebar(2);
     }

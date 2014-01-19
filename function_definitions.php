@@ -5,13 +5,13 @@
  *
  * @return string
  */
-function version()
+function multiloquent_version()
 {
     $version = '6.0.5';
     return $version;
 }
 
-function featured_image_in_feed($content)
+function multiloquent_featured_image_in_feed($content)
 {
     global $post;
     if (is_feed()) {
@@ -28,54 +28,50 @@ function featured_image_in_feed($content)
 /**
  * performs my initialisation stuff
  */
-function my_init()
+function multiloquent_init()
 {
-    //if (! is_admin() || is_login_page()) {
-    //    wp_deregister_script('jquery');
-    //}
+    // if (! is_admin() || is_login_page()) {
+    // wp_deregister_script('jquery');
+    // }
     add_theme_support('automatic-feed-links');
-    //remove_action('wp_head', 'wp_print_scripts');
-    //remove_action('wp_head', 'wp_print_head_scripts', 9);
-    //remove_action('wp_head', 'wp_enqueue_scripts', 1);
-    //remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
-    //remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
-    //remove_action('personal_options', '_admin_bar_preferences');
+    add_action('wp_enqueue_scripts', 'multiloquen_scripts_method');
+    add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
+    // remove_action('wp_head', 'wp_print_scripts');
+    // remove_action('wp_head', 'wp_print_head_scripts', 9);
+    // remove_action('wp_head', 'wp_enqueue_scripts', 1);
+    // remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
+    // remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
+    // remove_action('personal_options', '_admin_bar_preferences');
     // put the wp head at the bottom, to see if the pageloads are faster....
-    //add_action('wp_footer', 'wp_print_scripts', 5);
-    //add_action('wp_footer', 'wp_enqueue_scripts', 5);
-    //add_action('wp_footer', 'wp_print_head_scripts', 5);
+    // add_action('wp_footer', 'wp_print_scripts', 5);
+    // add_action('wp_footer', 'wp_enqueue_scripts', 5);
+    // add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 
-function dequeue_devicepx()
+function multiloquent_scripts_method()
 {
-    wp_dequeue_script('devicepx');
-}
-
-function is_login_page()
-{
-    return in_array($GLOBALS['pagenow'], array(
-        'wp-login.php',
-        'wp-register.php'
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(
+        'jquery'
     ));
 }
 
-function remove_hentry_function($classes)
+function multiloquent_stylesheet_method()
 {
-    if (($key = array_search('hentry', $classes)) !== false) {
-        unset($classes[$key]);
-    }
-    return $classes;
+    // Respects SSL, Style.css is relative to the current file
+    wp_register_style('bootstrap-css', get_template_directory_uri() . '/bootstrap.css');
+    wp_enqueue_style('bootstrap-css');
 }
 
-function register_my_menus()
+function multiloquent_register()
 {
     register_nav_menus(array(
         'header_menu' => __('Header Navigation', 'multiloquent'),
         'footer_menu' => __('Footer Navigation', 'multiloquent')
     ));
-    add_filter('the_content', 'featured_image_in_feed');
-    add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
-    add_filter('post_class', 'remove_hentry_function', 20);
+    add_filter('the_content', 'multiloquent_featured_image_in_feed');
+    // add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
+    add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
+    add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
     load_theme_textdomain('multiloquent');
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(605, 100);
@@ -83,36 +79,38 @@ function register_my_menus()
     if (! isset($content_width)) {
         $content_width = 900;
     }
-    add_filter('the_tags', 'add_class_the_tags', 10, 1);
     // Widgetized sidebar
     register_sidebars((10), array(
-    'before_widget' => '',
-    'after_widget' => '',
-    'before_title' => '<p class="nav-header">',
-    'after_title' => '</p>',
-    'class' => ''
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<p class="nav-header">',
+        'after_title' => '</p>',
+        'class' => ''
     ));
-    add_filter('widget_tag_cloud_args', 'my_widget_tag_cloud_args');
-    add_action('wp_tag_cloud', 'add_tag_class');
-    add_filter('wp_tag_cloud', 'wp_tag_cloud_filter', 10, 2);
-    add_filter('get_avatar', 'shoestrap_get_avatar');
+    add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
+    add_action('wp_tag_cloud', 'multiloquent_add_tag_class');
+    add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
+    add_filter('get_avatar', 'multiloquent_get_avatar');
     if (is_admin()) {
-        add_filter('manage_posts_columns', 'post_column_views');
-        add_action('manage_posts_custom_column', 'post_custom_column_views', 10, 2);
-        add_filter('manage_edit-post_sortable_columns', 'register_post_column_views_sortable');
-        add_filter('posts_orderby', 'new_posts_orderby', 10, 2);
         add_editor_style('style.css');
     }
-    
 }
 
-function add_class_the_tags($html)
+function multiloquent_remove_hentry_function($classes)
+{
+    if (($key = array_search('hentry', $classes)) !== false) {
+        unset($classes[$key]);
+    }
+    return $classes;
+}
+
+function multiloquent_add_class_the_tags($html)
 {
     $html = str_replace('<a', '<a class="label"', $html);
     return $html;
 }
 
-function my_widget_tag_cloud_args($args)
+function multiloquent_widget_tag_cloud_args($args)
 {
     $args['number'] = 20; // show less tags
     $args['largest'] = 9.75; // make largest and smallest the same - i don't like the varying font-size look
@@ -121,7 +119,7 @@ function my_widget_tag_cloud_args($args)
     return $args;
 }
 // filter tag clould output so that it can be styled by CSS
-function add_tag_class($taglinks)
+function multiloquent_add_tag_class($taglinks)
 {
     $tags = explode('</a>', $taglinks);
     $regex = "#(.*tag-link[-])(.*)(' title.*)#e";
@@ -132,7 +130,7 @@ function add_tag_class($taglinks)
     return $taglinks;
 }
 
-function wp_tag_cloud_filter($return)
+function multiloquent_tag_cloud_filter($return)
 {
     return '<div id="tag-cloud">' . $return . '</div>';
 }
@@ -140,80 +138,44 @@ function wp_tag_cloud_filter($return)
 /**
  * outputs the breadcrumb
  */
-function breadcrumbs()
+function multiloquent_breadcrumbs()
 {
+    $return = '';
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
-        echo '<li><a href="';
-        echo home_url();
-        echo '">';
-        echo 'home';
-        echo '</a></li><li>';
+        $return .= '<li><a href="';
+        $return .= home_url();
+        $return .= '">';
+        $return .= 'home';
+        $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category();
         $catID = $category[0]->cat_ID;
-        echo get_category_parents($catID, true, '</li><li>', false);
+        $return .= get_category_parents($catID, true, '</li><li>', false);
     }
     if (is_single()) {
-        echo get_the_title() . '</li>';
+        $return .= get_the_title() . '</li>';
     }
     if (is_page()) {
-        echo get_the_title() . '</li>';
+        $return .= get_the_title() . '</li>';
     }
     if (is_tag()) {
-        echo 'Tag: ' . single_tag_title('', false) . '</li>';
+        $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
     }
     if (is_404()) {
-        echo '404 - Page not Found<li>';
+        $return .= '404 - Page not Found<li>';
     }
     if (is_search()) {
-        echo 'Search</li>';
+        $return .= 'Search</li>';
     }
     if (is_year()) {
-        echo get_the_time('Y') . '</li>';
+        $return .= get_the_time('Y') . '</li>';
     }
-    // TODO - make it return rather than echo
+    return $return;
 }
 
-function theimg2()
-{
-    global $theimg2;
-    // if its empty, set a random value upto 40 [I have 40 images that i want to return..]
-    if (empty($theimg2)) {
-        $theimg2 = rand(1, 39);
-    } else {
-        $theimg2 ++;
-        if ($theimg2 > 39) {
-            $theimg2 = rand(1, 39);
-        }
-    }
-    return $theimg2;
-}
-
-/**
- * Function that Rounds To The Nearest Value.
- * Needed for the pagenavi() function
- */
-function round_num($num, $to_nearest)
-{
-    /* Round fractions down (http://php.net/manual/en/function.floor.php) */
-    return floor($num / $to_nearest) * $to_nearest;
-}
-
-function jb_get_previous_posts_link($label = null)
-{
-    global $paged;
-    if (null === $label) {
-        $label = __('&laquo; Previous Page', 'multiloquent');
-    }
-    if (! is_single() && $paged > 1) {
-        $attr = apply_filters('previous_posts_link_attributes', '');
-        return '<a href="' . untrailingslashit(previous_posts(false)) . "\" $attr>" . preg_replace('/&([^#])(?![a-z]{1,8};)/i', '&#038;$1', $label) . '</a>';
-    }
-}
-
-function render_pagingation()
+function multiloquent_render_pagingation()
 {
     global $wp_query;
     $total_pages = $wp_query->max_num_pages;
@@ -229,7 +191,7 @@ function render_pagingation()
     }
 }
 
-function get_random_solid_class($class = '')
+function multiloquent_get_random_solid_class($class = '')
 {
     $input = array(
         "swatch-red",
@@ -273,7 +235,7 @@ function get_random_solid_class($class = '')
     }
 }
 
-function get_random_blue_class()
+function multiloquent_get_random_blue_class()
 {
     $input = array(
         "swatch-blue1",
@@ -315,7 +277,7 @@ function get_random_blue_class()
     }
 }
 
-function get_random_colour_class($class = '')
+function multiloquent_get_random_colour_class($class = '')
 {
     $input = array(
         "gradient-red",
@@ -359,7 +321,7 @@ function get_random_colour_class($class = '')
     }
 }
 
-function get_user_agents_list()
+function multiloquent_get_user_agents_list()
 {
     $useragents = array(
         "iPhone", // Apple iPhone
@@ -385,9 +347,9 @@ function get_user_agents_list()
     return $useragents;
 }
 
-function is_mobile_device()
+function multiloquent_is_mobile_device()
 {
-    $useragents = get_user_agents_list();
+    $useragents = multiloquent_get_user_agents_list();
     // echo '<!-- useragents'.print_r($userAgents).'-->';
     if (! empty($_SERVER['HTTP_USER_AGENT'])) {
         $browser = $_SERVER['HTTP_USER_AGENT'];
@@ -405,55 +367,9 @@ function is_mobile_device()
     return $return;
 }
 
-function get_PostViews($post_ID)
-{
-    global $wpdb;
-    if (function_exists('tptn_pop_posts')) {
-        $table_name = $wpdb->prefix . "top_ten";
-        $cntaccess = '';
-        if (is_admin()) {
-            $resultscount = $wpdb->get_row("select postnumber, cntaccess from $table_name WHERE postnumber = $post_ID");
-            $cntaccess = number_format((($resultscount) ? $resultscount->cntaccess : 0));
-        }
-    return $cntaccess;
-    }
-}
-// Function: Add/Register the Non-sortable 'Views' Column to your Posts tab in WP Dashboard.
-function post_column_views($newcolumn)
-{
-    // Retrieves the translated string, if translation exists, and assign it to the 'default' array.
-    $newcolumn['post_views'] = __('Views', 'multiloquent');
-    return $newcolumn;
-}
 
-function post_custom_column_views($column_name)
-{
-    if ($column_name === 'post_views') {
-        echo get_PostViews(get_the_ID());
-    }
-}
 
-function register_post_column_views_sortable($newcolumn)
-{
-    $newcolumn['post_views'] = 'post_views';
-    return $newcolumn;
-}
-// Add the sorting SQL for the themes
-function new_posts_orderby($orderby, $wp_query)
-{
-    global $wpdb;
-    // $orderby = '';
-    if (is_admin() && function_exists('tptn_pop_posts')) {
-        $table_name = $wpdb->prefix . "top_ten";
-        $wp_query->query = wp_parse_args($wp_query->query);
-        if ('post_views' == @$wp_query->query['orderby']) {
-            $orderby = "(select cntaccess from " . $table_name . " WHERE postnumber = $wpdb->posts.ID) " . $wp_query->get('order') . "";
-        }
-        return $orderby;
-    }
-}
-
-function make_category_list_as_hierarchy($cat = '0')
+function multiloquent_category_list_as_hierarchy($cat = '0')
 {
     $tags = get_categories('hide_empty=true&orderby=name&order=ASC&parent=' . $cat);
     // Output a wrapper so that our arrays will be contained in 4 columns.
@@ -461,10 +377,10 @@ function make_category_list_as_hierarchy($cat = '0')
     if ($tags) {
         // Output the markup for each tag found for each character.
         // in here I need to recurse down
-        $old_tile_colour = get_random_blue_class();
+        $old_tile_colour = multiloquent_get_random_blue_class();
         foreach ((array) $tags as $tag) {
             // set the old colour so I can re-set it at the bottom
-            $new_tile_colour = get_random_solid_class($tag->slug);
+            $new_tile_colour = multiloquent_get_random_solid_class($tag->slug);
             // fetch the new colour, if the returned string matches the slug, then set the tile_colour to it, otherwise,
             // set it to the old one which is only set before this loop
             if ($new_tile_colour == $tag->slug) {
@@ -502,7 +418,7 @@ function make_category_list_as_hierarchy($cat = '0')
             }
             $html .= '<span class="badge">' . $tag->count . '</span>';
             $html .= "</li>";
-            $html .= make_category_list_as_hierarchy($tag->term_id);
+            $html .= multiloquent_category_list_as_hierarchy($tag->term_id);
             if ($cat == '0') {
                 $html .= '</ul>';
             }
@@ -511,7 +427,7 @@ function make_category_list_as_hierarchy($cat = '0')
     return $html;
 }
 
-function jb_paralax_slider()
+function multiloquent_paralax_slider()
 {
     global $wpdb;
     $output = '';
@@ -583,7 +499,7 @@ function jb_paralax_slider()
         if ($posttags) {
             foreach ($posttags as $tag) {
                 $output .= '<a class="label ';
-                $output .= get_random_solid_class($tag->slug);
+                $output .= multiloquent_get_random_solid_class($tag->slug);
                 $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
@@ -595,16 +511,16 @@ function jb_paralax_slider()
     return $output;
 }
 
-function shoestrap_get_avatar($avatar)
+function multiloquent_get_avatar($avatar)
 {
     $avatar = str_replace("class='avatar", "class='avatar pull-left media-object", $avatar);
     return $avatar;
 }
 
-function render_the_archive()
+function multiloquent_render_the_archive()
 {
     global $post;
-    $tile_colour = get_random_blue_class();
+    $tile_colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
         // set it to blank so that it doesnt get the previous one..
@@ -632,7 +548,7 @@ function render_the_archive()
         if ($posttags) {
             foreach ($posttags as $tag) {
                 echo '<a class="label ';
-                echo get_random_solid_class($tag->slug);
+                echo multiloquent_get_random_solid_class($tag->slug);
                 echo '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }

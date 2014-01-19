@@ -34,10 +34,10 @@ get_header();
             // Output the markup for each tag found for each character.
             if ($tags) {
                 $html .= '<ul class="thumbnails row">';
-                $first_colour = get_random_solid_class($tag->slug);
+                $first_colour = multiloquent_get_random_solid_class($tag->slug);
                 foreach ((array) $tags as $tag) {
                     $tag_link = get_tag_link($tag->term_id);
-                    $second_colour = get_random_blue_class($tag->slug);
+                    $second_colour = multiloquent_get_random_blue_class($tag->slug);
                     if ($tag->slug == $second_colour) {
                         $tile_colour = $second_colour;
                     } else {

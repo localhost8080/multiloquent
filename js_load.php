@@ -2,8 +2,8 @@
 
 var dfLoadStatus = 0;
 var dfLoadFiles = [
-      ["//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"],
-      ["//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"]
+     // - have to use the builtin jquery :| ["//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"],
+     // - have to enqueue this via wp_enqueue_script ["//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"]
      ];
 
 function loadjs() {

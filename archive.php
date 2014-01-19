@@ -37,14 +37,14 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				<?php render_the_archive();?>
+				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
-				<?php render_pagingation(); ?>
+				<?php multiloquent_render_pagingation(); ?>
 			</div>
         </nav>
     </div>
