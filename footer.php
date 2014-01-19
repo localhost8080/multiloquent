@@ -18,7 +18,7 @@
                     }
                     ?>
                     <li><span class="fa fa-clock-o fa-fw"></span> &#169; 2008 - <?php echo date('Y') .' '. get_bloginfo('name'); ?></li>
-                    <li><span class="fa fa-folder-open-o fa-fw"></span> multiloquent html5 theme <?php echo version();?></li>
+                    <li><span class="fa fa-folder-open-o fa-fw"></span> multiloquent html5 theme <?php echo multiloquent_version();?></li>
                     <li><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This website is most definitely not best viewed in Netscape</span></li>
                 </ul>
             </div>
