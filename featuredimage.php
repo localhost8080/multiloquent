@@ -15,8 +15,8 @@ if (has_post_thumbnail()) {
     // use the old method
     if (get_post_meta($post->ID, 'leadimage', true)) {
     } else {
-        global $hide_h1_tag;
-        $hide_h1_tag = 1;
+        global $multiloquent_hide_h1_tag;
+        $multiloquent_hide_h1_tag = 1;
         ?>
 <div class="jumbotron">
     <div class="container">

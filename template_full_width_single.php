@@ -11,7 +11,7 @@ if (have_posts()) {
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
-        if (empty($hide_h1_tag)) {
+        if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="featurette-heading container">
 <?php the_title();?>
