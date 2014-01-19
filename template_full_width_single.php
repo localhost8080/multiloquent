@@ -14,7 +14,7 @@ if (have_posts()) {
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="featurette-heading container">
-<?php the_title();?>
+<?php echo multiloquent_post_title();?>
 </h1>
 <?php
         }
@@ -39,7 +39,7 @@ if (have_posts()) {
         if (comments_open()) {
             ?>
 <section class="comments_full container">
-    <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
+    <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
                     <?php comments_template(); ?>    
                 </section>
 <?php
@@ -49,7 +49,7 @@ if (have_posts()) {
 <section class="container">
     <div class="tagcloud">
         <div class="tag-cloud">
-            <h3>Tags for <?php the_title(); ?></h3>
+            <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
             <?php
         $posttags = get_the_tags();
         if ($posttags) {

@@ -14,11 +14,11 @@ if (have_posts()) {
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="featurette-heading container">
-					<?php the_title();?>
+					<?php echo multiloquent_post_title();?>
 				</h1>
 <?php
         }
-        $title_string = get_the_title();
+        $title_string = multiloquent_post_title();;
         $title_string = str_replace('plan', '', $title_string);
         $title_string = str_replace('part', '', $title_string);
         $title_string = str_replace('day', '', $title_string);

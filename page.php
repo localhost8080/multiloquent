@@ -37,7 +37,7 @@ if (is_front_page()) {
     if (comments_open()) {
         ?>
 <section class="comments_full container">
-        <h3 class="hidden-lg">Comments for <?php the_title(); ?></h3>
+        <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title() ?></h3>
                     <?php comments_template(); ?>    
                 </section>
 <?php

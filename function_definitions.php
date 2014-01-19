@@ -136,6 +136,15 @@ function multiloquent_add_tag_class($taglinks)
     return $taglinks;
 }
 
+function multiloquent_post_title($post_id=''){
+    if(!empty($post_id)){
+        $the_title = get_the_title($post_id);
+    } else {
+        $the_title = get_the_title();
+    }
+    return !empty($the_title)?$the_title:'Untitled';
+}
+
 function multiloquent_tag_cloud_filter($return)
 {
     return '<div id="tag-cloud">' . $return . '</div>';
@@ -161,10 +170,10 @@ function multiloquent_breadcrumbs()
         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
     if (is_single()) {
-        $return .= get_the_title() . '</li>';
+        $return .= multiloquent_post_title() . '</li>';
     }
     if (is_page()) {
-        $return .= get_the_title() . '</li>';
+        $return .= multiloquent_post_title() . '</li>';
     }
     if (is_tag()) {
         $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
@@ -476,30 +485,30 @@ function multiloquent_paralax_slider()
         }
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
         }
         if ($count == '2') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
         }
         if ($count == '4') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue"></div>';
         }
         if ($count == '5') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(get_the_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
-        $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(get_the_title($val->ID))) . '</a></span>';
+        $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '<p>';
         $posttags = wp_get_post_tags($val->ID);
         if ($posttags) {
@@ -544,10 +553,10 @@ function multiloquent_render_the_archive()
         }
         ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-    <img src="<?php echo $theimg?>" class="grayscale" alt="<?php the_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+    <img src="<?php echo $theimg?>" class="grayscale" alt="<?php echo multiloquent_post_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
     <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
     <div class="paralax_image_text">
-        <span class="h1"><a href="<?php the_permalink() ?>"><?php  the_title()?></a></span>
+        <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
     	<?php
         $posttags = wp_get_post_tags($post->ID);

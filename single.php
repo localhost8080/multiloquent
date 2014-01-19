@@ -11,7 +11,7 @@ if (have_posts()) {
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="container featurette-heading">
-                        <?php the_title();?>
+                        <?php echo multiloquent_post_title();?>
                     </h1>
 <?php
         }
@@ -45,7 +45,7 @@ if (have_posts()) {
 <section class="container">
     <div class="tagcloud">
         <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
-            <h3>Tags for <?php the_title(); ?></h3>
+            <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
             <div>
         <?php
         $posttags = get_the_tags();

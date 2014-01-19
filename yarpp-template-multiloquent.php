@@ -4,7 +4,7 @@
  */
 ?>
 <section class="container post">
-    <h3>Other Posts related to <?php the_title(); ?></h3>
+    <h3>Other Posts related to <?php echo multiloquent_post_title(); ?></h3>
     <div class="row">
 <?php
 if (have_posts()) {
