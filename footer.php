@@ -35,7 +35,6 @@
     </div>
 </footer>
 <?php
-get_template_part('js_load');
 wp_footer();
 ?>
 </body>
