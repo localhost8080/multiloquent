@@ -16,8 +16,7 @@
                 'container' => 'false',
                 'menu_class' => 'dropdown-menu',
                 'menu_id' => '',
-                'before' => '<li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>',
+                'before' => '',
                 'after' => '</li>',
                 'link_before' => '',
                 'link_after' => '',
