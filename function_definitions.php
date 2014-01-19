@@ -85,14 +85,6 @@ function multiloquent_register()
     if (! isset($content_width)) {
         $content_width = 900;
     }
-    // Widgetized sidebar
-    register_sidebars((10), array(
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<p class="nav-header">',
-        'after_title' => '</p>',
-        'class' => ''
-    ));
     add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_action('wp_tag_cloud', 'multiloquent_add_tag_class');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
@@ -100,6 +92,38 @@ function multiloquent_register()
     if (is_admin()) {
         add_editor_style('style.css');
     }
+    
+    // Widgetized sidebars
+    $sidebars = array(
+    	'1'=>'top navigation',
+        '2'=>'mobile specific advert',
+        '3'=>'non-mobile specific advert',
+        '4'=>'above footer top left',
+        '5'=>'above footer top right',
+        '6'=>'above footer bottom left',
+        '7'=>'above footer bottom right',
+        '8'=>'social media',
+        '9'=>'spare',
+        '10'=>'footer area',
+    );
+    multiloquent_generate_sidebars($array);
+ 
+    
+}
+
+function multiloquent_generate_sidebars($array){
+	foreach ($array as $id=>$name){
+	    $args = array(
+	        'name'          => __( $name.' sidebar', 'multiloqient' ),
+	        'description'   => __( $name.' sidebar', 'multiloqient' ),
+	        'before_widget' => '',
+	        'after_widget' => '',
+	        'before_title' => '<p class="nav-header">',
+	        'after_title' => '</p>',
+	        'class' => ''
+	    );
+	    register_sidebar( $args );
+	}
 }
 
 function multiloquent_remove_hentry_function($classes)
