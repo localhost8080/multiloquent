@@ -26,7 +26,7 @@
                 <p class="nav-header">More Useful Stuff</p>
                 <?php
                 // sidebar 10 for some things in footer
-                if (function_exists('dynamic_sidebar') && is_active_sidebar(10)) {
+                if (is_active_sidebar(10)) {
                     dynamic_sidebar(10);
                 }
                 ?>

@@ -10,7 +10,7 @@
         </div>
         <div class="col-xs-6 col-sm-5 col-md-6 col-lg-6 sharing_buttons">
            <?php
-        if (function_exists('dynamic_sidebar') && is_active_sidebar(8)) {
+        if (is_active_sidebar(8)) {
             dynamic_sidebar(8);
         }
         ?>
