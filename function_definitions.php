@@ -30,20 +30,20 @@ function featured_image_in_feed($content)
  */
 function my_init()
 {
-    if (! is_admin() || is_login_page()) {
-        wp_deregister_script('jquery');
-    }
+    //if (! is_admin() || is_login_page()) {
+    //    wp_deregister_script('jquery');
+    //}
     add_theme_support('automatic-feed-links');
-    remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 9);
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
-    remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
-    remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
-    remove_action('personal_options', '_admin_bar_preferences');
+    //remove_action('wp_head', 'wp_print_scripts');
+    //remove_action('wp_head', 'wp_print_head_scripts', 9);
+    //remove_action('wp_head', 'wp_enqueue_scripts', 1);
+    //remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
+    //remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
+    //remove_action('personal_options', '_admin_bar_preferences');
     // put the wp head at the bottom, to see if the pageloads are faster....
-    add_action('wp_footer', 'wp_print_scripts', 5);
-    add_action('wp_footer', 'wp_enqueue_scripts', 5);
-    add_action('wp_footer', 'wp_print_head_scripts', 5);
+    //add_action('wp_footer', 'wp_print_scripts', 5);
+    //add_action('wp_footer', 'wp_enqueue_scripts', 5);
+    //add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 
 function dequeue_devicepx()
