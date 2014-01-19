@@ -1,9 +1,12 @@
 <?php
+/*
+ * Template Name: tag Index
+*/
 get_header();
 ?>
 <div class="jumbotron">
     <div class="container">
-        <h1>Jonathans Blog Tag list</h1>
+        <h1>Tag list</h1>
     </div>
 </div>
 <div class="container">
