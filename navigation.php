@@ -13,8 +13,8 @@
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'Header Navigation',
-                'container' => '',
-                'container_class' => '',
+                'container' => 'li',
+                'container_class' => 'dropdown-menu',
                 'container_id' => '',
                 'menu_class' => 'dropdown-menu',
                 'menu_id' => '',
