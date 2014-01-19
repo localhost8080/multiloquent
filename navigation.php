@@ -13,9 +13,7 @@
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'Header Navigation',
-                'container' => 'li',
-                'container_class' => 'dropdown-menu',
-                'container_id' => '',
+                'container' => 'false',
                 'menu_class' => 'dropdown-menu',
                 'menu_id' => '',
                 'before' => '<li class="dropdown">
