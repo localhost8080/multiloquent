@@ -510,9 +510,18 @@ figcaption {
     text-align: center;
 }
 
-.aligncenter,.alignnone,.alignleft,.alignright {
+.aligncenter{
     margin: 0 auto;
 }
+
+.alignleft {
+    float:left;
+}
+
+.alignright {
+    float:right;
+}
+
 
 div.thumbnail .featured-image {
     height: 100px;
