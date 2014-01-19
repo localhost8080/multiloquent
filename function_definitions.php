@@ -50,7 +50,7 @@ function multiloquent_init()
 
 function multiloquent_scripts_method()
 {
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/bootstrap.min.js', array(
         'jquery'
     ));
 }
@@ -58,8 +58,10 @@ function multiloquent_scripts_method()
 function multiloquent_stylesheet_method()
 {
     // Respects SSL, Style.css is relative to the current file
-    wp_register_style('bootstrap-css', get_template_directory_uri() . '/bootstrap.css');
+    wp_register_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/bootstrap.min.css');
+    wp_register_style('print-css', get_template_directory_uri() . '/print.css');
     wp_enqueue_style('bootstrap-css');
+    wp_enqueue_style('print-css');
 }
 
 function multiloquent_register()
