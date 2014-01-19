@@ -36,9 +36,6 @@
 </footer>
 <?php
 get_template_part('js_load');
-if (function_exists('tptn_add_viewed_count')) {
-    echo tptn_add_viewed_count(' ');
-}
 wp_footer();
 ?>
 </body>
