@@ -12,7 +12,9 @@
             </ul>
             <?php
             if (is_active_sidebar(1)) {
+                echo '<div class="restricted-height-sidebar">';
                 dynamic_sidebar(1);
+                echo '</div>';
             }
             ?>
             
