@@ -103,8 +103,8 @@ function multiloquent_register()
         '6'=>'above footer bottom left',
         '7'=>'above footer bottom right',
         '8'=>'social media',
-        '9'=>'spare',
-        '10'=>'footer area',
+        '9'=>'footer middle',
+        '10'=>'footer right',
     );
     multiloquent_generate_sidebars($sidebars);
  

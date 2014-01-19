@@ -5,7 +5,7 @@
             <?php get_sidebar(); ?>
         </aside>
         <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
+            <div class="col-sm-4 col-md-4 col-lg-4 no-bullets">
                 <p class="nav-header">Useful Stuff</p>
                 <ul>
                         
@@ -22,7 +22,16 @@
                     <li><span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This website is most definitely not best viewed in Netscape</span></li>
                 </ul>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
+            <div class="col-sm-4 col-md-4 col-lg-4 no-bullets">
+                <p class="nav-header">More Useful Stuff</p>
+                <?php
+                // sidebar 10 for some things in footer
+                if (is_active_sidebar(9)) {
+                    dynamic_sidebar(9);
+                }
+                ?>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4 no-bullets">
                 <p class="nav-header">More Useful Stuff</p>
                 <?php
                 // sidebar 10 for some things in footer
