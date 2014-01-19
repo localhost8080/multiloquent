@@ -1,7 +1,4 @@
 <?php
-/*
- * Template Name: Tag Index
- */
 get_header();
 ?>
 <div class="jumbotron">
