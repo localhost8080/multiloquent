@@ -1291,7 +1291,9 @@ body.rtl .sharing li {
     position: relative;
     text-decoration: none;
 }
-.restricted-height-sidebar{
-    max-height:20px;
-    overflow:hidden;
+
+.restricted-height-sidebar {
+  line-height: 53px;
+  max-height: 53px;
+  overflow: hidden;
 }
