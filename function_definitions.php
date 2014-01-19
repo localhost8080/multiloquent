@@ -34,7 +34,7 @@ function multiloquent_init()
     // wp_deregister_script('jquery');
     // }
     add_theme_support('automatic-feed-links');
-    add_action('wp_enqueue_scripts', 'multiloquen_scripts_method');
+    add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
     // remove_action('wp_head', 'wp_print_scripts');
     // remove_action('wp_head', 'wp_print_head_scripts', 9);
