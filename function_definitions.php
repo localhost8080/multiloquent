@@ -106,7 +106,7 @@ function multiloquent_register()
         '9'=>'spare',
         '10'=>'footer area',
     );
-    multiloquent_generate_sidebars($array);
+    multiloquent_generate_sidebars($sidebars);
  
     
 }
