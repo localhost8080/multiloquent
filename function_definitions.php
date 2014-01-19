@@ -71,7 +71,6 @@ function multiloquent_stylesheet_method()
 function multiloquent_register()
 {
     register_nav_menus(array(
-        'header_menu' => __('Header Navigation', 'multiloquent'),
         'footer_menu' => __('Footer Navigation', 'multiloquent')
     ));
     add_filter('the_content', 'multiloquent_featured_image_in_feed');

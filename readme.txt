@@ -14,11 +14,8 @@ this theme has 10 widget areas:
 
 it also has two menus:
 
-header menu:
-this menu is shown in the top nav bar and is a bootstrap dropdown style menu
-
 footer menu
-this menu is shown in the footer left hand column and is a bootstrap button group 
+this menu is shown in the footer left hand column 
 
 post tags:
 these are bootstrap 'label' style buttons and will have different colours based on the total number of times the tag has been used across all posts / pages on your site

@@ -11,17 +11,6 @@
                 <li><?php get_search_form();?></li>
             </ul>
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'Header Navigation',
-                'container' => 'false',
-                'menu_class' => 'dropdown-menu',
-                'menu_id' => '',
-                'before' => '',
-                'after' => '</li>',
-                'link_before' => '',
-                'link_after' => '',
-                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>'
-            ));
             if (is_active_sidebar(1)) {
                 dynamic_sidebar(1);
             }
