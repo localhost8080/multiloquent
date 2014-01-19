@@ -23,7 +23,6 @@ this menu is shown in the footer and is a bootstrap button group
 post tags:
 these are bootstrap 'label' style buttons and will have different colours based on the total number of times the tag has been used across all posts / pages on your site
 
-
 other things:
 
 the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
@@ -35,11 +34,10 @@ has a theme for TW Recent Posts Widget 'yarpp' - yet another related posts plugi
 [I suggest that you pick multiples of 3 for the number of related posts to show - 3 will be one row, 6 will be two rows]
 http://wordpress.org/extend/plugins/yet-another-related-posts-plugin/
 
-has suport for greggs seo plugin [eg, will use the meta tags, etc if you have it installed]
-http://gregsplugins.com/lib/plugin-details/gregs-high-performance-seo/
-
 has support for jetpack sharing plugins [and puts them in the correct position in your post if you have it installed]
 http://wordpress.org/extend/plugins/jetpack/
 
+category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
+tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
 
-moves as much js to the footer as possible without breaking wordpress for faster page loads
+
