@@ -8,7 +8,7 @@
     <div class="row">
 <?php
 if (have_posts()) {
-    render_the_archive($posts);
+    multiloquent_render_the_archive($posts);
 } else {
     echo '<p>No related posts.</p>';
 }
