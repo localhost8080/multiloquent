@@ -18,8 +18,14 @@ if (have_posts()) {
         get_template_part('breadcrumb');
         ?>
 <div class="container">
-    <div class="col-sm-12 col-md-6 col-lg-7">
-                            <?php
+
+
+<?php if (comments_open()) {?>
+    <div class="col-sm-12 col-md-6 col-lg-7">    
+<?php } else { ?>
+   <div class="col-sm-12 col-md-12 col-lg-12">
+<?php
+        }
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];
@@ -43,10 +49,10 @@ if (have_posts()) {
 </div>
 <?php get_template_part('social');?>
 <section class="container">
-    <div class="tagcloud">
-        <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
-            <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
-            <div>
+        <div class="tagcloud">
+            <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
+                <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
+                <div>
         <?php
         $posttags = get_the_tags();
         if ($posttags) {
@@ -60,17 +66,17 @@ if (have_posts()) {
         }
         ?>
                 </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 <?php
         if (function_exists('related_posts')) {
             ?>
 <section class="container post">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-12 col-md-12 col-lg-12">
                             <?php related_posts();?>
                         </div>
-</section>
+    </section>
 <?php
         }
         get_template_part('advert');
