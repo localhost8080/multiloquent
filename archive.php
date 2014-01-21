@@ -11,7 +11,7 @@ if (have_posts()) {
         printf(__('%s', 'multiloquent'), single_cat_title('', false));
     } elseif (is_tag()) {
         _e('Posts Tagged', 'multiloquent');
-        echo '&#8216;';
+        echo '&#8216; ';
         single_tag_title();
         echo '&#8217;';
     } elseif (is_day()) {
