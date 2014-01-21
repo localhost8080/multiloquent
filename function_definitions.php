@@ -348,54 +348,6 @@ function multiloquent_get_random_colour_class($class = '')
     }
 }
 
-function multiloquent_get_user_agents_list()
-{
-    $useragents = array(
-        "iPhone", // Apple iPhone
-        "iPod", // Apple iPod touch
-        "incognito", // Other iPhone browser
-        "iPad", // iPad
-        "webmate", // Other iPhone browser
-        "Android", // 1.5+ Android
-        "dream", // Pre 1.5 Android
-        "CUPCAKE", // 1.5+ Android
-        "blackberry9500", // Storm
-        "blackberry9530", // Storm
-        "blackberry9520", // Storm v2
-        "blackberry9550", // Storm v2
-        "blackberry 9800", // Torch
-        "webOS", // Palm Pre Experimental
-        "s8000", // Samsung Dolphin browser
-        "bada", // Samsung Dolphin browser
-        "Googlebot-Mobile", // the Google mobile crawler
-        "MSIE" // force internet explorer to not get the cool stuff cos its crap
-        );
-    asort($useragents);
-    return $useragents;
-}
-
-function multiloquent_is_mobile_device()
-{
-    $useragents = multiloquent_get_user_agents_list();
-    // echo '<!-- useragents'.print_r($userAgents).'-->';
-    if (! empty($_SERVER['HTTP_USER_AGENT'])) {
-        $browser = $_SERVER['HTTP_USER_AGENT'];
-    } else {
-        $browser = '';
-    }
-    foreach ($useragents as $agent) {
-        if (preg_match("#$agent#i", $browser)) {
-            $return = true;
-            break;
-        } else {
-            $return = false;
-        }
-    }
-    return $return;
-}
-
-
-
 function multiloquent_category_list_as_hierarchy($cat = '0')
 {
     $tags = get_categories('hide_empty=true&orderby=name&order=ASC&parent=' . $cat);
