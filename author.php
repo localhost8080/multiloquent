@@ -7,11 +7,11 @@ if (have_posts()) {
 <div class="jumbotron">
     <div class="container">
         <header>
-            <h1 class="article_title">
+            <p><h1 class="article_title">
 			<?php
             _e('All entries by ', 'multiloquent') . the_author();
             ?>
-            </h1>
+            </h1></p>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
             <?php 
