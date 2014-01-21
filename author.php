@@ -15,7 +15,13 @@ if (have_posts()) {
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <p><b>Author name: </b><?php the_author_meta( 'display_name' ); ?></p>
             <p><b>Author homepage: </b><?php the_author_link();?></p>
-            <p><b>About: </b><?php the_author_meta( 'description' ); ?></p>            
+            <?php 
+            $description = get_the_author_meta( 'description' );
+            if(!empty($description)){
+                echo '<p>'.$description.'</p>';
+            }
+            
+            ?>            
         </header>
     </div>
 </div>
