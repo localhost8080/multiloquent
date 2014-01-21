@@ -434,7 +434,7 @@ function multiloquent_paralax_slider()
         $recent_posts = get_posts($args);
     }
     $count = 1;
-    $output = '<div class="container"><div class="row alpha">';
+    $output = '<div class="container mb"><div class="row alpha">';
     foreach ($recent_posts as $key => $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         ;
