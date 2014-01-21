@@ -13,13 +13,13 @@ if (have_posts()) {
             ?>
             </h1>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"> 
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
             <?php 
             echo get_avatar(get_the_author_meta( 'ID' ));
             
             ?>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9"> 
+            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"> 
             <p><b>Author name: </b><?php the_author_meta( 'display_name' ); ?></p>
             <p><b>Author homepage: </b><?php the_author_link();?></p>
             <?php 
