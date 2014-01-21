@@ -23,7 +23,7 @@ these are bootstrap 'label' style buttons and will have different colours based 
 other things:
 
 the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
-http://ajaydsouza.com/wordpress/plugins/top-10/
+http://wordpress.org/extend/plugins/top-10/
 it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image
 
 
