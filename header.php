@@ -12,9 +12,4 @@
     wp_head();
     ?>
 </head>
-<body <?php
-if (is_home()) {
-    echo 'id="home"';
-}
-body_class();
-?>>
+<body <?php body_class();?>>
