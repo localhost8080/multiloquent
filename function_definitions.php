@@ -173,7 +173,7 @@ function multiloquent_breadcrumbs()
         $return .= '<li><a href="';
         $return .= home_url();
         $return .= '">';
-        $return .= 'home';
+        $return .= 'Home';
         $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
