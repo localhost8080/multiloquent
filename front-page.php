@@ -1,6 +1,11 @@
 <?php
 get_header();
 ?>
+<div class="container">
+<?php
+echo multiloquent_paralax_slider();
+?>
+</div>
 <!-- google_ad_section_start-->
 <div class="jumbotron">
     <div class="container">
@@ -17,5 +22,4 @@ get_header();
     <?php get_template_part('advert');?>
 </div>
 <?php
-echo multiloquent_paralax_slider();
 get_footer();

@@ -1,32 +1,10 @@
 <?php
 get_header();
-// incase they have homepage set to a page
-if (is_front_page()) {
-    ?>
-<!-- google_ad_section_start-->
-<div class="jumbotron">
-    <div class="container">
-                <?php
-    rewind_posts();
-    while (have_posts()) {
-        the_post();
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
-    }
-    ?>    
-    </div>
-</div>
-<!-- google_ad_section_end-->
-<div class="container">
-            <?php get_template_part('advert');?>
-        </div>
-<?php
-   echo multiloquent_paralax_slider();
-} else {
-    ?>
+?>
 <div class="container">
     <!-- google_ad_section_start-->
     <article>
-                     <?php
+    <?php
     rewind_posts();
     while (have_posts()) {
         the_post();
@@ -49,5 +27,4 @@ if (is_front_page()) {
             <?php get_template_part('advert');?>
         </div>
 <?php
-}
 get_footer();
