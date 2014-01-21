@@ -60,11 +60,11 @@ function multiloquent_stylesheet_method()
     // Respects SSL, Style.css is relative to the current file
     wp_register_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
     wp_register_style('font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
-    wp_register_style('custom-css', get_template_directory_uri() . '/custom.css');
+    wp_register_style('style-css', get_template_directory_uri() . '/style.css');
     wp_register_style('print-css', get_template_directory_uri() . '/print.css');
     wp_enqueue_style('bootstrap-css');
     wp_enqueue_style('font-awesome-css');
-    wp_enqueue_style('custom-css');
+    wp_enqueue_style('style-css');
     wp_enqueue_style('print-css'); 
 }
 
