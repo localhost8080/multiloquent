@@ -11,8 +11,8 @@ if (have_posts()) {
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="container featurette-heading">
-                        <?php echo multiloquent_post_title();?>
-                    </h1>
+    <?php echo multiloquent_post_title();?>
+</h1>
 <?php
         }
         get_template_part('breadcrumb');
