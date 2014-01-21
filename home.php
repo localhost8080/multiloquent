@@ -17,5 +17,5 @@ get_header();
     <?php get_template_part('advert');?>
 </div>
 <?php
-multiloquent_paralax_slider();
+echo multiloquent_paralax_slider();
 get_footer();

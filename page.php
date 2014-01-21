@@ -20,7 +20,7 @@ if (is_front_page()) {
             <?php get_template_part('advert');?>
         </div>
 <?php
-    multiloquent_paralax_slider();
+   echo multiloquent_paralax_slider();
 } else {
     ?>
 <div class="container">
