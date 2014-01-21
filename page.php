@@ -1,5 +1,6 @@
 <?php
 get_header();
+// incase they have homepage set to a page
 if (is_front_page()) {
     ?>
 <!-- google_ad_section_start-->

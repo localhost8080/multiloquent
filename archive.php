@@ -1,6 +1,5 @@
 <?php
 get_header();
-is_tag();
 if (have_posts()) {
     ?>
 <div class="jumbotron">
