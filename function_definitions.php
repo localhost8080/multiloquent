@@ -30,22 +30,9 @@ function multiloquent_featured_image_in_feed($content)
  */
 function multiloquent_init()
 {
-    // if (! is_admin() || is_login_page()) {
-    // wp_deregister_script('jquery');
-    // }
     add_theme_support('automatic-feed-links');
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
-    // remove_action('wp_head', 'wp_print_scripts');
-    // remove_action('wp_head', 'wp_print_head_scripts', 9);
-    // remove_action('wp_head', 'wp_enqueue_scripts', 1);
-    // remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
-    // remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
-    // remove_action('personal_options', '_admin_bar_preferences');
-    // put the wp head at the bottom, to see if the pageloads are faster....
-    // add_action('wp_footer', 'wp_print_scripts', 5);
-    // add_action('wp_footer', 'wp_enqueue_scripts', 5);
-    // add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 
 function multiloquent_scripts_method()
@@ -57,7 +44,6 @@ function multiloquent_scripts_method()
 
 function multiloquent_stylesheet_method()
 {
-    // Respects SSL, Style.css is relative to the current file
     wp_register_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
     wp_register_style('font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
     wp_register_style('style-css', get_template_directory_uri() . '/style.css');
