@@ -13,10 +13,13 @@ if (have_posts()) {
             ?>
             </h1>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
+            <div class="col-sm-12 col-md-6 col-lg-5"> 
             <?php 
             echo get_avatar(get_the_author_meta( 'ID' ));
             
             ?>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-7"> 
             <p><b>Author name: </b><?php the_author_meta( 'display_name' ); ?></p>
             <p><b>Author homepage: </b><?php the_author_link();?></p>
             <?php 
@@ -25,7 +28,8 @@ if (have_posts()) {
                 echo '<p>'.$description.'</p>';
             }
             
-            ?>            
+            ?>      
+            </div>      
         </header>
     </div>
 </div>
