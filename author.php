@@ -9,13 +9,13 @@ if (have_posts()) {
         <header>
             <h1 class="article_title">
 			<?php
-            _e('All entries by', 'multiloquent') . the_author();
+            _e('All entries by ', 'multiloquent') . the_author();
             ?>
             </h1>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
-            <p><b>Author name:</b><?php the_author_meta( 'display_name' ); ?></p>
-            <p><b>Author homepage:</b><?php the_author_link();?></p>
-            <p><b>About:</b><?php the_author_meta( 'description' ); ?></p>            
+            <p><b>Author name: </b><?php the_author_meta( 'display_name' ); ?></p>
+            <p><b>Author homepage: </b><?php the_author_link();?></p>
+            <p><b>About: </b><?php the_author_meta( 'description' ); ?></p>            
         </header>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <li class="pull-right">
 <?php
 echo '<span class="author">' . _e(' by ', 'multiloquent');
-echo '<a rel="author" href="' . the_author_posts_link() . '">' . get_the_author() . '</a>';
+the_author_posts_link();
 echo '</span>';
 echo '<span class="day ' . get_the_time(__('M', 'multiloquent')) . '"> <span
         class="fa fa-calendar fa-fw"></span> <time datetime="' . get_the_time('c') . '">' . get_the_time(__('M jS, Y', 'multiloquent')) . '</time>';
