@@ -1341,3 +1341,6 @@ body.rtl .sharing li {
   max-height: 53px;
   overflow: hidden;
 }
+.avatar {
+  margin-right: 10px;
+}
