@@ -13,7 +13,7 @@ if (have_posts()) {
     echo '&#8217;';
     ?>
             </h1>
-            <p>There are <?php echo $wp_query->found_posts;?> posts</p>
+            <p>There are <?php echo $wp_query->found_posts;?> posts tagged <?php single_tag_title();?></p>
         </header>
     </div>
 </div>

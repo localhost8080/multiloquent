@@ -28,7 +28,9 @@ if (have_posts()) {
                 echo '<p>'.$description.'</p>';
             }
             
-            ?>      
+            ?>
+            <p>There are <?php echo $wp_query->found_posts;?> posts by <?php the_author();?></p>
+                  
             </div>      
         </header>
     </div>
