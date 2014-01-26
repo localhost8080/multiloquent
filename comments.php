@@ -35,7 +35,7 @@ if (have_comments()) {
         ?>
         <div class="alert alert-block fade in">
             <a class="close" data-dismiss="alert">&times;</a>
-            <p><?php _e('Comments are closed.', 'shoestrap'); ?></p>
+            <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
         </div>
         <?php
     }
@@ -49,7 +49,7 @@ if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(
 <section id="comments">
     <div class="alert alert-block fade in">
         <a class="close" data-dismiss="alert">&times;</a>
-        <p><?php _e('Comments are closed.', 'shoestrap'); ?></p>
+        <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
     </div>
 </section>
 <?php
