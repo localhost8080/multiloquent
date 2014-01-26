@@ -9,13 +9,12 @@ this theme has 10 widget areas:
 6) in sidebar.php [so it goes under the content, but above the footer]
 7) in sidebar.php [so it goes under the content, but above the footer]
 8) used in social.php [suggested that you put a text widget in it and add in your social links - to add a second lot, eg for your rss feed / facebook page]
-9) footer middle area for you to add whatever you want
+9) footer left area for you to add whatever you want
 10) footer right area for you to add whatever you want
 
-it also has two menus:
+it also has a menu:
 
-footer menu
-this menu is shown in the footer left hand column 
+its not hardcoded in the template, so you can place it wherever you like using the menu widget
 
 post tags:
 these are bootstrap 'label' style buttons and will have different colours based on the total number of times the tag has been used across all posts / pages on your site
