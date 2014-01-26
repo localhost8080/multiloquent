@@ -12,10 +12,6 @@ this theme has 10 widget areas:
 9) footer left area for you to add whatever you want
 10) footer right area for you to add whatever you want
 
-it also has a menu:
-
-its not hardcoded in the template, so you can place it wherever you like using the menu widget
-
 post tags:
 these are bootstrap 'label' style buttons and will have different colours based on the total number of times the tag has been used across all posts / pages on your site
 

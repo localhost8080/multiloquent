@@ -56,9 +56,6 @@ function multiloquent_stylesheet_method()
 
 function multiloquent_register()
 {
-    register_nav_menus(array(
-        'footer_menu' => __('Footer Navigation', 'multiloquent')
-    ));
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     // add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
