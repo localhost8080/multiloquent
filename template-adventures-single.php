@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Adventures
+ * Template Name Posts: Adventures
  */
 get_header();
 echo '<!-- google_ad_section_start-->';
