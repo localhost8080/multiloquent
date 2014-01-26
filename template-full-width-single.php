@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name Posts: Full width
+ * Template Name: Full width
  */
 get_header();
 echo '<!-- google_ad_section_start-->';
