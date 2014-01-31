@@ -51,7 +51,7 @@ function multiloquent_stylesheet_method()
     wp_enqueue_style('bootstrap-css');
     wp_enqueue_style('font-awesome-css');
     wp_enqueue_style('style-css');
-    wp_enqueue_style('print-css'); 
+    wp_enqueue_style('print-css');
 }
 
 function multiloquent_register()
@@ -74,38 +74,36 @@ function multiloquent_register()
     if (is_admin()) {
         add_editor_style('style.css');
     }
-    
     // Widgetized sidebars
     $sidebars = array(
-    	'1'=>'top navigation',
-        '2'=>'mobile specific advert',
-        '3'=>'non-mobile specific advert',
-        '4'=>'above footer top left',
-        '5'=>'above footer top right',
-        '6'=>'above footer bottom left',
-        '7'=>'above footer bottom right',
-        '8'=>'social media',
-        '9'=>'footer middle',
-        '10'=>'footer right',
+        '1' => 'top navigation',
+        '2' => 'mobile specific advert',
+        '3' => 'non-mobile specific advert',
+        '4' => 'above footer top left',
+        '5' => 'above footer top right',
+        '6' => 'above footer bottom left',
+        '7' => 'above footer bottom right',
+        '8' => 'social media',
+        '9' => 'footer middle',
+        '10' => 'footer right'
     );
     multiloquent_generate_sidebars($sidebars);
- 
-    
 }
 
-function multiloquent_generate_sidebars($array){
-	foreach ($array as $id=>$name){
-	    $args = array(
-	        'name'          => $name.' sidebar',
-	        'description'   => $name.' sidebar',
-	        'before_widget' => '',
-	        'after_widget' => '',
-	        'before_title' => '<p class="nav-header">',
-	        'after_title' => '</p>',
-	        'class' => ''
-	    );
-	    register_sidebar( $args );
-	}
+function multiloquent_generate_sidebars($array)
+{
+    foreach ($array as $id => $name) {
+        $args = array(
+            'name' => $name . ' sidebar',
+            'description' => $name . ' sidebar',
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<p class="nav-header">',
+            'after_title' => '</p>',
+            'class' => ''
+        );
+        register_sidebar($args);
+    }
 }
 
 function multiloquent_remove_hentry_function($classes)
@@ -142,15 +140,16 @@ function multiloquent_add_tag_class($taglinks)
     return $taglinks;
 }
 
-function multiloquent_post_title($post_id=''){
-    if(!empty($post_id)){
+function multiloquent_post_title($post_id = '')
+{
+    if (! empty($post_id)) {
         $the_title = get_the_title($post_id);
     } else {
         $the_title = get_the_title();
     }
-    if(empty($the_title)){
-    	return 'Untitled Post';
-    } 
+    if (empty($the_title)) {
+        return 'Untitled Post';
+    }
     return $the_title;
 }
 
