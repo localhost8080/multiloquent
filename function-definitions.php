@@ -92,7 +92,7 @@ function multiloquent_register()
 
 function multiloquent_generate_sidebars($array)
 {
-    foreach ($array as $id => $name) {
+    foreach ($array as $name) {
         $args = array(
             'name' => $name . ' sidebar',
             'description' => $name . ' sidebar',
@@ -431,7 +431,7 @@ function multiloquent_paralax_slider()
     }
     $count = 1;
     $output = '<div class="container mb"><div class="row alpha">';
-    foreach ($recent_posts as $key => $val) {
+    foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         ;
         if ($slider_image) {
