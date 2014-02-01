@@ -12,7 +12,11 @@ test:
 failure:
     email:
         committer: true
+    shell:
+        command: "/usr/local/bin/deploy_wordpress"
 success:
     email:
         committer: true
+    shell:
+        command: "/usr/local/bin/package_wordpress"
         
