@@ -16,7 +16,7 @@ if (have_posts()) {
             </div>
             <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                 <p>
-                    <b>Author name: </b><?php the_author_meta( 'display_name' ); ?></p>
+                    <b>Author name: </b><?php the_author_meta('display_name'); ?></p>
                 <p>
                     <b>Author homepage: </b><?php the_author_link();?></p>
             <?php
