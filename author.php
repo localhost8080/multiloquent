@@ -7,20 +7,12 @@ if (have_posts()) {
 <div class="jumbotron">
     <div class="container">
         <header>
-            <p>
-            
-            
             <h1 class="article_title">
-			<?php
-    _e('All entries by ', 'multiloquent') . the_author();
-    ?>
+			<?php _e('All entries by ', 'multiloquent') . the_author();?>
             </h1>
-            </p>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
-            <?php
-    echo get_avatar(get_the_author_meta('ID'));
-    ?>
+            <?php echo get_avatar(get_the_author_meta('ID'));?>
             </div>
             <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                 <p>
@@ -33,7 +25,7 @@ if (have_posts()) {
         echo '<p>' . $description . '</p>';
     }
     ?>
-            <p>There are <?php echo $wp_query->found_posts;?> posts by <?php the_author();?></p>
+            <p><?php echo 'There are '.$wp_query->found_posts.' posts by '. the_author();?></p>
             </div>
         </header>
     </div>
