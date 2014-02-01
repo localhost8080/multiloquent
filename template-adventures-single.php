@@ -18,7 +18,7 @@ if (have_posts()) {
 				</h1>
 <?php
         }
-        $title_string = multiloquent_post_title();;
+        $title_string = multiloquent_post_title();
         $title_string = str_replace('plan', '', $title_string);
         $title_string = str_replace('part', '', $title_string);
         $title_string = str_replace('day', '', $title_string);
