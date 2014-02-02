@@ -25,7 +25,7 @@ if (have_posts()) {
         echo '<p>' . $description . '</p>';
     }
     ?>
-            <p><?php echo 'There are '.$wp_query->found_posts.' posts by '. the_author();?></p>
+            <p><?php echo 'There are '.$wp_query->found_posts.' posts by '. get_the_author();?></p>
             </div>
         </header>
     </div>

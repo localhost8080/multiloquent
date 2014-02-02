@@ -8,7 +8,7 @@ if (have_posts()) {
             <h1 class="article_title">
 			<?php printf(__('%s', 'multiloquent'), single_cat_title('', false)); ?>
             </h1>
-            <p><?php echo'There are '.$wp_query->found_posts.' posts in the '. printf(__('%s', 'multiloquent'), single_cat_title('', false)).' category';?></p>
+            <p><?php echo 'There are '.$wp_query->found_posts.' posts in the '. printf(__('%s', 'multiloquent'), get_single_cat_title('', false)).' category';?></p>
         </header>
     </div>
 </div>
