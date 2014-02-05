@@ -14,13 +14,12 @@ get_header();
     <article>
              <?php
     // Make an array from A to Z.
-    $characters = range('a', 'z');
+   // $characters = range('a', 'z');
     // Check if $characters exists and ensure that it is an array.
-    if ($characters && is_array($characters)) {
-        foreach ($characters as $index => $character) {
+  //  if ($characters && is_array($characters)) {
+      //  foreach ($characters as $index => $character) {
             // Get the tag information for each characters in the array.
             $tags = get_tags(array(
-                'name__like' => $character,
                 'order' => 'ASC'
             ));
             // print_r($tags);
@@ -80,8 +79,8 @@ get_header();
             echo $html;
             // Increment the index by 1.
             $index ++;
-        }
-    }
+       // }
+   // }
     ?>
         </article>
     <!-- google_ad_section_end-->
