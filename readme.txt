@@ -35,4 +35,8 @@ http://wordpress.org/extend/plugins/jetpack/
 category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
 tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
 
-
+there are 3 post template files included if you use
+http://wordpress.org/extend/plugins/custom-post-template/
+1) default with comments at the right hand side in desktop (under the post in mobile)
+2) full width post with comments underneath
+3) adventures: this auto inserts a google map if your post is titled 'placeA to placeB', eg 'Glasgow to London' will insert a google map with a route pre-selected - comments are disabled on this post template
