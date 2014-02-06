@@ -19,11 +19,13 @@ other things:
 
 the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence http://www.apache.org/licenses/LICENSE-2.0
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
+the theme is responsive.
 
 the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
 http://wordpress.org/extend/plugins/top-10/
-it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image
+it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image.
 
+posts with a featured image display the featured image in the header of the site
 
 has a theme for TW Recent Posts Widget 'yarpp' - yet another related posts plugin and it will auto include the related posts in the post page if its installed
 [I suggest that you pick multiples of 3 for the number of related posts to show - 3 will be one row, 6 will be two rows]
@@ -34,6 +36,7 @@ http://wordpress.org/extend/plugins/jetpack/
 
 category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
 tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
+to activate these, simply make a page in your system and assign the category or tag template.
 
 there are 3 post template files included if you use
 http://wordpress.org/extend/plugins/custom-post-template/
