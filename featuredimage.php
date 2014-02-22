@@ -2,10 +2,14 @@
 if (has_post_thumbnail()) {
     // the current post has a thumbnail
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails
-    $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+    $theimg = $slider_image[0];
+    $dimensions = getimagesize($theimg);
+    $width = $dimensions[0];
+    $height = $dimensions[1];
     ?>
 <figure class="thumbnail main_image">
-    <img class="featured-image" width="605" height="100" src="<?php echo $image[0]?>" alt="image for <?php echo multiloquent_post_title(); ?>" />
+    <img class="featured-image" width="<?php echo $width?>" height="<?php echo $height?>" src="<?php echo $theimg?>" alt="image for <?php echo multiloquent_post_title(); ?>" />
     <figcaption>
         <span class="fa fa-comment-o fa-fw"></span> <?php echo multiloquent_post_title(); ?></figcaption>
 </figure>

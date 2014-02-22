@@ -7,7 +7,7 @@
  */
 function multiloquent_version()
 {
-    $version = '6.0.12';
+    $version = '6.0.13';
     return $version;
 }
 
@@ -436,13 +436,14 @@ function multiloquent_paralax_slider()
         ;
         if ($slider_image) {
             $theimg = $slider_image[0];
-            $width = $slider_image[1];
-            $height = $slider_image[2];
+
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
-            $width = '1100';
-            $height = '500';
+            
         }
+        $dimensions = getimagesize($theimg);
+        $width = $dimensions[0];
+        $height = $dimensions[1];
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
             $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
@@ -503,14 +504,16 @@ function multiloquent_render_the_archive()
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
         if (! empty($slider_image)) {
             $theimg = $slider_image[0];
-            $width = $slider_image[1];
-            $height = $slider_image[2];
+            //$width = $slider_image[1];
+            //$height = $slider_image[2];
             // in here I need to check if its a mobile, and then give a different image:
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
-            $width = '1100';
-            $height = '500';
+            
         }
+        $dimensions = getimagesize($theimg);
+        $width = $dimensions[0];
+        $height = $dimensions[1];
         ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
     <img src="<?php echo $theimg?>" class="grayscale" alt="<?php echo multiloquent_post_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
