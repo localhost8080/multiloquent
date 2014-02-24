@@ -203,7 +203,7 @@ function multiloquent_render_pagingation()
     global $wp_query;
     $total_pages = $wp_query->max_num_pages;
     // check if search result
-    if(is_search()){
+    if (is_search()) {
         $format = '&paged=%#%';
     } else {
         $format = '/page/%#%';
@@ -218,7 +218,6 @@ function multiloquent_render_pagingation()
             'type' => 'list'
         ));
     }
-    
 }
 
 function multiloquent_get_random_solid_class($class = '')
@@ -443,10 +442,8 @@ function multiloquent_paralax_slider()
         ;
         if ($slider_image) {
             $theimg = $slider_image[0];
-
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
-            
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
@@ -511,12 +508,11 @@ function multiloquent_render_the_archive()
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
         if (! empty($slider_image)) {
             $theimg = $slider_image[0];
-            //$width = $slider_image[1];
-            //$height = $slider_image[2];
+            // $width = $slider_image[1];
+            // $height = $slider_image[2];
             // in here I need to check if its a mobile, and then give a different image:
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
-            
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
