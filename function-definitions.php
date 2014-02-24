@@ -204,7 +204,7 @@ function multiloquent_render_pagingation()
     $total_pages = $wp_query->max_num_pages;
     // check if search result
     if(is_search()){
-        $format = '?paged=%#%';
+        $format = '&paged=%#%';
     } else {
         $format = '/page/%#%';
     }
