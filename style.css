@@ -1116,11 +1116,13 @@ body.rtl .sharing li {
         position: relative;
     }
     .paralax_image_bg {
-        display: block;
-        left: 0;
-        position: absolute;
-        top: 0;
-        transition: top 1s ease 0s;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset;
+      display: block;
+      left: 0;
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
         border: 0 none;
@@ -1150,10 +1152,11 @@ body.rtl .sharing li {
     }
     .paralax_image_text {
         bottom: -80px;
+        margin-left: -15px;
+        padding-left: 10px;
         position: absolute;
         transition: all 1s ease 0s;
         width: 100%;
-        margin-left: -15px;
     }
     .paralax_image_holder:hover .paralax_image_text {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
@@ -1226,10 +1229,11 @@ body.rtl .sharing li {
     }
     .paralax_image_text {
         bottom: -80px;
+        margin-left: -15px;
+        padding-left: 10px;
         position: absolute;
         transition: all 1s ease 0s;
         width: 100%;
-        margin-left: -15px;
     }
     .paralax_image_holder .paralax_image_text {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
