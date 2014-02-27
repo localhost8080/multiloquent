@@ -1112,8 +1112,9 @@ body.rtl .sharing li {
         
     }
     .paralax_image_holder {
-        overflow: hidden;
-        position: relative;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
     }
     .paralax_image_bg {
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset;
@@ -1152,7 +1153,7 @@ body.rtl .sharing li {
     }
     .paralax_image_text {
       bottom: -80px;
-      margin-left: -15px;
+      
       padding: 0 10px;
       position: absolute;
       transition: all 1s ease 0s;
@@ -1190,8 +1191,9 @@ body.rtl .sharing li {
 
 @media ( max-width : 979px) {
     .paralax_image_holder {
-        overflow: hidden;
-        position: relative;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
     }
     .paralax_image_bg {
         display: none;
@@ -1228,7 +1230,7 @@ body.rtl .sharing li {
     }
     .paralax_image_text {
       bottom: -80px;
-      margin-left: -15px;
+      
       padding: 0 10px;
       position: absolute;
       transition: all 1s ease 0s;
