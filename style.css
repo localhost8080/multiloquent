@@ -1126,12 +1126,9 @@ body.rtl .sharing li {
       transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
-        border: 0 none;
-        height: 255px;
-        max-width: 1000px;
-        vertical-align: middle;
-        width: 1000px;
-        margin-left: -500px;
+      border: 0 none;
+      height: 255px;
+      max-width: 5000px;
     }
     .paralax_image_holder.doubleheight img {
         border: 0 none;
@@ -1203,12 +1200,9 @@ body.rtl .sharing li {
         transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
-        border: 0 none;
-        height: 255px;
-        max-width: 1000px;
-        vertical-align: middle;
-        width: 1000px;
-        margin-left: -500px;
+      border: 0 none;
+      height: 255px;
+      max-width: 5000px;
     }
     .paralax_image_holder.doubleheight img {
         border: 0 none;
