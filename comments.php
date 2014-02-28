@@ -1,72 +1,58 @@
 <?php
-// this is a direct lift of the comments from shoestrap; I personally use disqus for my comments, but this comment
-// system was already done :D
-// http://shoestrap.org/
+/*
+ * The comments page for Bones
+ */
+// Do not delete these lines
+if (! empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
+    die('Please do not load this page directly. Thanks!');
+}
 if (post_password_required()) {
+    ?>
+<div class="alert alert-info"><?php _e("This post is password protected. Enter the password to view comments.","multiloquent"); ?></div>
+<?php
     return;
 }
+?>
+<!-- You can start editing here. -->
+<?php
 if (have_comments()) {
-    ?>
-<section id="comments">
-    <div>
-        <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number()), multiloquent_post_title()); ?></h3>
-        <ol class="media-list">
-          <?php wp_list_comments(); ?>
-        </ol>
-    
-        <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
-        <nav>
-            <ul class="pager">
-            <?php if (get_previous_comments_link()) { ?>
-              <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'multiloquent')); ?></li>
-            <?php
-        }
-        if (get_next_comments_link()) {
-            ?>
-              <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'multiloquent')); ?></li>
-            <?php
-        }
+    if (! empty($comments_by_type['comment'])) {
         ?>
-          </ul>
-        </nav>
-        <?php
+<h3 id="comments"><?php comments_number('<span>' . __("No","multiloquent") . '</span> ' . __("Responses","multiloquent") . '', '<span>' . __("One","multiloquent") . '</span> ' . __("Response","multiloquent") . '', '<span>%</span> ' . __("Responses","multiloquent") );?> <?php _e("to","multiloquent"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+<nav id="comment-nav">
+    <ul class="clearfix">
+        <li><?php previous_comments_link( __("Older comments","multiloquent") ) ?></li>
+        <li><?php next_comments_link( __("Newer comments","multiloquent") ) ?></li>
+    </ul>
+</nav>
+<ol class="commentlist">
+<?php wp_list_comments('type=comment&callback=multiloquent_bootstrap_comments'); ?>
+</ol>
+<?php
     }
-    if (! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
+    if (! empty($comments_by_type['pings'])) {
         ?>
-        <div class="alert alert-block fade in">
-            <a class="close" data-dismiss="alert">&times;</a>
-            <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
-        </div>
-        <?php
+<h3 id="pings">Trackbacks/Pingbacks</h3>
+<ol class="pinglist">
+<?php wp_list_comments('type=pings&callback=list_pings'); ?>
+</ol>
+<?php } ?>
+<nav id="comment-nav">
+    <ul class="clearfix">
+        <li><?php previous_comments_link( __("Older comments","multiloquent") ) ?></li>
+        <li><?php next_comments_link( __("Newer comments","multiloquent") ) ?></li>
+    </ul>
+</nav>
+<?php
+} else { // this is displayed if there are no comments so far
+    if (comments_open()) {
+        // do nothing
+    } else { // comments are closed        ?>
+<p class="alert alert-info"><?php _e("Comments are closed","multiloquent"); ?>.</p>
+<?php
     }
-    ?>
-      </div>
-</section>
-<?php
-}
-if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
-    ?>
-<section id="comments">
-    <div class="alert alert-block fade in">
-        <a class="close" data-dismiss="alert">&times;</a>
-        <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
-    </div>
-</section>
-<?php
 }
 if (comments_open()) {
-    ?>
-<section>
-    <div>
-        <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
-    <?php if (get_option('comment_registration') && !is_user_logged_in()) { ?>
-      <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'multiloquent'), wp_login_url(get_permalink())); ?></p>
-    <?php
-    } else {
-        comment_form();
-    }
-    ?>
-  </div>
-</section>
-<?php
+    comment_form();
 }
+        
