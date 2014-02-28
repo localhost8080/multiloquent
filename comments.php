@@ -18,11 +18,11 @@ if (post_password_required()) {
 if (have_comments()) {
     if (! empty($comments_by_type['comment'])) {
         ?>
-<h3 id="comments"><?php comments_number('<span>' . __("No","multiloquent") . '</span> ' . __("Responses","multiloquent") . '', '<span>' . __("One","multiloquent") . '</span> ' . __("Response","multiloquent") . '', '<span>%</span> ' . __("Responses","multiloquent") );?> <?php _e("to","multiloquent"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+<h3 id="comments"><?php comments_number('<span>' . __("No", "multiloquent") . '</span> ' . __("Responses", "multiloquent") . '', '<span>' . __("One", "multiloquent") . '</span> ' . __("Response", "multiloquent") . '', '<span>%</span> ' . __("Responses", "multiloquent") );?> <?php _e("to", "multiloquent"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
 <nav id="comment-nav">
     <ul class="clearfix">
-        <li><?php previous_comments_link( __("Older comments","multiloquent") ) ?></li>
-        <li><?php next_comments_link( __("Newer comments","multiloquent") ) ?></li>
+        <li><?php previous_comments_link( __("Older comments", "multiloquent") ) ?></li>
+        <li><?php next_comments_link( __("Newer comments", "multiloquent") ) ?></li>
     </ul>
 </nav>
 <ol class="commentlist">
@@ -39,8 +39,8 @@ if (have_comments()) {
 <?php } ?>
 <nav id="comment-nav">
     <ul class="clearfix">
-        <li><?php previous_comments_link( __("Older comments","multiloquent") ) ?></li>
-        <li><?php next_comments_link( __("Newer comments","multiloquent") ) ?></li>
+        <li><?php previous_comments_link( __("Older comments", "multiloquent") ) ?></li>
+        <li><?php next_comments_link( __("Newer comments", "multiloquent") ) ?></li>
     </ul>
 </nav>
 <?php
@@ -48,7 +48,7 @@ if (have_comments()) {
     if (comments_open()) {
         // do nothing
     } else { // comments are closed        ?>
-<p class="alert alert-info"><?php _e("Comments are closed","multiloquent"); ?>.</p>
+<p class="alert alert-info"><?php _e("Comments are closed", "multiloquent"); ?>.</p>
 <?php
     }
 }

@@ -551,7 +551,7 @@ function multiloquent_bootstrap_comments($comment, $args, $depth)
     <article id="comment-<?php comment_ID(); ?>" class="clearfix">
         <div class="comment-author vcard clearfix">
             <div class="avatar col-sm-3">
-<?php echo get_avatar($comment,  '75'); ?>
+<?php echo get_avatar($comment, '75'); ?>
 </div>
             <div class="col-sm-9 comment-text">
 <?php
