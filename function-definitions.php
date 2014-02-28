@@ -551,7 +551,7 @@ function multiloquent_bootstrap_comments($comment, $args, $depth)
     <article id="comment-<?php comment_ID(); ?>" class="clearfix">
         <div class="comment-author vcard clearfix">
             <div class="avatar col-sm-3">
-<?php echo get_avatar( $comment, $size='75' ); ?>
+<?php echo get_avatar($comment,  '75'); ?>
 </div>
             <div class="col-sm-9 comment-text">
 <?php
@@ -560,16 +560,16 @@ function multiloquent_bootstrap_comments($comment, $args, $depth)
     if ($comment->comment_approved == '0') {
         ?>
 <div class="alert-message success">
-                    <p><?php _e('Your comment is awaiting moderation.','multiloquent') ?></p>
+                    <p><?php _e('Your comment is awaiting moderation.', 'multiloquent') ?></p>
                 </div>
 <?php
     }
     comment_text();
     ?>
 <time datetime="<?php echo comment_time('Y-m-j'); ?>">
-                    <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a>
+                    <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php comment_time('F jS, Y'); ?> </a>
                 </time>
-<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'])))?>
+<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth'])))?>
 </div>
         </div>
     </article> <!-- </li> is added by wordpress automatically -->
