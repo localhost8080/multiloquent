@@ -8,7 +8,7 @@ if (! empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER[
 }
 if (post_password_required()) {
     ?>
-<div class="alert alert-info"><?php _e("This post is password protected. Enter the password to view comments.","multiloquent"); ?></div>
+<div class="alert alert-info"><?php _e("This post is password protected. Enter the password to view comments.", "multiloquent"); ?></div>
 <?php
     return;
 }
@@ -18,7 +18,7 @@ if (post_password_required()) {
 if (have_comments()) {
     if (! empty($comments_by_type['comment'])) {
         ?>
-<h3 id="comments"><?php comments_number('<span>' . __("No", "multiloquent") . '</span> ' . __("Responses", "multiloquent") . '', '<span>' . __("One", "multiloquent") . '</span> ' . __("Response", "multiloquent") . '', '<span>%</span> ' . __("Responses", "multiloquent") );?> <?php _e("to", "multiloquent"); ?> &#8220;<?php the_title(); ?>&#8221;</h3>
+<h3 id="comments"><?php comments_number('<span>' . __("No", "multiloquent") . '</span> ' . __("Responses", "multiloquent") . '', '<span>' . __("One", "multiloquent") . '</span> ' . __("Response", "multiloquent") . '', '<span>%</span> ' . __("Responses", "multiloquent")) . _e("to", "multiloquent");  the_title(); ?>&#8221;</h3>
 <nav id="comment-nav">
     <ul class="clearfix">
         <li><?php previous_comments_link( __("Older comments", "multiloquent") ) ?></li>
