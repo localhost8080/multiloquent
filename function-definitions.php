@@ -31,7 +31,7 @@ function multiloquent_featured_image_in_feed($content)
 function multiloquent_init()
 {
     add_theme_support('automatic-feed-links');
-    add_theme_support( 'html5');
+    add_theme_support('html5');
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
 }
