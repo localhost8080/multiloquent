@@ -18,7 +18,7 @@ these are bootstrap 'label' style buttons and will have different colours based 
 other things:
 
 version 6.1.0 adds support for wordpress theme customisation API -
-currently supports changing background, text and border colours of navbars, wells and jumbotrons
+currently supports changing background, text and border colours of the main theme elements
 
 the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence http://www.apache.org/licenses/LICENSE-2.0
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL

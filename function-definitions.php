@@ -64,11 +64,11 @@ function multiloquent_customize_css()
 {
     ?>
     <style type="text/css">
-        .navbar-default,.navbar-default .navbar-brand,.navbar-form, #search_form,.jumbotron,.well {
+        .navbar-default,.navbar-default .navbar-brand,.navbar-form, #search_form,.jumbotron,.well, .breadcrumb, .comments {
             background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
         }
-        .jumbotron .nav-header, .well .nav-header,.jumbotron a,.well a, .jumbotron a:hover,.well a:hover, .jumbotron a:visited,.well a:visited{
+        .jumbotron .nav-header, .well .nav-header,.comments a,.comments a:hover,.comments a:visited, .well a,.well a:hover,.well a:visited, .jumbotron a:visited,.jumbotron a,.jumbotron a:hover{
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
         }
         .navbar-fixed-top{
