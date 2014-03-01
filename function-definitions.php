@@ -41,9 +41,8 @@ function multiloquent_customize_register($wp_customize)
 {
     
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Nav Bar Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#F8F8F8', 'Nav Bar Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Nav Bar Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Nav Bar Border Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_jumbotron_image', 'url("/wp-content/themes/multiloquent/images/jumbotron.png") !important', 'Jumbotron lower corner Image', $wp_customize, 'background_image');
     
 }
 
@@ -80,7 +79,6 @@ function multiloquent_customize_css()
             background-color: <?php echo get_theme_mod('mulitloquent_navbar');?>;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
             border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
-            background-image <?php echo get_theme_mod('mulitloquent_jumbotron_image');?>;
         }
         
     </style>
