@@ -39,32 +39,32 @@ function multiloquent_init()
 
 function multiloquent_customize_register($wp_customize)
 {
-    $wp_customize->add_setting('navbar', array(
+    $wp_customize->add_setting('mulitloquent_navbar', array(
         'default' => '#F8F8F8',
         'transport' => 'refresh'
     ));
-    $wp_customize->add_setting('navbar-bordercolour', array(
+    $wp_customize->add_setting('mulitloquent_navbar_bordercolour', array(
         'default' => '#E7E7E7',
         'transport' => 'refresh'
     ));
-    $wp_customize->add_setting('navbar-colour', array(
+    $wp_customize->add_setting('mulitloquent_colour', array(
         'default' => '#E7E7E7',
         'transport' => 'refresh'
     ));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar', array(
         'label' => __('Nav Bar Background Color', 'multiloquent'),
         'section' => 'colors',
-        'settings' => 'navbar'
+        'settings' => 'mulitloquent_navbar'
     )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar-bordercolour', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar_bordercolour', array(
         'label' => __('Nav Bar Border Color', 'multiloquent'),
         'section' => 'colors',
-        'settings' => 'navbar-bordercolour'
+        'settings' => 'mulitloquent_navbar_bordercolour'
     )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar-colour', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar_colour', array(
         'label' => __('Nav Bar Text Color', 'multiloquent'),
         'section' => 'colors',
-        'settings' => 'navbar-colour'
+        'settings' => 'mulitloquent_navbar_colour'
     )));
 }
 
@@ -73,9 +73,9 @@ function multiloquent_customize_css()
     ?>
     <style type="text/css">
         .navbar-default {
-            background-color: <?php echo get_theme_mod('navbar');?>;
-            color: <?php echo get_theme_mod('navbar-colour');?>;
-            border-color: <?php echo get_theme_mod('navbar-bordercolour');?>;
+            background-color: <?php echo get_theme_mod('mulitloquent_navbar');?>;
+            color: <?php echo get_theme_mod('mulitloquent_navbar_colour');?>;
+            border-color: <?php echo get_theme_mod('mulitloquent_navbar_bordercolour');?>;
         }
     </style>
 <?php
@@ -588,5 +588,3 @@ function multiloquent_render_the_archive()
 <?php
     }
 }
-
-
