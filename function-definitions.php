@@ -56,12 +56,12 @@ function multiloquent_customize_register($wp_customize)
         'section' => 'colors',
         'settings' => 'navbar'
     )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar border colour', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar-bordercolour', array(
         'label' => __('Nav Bar Border Color', 'multiloquent'),
         'section' => 'colors',
         'settings' => 'navbar-bordercolour'
     )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar text colour', array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar-colour', array(
         'label' => __('Nav Bar Text Color', 'multiloquent'),
         'section' => 'colors',
         'settings' => 'navbar-colour'
