@@ -40,12 +40,12 @@ function multiloquent_init()
 function multiloquent_customize_register($wp_customize)
 {
     
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Nav Bar Background Color');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#F8F8F8', 'Nav Bar Text Color');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Nav Bar Border Color');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Nav Bar Background Color',$wp_customize);
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#F8F8F8', 'Nav Bar Text Color',$wp_customize);
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Nav Bar Border Color',$wp_customize);
 }
 
-function multiloquent_register_and_generate_custom_control($setting_name, $default, $label){
+function multiloquent_register_and_generate_custom_control($setting_name, $default, $label, $wp_customize){
     $wp_customize->add_setting($setting_name, array(
         'default' => $default,
         'transport' => 'refresh'
