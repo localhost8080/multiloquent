@@ -51,10 +51,10 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
         'transport' => 'refresh'
     ));
     
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $name, array(
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
         'label' => __($label, 'multiloquent'),
         'section' => 'colors',
-        'settings' => $name
+        'settings' => $setting_name
     )));
 }
 
