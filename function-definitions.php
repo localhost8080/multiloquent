@@ -40,9 +40,9 @@ function multiloquent_init()
 function multiloquent_customize_register($wp_customize)
 {
     
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Nav Bar Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Nav Bar Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Nav Bar Border Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Border Color', $wp_customize, 'colors');
     
 }
 
@@ -64,19 +64,8 @@ function multiloquent_customize_css()
 {
     ?>
     <style type="text/css">
-        .navbar-default {
-            background-color: <?php echo get_theme_mod('mulitloquent_navbar');?>;
-            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-            border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
-        }
-        .navbar-default .navbar-brand {
-            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-        }
-        .navbar-form, .navbar-form input, #search_form, #search_form input {
-            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-        }
-        .jumbotron {
-            background-color: <?php echo get_theme_mod('mulitloquent_navbar');?>;
+        .navbar-default,.navbar-default .navbar-brand,.navbar-form, .navbar-form input, #search_form, #search_form input,.jumbotron,.well {
+            background: <?php echo get_theme_mod('mulitloquent_navbar');?>;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
             border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
