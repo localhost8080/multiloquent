@@ -43,29 +43,13 @@ function multiloquent_customize_register($wp_customize)
         'default' => '#F8F8F8',
         'transport' => 'refresh'
     ));
-    $wp_customize->add_setting('mulitloquent_navbar_bordercolour', array(
-        'default' => '#E7E7E7',
-        'transport' => 'refresh'
-    ));
-    $wp_customize->add_setting('mulitloquent_colour', array(
-        'default' => '#E7E7E7',
-        'transport' => 'refresh'
-    ));
+    
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar', array(
         'label' => __('Nav Bar Background Color', 'multiloquent'),
         'section' => 'colors',
         'settings' => 'mulitloquent_navbar'
     )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar_bordercolour', array(
-        'label' => __('Nav Bar Border Color', 'multiloquent'),
-        'section' => 'colors',
-        'settings' => 'mulitloquent_navbar_bordercolour'
-    )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mulitloquent_navbar_colour', array(
-        'label' => __('Nav Bar Text Color', 'multiloquent'),
-        'section' => 'colors',
-        'settings' => 'mulitloquent_navbar_colour'
-    )));
+    
 }
 
 function multiloquent_customize_css()
@@ -74,8 +58,6 @@ function multiloquent_customize_css()
     <style type="text/css">
         .navbar-default {
             background-color: <?php echo get_theme_mod('mulitloquent_navbar');?>;
-            color: <?php echo get_theme_mod('mulitloquent_navbar_colour');?>;
-            border-color: <?php echo get_theme_mod('mulitloquent_navbar_bordercolour');?>;
         }
     </style>
 <?php
