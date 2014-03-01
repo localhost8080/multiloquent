@@ -64,10 +64,13 @@ function multiloquent_customize_css()
 {
     ?>
     <style type="text/css">
-        .navbar-default,.navbar-default .navbar-brand,.navbar-form, .navbar-form input, #search_form, #search_form input,.jumbotron,.well {
+        .navbar-default,.navbar-default .navbar-brand,.navbar-form, #search_form,.jumbotron,.well {
             background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
             border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
+        }
+        #search_form input, .navbar-form input{
+            border: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
         
     </style>
