@@ -42,7 +42,7 @@ function multiloquent_customize_register($wp_customize)
     
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#F8F8F8', 'Border Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
     
 }
 
