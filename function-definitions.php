@@ -67,8 +67,14 @@ function multiloquent_customize_css()
         .navbar-default,.navbar-default .navbar-brand,.navbar-form, #search_form,.jumbotron,.well {
             background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-            border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
+        .navbar-fixed-top{
+            border-bottom: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
+        }
+        .navbar-fixed-bottom{
+            border-top: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
+        }
+        
         #search_form input, .navbar-form input{
             border: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
