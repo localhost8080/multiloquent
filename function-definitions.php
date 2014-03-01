@@ -59,7 +59,7 @@ function multiloquent_customize_register($wp_customize)
     )));
 }
 
-function mmultiloquent_customize_css()
+function multiloquent_customize_css()
 {
     ?>
     <style type="text/css">
