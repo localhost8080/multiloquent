@@ -68,6 +68,9 @@ function multiloquent_customize_css()
             background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
         }
+        .jumbotron a,.well a, .jumbotron a:hover,.well a:hover, .jumbotron a:visited,.well a:visited{
+            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
+        }
         .navbar-fixed-top{
             border-bottom: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
