@@ -65,7 +65,7 @@ function multiloquent_customize_css()
     ?>
     <style type="text/css">
         .navbar-default,.navbar-default .navbar-brand,.navbar-form, .navbar-form input, #search_form, #search_form input,.jumbotron,.well {
-            background: <?php echo get_theme_mod('mulitloquent_navbar');?>;
+            background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
             border-color: <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
         }
