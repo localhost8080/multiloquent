@@ -43,7 +43,7 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
-    
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#E7E7E7', 'Link Color', $wp_customize, 'colors');
 }
 
 function multiloquent_register_and_generate_custom_control($setting_name, $default, $label, $wp_customize, $section)
@@ -68,8 +68,11 @@ function multiloquent_customize_css()
             background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
         }
-        .jumbotron .nav-header, .well .nav-header,.comments a,.comments a:hover,.comments a:visited, .well a,.well a:hover,.well a:visited, .jumbotron a:visited,.jumbotron a,.jumbotron a:hover{
+        .jumbotron .nav-header, .well .nav-header{
             color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
+        }
+        .breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited, .well a,.well a:hover,.well a:visited, .jumbotron a:visited,.jumbotron a,.jumbotron a:hover{
+            color:<?php echo get_theme_mod('mulitloquent_navbar_link');?>;
         }
         .navbar-fixed-top{
             border-bottom: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
