@@ -34,6 +34,29 @@ function multiloquent_init()
     add_theme_support('html5');
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
+    add_action('customize_register', 'multiloquent_customize_register');
+}
+
+function multiloquent_customize_register($wp_customize)
+{
+    $wp_customize->add_setting('navbar', array(
+        'default' => '#F8F8F8',
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_setting('navbar-bordercolour', array(
+        'default' => '#E7E7E7',
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar', array(
+        'label' => __('Header Color', 'multiloquent'),
+        'section' => 'colors',
+        'settings' => 'navbar'
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'navbar border colour', array(
+        'label' => __('Header Border Color', 'multiloquent'),
+        'section' => 'colors',
+        'settings' => 'navbar-bordercolour'
+    )));
 }
 
 function multiloquent_scripts_method()
