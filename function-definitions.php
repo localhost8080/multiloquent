@@ -124,8 +124,7 @@ function multiloquent_register()
         '10' => 'footer right'
     );
     multiloquent_generate_sidebars($sidebars);
-    add_action('wp_head', 'multiloquent_customize_css');
-    
+     
 }
 
 function multiloquent_generate_sidebars($array)
