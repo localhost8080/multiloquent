@@ -59,6 +59,18 @@ function multiloquent_customize_register($wp_customize)
     )));
 }
 
+function mmultiloquent_customize_css()
+{
+    ?>
+    <style type="text/css">
+        .navbar-default {
+            background-color: <?php echo get_theme_mod('navbar');?>;
+        }
+    </style>
+<?php
+}
+
+
 function multiloquent_scripts_method()
 {
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
@@ -112,6 +124,8 @@ function multiloquent_register()
         '10' => 'footer right'
     );
     multiloquent_generate_sidebars($sidebars);
+    add_action('wp_head', 'multiloquent_customize_css');
+    
 }
 
 function multiloquent_generate_sidebars($array)
