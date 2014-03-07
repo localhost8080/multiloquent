@@ -277,7 +277,7 @@ function multiloquent_render_pagingation()
                 array(
                     'taxonomy' => 'categorias',
                     'field'    => 'slug',
-                    'terms'    => ACTIVE
+                    
                 )
             )
         ));
