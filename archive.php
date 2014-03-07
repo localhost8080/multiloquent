@@ -45,7 +45,7 @@ if (have_posts()) {
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
-				<?php multiloquent_render_pagingation(); ?>
+				<?php echo paginate_links(); ?>
 			</div>
         </nav>
     </div>
