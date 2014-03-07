@@ -256,7 +256,7 @@ function multiloquent_breadcrumbs()
 
 function multiloquent_render_pagingation()
 {
-    global $wp_query;
+    /*global $wp_query;
     $total_pages = $wp_query->max_num_pages;
     // check if search result
     if (is_search()) {
@@ -273,7 +273,8 @@ function multiloquent_render_pagingation()
             'total' => $total_pages,
             'type' => 'list'
         ));
-    }
+    }*/
+    echo paginate_links();
 }
 
 function multiloquent_get_random_solid_class($class = '')
