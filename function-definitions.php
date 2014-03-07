@@ -39,7 +39,6 @@ function multiloquent_init()
 
 function multiloquent_customize_register($wp_customize)
 {
-    
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
@@ -52,7 +51,6 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
         'default' => $default,
         'transport' => 'refresh'
     ));
-    
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
         'label' => __($label, 'multiloquent'),
         'section' => $section,
@@ -63,32 +61,52 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
 function multiloquent_customize_css()
 {
     ?>
-    <style type="text/css">
-        .navbar-default,.navbar-default .navbar-brand,.navbar-form, #search_form,.jumbotron,.well, .breadcrumb, .comments {
-            background: <?php echo get_theme_mod('mulitloquent_navbar');?>!important;
-            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-        }
-        .jumbotron .nav-header, .well .nav-header{
-            color: <?php echo get_theme_mod('mulitloquent_navbar_text');?>;
-        }
-        .breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited, .well a,.well a:hover,.well a:visited, .jumbotron a:visited,.jumbotron a,.jumbotron a:hover{
-            color:<?php echo get_theme_mod('mulitloquent_navbar_link');?>;
-        }
-        .navbar-fixed-top{
-            border-bottom: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
-        }
-        .navbar-fixed-bottom{
-            border-top: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
-        }
-        
-        #search_form input, .navbar-form input{
-            border: 1px solid <?php echo get_theme_mod('mulitloquent_navbar_border');?>;
-        }
-        
-    </style>
-<?php
+<style type="text/css">
+.navbar-default,.navbar-default .navbar-brand,.navbar-form,#search_form,.jumbotron,.well,.breadcrumb,.comments {
+    background: <?php echo get_theme_mod('mulitloquent_navbar'); ?>! important;
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_navbar_text');
+    ?>;
 }
 
+.jumbotron .nav-header,.well .nav-header {
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_navbar_text');
+    ?>;
+}
+
+.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_navbar_link');
+    ?>;
+}
+
+.navbar-fixed-top {
+    border-bottom: 1px solid<?php
+    
+echo get_theme_mod('mulitloquent_navbar_border');
+    ?>;
+}
+
+.navbar-fixed-bottom {
+    border-top: 1px solid<?php
+    
+echo get_theme_mod('mulitloquent_navbar_border');
+    ?>;
+}
+
+#search_form input,.navbar-form input {
+    border: 1px solid<?php
+    
+echo get_theme_mod('mulitloquent_navbar_border');
+    ?>;
+}
+</style>
+<?php
+}
 
 function multiloquent_scripts_method()
 {
@@ -143,7 +161,6 @@ function multiloquent_register()
         '10' => 'footer right'
     );
     multiloquent_generate_sidebars($sidebars);
-     
 }
 
 function multiloquent_generate_sidebars($array)
@@ -259,25 +276,28 @@ function multiloquent_render_pagingation()
     global $wp_query;
     $total_pages = $wp_query->max_num_pages;
     // check if search result
-    if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
-    elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
-    else { $paged = 1; }
+    if (get_query_var('paged')) {
+        $paged = get_query_var('paged');
+    } elseif (get_query_var('page')) {
+        $paged = get_query_var('page');
+    } else {
+        $paged = 1;
+    }
     if ($total_pages > 1) {
         $current_page = max(1, get_query_var('paged'));
         echo paginate_links(array(
             'base' => get_pagenum_link(1) . '%_%',
-            'posts_per_page' => -1,
+            'posts_per_page' => - 1,
             'current' => $current_page,
             'total' => $total_pages,
-            'posts_per_page' => -1,
-            'orderby'        => 'date',
-            'order'          => 'asc',
-            'paged'          => $paged,
-            'tax_query'      => array(
+            'posts_per_page' => - 1,
+            'orderby' => 'date',
+            'order' => 'asc',
+            'paged' => $paged,
+            'tax_query' => array(
                 array(
                     'taxonomy' => 'categorias',
-                    'field'    => 'slug',
-                    
+                    'field' => 'slug'
                 )
             )
         ));
