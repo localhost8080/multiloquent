@@ -28,7 +28,7 @@ if (have_posts()) {
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
-				<?php multiloquent_render_pagingation(); ?>
+				<?php posts_nav_link(); ?>
 			</div>
         </nav>
     </div>
