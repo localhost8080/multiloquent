@@ -256,8 +256,9 @@ function multiloquent_breadcrumbs()
 
 function multiloquent_render_pagingation()
 {
-    /*global $wp_query;
-    $total_pages = $wp_query->max_num_pages;
+    global $wp_query;
+    
+    /*$total_pages = $wp_query->max_num_pages;
     // check if search result
     if (is_search()) {
         $format = '&paged=%#%';
