@@ -256,26 +256,23 @@ function multiloquent_breadcrumbs()
 
 function multiloquent_render_pagingation()
 {
-    /*global $wp_query;
-    
+    global $wp_query;
     $total_pages = $wp_query->max_num_pages;
     // check if search result
-    if (is_search()) {
-        $format = '&paged=%#%';
-    } else {
-        $format = '/page/%#%';
-    }
+    if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
+    elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
+    else { $paged = 1; }
     if ($total_pages > 1) {
         $current_page = max(1, get_query_var('paged'));
         echo paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
-            'format' => $format,
+            
+            'posts_per_page' => -1,
             'current' => $current_page,
             'total' => $total_pages,
             'type' => 'list'
         ));
-    }*/
-    
+    }
+    echo paginate_links();
 }
 
 function multiloquent_get_random_solid_class($class = '')
