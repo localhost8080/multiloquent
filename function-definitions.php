@@ -269,7 +269,17 @@ function multiloquent_render_pagingation()
             'posts_per_page' => -1,
             'current' => $current_page,
             'total' => $total_pages,
-            'type' => 'list'
+            'posts_per_page' => -1,
+            'orderby'        => 'date',
+            'order'          => 'asc',
+            'paged'          => $paged,
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'categorias',
+                    'field'    => 'slug',
+                    'terms'    => ACTIVE
+                )
+            )
         ));
     }
     echo paginate_links();
