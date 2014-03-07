@@ -545,7 +545,7 @@ function multiloquent_paralax_slider()
             foreach ($posttags as $tag) {
                 $output .= '<a class="label ';
                 $output .= multiloquent_get_random_solid_class($tag->slug);
-                $output .= '" rel="nofollow" href="/tag/' . $tag->slug . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
         $output .= '</p></div>';
@@ -595,7 +595,7 @@ function multiloquent_render_the_archive()
             foreach ($posttags as $tag) {
                 echo '<a class="label ';
                 echo multiloquent_get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="' . get_tag_link($tag->ID) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
         ?>
