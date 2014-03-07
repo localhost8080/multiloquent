@@ -26,7 +26,7 @@ if (have_posts()) {
         _e('All entries by this author', 'multiloquent');
     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
         _e('Blog Archives', 'multiloquent');
-    }elseif (is_home()) {
+    } elseif (is_home()) {
         _e('Recent Posts', 'multiloquent');
     }
     ?>
