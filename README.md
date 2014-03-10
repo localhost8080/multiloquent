@@ -25,7 +25,7 @@ the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence htt
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
 the theme is responsive.
 
-the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
+the main slider on the homepage will use your top five posts (by views) if you have the top10 plugin installed, otherwise it will use your 5 most recent as a fallback
 http://wordpress.org/extend/plugins/top-10/
 it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image.
 

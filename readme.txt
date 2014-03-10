@@ -25,7 +25,7 @@ the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence htt
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
 the theme is responsive.
 
-the main slider on the homepage will use your top ten posts if you have the top10 plugin installed, otherwise it will use your 10 most recent as a fallback
+the main slider on the homepage will use your top five posts (by views) if you have the top10 plugin installed, otherwise it will use your 5 most recent as a fallback
 http://wordpress.org/extend/plugins/top-10/
 it gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image.
 
@@ -38,8 +38,9 @@ http://wordpress.org/extend/plugins/yet-another-related-posts-plugin/
 has support for jetpack sharing plugins [and puts them in the correct position in your post if you have it installed]
 http://wordpress.org/extend/plugins/jetpack/
 
-template-category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
-template-tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
+category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
+
+tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
 to activate these, simply make a page in your system and assign the category or tag template.
 
 there are 3 post template files included if you use
