@@ -17,7 +17,6 @@ if (have_posts()) {
         </header>
     </div>
 </div>
-<?php  	$post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 <div class="container post">
     <div class="featurette">
         <section class="row">
