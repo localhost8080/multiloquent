@@ -7,7 +7,7 @@ if (have_posts()) {
         <header>
             <h1 class="article_title">
 			<?php
-    _e('Posts Tagged', 'multiloquent');
+    echo 'Posts Tagged';
     echo ' &#8216;';
     single_tag_title();
     echo '&#8217;';
@@ -24,7 +24,7 @@ if (have_posts()) {
 				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
-			<?php get_template_part('advert');?>
+			<?php multiloquent_get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
@@ -36,7 +36,7 @@ if (have_posts()) {
 <?php } else { ?>
 <div class="container post">
     <div class="featurette">
-		<?php  get_template_part('error_snippet');?>
+		<?php  multiloquent_get_template_part('error-snippet');?>
 	</div>
 </div>
 <?php

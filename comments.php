@@ -18,12 +18,12 @@ if (have_comments()) {
         <nav>
             <ul class="pager">
             <?php if (get_previous_comments_link()) { ?>
-              <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'multiloquent')); ?></li>
+              <li class="previous"><?php previous_comments_link('&larr; Older comments'); ?></li>
             <?php
         }
         if (get_next_comments_link()) {
             ?>
-              <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'multiloquent')); ?></li>
+              <li class="next"><?php next_comments_link('Newer comments &rarr;'); ?></li>
             <?php
         }
         ?>
@@ -35,7 +35,7 @@ if (have_comments()) {
         ?>
         <div class="alert alert-block fade in">
             <a class="close" data-dismiss="alert">&times;</a>
-            <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
+            <p><?php echo 'Comments are closed.'; ?></p>
         </div>
         <?php
     }
@@ -49,7 +49,7 @@ if (! have_comments() && ! comments_open() && ! is_page() && post_type_supports(
 <section id="comments">
     <div class="alert alert-block fade in">
         <a class="close" data-dismiss="alert">&times;</a>
-        <p><?php _e('Comments are closed.', 'multiloquent'); ?></p>
+        <p><?php echo 'Comments are closed.'; ?></p>
     </div>
 </section>
 <?php
@@ -60,7 +60,7 @@ if (comments_open()) {
     <div>
         <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) { ?>
-      <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'multiloquent'), wp_login_url(get_permalink())); ?></p>
+      <p><?php printf('You must be <a href="%s">logged in</a> to post a comment.', wp_login_url(get_permalink())); ?></p>
     <?php
     } else {
         comment_form();

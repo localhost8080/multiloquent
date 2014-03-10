@@ -11,14 +11,14 @@ if ('posts' == get_option('show_on_front')) {
             <?php
     while (have_posts()) {
         the_post();
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
+        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
     }
     ?>    
             </div>
 </div>
 <!-- google_ad_section_end-->
 <div class="container">
-            <?php get_template_part('advert');?>
+            <?php multiloquent_get_template_part('advert');?>
         </div>
 <?php
 }

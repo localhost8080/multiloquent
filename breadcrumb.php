@@ -2,7 +2,7 @@
     <ul class="breadcrumb clearfix">
 		<?php
 echo multiloquent_breadcrumbs();
-get_template_part('metadata');
+multiloquent_get_template_part('metadata');
 ?>
 	</ul>
 </nav>

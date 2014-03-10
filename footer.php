@@ -1,4 +1,4 @@
-<?php get_template_part('navigation'); ?>
+<?php multiloquent_get_template_part('navigation'); ?>
 <footer class="well">
     <div class="container">
         <aside>

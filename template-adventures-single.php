@@ -7,7 +7,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part('featuredimage');
+        multiloquent_get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
@@ -29,7 +29,7 @@ if (have_posts()) {
         $title_string = preg_replace('(\d+)', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
-        get_template_part('breadcrumb');
+        multiloquent_get_template_part('breadcrumb');
         ?>
 <div class="container">
     <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
@@ -45,15 +45,15 @@ if (have_posts()) {
 					<?php
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
-        wp_link_pages("<p><strong>" . __('Pages', 'multiloquent') . ":</strong>", '</p>', __('number', 'multiloquent'));
+        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
+        wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
 				</div>
 </div>
 <?php
     }
 } else {
-    echo '<p>' . __('Sorry, no posts matched your criteria.', 'multiloquent') . '<p>';
+    echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();

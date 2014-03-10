@@ -8,7 +8,7 @@ get_header();
     rewind_posts();
     while (have_posts()) {
         the_post();
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
+        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
     }
     ?>
     </article>
@@ -24,7 +24,7 @@ get_header();
     ?>
     <!-- google_ad_section_end-->
     
-            <?php get_template_part('advert');?>
+            <?php multiloquent_get_template_part('advert');?>
         </div>
 <?php
 get_footer();

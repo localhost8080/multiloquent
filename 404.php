@@ -1,4 +1,4 @@
 <?php
 get_header();
-get_template_part('error-snippet');
+multiloquent_get_template_part('error-snippet');
 get_footer();

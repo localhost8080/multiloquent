@@ -8,7 +8,7 @@ if (have_posts()) {
     <div class="container">
         <header>
             <h1 class="article_title">
-			<?php _e('All entries by ', 'multiloquent') . the_author();?>
+			<?php echo 'All entries by ' . the_author();?>
             </h1>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
@@ -37,7 +37,7 @@ if (have_posts()) {
 				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
-			<?php get_template_part('advert');?>
+			<?php multiloquent_get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
@@ -49,7 +49,7 @@ if (have_posts()) {
 <?php } else { ?>
 <div class="container post">
     <div class="featurette">
-		<?php  get_template_part('error_snippet');?>
+		<?php  multiloquent_get_template_part('error-snippet');?>
 	</div>
 </div>
 <?php

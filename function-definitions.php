@@ -11,6 +11,11 @@ function multiloquent_version()
     return $version;
 }
 
+function multiloquent_get_template_part($file)
+{
+    require_once (trailingslashit(get_template_directory()) . $file . '.php');
+}
+
 function multiloquent_featured_image_in_feed($content)
 {
     global $post;
@@ -23,18 +28,6 @@ function multiloquent_featured_image_in_feed($content)
         }
     }
     return $content;
-}
-
-/**
- * performs my initialisation stuff
- */
-function multiloquent_init()
-{
-    add_theme_support('automatic-feed-links');
-    add_theme_support('html5');
-    add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
-    add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
-    add_action('customize_register', 'multiloquent_customize_register');
 }
 
 function multiloquent_customize_register($wp_customize)
@@ -52,7 +45,7 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
         'transport' => 'refresh'
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
-        'label' => __($label, 'multiloquent'),
+        'label' => $label,
         'section' => $section,
         'settings' => $setting_name
     )));
@@ -129,6 +122,11 @@ function multiloquent_stylesheet_method()
 
 function multiloquent_register()
 {
+    add_theme_support('automatic-feed-links');
+    add_theme_support('html5');
+    add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
+    add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
+    add_action('customize_register', 'multiloquent_customize_register');
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     // add_action('wp_enqueue_scripts', 'dequeue_devicepx', 20);
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);

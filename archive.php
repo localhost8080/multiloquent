@@ -8,26 +8,26 @@ if (have_posts()) {
             <h1 class="article_title">
 			<?php
     if (is_category()) {
-        printf(__('%s', 'multiloquent'), single_cat_title('', false));
+        printf('%s', single_cat_title('', false));
     } elseif (is_tag()) {
-        _e('Posts Tagged', 'multiloquent');
+        echo 'Posts Tagged';
         echo '&#8216; ';
         single_tag_title();
         echo '&#8217;';
     } elseif (is_day()) {
-        printf(__('Archive for %s', 'multiloquent'), get_the_time(__('F jS, Y', 'multiloquent')));
+        printf('Archive for %s', get_the_time('F jS, Y'));
     } elseif (is_month()) {
-        printf(__('Archive for %s', 'multiloquent'), get_the_time(__('F Y', 'multiloquent')));
+        printf('Archive for %s', get_the_time('F Y'));
     } elseif (is_year()) {
-        printf(__('Archive for %s', 'multiloquent'), get_the_time('Y'));
+        printf('Archive for %s', get_the_time('Y'));
     } elseif (is_search()) {
-        __('Search Results', 'multiloquent');
+        echo 'Search Results';
     } elseif (is_author()) {
-        _e('All entries by this author', 'multiloquent');
+        echo 'All entries by this author';
     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
-        _e('Blog Archives', 'multiloquent');
+        echo 'Blog Archives';
     } elseif (is_home()) {
-        _e('Recent Posts', 'multiloquent');
+        echo 'Recent Posts';
     }
     ?>
             </h1>
@@ -41,7 +41,7 @@ if (have_posts()) {
 				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
-			<?php get_template_part('advert');?>
+			<?php multiloquent_get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <div class="pagination pagination-centered">
@@ -53,7 +53,7 @@ if (have_posts()) {
 <?php } else { ?>
 <div class="container post">
     <div class="featurette">
-		<?php  get_template_part('error_snippet');?>
+		<?php  multiloquent_get_template_part('error-snippet');?>
 	</div>
 </div>
 <?php

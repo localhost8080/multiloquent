@@ -20,6 +20,7 @@ other things:
 version 6.1.0 adds support for wordpress theme customisation API -
 currently supports changing background, text and border colours of the main theme elements
 
+the theme is licenced under the GPLv2 - please see the included LICENCE file
 the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence http://www.apache.org/licenses/LICENSE-2.0
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
 the theme is responsive.
@@ -38,6 +39,7 @@ has support for jetpack sharing plugins [and puts them in the correct position i
 http://wordpress.org/extend/plugins/jetpack/
 
 category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' - sort of a 'top level category page' - it only contains links to category archives
+
 tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' - sort of a 'top level tag page' - it only displays links to tag archives
 to activate these, simply make a page in your system and assign the category or tag template.
 

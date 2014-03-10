@@ -4,7 +4,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part('featuredimage');
+        multiloquent_get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
@@ -15,7 +15,7 @@ if (have_posts()) {
 </h1>
 <?php
         }
-        get_template_part('breadcrumb');
+        multiloquent_get_template_part('breadcrumb');
         ?>
 <div class="container">
 
@@ -33,21 +33,21 @@ if (have_posts()) {
         }
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content("<p class=\"serif\">" . __('Read the rest of this page', 'multiloquent') . " &raquo;</p>");
-        wp_link_pages("<p><strong>" . __('Pages', 'multiloquent') . ":</strong>", '</p>', __('number', 'multiloquent'));
-        get_template_part('advert');
+        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
+        wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
+        multiloquent_get_template_part('advert');
         ?>                    
                         </div>
                         <?php if (comments_open()) {?>
     <section class="col-sm-12 col-md-6 col-lg-5 comments">
                             <?php
             comments_template();
-            get_template_part('advert');
+            multiloquent_get_template_part('advert');
             ?>
                         </section>
                         <?php }?>
 </div>
-<?php get_template_part('social');?>
+<?php multiloquent_get_template_part('social');?>
 <section class="container">
         <div class="tagcloud">
             <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
@@ -79,11 +79,11 @@ if (have_posts()) {
     </section>
 <?php
         }
-        get_template_part('advert');
+        multiloquent_get_template_part('advert');
         echo '</div>';
     }
 } else {
-    echo '<p>' . __('Sorry, no posts matched your criteria.', 'multiloquent') . '<p>';
+    echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();
