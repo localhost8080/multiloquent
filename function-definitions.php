@@ -36,7 +36,7 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#1C567F', 'Link Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Link Color', $wp_customize, 'colors');
 }
 
 function multiloquent_register_and_generate_custom_control($setting_name, $default, $label, $wp_customize, $section)
@@ -79,21 +79,21 @@ echo get_theme_mod('mulitloquent_navbar_link');
 }
 
 .navbar-fixed-top {
-    border-bottom: 1px solid<?php
+    border-bottom: 1px solid <?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
 }
 
 .navbar-fixed-bottom {
-    border-top: 1px solid<?php
+    border-top: 1px solid <?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
 }
 
 #search_form input,.navbar-form input {
-    border: 1px solid<?php
+    border: 1px solid <?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
