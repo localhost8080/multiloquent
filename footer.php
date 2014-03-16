@@ -41,10 +41,11 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar:visible').length == 0)
     {
         // its not visible
-        jQuery('.wrapper').css("height",jQuery('.wrapper').height());
+        
+        jQuery('.sidebar').css("height",jQuery('.sidebar').height());
+        jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').show();
-        
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
