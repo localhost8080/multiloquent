@@ -38,7 +38,7 @@ wp_footer();
 ?>
 <script type="text/javascript">
 jQuery('.sidebar-toggle').click(function(){
-    if(jQuery('.sidebar').css("margin-left")!='0' )
+    if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
         // its not visible
         if(jQuery('.wrapper').height() > jQuery('.sidebar').height()){
