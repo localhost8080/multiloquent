@@ -41,12 +41,9 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar:visible').length == 0)
     {
         // its not visible
-        if(){
-            jQuery('.wrapper').height() > jQuery('.sidebar').height()
+        if(jQuery('.wrapper').height() > jQuery('.sidebar').height()){
             jQuery('.sidebar').css("height",jQuery('.wrapper').height());
-        } else {
-            
-        }
+        } 
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').show();
