@@ -1363,3 +1363,11 @@ body.rtl .sharing li {
 .featured-posts div:first-child {
   margin-left: 0;
 }
+
+.sidebar {
+  background: none repeat scroll 0 0 #454545;
+  left: 0;
+  position: absolute;
+  top: 50px;
+  width: 20%;
+}
