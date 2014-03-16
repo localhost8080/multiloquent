@@ -79,21 +79,21 @@ echo get_theme_mod('mulitloquent_navbar_link');
 }
 
 .navbar-fixed-top {
-    border-bottom: 1px solid <?php
+    border-bottom: 1px solid<?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
 }
 
 .navbar-fixed-bottom {
-    border-top: 1px solid <?php
+    border-top: 1px solid<?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
 }
 
 #search_form input,.navbar-form input {
-    border: 1px solid <?php
+    border: 1px solid<?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
@@ -115,7 +115,6 @@ function multiloquent_stylesheet_method()
     wp_enqueue_style('font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
     wp_enqueue_style('style-css', get_stylesheet_uri());
     wp_enqueue_style('print-css', get_template_directory_uri() . '/print.css');
-
 }
 
 function multiloquent_register()
@@ -124,21 +123,18 @@ function multiloquent_register()
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
     add_theme_support('post-thumbnails');
-    
     // actions
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
     add_action('customize_register', 'multiloquent_customize_register');
     add_action('wp_tag_cloud', 'multiloquent_add_tag_class');
-    
     // filters
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
     add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
-    add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');   
+    add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
     add_filter('get_avatar', 'multiloquent_get_avatar');
-    
     // misc
     if (is_admin()) {
         add_editor_style('style.css');
@@ -605,7 +601,7 @@ function multiloquent_paralax_featured_sliders()
         $recent_posts = get_posts($args);
     }
     $count = 1;
-    $output = '<div class="featured-posts">';
+    $output = '<div class="featured-posts hidden-xs">';
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         ;
@@ -617,31 +613,9 @@ function multiloquent_paralax_featured_sliders()
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
         $height = $dimensions[1];
-        if ($count == '1') {
-            $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-            $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
-        }
-        if ($count == '2') {
-            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
-        }
-        if ($count == '3') {
-            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-            $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
-        }
-        if ($count == '4') {
-            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-            $output .= '<div class="paralax_image_bg swatch-blue"></div>';
-        }
-        if ($count == '5') {
-            $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
-        }
+        $output .= '<div class="paralax_image_holder float_left col-sm-6 col-md-2 col-lg-2 alpha omega"> ';
+        $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+        $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '<p>';
         $posttags = wp_get_post_tags($val->ID);
@@ -659,7 +633,6 @@ function multiloquent_paralax_featured_sliders()
     $output .= '</div>';
     return $output;
 }
-
 
 function multiloquent_get_avatar($avatar)
 {
