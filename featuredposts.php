@@ -1,2 +1,2 @@
 <?php
-multiloquent_paralax_featured_sliders();
+echo multiloquent_paralax_featured_sliders();
