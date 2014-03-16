@@ -56,7 +56,7 @@ function multiloquent_customize_css()
 {
     ?>
 <style type="text/css">
-.navbar-default,.navbar-default .navbar-brand,.navbar-form,#search_form,.jumbotron,.well,.breadcrumb,.comments {
+.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments {
     background: <?php echo get_theme_mod('mulitloquent_navbar'); ?>! important;
     color: <?php
     
