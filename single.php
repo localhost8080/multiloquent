@@ -44,7 +44,7 @@ if (have_posts()) {
         }
         ?>
 </div>
-<?php multiloquent_get_template_part('social');?>
+<?php //multiloquent_get_template_part('social');?>
 <section class="container">
     <div class="tagcloud">
         <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
