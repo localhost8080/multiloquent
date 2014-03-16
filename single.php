@@ -12,20 +12,18 @@ if (have_posts()) {
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
 <h1 class="container featurette-heading">
-    <?php echo multiloquent_post_title();?>
-</h1>
+                <?php echo multiloquent_post_title();?>
+            </h1>
 <?php
         }
         multiloquent_get_template_part('breadcrumb');
         ?>
 <div class="container">
-
-
-<?php if (comments_open()) {?>
-    <div class="col-sm-12 col-md-6 col-lg-7">    
-<?php } else { ?>
-   <div class="col-sm-12 col-md-12 col-lg-12">
 <?php
+        if (comments_open()) {
+            echo '<div class="col-sm-12 col-md-6 col-lg-7">';
+        } else {
+            echo '<div class="col-sm-12 col-md-12 col-lg-12">';
         }
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
@@ -37,23 +35,21 @@ if (have_posts()) {
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
         multiloquent_get_template_part('advert');
-        ?>                    
-                        </div>
-                        <?php if (comments_open()) {?>
-    <section class="col-sm-12 col-md-6 col-lg-5 comments">
-                            <?php
+        echo '</div>';
+        if (comments_open()) {
+            echo '<section class="col-sm-12 col-md-6 col-lg-5 comments">';
             comments_template();
             multiloquent_get_template_part('advert');
-            ?>
-                        </section>
-                        <?php }?>
+            echo '</section>';
+        }
+        ?>
 </div>
 <?php multiloquent_get_template_part('social');?>
 <section class="container">
-        <div class="tagcloud">
-            <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
-                <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
-                <div>
+    <div class="tagcloud">
+        <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
+            <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
+            <div>
         <?php
         $posttags = get_the_tags();
         if ($posttags) {
@@ -67,17 +63,17 @@ if (have_posts()) {
         }
         ?>
                 </div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 <?php
         if (function_exists('related_posts')) {
             ?>
 <section class="container post">
-        <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-12">
                             <?php related_posts();?>
                         </div>
-    </section>
+</section>
 <?php
         }
         multiloquent_get_template_part('advert');
