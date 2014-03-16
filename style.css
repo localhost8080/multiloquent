@@ -1350,7 +1350,6 @@ body.rtl .sharing li {
   border-bottom: 1px solid #E7E7E7;
   height: 100px;
   overflow: hidden;
-  position: fixed;
   top: 50px;
   z-index: 1030;
 }
