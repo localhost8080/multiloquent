@@ -73,6 +73,9 @@ a:hover {
     color: #1c567f;
     text-decoration: underline;
 }
+footer ul{
+    margin:0;
+}
 
 p {
     margin: 0 0 30px;
