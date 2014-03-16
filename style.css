@@ -1370,4 +1370,5 @@ body.rtl .sharing li {
   position: absolute;
   top: 50px;
   width: 20%;
+  display:none;
 }

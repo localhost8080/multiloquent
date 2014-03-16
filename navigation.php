@@ -4,7 +4,7 @@
             <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
             </button>
-            <a href="javascript:void()" onclick="$('.sidebar.toggle()')"><span class="glyphicon glyphicon-list"></span></a>
+            <a href="javascript:void()" onclick="jQuery('.sidebar').toggle();"><span class="glyphicon glyphicon-list"></span></a>
             <?php echo '<a class="navbar-brand" title="'. get_bloginfo('name').'" href="'. esc_url(home_url('/')) .'"><span class="fa fa-desktop fa-fw"></span>'. get_bloginfo('name').'</a>';?>
         </div>
         <div class="navbar-collapse collapse">
