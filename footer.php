@@ -39,7 +39,7 @@ wp_footer();
 ?>
 <script type="text/javascript">
 jQuery('.sidebar-toggle').click(function(){
-    if($('.sidebar:visible').length == 0)
+    if(jQuery('.sidebar:visible').length == 0)
     {
         // its not visible
         jQuery('.wrapper').css("width","80%");
