@@ -38,9 +38,8 @@ wp_footer();
 ?>
 <script type="text/javascript">
 jQuery('.sidebar-toggle').click(function(){
-    if(jQuery('.sidebar:visible').length == 0)
+    if(jQuery('.sidebar').css("margin-left")!='0' )
     {
-        jQuery('.sidebar').show();
         // its not visible
         if(jQuery('.wrapper').height() > jQuery('.sidebar').height()){
             jQuery('.sidebar').css("height",jQuery('.wrapper').height());
@@ -52,7 +51,6 @@ jQuery('.sidebar-toggle').click(function(){
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
         jQuery('.sidebar').css("margin-left","-20%");
-        jQuery('.sidebar').hide();
     }
 });
 
