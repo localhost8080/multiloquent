@@ -1,5 +1,5 @@
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
-<a href="javascript:void(0);" onclick="jQuery('.sidebar').toggle();" class="navbar-brand"><span class="fa fa-bars"></span></a>
+<a href="javascript:void(0);" class="navbar-brand sidebar-toggle"><span class="fa fa-bars"></span></a>
     <div class="container">
         <div class="navbar-header">
 

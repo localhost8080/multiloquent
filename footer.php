@@ -1,5 +1,5 @@
 <?php multiloquent_get_template_part('navigation'); ?>
-<?php get_sidebar(); ?>
+
 <footer class="well">
     <div class="container">
         <aside>
@@ -33,8 +33,24 @@
         </aside>
     </div>
 </footer>
-<?php
+</div>
+<?php get_sidebar(); 
 wp_footer();
 ?>
+<script type="text/javascript">
+jQuery('.sidebar-toggle').click(function(){
+    if($('.sidebar:visible').length == 0)
+    {
+        // its not visible
+        jQuery('.wrapper').css(width:80%);
+        jQuery('.sidebar').show();
+    } else {
+        // its already on the screen
+        jQuery('.wrapper').css(width:100%);
+        jQuery('.sidebar').hide();
+    }
+});
+
+</script>
 </body>
 </html>

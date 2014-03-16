@@ -13,3 +13,4 @@
     ?>
 </head>
 <body <?php body_class();?>>
+<div class="wrapper">
