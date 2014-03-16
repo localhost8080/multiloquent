@@ -13,5 +13,4 @@
     ?>
 </head>
 <body <?php body_class();?>>
-<div class="container">
-<div class="wrapper col-lg-12 col-md-12">
+<div class="wrapper">
