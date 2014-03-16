@@ -41,7 +41,7 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar:visible').length == 0)
     {
         // its not visible
-        var wrapper-height = jQuery('.wrapper').height();
+        wrapper-height = jQuery('.wrapper').height();
         jQuery('.wrapper').css("height",wrapper-height);
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
