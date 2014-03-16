@@ -577,6 +577,90 @@ function multiloquent_paralax_slider()
     return $output;
 }
 
+function multiloquent_paralax_featured_sliders()
+{
+    global $wpdb;
+    $output = '';
+    $total_posts = '5';
+    if (function_exists('tptn_pop_posts')) {
+        $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
+		FROM wp_top_ten_daily INNER JOIN wp_posts ON postnumber=ID
+		AND post_type = 'post'
+		AND post_status = 'publish'
+		and dp_date BETWEEN SYSDATE() - INTERVAL 30 DAY AND SYSDATE() group by ID
+		ORDER BY sumCount DESC LIMIT 5;";
+        $recent_posts = $wpdb->get_results($sql);
+    } else {
+        $args = array(
+            'numberposts' => $total_posts,
+            'offset' => 0,
+            'category' => '',
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'include' => '',
+            'exclude' => '',
+            'post_type' => 'post',
+            'post_status' => 'publish'
+        );
+        $recent_posts = get_posts($args);
+    }
+    $count = 1;
+    $output = '<div class="container mb"><div class="row alpha">';
+    foreach ($recent_posts as $val) {
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
+        ;
+        if ($slider_image) {
+            $theimg = $slider_image[0];
+        } else {
+            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+        }
+        $dimensions = getimagesize($theimg);
+        $width = $dimensions[0];
+        $height = $dimensions[1];
+        if ($count == '1') {
+            $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
+        }
+        if ($count == '2') {
+            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
+        }
+        if ($count == '3') {
+            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
+        }
+        if ($count == '4') {
+            $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<div class="paralax_image_bg swatch-blue"></div>';
+        }
+        if ($count == '5') {
+            $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
+            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
+        }
+        $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
+        $output .= '<p>';
+        $posttags = wp_get_post_tags($val->ID);
+        if ($posttags) {
+            foreach ($posttags as $tag) {
+                $output .= '<a class="label ';
+                $output .= multiloquent_get_random_solid_class($tag->slug);
+                $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+            }
+        }
+        $output .= '</p></div>';
+        $output .= '</div>';
+        $count ++;
+    }
+    $output .= '</div></div>';
+    return $output;
+}
+
+
 function multiloquent_get_avatar($avatar)
 {
     $avatar = str_replace("class='avatar", "class='avatar pull-left media-object", $avatar);
