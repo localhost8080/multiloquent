@@ -1360,3 +1360,6 @@ body.rtl .sharing li {
   padding: 0;
   width: 65px;
 }
+.featured-posts div:first-child {
+  margin-left: 0;
+}
