@@ -1345,3 +1345,10 @@ body.rtl .sharing li {
 .mb {
   margin-bottom: 30px;
 }
+.featured-posts {
+  height: 100px;
+  overflow: hidden;
+  position: fixed;
+  top: 50px;
+  z-index: 1030;
+}
