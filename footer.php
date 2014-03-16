@@ -42,11 +42,11 @@ jQuery('.sidebar-toggle').click(function(){
     {
         // its not visible
         jQuery('.wrapper').css("overflow","hidden");
-        jQuery('.wrapper').css("margin-right","20%");
+        jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').show();
     } else {
         // its already on the screen
-        jQuery('.wrapper').css("margin-right","0");
+        jQuery('.wrapper').css("margin-left","0");
         jQuery('.sidebar').hide();
     }
 });
