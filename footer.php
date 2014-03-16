@@ -46,11 +46,12 @@ jQuery('.sidebar-toggle').click(function(){
         } 
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
-        jQuery('.sidebar').show();
+        jQuery('.sidebar').css("margin-left","0");
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
-        jQuery('.sidebar').hide();
+        jQuery('.sidebar').css("margin-left","-20%");
+        
     }
 });
 
