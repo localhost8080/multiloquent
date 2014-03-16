@@ -1348,7 +1348,8 @@ body.rtl .sharing li {
 .featured-posts {
   background: none repeat scroll 0 0 #F8F8F8;
   border-bottom: 1px solid #E7E7E7;
-  height: 100px;
+  font-size: 0.8em;
+  height: 50px;
   overflow: hidden;
   top: 50px;
   z-index: 1030;
