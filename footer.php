@@ -41,13 +41,12 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar:visible').length == 0)
     {
         // its not visible
-        jQuery('.wrapper').css("float","right");
-        jQuery('.wrapper').css("width","80%");
+        jQuery('.wrapper').css("overflow","hidden");
+        jQuery('.wrapper').css("margin-right","20%");
         jQuery('.sidebar').show();
     } else {
         // its already on the screen
-        jQuery('.wrapper').css("float","none");
-        jQuery('.wrapper').css("width","100%");
+        jQuery('.wrapper').css("margin-right","0");
         jQuery('.sidebar').hide();
     }
 });
