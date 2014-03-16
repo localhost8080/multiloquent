@@ -1353,3 +1353,8 @@ body.rtl .sharing li {
   top: 50px;
   z-index: 1030;
 }
+.featured-posts .row img {
+  height: 65px;
+  padding: 0;
+  width: 65px;
+}
