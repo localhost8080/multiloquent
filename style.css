@@ -1367,7 +1367,7 @@ body.rtl .sharing li {
 .sidebar {
   background: none repeat scroll 0 0 #454545;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 50px;
   width: 20%;
   display:none;
