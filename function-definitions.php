@@ -618,9 +618,9 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $output .= '<div class="float_left hidden-sm col-md-2 col-lg-2 alpha omega">';
         }
-        $output .= '<img src="' . $theimg . '" class="col-lg-6 col-md-6 col-sm-6 img-responsive" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+        $output .= '<div class-"row"><img src="' . $theimg . '" class="col-lg-6 col-md-6 col-sm-6 img-responsive" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
         $output .= '<span class="col-lg-6 col-md-6 col-sm-6"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
-        $output .= '</div>';
+        $output .= '</div></div>';
         $count ++;
     }
     $output .= '</div>';
