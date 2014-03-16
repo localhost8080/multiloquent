@@ -32,9 +32,12 @@
     </div>
 </footer>
 </div>
-</div>
+
 <?php
 get_sidebar();
+?>
+</div>
+<?php
 wp_footer();
 ?>
 <script type="text/javascript">
