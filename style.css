@@ -1374,4 +1374,8 @@ body.rtl .sharing li {
   top: 50px;
   width: 20%;
   display:none;
+  color:#fff;
+}
+.sidebar a{
+    color:#fff;
 }
