@@ -32,6 +32,7 @@
     </div>
 </footer>
 </div>
+</div>
 <?php
 get_sidebar();
 wp_footer();
