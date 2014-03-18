@@ -1,4 +1,7 @@
-<?php multiloquent_get_template_part('navigation'); ?>
+</div>
+<?php 
+get_sidebar();
+multiloquent_get_template_part('navigation'); ?>
 <footer class="well">
     <div class="container">
         <aside>
@@ -31,9 +34,9 @@
         </aside>
     </div>
 </footer>
-</div>
+
 <?php
-get_sidebar();
+
 wp_footer();
 ?>
 <script type="text/javascript">
