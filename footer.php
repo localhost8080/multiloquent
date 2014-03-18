@@ -50,9 +50,8 @@ jQuery('.sidebar-toggle').click(function(){
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').css("margin-left","0");
-        if(jQuery('.wrapper').height() > jQuery('.sidebar').height()){
-            jQuery('.sidebar').css("height",jQuery('.wrapper').height());
-        } 
+        jQuery('.sidebar').css("height",jQuery('.wrapper').height());
+         
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
