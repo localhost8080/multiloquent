@@ -44,9 +44,15 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
         // its not visible
+        if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
+         // the sidebar is bigger than the wrapper
+            jQuery('.wrapper').css("height",jQuery('.sidebar').height());
+        } 
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').css("margin-left","0");
+
+         
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
