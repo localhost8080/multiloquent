@@ -44,14 +44,9 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
         // its not visible
-        if(jQuery('.wrapper').height() > jQuery('.sidebar').height()){
-            jQuery('.sidebar').css("height",jQuery('.wrapper').height());
-        } 
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","20%");
         jQuery('.sidebar').css("margin-left","0");
-        jQuery('.sidebar').css("height",jQuery('.wrapper').height());
-         
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
