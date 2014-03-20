@@ -7,7 +7,7 @@ multiloquent_get_template_part('navigation');
     <div class="container">
         <aside>
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
+                <div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
                     
                             <?php
                             if (is_active_sidebar(6)) {
@@ -15,7 +15,7 @@ multiloquent_get_template_part('navigation');
                             }
                             ?>
                 </div>
-                <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
+                <div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
                  
                             <?php
                             if (is_active_sidebar(7)) {
