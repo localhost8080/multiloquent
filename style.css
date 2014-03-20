@@ -157,6 +157,11 @@ pre:before {
     color: #454545;
 }
 
+.sidebar .nav-header {
+  color: #FFFFFF;
+  padding-left: 20px;
+}
+
 #search_form {
     padding: 45px 0 0 20px;
 }
