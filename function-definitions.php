@@ -154,16 +154,16 @@ function multiloquent_register()
     }
     // sidebars
     $sidebars = array(
-        '1' => 'top navigation',
+        '1' => 'sidebar top',
         '2' => 'mobile specific advert',
         '3' => 'non-mobile specific advert',
-        '4' => 'above footer top left',
-        '5' => 'above footer top right',
-        '6' => 'above footer bottom left',
-        '7' => 'above footer bottom right',
+        '4' => 'sidebar middle',
+        '5' => 'sidebar bottom',
+        '6' => 'footer top left',
+        '7' => 'footer top right',
         '8' => 'social media',
-        '9' => 'footer middle',
-        '10' => 'footer right'
+        '9' => 'footer bottom left',
+        '10' => 'footer bottom right'
     );
     multiloquent_generate_sidebars($sidebars);
 }
