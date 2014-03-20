@@ -162,6 +162,10 @@ pre:before {
   padding-left: 20px;
 }
 
+#wp-calendar {
+  margin: 40px auto;
+}
+
 #search_form {
     padding: 45px 0 0 20px;
 }
