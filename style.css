@@ -1197,7 +1197,11 @@ body.rtl .sharing li {
         top: 32px;
     }
 }
-
+@media ( max-width : 782px) {
+    .admin-bar .navbar-fixed-top {
+        top: 48px;
+    }    
+}
 @media ( max-width : 979px) {
     .paralax_image_holder {
       overflow: hidden;
