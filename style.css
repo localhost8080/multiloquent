@@ -1374,11 +1374,11 @@ body.rtl .sharing li {
   left: 0;
   position: absolute;
   top: 50px;
-  width: 20%;
+  width: 300px;
   color:#fff;
   overflow-x:hidden;
   transition:all 1s ease 0s;
-  margin-left:-20%;
+  margin-left:-300px;
 }
 .sidebar a{
     color:#fff;

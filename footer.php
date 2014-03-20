@@ -49,12 +49,12 @@ jQuery('.sidebar-toggle').click(function(){
     {
         // its not visible 
         jQuery('.wrapper').css("overflow","hidden");
-        jQuery('.wrapper').css("margin-left","20%");
+        jQuery('.wrapper').css("margin-left","300px");
         jQuery('.sidebar').css("margin-left","0");   
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0");
-        jQuery('.sidebar').css("margin-left","-20%");
+        jQuery('.sidebar').css("margin-left","-300");
     }
 });
 
