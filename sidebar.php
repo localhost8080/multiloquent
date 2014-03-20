@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <div class="row">
+    <div>
             <?php
             get_search_form();
             if (is_active_sidebar(1)) {
@@ -8,7 +8,7 @@
             ?>
             
         </div>
-    <div class="row">
+    <div>
         <?php
         /* recent posts. */
         if (is_active_sidebar(4)) {
@@ -19,7 +19,7 @@
         }
         ?>
     </div>
-    <div class="row">    
+    <div>    
         <?php
         /* recent posts. */
         if (is_active_sidebar(6)) {
