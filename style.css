@@ -1199,7 +1199,7 @@ body.rtl .sharing li {
 }
 @media ( max-width : 782px) {
     .admin-bar .navbar-fixed-top {
-        top: 48px;
+        top: 48px!important;
     }    
 }
 @media ( max-width : 979px) {
@@ -1363,7 +1363,7 @@ body.rtl .sharing li {
   overflow: hidden;
   padding-top: 10px;
   top: 50px;
-  z-index: 1030;
+  z-index: 400;
 }
 .featured-posts .row img {
   height: 65px;
@@ -1389,5 +1389,8 @@ body.rtl .sharing li {
 }
 .sidebar a{
     color:#fff;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+  z-index: 400;
 }
 
