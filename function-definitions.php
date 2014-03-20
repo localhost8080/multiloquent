@@ -118,7 +118,7 @@ function multiloquent_stylesheet_method()
 }
 
 function multiloquent_menu() {
-    register_nav_menu('header-menu','Header Menu');
+    register_nav_menu('primary-menu','Primary Menu');
 }
 
 
