@@ -1271,12 +1271,6 @@ body.rtl .sharing li {
         height: 55px;
         position: absolute;
     }
-    #wpadminbar {
-        height: 46px;
-        left: 0 !important;
-        min-width: 300px;
-        z-index: 500 !important;
-    }
     .navbar-brand {
       line-height: 23px;
     }
