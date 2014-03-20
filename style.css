@@ -1270,6 +1270,7 @@ body.rtl .sharing li {
     .admin-bar .navbar-fixed-top {
         height: 55px;
         position: absolute;
+        top:28px
     }
     .navbar-brand {
       line-height: 23px;
@@ -1385,6 +1386,4 @@ body.rtl .sharing li {
 .sidebar a{
     color:#fff;
 }
-.admin-bar .navbar-fixed-top {
-  top: 28px;
-}
+
