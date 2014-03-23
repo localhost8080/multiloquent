@@ -1204,6 +1204,9 @@ body.rtl .sharing li {
     .admin-bar .navbar-fixed-top {
         top: 48px!important;
     }    
+    .sitename{
+        float:left;
+    }
 }
 @media ( max-width : 979px) {
     .paralax_image_holder {
