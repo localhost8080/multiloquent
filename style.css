@@ -1411,8 +1411,9 @@ body.rtl .sharing li {
 }
 
 .page_item_has_children {
-    posotion:relative;
+  position: relative;
 }
+
 .sidebar .menu ul > li > a {
   padding-left: 15px;
 }
