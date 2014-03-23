@@ -621,7 +621,11 @@ function multiloquent_paralax_featured_sliders()
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
         $height = $dimensions[1];
-        $output .= '<div class="float_left col-sm-6 col-md-3 col-lg-3 alpha omega"> ';
+        if ($count == '1' || $count == '2') {
+            $output .= '<div class="float_left col-sm-6 col-md-3 col-lg-3 alpha omega"> ';
+        } else {
+            $output .= '<div class="float_left hidden-sm col-md-3 col-lg-3 alpha omega">';
+        }
         $output .= '<div class="row"><img src="' . $theimg . '" class="col-lg-4 col-md-4 col-sm-4 img-responsive" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
         $output .= '<span class="col-lg-8 col-md-8 col-sm-8"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '</div></div>';
