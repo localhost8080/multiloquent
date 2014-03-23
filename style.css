@@ -229,6 +229,9 @@ pre:before {
     .navbar-fixed-bottom {
         position: static;
     }
+    .navbar-brand{
+    
+    }
 }
 
 @media ( min-width : 1200px) {
@@ -1392,5 +1395,18 @@ body.rtl .sharing li {
 }
 .navbar-fixed-top, .navbar-fixed-bottom {
   z-index: 400;
+}
+.sidebar .menu ul {
+  margin: 0;
+}
+
+.sidebar .menu li {
+  list-style:none;
+}
+
+
+.sidebar .menu li a {
+  border-bottom: 1px solid #EEEEEE;
+  display: block;
 }
 
