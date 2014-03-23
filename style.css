@@ -42,7 +42,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
     
 }
 
-
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -73,8 +72,9 @@ a:hover {
     color: #1c567f;
     text-decoration: underline;
 }
-footer ul{
-    margin:0;
+
+footer ul {
+    margin: 0;
 }
 
 p {
@@ -96,8 +96,8 @@ p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
     padding-top: 30px;
 }
 
-img, .aligncenter, .alignnone, .alignleft, .alignright {
-  max-width: 100%;
+img,.aligncenter,.alignnone,.alignleft,.alignright {
+    max-width: 100%;
 }
 
 .main_image {
@@ -158,12 +158,12 @@ pre:before {
 }
 
 .sidebar .nav-header {
-  color: #FFFFFF;
-  padding-left: 20px;
+    color: #FFFFFF;
+    padding-left: 20px;
 }
 
 #wp-calendar {
-  margin: 40px auto;
+    margin: 40px auto;
 }
 
 #search_form {
@@ -229,8 +229,8 @@ pre:before {
     .navbar-fixed-bottom {
         position: static;
     }
-    .navbar-brand{
-    
+    .navbar-brand {
+        
     }
 }
 
@@ -529,24 +529,23 @@ figcaption {
     text-align: center;
 }
 
-.aligncenter{
+.aligncenter {
     margin: 0 auto;
 }
 
 .alignleft {
-    float:left;
+    float: left;
     margin-bottom: 10px;
     margin-right: 20px;
     margin-top: 10px;
 }
 
 .alignright {
-  float: right;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
-
 
 div.thumbnail .featured-image {
     height: 100px;
@@ -1127,23 +1126,23 @@ body.rtl .sharing li {
         
     }
     .paralax_image_holder {
-      overflow: hidden;
-      padding: 0;
-      position: relative;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
     }
     .paralax_image_bg {
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset;
-      display: block;
-      left: 0;
-      opacity: 0.8;
-      position: absolute;
-      top: 0;
-      transition: top 1s ease 0s;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset;
+        display: block;
+        left: 0;
+        opacity: 0.8;
+        position: absolute;
+        top: 0;
+        transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
-      border: 0 none;
-      height: 255px;
-      max-width: 5000px;
+        border: 0 none;
+        height: 255px;
+        max-width: 5000px;
     }
     .paralax_image_holder.doubleheight img {
         border: 0 none;
@@ -1164,12 +1163,11 @@ body.rtl .sharing li {
         height: 510px;
     }
     .paralax_image_text {
-      bottom: -80px;
-      
-      padding: 0 10px;
-      position: absolute;
-      transition: all 1s ease 0s;
-      width: 100%;
+        bottom: -80px;
+        padding: 0 10px;
+        position: absolute;
+        transition: all 1s ease 0s;
+        width: 100%;
     }
     .paralax_image_holder:hover .paralax_image_text {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
@@ -1200,19 +1198,24 @@ body.rtl .sharing li {
         top: 32px;
     }
 }
+
 @media ( max-width : 782px) {
     .admin-bar .navbar-fixed-top {
-        top: 48px!important;
-    }    
-    .sitename{
-        float:left;
+        top: 48px !important;
+    }
+    .navbar-brand.title_text {
+        display: block;
+        float: none;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }
+
 @media ( max-width : 979px) {
     .paralax_image_holder {
-      overflow: hidden;
-      padding: 0;
-      position: relative;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
     }
     .paralax_image_bg {
         display: none;
@@ -1222,9 +1225,9 @@ body.rtl .sharing li {
         transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
-      border: 0 none;
-      height: 255px;
-      max-width: 5000px;
+        border: 0 none;
+        height: 255px;
+        max-width: 5000px;
     }
     .paralax_image_holder.doubleheight img {
         border: 0 none;
@@ -1245,12 +1248,11 @@ body.rtl .sharing li {
         height: 510px;
     }
     .paralax_image_text {
-      bottom: -80px;
-      
-      padding: 0 10px;
-      position: absolute;
-      transition: all 1s ease 0s;
-      width: 100%;
+        bottom: -80px;
+        padding: 0 10px;
+        position: absolute;
+        transition: all 1s ease 0s;
+        width: 100%;
     }
     .paralax_image_holder .paralax_image_text {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
@@ -1280,10 +1282,10 @@ body.rtl .sharing li {
     .admin-bar .navbar-fixed-top {
         height: 55px;
         position: absolute;
-        top:28px
+        top: 28px
     }
     .navbar-brand {
-      line-height: 23px;
+        line-height: 23px;
     }
 }
 
@@ -1351,90 +1353,99 @@ body.rtl .sharing li {
 }
 
 .restricted-height-sidebar {
-  line-height: 53px;
-  max-height: 53px;
-  overflow: hidden;
+    line-height: 53px;
+    max-height: 53px;
+    overflow: hidden;
 }
-.avatar {
-  margin-right: 10px;
-}
-.mb {
-  margin-bottom: 30px;
-}
-.featured-posts {
-  background: none repeat scroll 0 0 #F8F8F8;
-  border-bottom: 1px solid #E7E7E7;
-  font-size: 0.8em;
-  height: 85px;
-  overflow: hidden;
-  padding-top: 10px;
-  top: 50px;
-  z-index: 400;
-}
-.featured-posts .row img {
-  height: 65px;
-  padding: 0;
 
+.avatar {
+    margin-right: 10px;
 }
+
+.mb {
+    margin-bottom: 30px;
+}
+
+.featured-posts {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-bottom: 1px solid #E7E7E7;
+    font-size: 0.8em;
+    height: 85px;
+    overflow: hidden;
+    padding-top: 10px;
+    top: 50px;
+    z-index: 400;
+}
+
+.featured-posts .row img {
+    height: 65px;
+    padding: 0;
+}
+
 .featured-posts div:first-child {
-  margin-left: 0;
+    margin-left: 0;
 }
-.wrapper{
-    background:#ffffff;
-    transition:all 1s ease 0s;
+
+.wrapper {
+    background: #ffffff;
+    transition: all 1s ease 0s;
 }
+
 .sidebar {
-  left: 0;
-  position: absolute;
-  top: 50px;
-  width: 300px;
-  color:#fff;
-  overflow-x:hidden;
-  transition:all 1s ease 0s;
-  margin-left:-300px;
+    left: 0;
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    color: #fff;
+    overflow-x: hidden;
+    transition: all 1s ease 0s;
+    margin-left: -300px;
 }
-.sidebar a{
-    color:#fff;
+
+.sidebar a {
+    color: #fff;
 }
-.navbar-fixed-top, .navbar-fixed-bottom {
-  z-index: 400;
+
+.navbar-fixed-top,.navbar-fixed-bottom {
+    z-index: 400;
 }
+
 .sidebar .menu ul {
-  margin: 0;
+    margin: 0;
 }
 
 .sidebar .menu li {
-  list-style:none;
+    list-style: none;
 }
 
 .page_item_has_children {
-  position: relative;
+    position: relative;
 }
 
-.sidebar .menu ul > li > a {
-  margin-left: 10px;
+.sidebar .menu ul>li>a {
+    margin-left: 10px;
 }
 
-.sidebar .menu ul > li > ul {
-    display:none;
+.sidebar .menu ul>li>ul {
+    display: none;
 }
 
-ul.children{
-    background:#676767;
+ul.children {
+    background: #676767;
 }
 
 ul.children ul.children {
-    background:#898989;
+    background: #898989;
 }
 
 .page_item_has_children:after {
-  border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-  border-right: 6px solid rgba(0, 0, 0, 0);
-  border-style: solid;
-  border-width: 6px;
-  content: "";
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+    border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 6px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
