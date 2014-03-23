@@ -1406,8 +1406,7 @@ body.rtl .sharing li {
 
 
 .sidebar .menu li a {
-  border-bottom: 1px solid #EEEEEE;
-  display: block;
+
 }
 
 .page_item_has_children {
@@ -1415,7 +1414,7 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu ul > li > a {
-  padding-left: 15px;
+
 }
 
 .sidebar .menu ul > li > ul {
