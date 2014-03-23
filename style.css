@@ -1410,6 +1410,9 @@ body.rtl .sharing li {
   display: block;
 }
 
+.sidebar .menu ul > li {
+    posotion:relative;
+}
 .sidebar .menu ul > li > a {
   padding-left: 15px;
 }
