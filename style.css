@@ -1455,6 +1455,7 @@ ul.children ul.children {
   position: fixed;
   right: 0;
   top: 50%;
+  padding:20px 5px;
 }
 
 .next_link {
@@ -1462,5 +1463,6 @@ ul.children ul.children {
   left: 0;
   position: fixed;
   top: 50%;
+  padding:20px 5px;
 }
 
