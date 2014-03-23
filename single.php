@@ -76,8 +76,8 @@ if (have_posts()) {
 </section>
 <?php
         }
-        next_post_link();
-        previous_post_link();
+        next_post_link('%link', 'Next post in category', TRUE);
+        previous_post_link('%link', 'Next post in category', TRUE);
         multiloquent_get_template_part('advert');
         echo '</div>';
     }
