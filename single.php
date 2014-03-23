@@ -77,7 +77,7 @@ if (have_posts()) {
 <?php
         }
         next_post_link('<div class="next_link btn btn-default btn-lg">%link</div>', '<span class="fa fa-chevron-left"></span>', TRUE);
-        previous_post_link('<div class="prev_link btn btn-default btn-lg">%link</div>', '<span class="fa fa-chevron-left"></span>', TRUE);
+        previous_post_link('<div class="prev_link btn btn-default btn-lg">%link</div>', '<span class="fa fa-chevron-right"></span>', TRUE);
         multiloquent_get_template_part('advert');
         echo '</div>';
     }
