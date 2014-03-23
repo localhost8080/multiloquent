@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <div>
+
             <?php
             get_search_form();
             wp_nav_menu(array('theme_location' => 'primary-menu'));
@@ -7,9 +7,7 @@
                 dynamic_sidebar(1);
             }
             ?>
-            
-    </div>
-    <div>
+ 
         <?php
         /* recent posts. */
         if (is_active_sidebar(4)) {
@@ -19,5 +17,5 @@
             dynamic_sidebar(5);
         }
         ?>
-    </div>
+
 </div>
