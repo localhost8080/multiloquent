@@ -74,6 +74,11 @@ jQuery('.sidebar-toggle').click(function(){
     }
 });
 
+jQuery('.sidebar .menu ul > li').click(function(){
+    alert('stuff');
+});
+
+
 </script>
 </body>
 </html>

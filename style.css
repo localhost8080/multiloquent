@@ -1418,25 +1418,14 @@ body.rtl .sharing li {
     display:none;
 }
 
-.sidebar .menu ul > li:hover > ul {
-    display:block;
-}
-
-
-.page_item_has_children:before {
-  display: inline-block;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #fff;
-  border-left: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  content: '';
-}
-
 .page_item_has_children:after {
+  border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  border-right: 6px solid rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-width: 6px;
+  content: "";
   display: inline-block;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 6px solid transparent;
-  border-top: 6px solid #fff;
-  content: '';
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
