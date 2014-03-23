@@ -74,7 +74,10 @@ jQuery('.sidebar-toggle').click(function(){
     }
 });
 
-
+jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(){
+    jQuery(this).children('ul.children').slideToggle();
+    return false;
+});
 
 
 
