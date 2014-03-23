@@ -1410,7 +1410,7 @@ body.rtl .sharing li {
   display: block;
 }
 
-.sidebar .menu ul > li {
+.page_item_has_children {
     posotion:relative;
 }
 .sidebar .menu ul > li > a {
