@@ -76,8 +76,8 @@ if (have_posts()) {
 </section>
 <?php
         }
-        next_post_link('<div class="next_link btn btn-primary btn-lg">%link</div>', 'Next post in category', TRUE);
-        previous_post_link('<div class="prev_link btn btn-primary btn-lg">%link</div>', 'Previous post in category', TRUE);
+        next_post_link('<div class="next_link btn btn-default btn-lg">%link</div>', '<span class="fa fa-chevron-left"></span>', TRUE);
+        previous_post_link('<div class="prev_link btn btn-default btn-lg">%link</div>', '<span class="fa fa-chevron-left"></span>', TRUE);
         multiloquent_get_template_part('advert');
         echo '</div>';
     }
