@@ -64,6 +64,8 @@ jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
         // its not visible 
+        jQuery('.prev_link').hide();
+        jQuery('.next_link').hide();
         jQuery('.wrapper').css("overflow","hidden");
         jQuery('.wrapper').css("margin-left","300px");
         jQuery('.sidebar').css("margin-left","0px");   
@@ -71,6 +73,8 @@ jQuery('.sidebar-toggle').click(function(){
         // its already on the screen
         jQuery('.wrapper').css("margin-left","0px");
         jQuery('.sidebar').css("margin-left","-300px");
+        jQuery('.prev_link').show();
+        jQuery('.next_link').show();
     }
 });
 
