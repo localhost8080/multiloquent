@@ -77,7 +77,7 @@ if (have_posts()) {
 <?php
         }
         next_post_link();
-        prev_post_link();
+        previous_post_link();
         multiloquent_get_template_part('advert');
         echo '</div>';
     }
