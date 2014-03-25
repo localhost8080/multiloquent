@@ -528,12 +528,12 @@ function multiloquent_paralax_slider()
     $count = 1;
     $output = '<div class="container mb"><div class="row alpha">';
     foreach ($recent_posts as $val) {
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
+        $slider_image = get_post_thumbnail_id($val->ID);
         ;
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+            $theimg = get_template_directory() . '/images/default-slider.png';
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
@@ -611,12 +611,12 @@ function multiloquent_paralax_featured_sliders()
     $count = 1;
     $output = '<div class="featured-posts hidden-xs">';
     foreach ($recent_posts as $val) {
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
-        ;
+        $slider_image = get_post_thumbnail_id($val->ID);
+        
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+            $theimg = get_template_directory() . '/images/default-slider.png';
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
