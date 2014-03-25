@@ -33,7 +33,7 @@ function multiloquent_featured_image_in_feed($content)
 
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#f5f5f5', 'Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F8F8F8', 'Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Link Color', $wp_customize, 'colors');
@@ -528,12 +528,12 @@ function multiloquent_paralax_slider()
     $count = 1;
     $output = '<div class="container mb"><div class="row alpha">';
     foreach ($recent_posts as $val) {
-        $slider_image = get_post_thumbnail_id($val->ID);
-        ;
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
+        
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory() . '/images/default-slider.png';
+            $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
@@ -611,12 +611,12 @@ function multiloquent_paralax_featured_sliders()
     $count = 1;
     $output = '<div class="featured-posts hidden-xs">';
     foreach ($recent_posts as $val) {
-        $slider_image = get_post_thumbnail_id($val->ID);
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory() . '/images/default-slider.png';
+            $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
