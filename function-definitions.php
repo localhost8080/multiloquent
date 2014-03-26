@@ -13,6 +13,8 @@ function multiloquent_version()
 
 function multiloquent_get_template_part($file)
 {
+    // needed for the included files...
+    global $post;
     require_once (trailingslashit(get_template_directory()) . $file . '.php');
 }
 
