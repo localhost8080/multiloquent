@@ -1388,7 +1388,7 @@ body.rtl .sharing li {
 
 .wrapper {
     background: #ffffff;
-    transition: all 1s ease 0s;
+    transition: margin 1s ease 0s;
 }
 
 .sidebar {
