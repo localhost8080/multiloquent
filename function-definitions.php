@@ -118,10 +118,10 @@ function multiloquent_stylesheet_method()
     wp_enqueue_style('print-css', get_template_directory_uri() . '/print.css');
 }
 
-function multiloquent_menu() {
-    register_nav_menu('primary-menu','Primary Menu');
+function multiloquent_menu()
+{
+    register_nav_menu('primary-menu', 'Primary Menu');
 }
-
 
 function multiloquent_register()
 {
@@ -134,7 +134,6 @@ function multiloquent_register()
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
     add_action('customize_register', 'multiloquent_customize_register');
     add_action('wp_tag_cloud', 'multiloquent_add_tag_class');
-    
     // filters
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
@@ -142,7 +141,6 @@ function multiloquent_register()
     add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
     add_filter('get_avatar', 'multiloquent_get_avatar');
-    
     // misc
     if (is_admin()) {
         add_editor_style('style.css');
@@ -530,7 +528,6 @@ function multiloquent_paralax_slider()
     $output = '<div class="container mb"><div class="row alpha">';
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
-        
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
@@ -613,7 +610,6 @@ function multiloquent_paralax_featured_sliders()
     $output = '<div class="featured-posts hidden-xs">';
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
-        
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
