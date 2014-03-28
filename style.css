@@ -1461,29 +1461,397 @@ body.rtl .sharing li {
   top: 50%;
   padding:20px 5px;
 }
-.comment-meta {
-  display: inline;
-  padding-bottom: 0 !important;
-}
-.comment-body{
-    color: #777;
-    font-size: 13px;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 100%;
-    font-family: inherit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.post-content {
+    margin-bottom: 24px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    *zoom: 1
 }
 
-.comment-metadata {
-  display: inline-block;
-  font-size: 13px;
+.post-content:before,.post-content:after {
+    display: table;
+    content: "";
+    line-height: 0
 }
-.comment-author {
-  font-size: 13px;
-  line-height: 13px;
+
+.post-content:after {
+    clear: both
 }
-.avatar {
-  height: 64px;
-  margin-right: 10px;
-  width: 64px;
+
+.post-content .indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 48px;
+    border-radius: 3px
 }
+
+.post-content.new,.post-content.target {
+    padding-left: 12px
+}
+
+.post-content.new>.avatar,.post-content.target>.avatar {
+    left: 12px
+}
+
+.post-content.new .indicator,.post-content.target .indicator {
+    background: #2e9fff
+}
+
+.post-content.target .indicator {
+    background: #ffc62e
+}
+
+.post-content.post-reply .source-avatar {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .12)
+}
+
+.post-content.post-reply .target-avatar {
+    width: 42px;
+    height: 42px
+}
+
+.post-content .post-body img {
+    border-radius: 3px;
+    display: block;
+    max-width: 100%;
+    max-height: 480px;
+    z-index: -1
+}
+
+.post-content footer {
+    clear: both
+}
+
+.post-content .textarea-wrapper {
+    margin: 0 0 0 48px
+}
+
+.post-content .auth-section {
+    margin: -4px 0 0 48px
+}
+
+.post-content .bullet {
+    padding: 0;
+    font-size: 75%;
+    color: #ccc;
+    line-height: 1.4
+}
+
+.post-content .post-menu {
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    visibility: hidden;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    *zoom: 1
+}
+
+.post-content .post-menu:before,.post-content .post-menu:after {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.post-content .post-menu:after {
+    clear: both
+}
+
+.post-content .post-menu .dropdown-toggle {
+    border-left: 2px solid;
+    border-color: #eaedee;
+    border-color: rgba(0, 39, 59, .08);
+    padding-left: 5px
+}
+
+.post-content .post-menu .dropdown-toggle .caret {
+    margin-top: 4px
+}
+
+.post-content .post-menu .dropdown-menu {
+    position: absolute;
+    z-index: 1001;
+    left: auto;
+    right: 0;
+    top: 15px;
+    min-width: 100px;
+    padding: 0
+}
+
+.post-content .post-menu .dropdown-menu li a {
+    display: block;
+    padding: 6px 8px;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 11px
+}
+
+.post-content .post-menu.open {
+    opacity: 1;
+    filter: alpha(opacity = 100)
+}
+
+.post-content .post-menu.open .dropdown-toggle {
+    background: 0 0;
+    color: #2e9fff !important
+}
+
+.post-content .post-menu.open .dropdown-menu {
+    opacity: 1;
+    filter: alpha(opacity = 100);
+    visibility: visible !important
+}
+
+.post-content .post-menu>li {
+    float: left;
+    margin: 0 0 0 8px
+}
+
+.post-content .post-menu>li a {
+    color: #666 !important;
+    color: rgba(0, 0, 0, .5) !important
+}
+
+.post-content .post-menu .collapse a,.post-content .post-menu .expand a {
+    font-size: 20px;
+    opacity: .6;
+    filter: alpha(opacity = 60);
+    position: relative;
+    top: -6px;
+    padding: 10px 0 10px 10px
+}
+
+.post-content .post-menu .collapse a:hover,.post-content .post-menu .expand a:hover {
+    opacity: 1;
+    filter: alpha(opacity = 100)
+}
+
+.post-content .post-menu .expand {
+    display: none
+}
+
+.post-content header {
+    color: #777;
+    line-height: 1;
+    font-size: 13px;
+    padding-right: 46px;
+    margin-bottom: 3px
+}
+
+.post-content header .bullet {
+    padding: 0 4px
+}
+
+.post-content header a,.post-content header .author {
+    font-weight: 700
+}
+
+.post-content header .time-ago,.post-content header .parent-link,.post-content header .state-byline {
+    font-weight: 500;
+    font-size: 12px;
+    color: #a5b2b9;
+    color: rgba(0, 39, 59, .35)
+}
+
+.post-content header .state-byline {
+    position: relative;
+    display: block;
+    font-weight: 500;
+    margin: 8px 0 0;
+    top: 2px;
+    -webkit-transition: color linear .1s;
+    transition: color linear .1s
+}
+
+.post-content header .state-byline span {
+    position: relative;
+    top: -3px
+}
+
+.post-content header .state-byline [class|=icon] {
+    margin-right: 4px;
+    float: left;
+    position: relative;
+    top: -3px;
+    z-index: 3
+}
+
+.post-content header .state-byline-warning {
+    color: #ff2e46
+}
+
+.post-content .post-body {
+    overflow: hidden
+}
+
+.post-content .post-message-container {
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    width: 100%
+}
+
+.post-content .post-message {
+    line-height: 21px;
+    *zoom: 1
+}
+
+.post-content .post-message:before,.post-content .post-message:after {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.post-content .post-message:after {
+    clear: both
+}
+
+.post-content .post-message p {
+    line-height: 21px;
+    margin: 0 0 15px
+}
+
+.post-content .post-message p:last-child {
+    margin: 0
+}
+
+.post-content .post-message blockquote,.post-content .post-message pre {
+    line-height: 21px;
+    margin: 0 0 15px;
+    border-left: 4px solid rgba(0, 39, 59, .5);
+    padding: 0 0 0 12px
+}
+
+.post-content .post-message blockquote:last-child,.post-content .post-message pre:last-child {
+    margin: 0
+}
+
+.post-content .post-message pre {
+    overflow-x: auto
+}
+
+.post-content .post-message pre,.post-content .post-message code {
+    font-size: 12px;
+    font-family: monaco, menlo, monospace
+}
+
+.post-content footer {
+    color: #768187;
+    color: rgba(29, 47, 58, .6);
+    margin: 4px 0 0
+}
+
+.post-content footer .bullet {
+    line-height: 1.5
+}
+
+.post-content footer menu {
+    *zoom: 1;
+    margin: 0;
+    padding: 0
+}
+
+.post-content footer menu:before,.post-content footer menu:after {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.post-content footer menu:after {
+    clear: both
+}
+
+.post-content footer menu li {
+    float: left;
+    list-style-type: none;
+    margin: 0 7px 0 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 15px
+}
+
+.post-content footer menu li .icon-mobile {
+    display: none
+}
+
+.post-content footer menu .reply.active .text,.post-content footer menu .edit.active .text {
+    color: #2e9fff;
+    font-weight: 700
+}
+
+.post-content footer a {
+    color: inherit;
+    color: #a5b2b9;
+    color: rgba(0, 39, 59, .35);
+    font-weight: 500
+}
+
+.post-content footer a:hover {
+    color: #768187;
+    color: rgba(29, 47, 58, .6)
+}
+
+.post-content:hover .post-menu {
+    opacity: 1;
+    filter: alpha(opacity = 100);
+    visibility: visible !important
+}
+
+.post-content:hover header .time-ago,.post-content:hover header .parent-link,.post-content:hover header .state-byline-default {
+    color: #7f929c;
+    color: rgba(0, 39, 59, .5)
+}
+
+.post-content:hover footer a,.post-content:hover footer .voting .vote-up,.post-content:hover footer .voting .vote-down {
+    color: #7f929c;
+    color: rgba(0, 39, 59, .5)
+}
+
+
+
+
+
+
