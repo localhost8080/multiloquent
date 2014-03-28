@@ -65,7 +65,7 @@ function resize_sidebar(){
 // resize the sidebar onload
 $(function() {
     resize_sidebar();
-}
+});
 jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
