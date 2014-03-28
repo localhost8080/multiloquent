@@ -76,6 +76,10 @@ jQuery('.sidebar-toggle').click(function(){
         jQuery('.prev_link').show();
         jQuery('.next_link').show();
     }
+    if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
+        // the sidebar is bigger than the wrapper
+           jQuery('.wrapper').css("height",jQuery('.sidebar').height());
+    }
 });
 
 jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(){
