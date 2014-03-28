@@ -1737,25 +1737,13 @@ body.rtl .sharing li {
 .post-content .post-message {
     line-height: 21px;
     font-size:15px;
+    margin: 5px 0 15px
 }
 
 .post-content .post-message:before,.post-content .post-message:after {
     display: table;
     content: "";
     line-height: 0
-}
-
-.post-content .post-message:after {
-    clear: both
-}
-
-.post-content .post-message p {
-    line-height: 21px;
-    margin: 0 0 15px
-}
-
-.post-content .post-message p:last-child {
-    margin: 0
 }
 
 .post-content .post-message blockquote,.post-content .post-message pre {
