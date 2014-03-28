@@ -10,51 +10,9 @@ if (have_comments()) {
 <section id="comments">
     <div>
         <h3><?php printf(_n('One comment', '%1$s comments', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number())); ?></h3>
-        <div class="media-list">
-          <?php
-    $comments = get_comments(array(
-        'status' => 'approve',
-        'post_id' => get_the_ID()
-    ));
-    foreach ($comments as $k => $c) {
-        // now we can make out comments properly
-        // wow, disqus has a lot of markup :|
-        ?>
-<div class="post-content">
-                <div class="avatar">
-                    <div class="user">
-<?php echo get_avatar($c->comment_author_email, '64');?>
-</div>
-                </div>
-                <div class="post-body">
-                    <header>
-                        <span class="post-byline"> <span class="author publisher-anchor-color"><?php echo $c->comment_author;?></span>
-                        </span> <span class="post-meta"> <span class="time-ago"><?php echo $c->comment_date;?></span>
-                        </span>
-                    </header>
-                    <div class="post-body-inner">
-                        <div class="post-message-container">
-                            <div class="publisher-anchor-color">
-                                <div class="post-message">
-
-<?php echo  $c->comment_content; ?>
-
-</div>
-                            </div>
-                        </div>
-                    </div>
-                    <footer>
-                       
-                            <span> <i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></span>
-                       
-                    </footer>
-                </div>
-            </div>
-            
-<?php
-    }
-    ?>
-        </div>
+        <ol class="media-list">
+          <?php wp_list_comments(); ?>
+        </ol>
     
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
         <nav>
