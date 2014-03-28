@@ -20,7 +20,7 @@ if (have_comments()) {
         // now we can make out comments properly
         // wow, disqus has a lot of markup :|
         ?>
-<div data-role="post-content" class="post-content">
+<div class="post-content">
                 <div class="avatar">
                     <div class="user">
 <?php echo get_avatar($c->comment_author_email, '64');?>
@@ -33,20 +33,19 @@ if (have_comments()) {
                         </span>
                     </header>
                     <div class="post-body-inner">
-                        <div class="post-message-container" data-role="message-container">
-                            <div class="publisher-anchor-color" data-role="message-content">
-                                <div class="post-message " data-role="message" dir="auto">
+                        <div class="post-message-container">
+                            <div class="publisher-anchor-color">
+                                <div class="post-message">
 
 <?php echo  $c->comment_content; ?>
 
 </div>
-                                <span class="post-media"><ul data-role="post-media-list"></ul></span>
                             </div>
                         </div>
                     </div>
                     <footer>
                         <menu>
-                            <li class="reply" data-role="reply-link"><a href="#" data-action="reply"> <i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a></li>
+                            <a href="#" data-action="reply"> <i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a>
                         </menu>
                     </footer>
                 </div>
