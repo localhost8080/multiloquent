@@ -1736,7 +1736,7 @@ body.rtl .sharing li {
 
 .post-content .post-message {
     line-height: 21px;
-    *zoom: 1
+    font-size:15px;
 }
 
 .post-content .post-message:before,.post-content .post-message:after {
