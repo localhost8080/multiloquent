@@ -1793,27 +1793,12 @@ body.rtl .sharing li {
 
 .post-content footer menu li {
     float: left;
-    list-style-type: none;
     margin: 0 7px 0 0;
     padding: 0;
     font-size: 13px;
-    line-height: 15px
-}
-
-.post-content footer menu li .icon-mobile {
-    display: none
-}
-
-.post-content footer menu .reply.active .text,.post-content footer menu .edit.active .text {
-    color: #2e9fff;
-    font-weight: 700
-}
-
-.post-content footer span.text {
-    color: inherit;
+    line-height: 15px;
     color: #a5b2b9;
-    color: rgba(0, 39, 59, .35);
-    font-weight: 500
+    font-weight: 500;
 }
 
 .post-content footer a:hover {
