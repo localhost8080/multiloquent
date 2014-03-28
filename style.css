@@ -1791,7 +1791,7 @@ body.rtl .sharing li {
     clear: both
 }
 
-.post-content footer menu li {
+.post-content footer span.text {
     float: left;
     margin: 0 7px 0 0;
     padding: 0;
