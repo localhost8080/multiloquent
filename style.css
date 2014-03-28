@@ -1492,3 +1492,6 @@ body.rtl .sharing li {
   margin-left: 75px;
   margin-top: -30px;
 }
+.comment-list{
+    margin:0;
+}
