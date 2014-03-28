@@ -63,7 +63,7 @@ function resize_sidebar(){
     }
 }
 // resize the sidebar onload
-$(function() {
+jQuery(function() {
     resize_sidebar();
 });
 jQuery('.sidebar-toggle').click(function(){
