@@ -1461,5 +1461,15 @@ body.rtl .sharing li {
   padding:20px 5px;
 }
 
+.comment{
+    font-size:15px;
+    font-weight:normal;
+    list-style:none;
+}
+.comment footer{
+    padding:0!important;
+}
 
-
+.comment-content > p {
+  margin-bottom: 5px;
+}
