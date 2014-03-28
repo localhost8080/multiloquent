@@ -1851,7 +1851,28 @@ body.rtl .sharing li {
 }
 
 
+.avatar {
+    float: left
+}
 
+.avatar img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 3px
+}
+
+.avatar .user {
+    display: block;
+    position: relative;
+    z-index: 100;
+    background: rgba(0, 39, 59, .2);
+    border-radius: 3px
+}
+
+.post .avatar {
+    margin-right: 12px
+}
 
 
 
