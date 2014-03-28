@@ -34,10 +34,14 @@ function multiloquent_featured_image_in_feed($content)
 
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F5F5F5', 'Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Border Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Link Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F5F5F5', 'Main Elements Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Main Elements Border Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
 }
 
 function multiloquent_register_and_generate_custom_control($setting_name, $default, $label, $wp_customize, $section)
@@ -63,6 +67,20 @@ function multiloquent_customize_css()
     
 echo get_theme_mod('mulitloquent_navbar_text');
     ?>;
+}
+
+.wrapper,.featured-posts {
+    background: <?php echo get_theme_mod('mulitloquent_background_colour'); ?>! important;
+    color: <?php echo get_theme_mod('mulitloquent_background_text_colour'); ?>;
+}
+
+body {
+    background: <?php echo get_theme_mod('mulitloquent_slideout_menu_colour'); ?>! important;
+    color: <?php echo get_theme_mod('mulitloquent_background_text_colour'); ?>;
+}
+
+.sidebar {
+    color: <?php echo get_theme_mod('mulitloquent_slideout_text_colour');?>;
 }
 
 .jumbotron .nav-header,.well .nav-header {
