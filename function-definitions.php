@@ -106,7 +106,7 @@ echo get_theme_mod('mulitloquent_navbar_link');
     ?>;
 }
 
-.navbar-fixed-top {
+.navbar-fixed-top, .featured-posts {
     border-bottom: 1px solid<?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
@@ -122,6 +122,12 @@ echo get_theme_mod('mulitloquent_navbar_border');
 
 #search_form input,.navbar-form input {
     border: 1px solid<?php
+    
+echo get_theme_mod('mulitloquent_navbar_border');
+    ?>;
+}
+#search_form span  {
+    color: <?php
     
 echo get_theme_mod('mulitloquent_navbar_border');
     ?>;
