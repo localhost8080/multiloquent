@@ -10,20 +10,22 @@ if (have_comments()) {
 <section id="comments">
     <div>
         <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number()), multiloquent_post_title()); ?></h3>
-        <ol class="media-list">
+        <div class="media-list">
           <?php 
           $comments=get_comments(array('status'=>'approve','post_id'=>get_the_ID()));
           foreach($comments as $k=>$c)
           {
-          	// now we can make out comments properly
-          	echo $c->comment_author;
-          	echo $c->comment_date;
-            echo $c->comment_content;
-              
+          	  // now we can make out comments properly
+            echo '<div class="">'.get_avatar( $c->comment_author_email, '64').'</div>';
+            echo '<div>';  
+            echo '<span>'.$c->comment_author .' '. $c->comment_date.'</span>';
+            echo '<div>'.$c->comment_content.'</div>';
+            echo '</div>';
+            
               
           }
           ?>
-        </ol>
+        </div>
     
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
         <nav>
