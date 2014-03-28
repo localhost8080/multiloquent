@@ -1477,10 +1477,10 @@ body.rtl .sharing li {
     display:none;
 }
 .comment-metadata {
-  display: inline-block;
+  display: block;
 }
 .comment-author.vcard {
-  display: inline-block;
+  display: block;
 }
 .comment .avatar {
   margin-right: 10px;
