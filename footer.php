@@ -59,7 +59,7 @@ wp_footer();
 function resize_sidebar(){
     if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
         // the sidebar is bigger than the wrapper
-           jQuery('.wrapper').css("height",jQuery('.sidebar').height());
+        //   jQuery('.wrapper').css("height",jQuery('.sidebar').height());
     }
 }
 // resize the sidebar onload
