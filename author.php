@@ -7,9 +7,9 @@ if (have_posts()) {
 <div class="jumbotron">
     <div class="container">
         <header>
-            <h1 class="article_title">
+            <h1 class="article_title"><p>
 			<?php echo 'All entries by ' . get_the_author();?>
-            </h1>
+            </p></h1>
             <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
             <?php echo get_avatar(get_the_author_meta('ID'));?>
