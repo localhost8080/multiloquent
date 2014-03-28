@@ -1470,9 +1470,6 @@ body.rtl .sharing li {
     padding:0!important;
 }
 
-.comment-content > p {
-  margin-bottom: 5px;
-}
 .comment .says {
     display:none;
 }
