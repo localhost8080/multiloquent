@@ -84,9 +84,10 @@ jQuery('.sidebar-toggle').click(function(){
     }
 });
 
-jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(){
-    jQuery(this).children('ul.children').slideToggle('400',resize_sidebar);
-    return false;
+jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(event){
+    // this breaks the links though...
+    event.preventDefault()
+    jQuery(this).children('ul.children').slideToggle('400',resize_sidebar);  
 });
 
 
