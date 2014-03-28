@@ -1480,12 +1480,18 @@ body.rtl .sharing li {
   display: block;
 }
 .comment-author.vcard {
-  display: block;
+ 
 }
 .comment .avatar {
+  display: block;
+  float: left;
+  height: 64px;
   margin-right: 10px;
-  width:64px;
-  height:64px;
+  width: 64px;
+}
+.comment-author b {
+  display: block;
+  float: left;
 }
 
 .comment-content {
