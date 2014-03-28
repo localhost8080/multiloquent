@@ -12,7 +12,7 @@ if (have_comments()) {
         <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number()), multiloquent_post_title()); ?></h3>
         <ol class="media-list">
           <?php 
-          $comments=get_comments(array('status'=>'approve'));
+          $comments=get_comments(array('status'=>'approve','post'=>get_the_ID()));
           foreach($comments as $k=>$c)
           {
           	// now we can make out comments properly
