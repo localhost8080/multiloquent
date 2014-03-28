@@ -63,11 +63,8 @@ function resize_sidebar(){
     }
 }
 // resize the sidebar onload
-resize_sidebar();
-
-if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
-    // the sidebar is bigger than the wrapper
-       jQuery('.wrapper').css("height",jQuery('.sidebar').height());
+$(function() {
+    resize_sidebar();
 }
 jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
