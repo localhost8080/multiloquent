@@ -1358,10 +1358,6 @@ body.rtl .sharing li {
     overflow: hidden;
 }
 
-.avatar {
-    margin-right: 10px;
-}
-
 .mb {
     margin-bottom: 30px;
 }
@@ -1465,13 +1461,28 @@ body.rtl .sharing li {
   top: 50%;
   padding:20px 5px;
 }
-
+.comment-meta {
+  padding-bottom: 0 !important;
+}
 .comment-body{
     color: #777;
-    line-height: 1;
     font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100%;
+    font-family: inherit;
 }
 
-.comment-metadata{
-    display:inline-block;
+.comment-metadata {
+  display: inline-block;
+  font-size: 13px;
+}
+.comment-author {
+  font-size: 13px;
+  line-height: 13px;
+}
+.avatar {
+  height: 64px;
+  margin-right: 10px;
+  width: 64px;
 }
