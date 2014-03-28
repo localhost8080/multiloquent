@@ -1473,3 +1473,22 @@ body.rtl .sharing li {
 .comment-content > p {
   margin-bottom: 5px;
 }
+.comment .says {
+    display:none;
+}
+.comment-metadata {
+  display: inline-block;
+}
+.comment-author.vcard {
+  display: inline-block;
+}
+.comment .avatar {
+  margin-right: 10px;
+  width:64px;
+  height:64px;
+}
+
+.comment-content {
+  margin-left: 75px;
+  margin-top: -30px;
+}
