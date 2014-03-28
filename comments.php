@@ -9,7 +9,7 @@ if (have_comments()) {
     ?>
 <section id="comments">
     <div>
-        <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number()), multiloquent_post_title()); ?></h3>
+        <h3><?php printf(_n('One comment', '%1$s comments', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number())); ?></h3>
         <div class="media-list">
           <?php
     $comments = get_comments(array(

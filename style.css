@@ -1736,7 +1736,8 @@ body.rtl .sharing li {
 .post-content .post-message {
     line-height: 21px;
     font-size:15px;
-    margin: 5px 0 15px
+    margin: 5px 0 15px;
+    font-weight:normal;
 }
 
 .post-content .post-message:before,.post-content .post-message:after {
@@ -1768,17 +1769,9 @@ body.rtl .sharing li {
 .post-content footer {
     color: #768187;
     color: rgba(29, 47, 58, .6);
-    margin: 4px 0 0
-}
-
-.post-content footer .bullet {
-    line-height: 1.5
-}
-
-.post-content footer menu {
-    *zoom: 1;
-    margin: 0;
-    padding: 0
+    margin: 4px 0 0;
+    padding:0!important;
+    
 }
 
 .post-content footer menu:before,.post-content footer menu:after {
