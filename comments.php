@@ -44,9 +44,9 @@ if (have_comments()) {
                         </div>
                     </div>
                     <footer>
-                        <menu>
-                            <a href="#" data-action="reply"> <i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></a>
-                        </menu>
+                       
+                            <span> <i class="icon icon-mobile icon-reply"></i><span class="text">Reply</span></span>
+                       
                     </footer>
                 </div>
             </div>
