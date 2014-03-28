@@ -43,9 +43,10 @@ if (have_posts()) {
 			<?php multiloquent_get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
-            <div class="pagination pagination-centered">
-				<?php posts_nav_link(); ?>
-			</div>
+            <ul class="pagination pagination-centered">
+				<li><?php previous_posts_link('Previous Entries') ?></li>
+				<li><?php next_posts_link('Next Entries') ?></li>
+			</ul>
         </nav>
     </div>
 </div>
