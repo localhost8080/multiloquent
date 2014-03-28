@@ -70,17 +70,26 @@ echo get_theme_mod('mulitloquent_navbar_text');
 }
 
 .wrapper,.featured-posts {
-    background: <?php echo get_theme_mod('mulitloquent_background_colour'); ?>! important;
-    color: <?php echo get_theme_mod('mulitloquent_background_text_colour'); ?>;
+    background: <?php echo get_theme_mod('mulitloquent_background_colour'); ?> ! important;
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_background_text_colour');
+    ?>;
 }
 
 body {
-    background: <?php echo get_theme_mod('mulitloquent_slideout_menu_colour'); ?>! important;
-    color: <?php echo get_theme_mod('mulitloquent_background_text_colour'); ?>;
+    background: <?php echo get_theme_mod('mulitloquent_slideout_menu_colour'); ?> ! important;
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_background_text_colour');
+    ?>;
 }
 
-.sidebar {
-    color: <?php echo get_theme_mod('mulitloquent_slideout_text_colour');?>;
+.sidebar,.sidebar a {
+    color: <?php
+    
+echo get_theme_mod('mulitloquent_slideout_text_colour');
+    ?>!important;
 }
 
 .jumbotron .nav-header,.well .nav-header {
