@@ -1418,7 +1418,7 @@ body.rtl .sharing li {
     list-style: none;
 }
 
-.page_item_has_children {
+.sidebar .menu .page_item_has_children {
     position: relative;
 }
 
@@ -1430,15 +1430,15 @@ body.rtl .sharing li {
     display: none;
 }
 
-ul.children {
+.sidebar .menu ul.children {
     background: #676767;
 }
 
-ul.children ul.children {
+.sidebar .menu ul.children ul.children {
     background: #898989;
 }
 
-.page_item_has_children:after {
+.sidebar .menu .page_item_has_children:after {
     border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-right: 6px solid rgba(0, 0, 0, 0);
     border-style: solid;
