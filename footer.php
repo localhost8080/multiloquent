@@ -56,6 +56,15 @@ multiloquent_get_template_part('navigation');
 wp_footer();
 ?>
 <script type="text/javascript">
+function resize_sidebar(){
+    if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
+        // the sidebar is bigger than the wrapper
+           jQuery('.wrapper').css("height",jQuery('.sidebar').height());
+    }
+}
+// resize the sidebar onload
+resize_sidebar();
+
 if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
     // the sidebar is bigger than the wrapper
        jQuery('.wrapper').css("height",jQuery('.sidebar').height());
@@ -79,14 +88,9 @@ jQuery('.sidebar-toggle').click(function(){
 });
 
 jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(){
-    jQuery(this).children('ul.children').slideToggle();
-    if(jQuery('.wrapper').height() < jQuery('.sidebar').height()){
-        // the sidebar is bigger than the wrapper
-           jQuery('.wrapper').css("height",jQuery('.sidebar').height());
-    }
+    jQuery(this).children('ul.children').slideToggle('400',resize_sidebar());
     return false;
 });
-
 
 
 </script>
