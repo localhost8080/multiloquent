@@ -1466,3 +1466,12 @@ body.rtl .sharing li {
   padding:20px 5px;
 }
 
+.comment-body{
+    color: #777;
+    line-height: 1;
+    font-size: 13px;
+}
+
+.comment-metadata{
+    display:inline-block;
+}
