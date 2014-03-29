@@ -1485,6 +1485,7 @@ body.rtl .sharing li {
 .comment-metadata {
   position: absolute;
   right: 0;
+  font-size:10px;
 }
 .comment-metadata a{
   color:#ccc!imporant;
