@@ -1519,7 +1519,15 @@ body.rtl .sharing li {
 .comment-list{
     margin:0;
 }
-.comment-form input, .comment-form textarea {
-  float: right;
-}
 
+.comment-form label {
+  clear: left;
+  float: left;
+}
+.comment-form > p {
+  clear: left;
+}
+.comment-form input, .comment-form textarea {
+  clear: left;
+  float: left;
+}
