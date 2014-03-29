@@ -1526,6 +1526,7 @@ body.rtl .sharing li {
 }
 .comment-form > p {
   clear: left;
+  float:left;
 }
 .comment-form input, .comment-form textarea {
   clear: left;
