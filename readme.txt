@@ -1,6 +1,9 @@
 #This is the readme.txt for multiloquent theme v6
 
-Multiloquent is responsive.
+Multiloquent is responsive and uses bootstrap for interface elements.
+
+http://jonathansblog.co.uk/multiloquent
+
 
 ##This theme has 10 widget areas:
 
