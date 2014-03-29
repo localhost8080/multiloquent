@@ -67,9 +67,8 @@ if (have_posts()) {
         }
         ?>
 </div>
-<?php //multiloquent_get_template_part('social');?>
-
-<?php
+<?php //multiloquent_get_template_part('social');
+        
         if (function_exists('related_posts')) {
             ?>
 <section class="container post">
