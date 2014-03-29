@@ -38,7 +38,7 @@ if (have_posts()) {
         ?>
         <section class="row">
             <div class="tagcloud clearfix mb">
-                <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
+                <div class="tag-cloud">
                     <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
                     <div>
                 <?php
