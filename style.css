@@ -1466,18 +1466,32 @@ body.rtl .sharing li {
     font-weight:normal;
     list-style:none;
 }
-.comment footer{
-    padding:0!important;
+.comment footer {
+  clear: left;
+  float: left;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  width: 100%;
 }
-
+.comment-body {
+  margin-bottom: 20px;
+  position: relative;
+}
+.comment-content > p {
+  margin: 0 !important;
+}
 .comment .says {
     display:none;
 }
 .comment-metadata {
-  display: block;
+  position: absolute;
+  right: 0;
 }
 .comment-author.vcard {
  
+}
+.comment-content {
+  margin-left: 75px;
 }
 .comment .avatar {
   display: block;
@@ -1487,14 +1501,10 @@ body.rtl .sharing li {
   width: 64px;
 }
 .comment-author b {
-  display: block;
-  float: left;
+  left: 75px;
+  position: absolute;
 }
 
-.comment-content {
-  margin-left: 75px;
-  margin-top: -30px;
-}
 .comment-list{
     margin:0;
 }
