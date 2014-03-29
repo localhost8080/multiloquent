@@ -1467,14 +1467,13 @@ body.rtl .sharing li {
     list-style:none;
 }
 .comment footer {
-  clear: left;
-  float: left;
-  margin-bottom: 10px !important;
   padding: 0 !important;
+  position: absolute;
   width: 100%;
 }
 .comment-body {
   margin-bottom: 20px;
+  min-height: 75px;
   position: relative;
 }
 .comment-content > p {
@@ -1491,6 +1490,10 @@ body.rtl .sharing li {
  
 }
 .comment-content {
+  margin-left: 75px;
+  padding-top: 30px;
+}
+.comment .reply {
   margin-left: 75px;
 }
 .comment .avatar {
