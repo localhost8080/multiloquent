@@ -17,6 +17,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* these should be my custom things on top of the bootstrap, so that when versioning happens I can switch */
 /* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files to be loaded in the correct order*/
+
 .wp-caption {
     /* present in bootsrtap custom file*/
     
@@ -41,12 +42,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
     /* present in bootsrtap custom file*/
     
 }
-
+html {
+    font-size:20px;
+}
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1em;
     line-height: 1.6;
     color: #333333;
     background-color: #333333;
