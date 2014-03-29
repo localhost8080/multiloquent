@@ -36,7 +36,7 @@ if (have_posts()) {
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
         multiloquent_get_template_part('advert');
         ?>
-        <section class="container">
+        <section class="row">
             <div class="tagcloud clearfix mb">
                 <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
                     <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
