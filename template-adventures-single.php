@@ -7,6 +7,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
+        multiloquent_get_template_part('featuredposts');
         multiloquent_get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
