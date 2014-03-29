@@ -66,6 +66,10 @@ function resize_sidebar(){
 jQuery(document).load(function() {
     resize_sidebar();
 });
+// need to do it on ready for pages....
+jQuery(document).ready(function(){
+    resize_sidebar();
+});
 jQuery('.sidebar-toggle').click(function(){
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
