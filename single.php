@@ -35,6 +35,29 @@ if (have_posts()) {
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
         multiloquent_get_template_part('advert');
+        ?>
+        <section class="container">
+            <div class="tagcloud clearfix mb">
+                <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
+                    <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
+                    <div>
+                <?php
+                $posttags = get_the_tags();
+                if ($posttags) {
+                    foreach ($posttags as $tag) {
+                        // if($tag->count > 5){
+                        echo '<a class="label ';
+                        echo multiloquent_get_random_solid_class($tag->slug);
+                        echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                        // }
+                    }
+                }
+                ?>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <?php
         echo '</div>';
         if (comments_open()) {
             echo '<section class="col-sm-12 col-md-6 col-lg-5 comments">';
@@ -45,27 +68,7 @@ if (have_posts()) {
         ?>
 </div>
 <?php //multiloquent_get_template_part('social');?>
-<section class="container">
-    <div class="tagcloud clearfix mb">
-        <div class="tag-cloud col-sm-12 col-md-12 col-lg-12">
-            <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
-            <div>
-        <?php
-        $posttags = get_the_tags();
-        if ($posttags) {
-            foreach ($posttags as $tag) {
-                // if($tag->count > 5){
-                echo '<a class="label ';
-                echo multiloquent_get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
-                // }
-            }
-        }
-        ?>
-                </div>
-        </div>
-    </div>
-</section>
+
 <?php
         if (function_exists('related_posts')) {
             ?>
