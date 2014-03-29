@@ -1495,13 +1495,17 @@ body.rtl .sharing li {
 }
 .comment .reply {
   margin-left: 75px;
+  font-size:10px;
+}
+.comment-reply-link {
+  color: #CCCCCC !important;
 }
 .comment .avatar {
   display: block;
   float: left;
-  height: 64px;
+  height: 56px;
   margin-right: 10px;
-  width: 64px;
+  width: 56px;
 }
 .comment-author b {
   left: 75px;
