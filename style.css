@@ -1519,3 +1519,7 @@ body.rtl .sharing li {
 .comment-list{
     margin:0;
 }
+.comment-form input, .comment-form textarea {
+  float: right;
+}
+
