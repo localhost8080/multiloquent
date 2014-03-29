@@ -66,11 +66,13 @@ function resize_sidebar(){
 jQuery(document).load(function() {
     resize_sidebar();
 });
-// need to do it on ready for pages....
+// need to do it on ready for pages, for some reason it doesnt fire in webkit
 jQuery(document).ready(function(){
     resize_sidebar();
 });
 jQuery('.sidebar-toggle').click(function(){
+    // total fail fallback - if for some reason the page hasnt resized, force it to resize now
+    resize_sidebar();
     if(jQuery('.sidebar').css("margin-left")!='0px' )
     {
         // its not visible 
