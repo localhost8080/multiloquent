@@ -1486,6 +1486,9 @@ body.rtl .sharing li {
   position: absolute;
   right: 0;
 }
+.comment-metadata a{
+  color:#ccc!imporant;
+}
 .comment-author.vcard {
  
 }
