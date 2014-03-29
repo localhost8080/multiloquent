@@ -8,6 +8,22 @@ get_header();
     rewind_posts();
     while (have_posts()) {
         the_post();
+        
+        multiloquent_get_template_part('featuredposts');
+        multiloquent_get_template_part('featuredimage');
+        echo '<div id="post-' . get_the_ID() . '" ';
+        echo post_class("post");
+        echo '>';
+        if (empty($multiloquent_hide_h1_tag)) {
+            ?>
+        <h1 class="container featurette-heading">
+                        <?php echo multiloquent_post_title();?>
+                    </h1>
+        <?php
+                }
+        
+        
+        
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
     }
     ?>
