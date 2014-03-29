@@ -63,7 +63,8 @@ Multiloquent is responsive.
     [and puts them in the correct position in your post if you have it installed].
     http://wordpress.org/extend/plugins/jetpack/
 
-##There are 3 post template files included if you use http://wordpress.org/extend/plugins/custom-post-template/
+##There are 3 post template files included 
+    if you use http://wordpress.org/extend/plugins/custom-post-template/
     1 Default with comments at the right hand side in desktop (under the post in mobile)
     2 Full width post with comments underneath
     3 Adventures: this auto inserts a google map if your post is titled 'placeA to placeB'
