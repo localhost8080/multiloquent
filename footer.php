@@ -84,6 +84,10 @@ jQuery('.sidebar-toggle').click(function(){
     }
 });
 
+jQuery('.sidebar .menu a').click(function(event){
+    // stop the link click targetting the containing element
+    event.stopPropagation();
+});
 jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(event){
     // this breaks the links though...
     jQuery(this).children('ul.children').slideToggle('400',resize_sidebar);  
