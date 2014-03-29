@@ -49,6 +49,10 @@ if (have_posts()) {
         wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
 				</div>
+		<?php 
+		next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', TRUE);
+        previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', TRUE);
+        ?>
 </div>
 <?php
     }
