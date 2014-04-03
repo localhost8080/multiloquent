@@ -1,7 +1,7 @@
 </div>
 <?php
 get_sidebar();
-multiloquent_get_template_part('navigation');
+get_template_part('navigation');
 ?>
 <footer class="well">
     <div class="container">
@@ -42,12 +42,6 @@ multiloquent_get_template_part('navigation');
                             }
                             ?>
                 </div>
-                <p class="col-sm-12 col-md-12 col-lg-12">
-                    <span class="fa fa-gamepad fa-fw"></span><span style="font-size: 12px;">This website is most definitely not best viewed in Netscape</span>
-                </p>
-                <p class="col-sm-12 col-md-12 col-lg-12">
-                    <span class="fa fa-folder-open-o fa-fw"></span> multiloquent html5 theme <?php echo multiloquent_version();?>
-                </p>
             </div>
         </aside>
     </div>

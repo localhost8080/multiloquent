@@ -7,8 +7,8 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        multiloquent_get_template_part('featuredposts');
-        multiloquent_get_template_part('featuredimage');
+        get_template_part('featuredposts');
+        get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
@@ -19,7 +19,7 @@ if (have_posts()) {
 </h1>
 <?php
         }
-        multiloquent_get_template_part('breadcrumb');
+        get_template_part('breadcrumb');
         ?>
 <div class="container">
         <?php
@@ -35,8 +35,8 @@ if (have_posts()) {
         ?>
         </div>
 <?php
-        multiloquent_get_template_part('advert');
-        multiloquent_get_template_part('social');
+        get_template_part('advert');
+        get_template_part('social');
         if (comments_open()) {
             ?>
 <section class="comments_full container">
@@ -45,12 +45,12 @@ if (have_posts()) {
                 </section>
 <?php
         }
-        multiloquent_get_template_part('advert');
+        get_template_part('advert');
         
         if (function_exists('related_posts')) {
             related_posts();
         }
-        multiloquent_get_template_part('advert');
+        get_template_part('advert');
         echo '</div>';
     }
 } else {

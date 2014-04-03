@@ -18,7 +18,7 @@ if ('posts' == get_option('show_on_front')) {
 </div>
 <!-- google_ad_section_end-->
 <div class="container">
-            <?php multiloquent_get_template_part('advert');?>
+            <?php get_template_part('advert');?>
         </div>
 <?php
 }

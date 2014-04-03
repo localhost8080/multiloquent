@@ -18,7 +18,7 @@ if (have_posts()) {
 				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
-			<?php multiloquent_get_template_part('advert');?>
+			<?php get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <nav class="navitems article white2">
@@ -33,7 +33,7 @@ if (have_posts()) {
 <?php } else { ?>
 <div class="container post">
     <div class="featurette">
-		<?php  multiloquent_get_template_part('error-snippet');?>
+		<?php  get_template_part('error-snippet');?>
 	</div>
 </div>
 <?php

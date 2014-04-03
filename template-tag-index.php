@@ -84,6 +84,6 @@ get_header();
     ?>
         </article>
     <!-- google_ad_section_end-->
-        <?php multiloquent_get_template_part('advert');?>
+        <?php get_template_part('advert');?>
     </div>
 <?php get_footer();

@@ -4,8 +4,8 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        multiloquent_get_template_part('featuredposts');
-        multiloquent_get_template_part('featuredimage');
+        get_template_part('featuredposts');
+        get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
@@ -16,7 +16,7 @@ if (have_posts()) {
             </h1>
 <?php
         }
-        multiloquent_get_template_part('breadcrumb');
+        get_template_part('breadcrumb');
         ?>
 <div class="container">
 <?php
@@ -34,7 +34,7 @@ if (have_posts()) {
         remove_filter('the_excerpt', 'sharing_display', 19);
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
-        multiloquent_get_template_part('advert');
+        get_template_part('advert');
         ?>
         <section class="row">
             <div class="tagcloud clearfix mb">
@@ -62,12 +62,12 @@ if (have_posts()) {
         if (comments_open()) {
             echo '<section class="col-sm-12 col-md-6 col-lg-5 comments">';
             comments_template();
-            multiloquent_get_template_part('advert');
+            get_template_part('advert');
             echo '</section>';
         }
         ?>
 </div>
-<?php //multiloquent_get_template_part('social');
+<?php //get_template_part('social');
         
         if (function_exists('related_posts')) {
             ?>
@@ -80,7 +80,7 @@ if (have_posts()) {
         }
         next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
         previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-        multiloquent_get_template_part('advert');
+        get_template_part('advert');
         echo '</div>';
     }
 } else {

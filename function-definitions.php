@@ -62,74 +62,76 @@ function multiloquent_customize_css()
     ?>
 <style type="text/css">
 .navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments {
-    background: <?php echo get_theme_mod('mulitloquent_navbar'); ?>! important;
+    background: <?php echo esc_attr(get_theme_mod('mulitloquent_navbar')); ?>! important;
     color: <?php
     
-echo get_theme_mod('mulitloquent_navbar_text');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
     ?>;
 }
 
 .wrapper,.featured-posts {
-    background: <?php echo get_theme_mod('mulitloquent_background_colour'); ?> ! important;
+    background: <?php echo esc_attr(get_theme_mod('mulitloquent_background_colour')); ?> ! important;
     color: <?php
     
-echo get_theme_mod('mulitloquent_background_text_colour');
+echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
     ?>;
 }
 
 body {
-    background: <?php echo get_theme_mod('mulitloquent_slideout_menu_colour'); ?> ! important;
+    background: <?php echo esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')); ?> ! important;
     color: <?php
     
-echo get_theme_mod('mulitloquent_background_text_colour');
+echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
     ?>;
 }
 
 .sidebar,.sidebar a {
     color: <?php
     
-echo get_theme_mod('mulitloquent_slideout_text_colour');
-    ?>!important;
+echo esc_attr(get_theme_mod('mulitloquent_slideout_text_colour'));
+    ?>!
+    important;
 }
 
 .jumbotron .nav-header,.well .nav-header {
     color: <?php
     
-echo get_theme_mod('mulitloquent_navbar_text');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
     ?>;
 }
 
 .breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {
     color: <?php
     
-echo get_theme_mod('mulitloquent_navbar_link');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_link'));
     ?>;
 }
 
-.navbar-fixed-top, .featured-posts {
+.navbar-fixed-top,.featured-posts {
     border-bottom: 1px solid<?php
     
-echo get_theme_mod('mulitloquent_navbar_border');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 
 .navbar-fixed-bottom {
     border-top: 1px solid<?php
     
-echo get_theme_mod('mulitloquent_navbar_border');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 
 #search_form input,.navbar-form input {
     border: 1px solid<?php
     
-echo get_theme_mod('mulitloquent_navbar_border');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
-#search_form span  {
+
+#search_form span {
     color: <?php
     
-echo get_theme_mod('mulitloquent_navbar_border');
+echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 </style>

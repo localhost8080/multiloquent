@@ -7,8 +7,8 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        multiloquent_get_template_part('featuredposts');
-        multiloquent_get_template_part('featuredimage');
+        get_template_part('featuredposts');
+        get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
@@ -30,7 +30,7 @@ if (have_posts()) {
         $title_string = preg_replace('(\d+)', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
-        multiloquent_get_template_part('breadcrumb');
+        get_template_part('breadcrumb');
         ?>
 <div class="container">
     <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
