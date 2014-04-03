@@ -538,13 +538,16 @@ function multiloquent_paralax_slider()
     $output = '';
     $total_posts = '5';
     if (function_exists('tptn_pop_posts')) {
-        $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
-		FROM wp_top_ten_daily INNER JOIN wp_posts ON postnumber=ID
-		AND post_type = 'post'
-		AND post_status = 'publish'
-		and dp_date BETWEEN SYSDATE() - INTERVAL 30 DAY AND SYSDATE() group by ID
-		ORDER BY sumCount DESC LIMIT 5;";
-        $recent_posts = $wpdb->get_results($sql);
+        
+        $args = array(
+            'is_widget' => FALSE,
+            'daily' => FALSE,
+            'echo' => FALSE,
+            'strict_limit' => '5',
+            'posts_only' => TRUE,
+        );
+       $recent_posts = tptn_pop_posts($args);
+        
     } else {
         $args = array(
             'numberposts' => $total_posts,
