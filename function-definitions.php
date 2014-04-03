@@ -543,10 +543,16 @@ function multiloquent_paralax_slider()
             'is_widget' => FALSE,
             'daily' => FALSE,
             'echo' => FALSE,
-            'strict_limit' => '5',
+            'strict_limit' => $total_posts,
             'posts_only' => TRUE,
         );
-       $recent_posts = tptn_pop_posts($args);
+        // todo - this needs to be an array of objects..
+        $top_ten_post_array = tptn_pop_posts($args);
+        foreach($top_ten_post_array as $post => $val){
+        	$posts_to_get[] = $val['ID'];
+        }
+        $args = array( 'post__in' => $posts_to_get );
+        $recent_posts = get_posts($args);
         
     } else {
         $args = array(
