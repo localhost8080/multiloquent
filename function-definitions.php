@@ -78,13 +78,13 @@ function multiloquent_customize_css()
     echo '.jumbotron .nav-header,.well .nav-header {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
     echo '}'."\n";
-    echo '.navbar-default,.featured-posts { ';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
+    echo '.navbar-default,.featured-posts {';
+    echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}'."\n";
-    echo '#search_form input,.navbar-form input { ';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
+    echo '#search_form input,.navbar-form input {';
+    echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}'."\n";
-    echo '#search_form span { ';
+    echo '#search_form span {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}'."\n";
     echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
