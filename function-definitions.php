@@ -695,6 +695,7 @@ function multiloquent_get_avatar($avatar)
 function multiloquent_render_the_archive($colour)
 {
     // set it to blank so that it doesnt get the previous one..
+    global $post;
     $id = get_the_ID();
     $slider_image = array();
     $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
