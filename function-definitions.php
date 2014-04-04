@@ -59,7 +59,7 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
 }
 
 function multiloquent_customize_css()
-{
+{ /*
     ?>
 <style type="text/css">
 .navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments { <?php
@@ -142,7 +142,7 @@ if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
     ?>
 }
 </style>
-<?php
+<?php */
 }
 
 function multiloquent_scripts_method()
