@@ -63,7 +63,7 @@ function multiloquent_customize_css()
     echo '<style type="text/css">';
     echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')).'!important;';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).'!important;';
     echo '} ';
     echo '.wrapper,.featured-posts { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')).';';
@@ -78,10 +78,7 @@ function multiloquent_customize_css()
     echo '.jumbotron .nav-header,.well .nav-header {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
     echo '} ';
-    echo '.navbar-fixed-top,.featured-posts { ';
-    echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '} ';
-    echo '.navbar-fixed-bottom { ';
+    echo '.navbar-default,.featured-posts { ';
     echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '} ';
     echo '#search_form input,.navbar-form input { ';
