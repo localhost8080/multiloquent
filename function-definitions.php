@@ -255,6 +255,7 @@ function multiloquent_add_tag_class($taglinks)
 
 function multiloquent_post_title($post_id = '')
 {
+    global $post;
     if (! empty($post_id)) {
         $the_title = get_the_title($post_id);
     } else {
@@ -290,8 +291,6 @@ function multiloquent_breadcrumbs()
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category($id);
         $catID = $category[0]->cat_ID;
-        echo $id = get_the_ID();
-        die;
         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
 
