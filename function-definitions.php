@@ -48,7 +48,8 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
 {
     $wp_customize->add_setting($setting_name, array(
         'default' => $default,
-        'transport' => 'refresh'
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color'
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
         'label' => $label,
@@ -62,33 +63,33 @@ function multiloquent_customize_css()
     ?>
 <style type="text/css">
 .navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_navbar')); ?>! important;
+    background: <?php echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar')); ?>! important;
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_text'));
     ?>;
 }
 
 .wrapper,.featured-posts {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_background_colour')); ?> ! important;
+    background: <?php echo sanitize_hex_color(get_theme_mod('mulitloquent_background_colour')); ?> ! important;
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_background_text_colour'));
     ?>;
 }
 
 body {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')); ?> ! important;
+    background: <?php echo sanitize_hex_color(get_theme_mod('mulitloquent_slideout_menu_colour')); ?> ! important;
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_background_text_colour'));
     ?>;
 }
 
 .sidebar,.sidebar a {
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_slideout_text_colour'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_slideout_text_colour'));
     ?>!
     important;
 }
@@ -96,42 +97,42 @@ echo esc_attr(get_theme_mod('mulitloquent_slideout_text_colour'));
 .jumbotron .nav-header,.well .nav-header {
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_text'));
     ?>;
 }
 
 .breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_link'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_link'));
     ?>;
 }
 
 .navbar-fixed-top,.featured-posts {
     border-bottom: 1px solid<?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 
 .navbar-fixed-bottom {
     border-top: 1px solid<?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 
 #search_form input,.navbar-form input {
     border: 1px solid<?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 
 #search_form span {
     color: <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
+echo sanitize_hex_color(get_theme_mod('mulitloquent_navbar_border'));
     ?>;
 }
 </style>
@@ -538,22 +539,22 @@ function multiloquent_paralax_slider()
     $output = '';
     $total_posts = '5';
     if (function_exists('tptn_pop_posts')) {
-        
         $args = array(
             'is_widget' => FALSE,
             'daily' => FALSE,
             'echo' => FALSE,
             'strict_limit' => $total_posts,
-            'posts_only' => TRUE,
+            'posts_only' => TRUE
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
-        foreach($top_ten_post_array as $post => $val){
-        	$posts_to_get[] = $val['ID'];
+        foreach ($top_ten_post_array as $post => $val) {
+            $posts_to_get[] = $val['ID'];
         }
-        $args = array( 'post__in' => $posts_to_get );
+        $args = array(
+            'post__in' => $posts_to_get
+        );
         $recent_posts = get_posts($args);
-        
     } else {
         $args = array(
             'numberposts' => $total_posts,
@@ -629,13 +630,22 @@ function multiloquent_paralax_featured_sliders()
     $output = '';
     $total_posts = '4';
     if (function_exists('tptn_pop_posts')) {
-        $sql = "SELECT postnumber, sum(cntaccess) as sumCount, ID, post_type, post_status, post_content
-		FROM wp_top_ten_daily INNER JOIN wp_posts ON postnumber=ID
-		AND post_type = 'post'
-		AND post_status = 'publish'
-		and dp_date BETWEEN SYSDATE() - INTERVAL 30 DAY AND SYSDATE() group by ID
-		ORDER BY sumCount DESC LIMIT 5;";
-        $recent_posts = $wpdb->get_results($sql);
+        $args = array(
+            'is_widget' => FALSE,
+            'daily' => FALSE,
+            'echo' => FALSE,
+            'strict_limit' => $total_posts,
+            'posts_only' => TRUE
+        );
+        // todo - this needs to be an array of objects..
+        $top_ten_post_array = tptn_pop_posts($args);
+        foreach ($top_ten_post_array as $post => $val) {
+            $posts_to_get[] = $val['ID'];
+        }
+        $args = array(
+            'post__in' => $posts_to_get
+        );
+        $recent_posts = get_posts($args);
     } else {
         $args = array(
             'numberposts' => $total_posts,
@@ -682,15 +692,14 @@ function multiloquent_get_avatar($avatar)
     return $avatar;
 }
 
-function multiloquent_render_the_archive()
+function multiloquent_render_the_archive($posts)
 {
-    global $post;
     $tile_colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
         // set it to blank so that it doesnt get the previous one..
         $slider_image = array();
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(the_ID()), 'single-post-thumbnail');
         if (! empty($slider_image)) {
             $theimg = $slider_image[0];
             // $width = $slider_image[1];
@@ -710,7 +719,7 @@ function multiloquent_render_the_archive()
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
     	<?php
-        $posttags = wp_get_post_tags($post->ID);
+        $posttags = wp_get_post_tags(the_ID());
         if ($posttags) {
             foreach ($posttags as $tag) {
                 echo '<a class="label ';

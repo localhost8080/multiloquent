@@ -37,16 +37,16 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				<?php multiloquent_render_the_archive();?>
+				<?php multiloquent_render_the_archive($posts);?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>
 		</section>
         <nav class="navitems article white2">
             <ul class="pagination pagination-centered">
-				<li><?php previous_posts_link('Previous Entries') ?></li>
-				<li><?php next_posts_link('Next Entries') ?></li>
-			</ul>
+                <li><?php previous_posts_link('Previous Entries') ?></li>
+                <li><?php next_posts_link('Next Entries') ?></li>
+            </ul>
         </nav>
     </div>
 </div>
@@ -58,5 +58,4 @@ if (have_posts()) {
 </div>
 <?php
 }
-wp_reset_query();
 get_footer();

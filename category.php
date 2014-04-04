@@ -15,7 +15,7 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				<?php multiloquent_render_the_archive();?>
+				<?php multiloquent_render_the_archive($posts);?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>
@@ -38,5 +38,4 @@ if (have_posts()) {
 </div>
 <?php
 }
-wp_reset_query();
 get_footer();
