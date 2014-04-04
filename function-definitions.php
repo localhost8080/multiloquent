@@ -78,9 +78,6 @@ function multiloquent_customize_css()
     echo '.jumbotron .nav-header,.well .nav-header {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
     echo '}';
-    echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
-    echo '}';
     echo '.navbar-fixed-top,.featured-posts { ';
     echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}';
@@ -93,6 +90,9 @@ function multiloquent_customize_css()
     echo '#search_form span { ';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
     echo '}';
+    echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
+    echo '}';  
     echo '</style>';
 }
 
