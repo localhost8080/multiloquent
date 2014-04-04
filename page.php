@@ -14,7 +14,7 @@ if (have_posts()) {
         echo '>';
         if (empty($multiloquent_hide_h1_tag)) {
             ?>
-<h1 class="featurette-heading container">
+<h1 class="container">
 <?php echo multiloquent_post_title();?>
 </h1>
 <?php
