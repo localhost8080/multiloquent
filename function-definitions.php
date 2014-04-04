@@ -36,7 +36,6 @@ function multiloquent_customize_register($wp_customize)
 {
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F5F5F5', 'Main Elements Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar_border', '#E7E7E7', 'Main Elements Border Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
@@ -77,15 +76,6 @@ function multiloquent_customize_css()
     echo '}'."\n";
     echo '.jumbotron .nav-header,.well .nav-header {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
-    echo '}'."\n";
-    echo '.navbar-default,.featured-posts {';
-    echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '}'."\n";
-    echo '#search_form input,.navbar-form input {';
-    echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '}'."\n";
-    echo '#search_form span {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}'."\n";
     echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
