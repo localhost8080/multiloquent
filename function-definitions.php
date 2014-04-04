@@ -63,15 +63,15 @@ function multiloquent_customize_css()
     echo '<style type="text/css">';
     echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')).'!important;';
-    echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_navbar_text')).';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
     echo '}';
     echo '.wrapper,.featured-posts { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')).';';
-    echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_background_text_colour')).';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
     echo '}';
     echo 'body {';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')).';';
-    echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_background_text_colour')).';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
     echo '.sidebar,.sidebar a {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')).';';
     echo '}';
