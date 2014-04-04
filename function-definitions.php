@@ -277,7 +277,6 @@ function multiloquent_tag_cloud_filter($return)
 function multiloquent_breadcrumbs()
 {
     global $post;
-
     $return = '';
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
@@ -288,16 +287,15 @@ function multiloquent_breadcrumbs()
         $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
-       // $category = get_the_category($id);
-       // $catID = $category[0]->cat_ID;
-       // $return .= get_category_parents($catID, true, '</li><li>', false);
+        // $category = get_the_category($id);
+        // $catID = $category[0]->cat_ID;
+        // $return .= get_category_parents($catID, true, '</li><li>', false);
     }
-
     if (is_single()) {
-       // TODO - fix $return .= multiloquent_post_title() . '</li>';
+        $return .= multiloquent_post_title() . '</li>';
     }
     if (is_page()) {
-    // todo - fix    $return .= multiloquent_post_title() . '</li>';
+        $return .= multiloquent_post_title() . '</li>';
     }
     if (is_tag()) {
         $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
