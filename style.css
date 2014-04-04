@@ -223,7 +223,7 @@ pre:before {
         font-size: 1.5em;
     }
 }
-@media ( max-width : 767px) {
+@media ( max-width : 782px) {
     .admin-bar .search-box form {
         margin: 0 0 0 38px !important;
         padding: 0 !important;
