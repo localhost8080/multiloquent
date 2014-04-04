@@ -35,15 +35,19 @@ if (have_posts()) {
         wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
         </div>
-
+</div>
 <?php
         get_template_part('advert');
         get_template_part('social');
         if (comments_open()) {
             ?>
-    <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
+<div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
                     <?php comments_template(); ?>    
                 </section>
+    </div>
+</div>
 <?php
         }
         get_template_part('advert');
@@ -51,9 +55,7 @@ if (have_posts()) {
             related_posts();
         }
         get_template_part('advert');
-        ?>
-       </div>
-<?php
+        echo '</div>';
     }
 } else {
     echo '<p>Sorry, no posts matched your criteria.<p>';
