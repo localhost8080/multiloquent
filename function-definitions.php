@@ -62,78 +62,84 @@ function multiloquent_customize_css()
 {
     ?>
 <style type="text/css">
-.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_navbar')); ?>! important;
-    color: <?php
+.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar'))) {
+        echo 'background:' . esc_attr(get_theme_mod('mulitloquent_navbar '));
+    }
+    if (! empty(get_theme_mod('mulitloquent_navbar_text'))) {
+        echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_navbar_text'));
+    }
+    ?>
 }
-
-.wrapper,.featured-posts {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_background_colour')); ?> ! important;
-    color: <?php
+.wrapper,.featured-posts { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_background_colour'))) {
+        echo 'background:' . esc_attr(get_theme_mod('mulitloquent_background_colour '));
+    }
+    if (! empty(get_theme_mod('mulitloquent_background_text_colour'))) {
+        echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_background_text_colour'));
+    }
+    ?>
 }
-
-body {
-    background: <?php echo esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')); ?> ! important;
-    color: <?php
+body { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_background_text_colour'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_slideout_menu_colour'))) {
+        echo 'background:' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour '));
+    }
+    if (! empty(get_theme_mod('mulitloquent_background_text_colour'))) {
+        echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_background_text_colour'));
+    }
+    ?>
 }
-
-.sidebar,.sidebar a {
-    color: <?php
+.sidebar,.sidebar a { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_slideout_text_colour'));
-    ?>!
-    important;
+if (! empty(get_theme_mod('mulitloquent_background_text_colour'))) {
+        echo 'color:' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour '));
+    }
+    ?>
 }
-
-.jumbotron .nav-header,.well .nav-header {
-    color: <?php
+.jumbotron .nav-header,.well .nav-header { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_text'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_text'))) {
+        echo 'color:' . esc_attr(get_theme_mod('mulitloquent_navbar_text '));
+    }
+    ?>
 }
-
-.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {
-    color: <?php
+.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_link'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_link'))) {
+        echo 'color:' . esc_attr(get_theme_mod('mulitloquent_navbar_link '));
+    }
+    ?>
 }
-
-.navbar-fixed-top,.featured-posts {
-    border-bottom: 1px solid<?php
+.navbar-fixed-top,.featured-posts { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
+        echo 'border-bottom:1pxsolid' . esc_attr(get_theme_mod('mulitloquent_navbar_border '));
+    }
+    ?>
 }
-
-.navbar-fixed-bottom {
-    border-top: 1px solid<?php
+.navbar-fixed-bottom { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
+        echo 'border-top:1pxsolid' . esc_attr(get_theme_mod('mulitloquent_navbar_border '));
+    }
+    ?>
 }
-
-#search_form input,.navbar-form input {
-    border: 1px solid<?php
+#search_form input,.navbar-form input { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
+        echo 'border:1pxsolid' . esc_attr(get_theme_mod('mulitloquent_navbar_border '));
+    }
+    ?>
 }
-
-#search_form span {
-    color: <?php
+#search_form span { <?php
     
-echo esc_attr(get_theme_mod('mulitloquent_navbar_border'));
-    ?>;
+if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
+        echo 'color:' . esc_attr(get_theme_mod('mulitloquent_navbar_border '));
+    }
+    ?>
 }
 </style>
 <?php
@@ -728,7 +734,6 @@ function multiloquent_render_the_archive($colour)
 function multiloquent_render_tags($post_id)
 {
     echo $post_id;
-    
     $posttags = wp_get_post_tags($post_id);
     if ($posttags) {
         foreach ($posttags as $tag) {
