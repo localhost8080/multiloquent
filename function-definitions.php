@@ -695,25 +695,22 @@ function multiloquent_get_avatar($avatar)
 function multiloquent_render_the_archive()
 {
     $tile_colour = multiloquent_get_random_blue_class();
-    while (have_posts()) {
-        the_post();
-        echo $post = get_the_ID();
-        die;
-        // set it to blank so that it doesnt get the previous one..
-        $slider_image = array();
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post), 'single-post-thumbnail');
-        if (! empty($slider_image)) {
-            $theimg = $slider_image[0];
-            // $width = $slider_image[1];
-            // $height = $slider_image[2];
-            // in here I need to check if its a mobile, and then give a different image:
-        } else {
-            $theimg = get_template_directory_uri() . '/images/default-slider.png';
-        }
-        $dimensions = getimagesize($theimg);
-        $width = $dimensions[0];
-        $height = $dimensions[1];
-        ?>
+    $post = get_the_ID();
+    // set it to blank so that it doesnt get the previous one..
+    $slider_image = array();
+    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post), 'single-post-thumbnail');
+    if (! empty($slider_image)) {
+        $theimg = $slider_image[0];
+        // $width = $slider_image[1];
+        // $height = $slider_image[2];
+        // in here I need to check if its a mobile, and then give a different image:
+    } else {
+        $theimg = get_template_directory_uri() . '/images/default-slider.png';
+    }
+    $dimensions = getimagesize($theimg);
+    $width = $dimensions[0];
+    $height = $dimensions[1];
+    ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
     <img src="<?php echo $theimg?>" class="grayscale" alt="<?php echo multiloquent_post_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
     <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
@@ -721,18 +718,17 @@ function multiloquent_render_the_archive()
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
     	<?php
-        $posttags = wp_get_post_tags($post);
-        if ($posttags) {
-            foreach ($posttags as $tag) {
-                echo '<a class="label ';
-                echo multiloquent_get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
-            }
+    $posttags = wp_get_post_tags($post);
+    if ($posttags) {
+        foreach ($posttags as $tag) {
+            echo '<a class="label ';
+            echo multiloquent_get_random_solid_class($tag->slug);
+            echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
         }
-        ?>
+    }
+    ?>
     	</p>
     </div>
 </div>
 <?php
-    }
 }
