@@ -244,9 +244,9 @@ function multiloquent_breadcrumbs()
         $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
-        // $category = get_the_category($id);
-        // $catID = $category[0]->cat_ID;
-        // $return .= get_category_parents($catID, true, '</li><li>', false);
+         $category = get_the_category($id);
+         $catID = $category[0]->cat_ID;
+         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
     if (is_single()) {
         $return .= multiloquent_post_title() . '</li>';
