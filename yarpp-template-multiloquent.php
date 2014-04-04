@@ -8,10 +8,7 @@
     <div class="row">
 <?php
 if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-        multiloquent_render_the_archive();
-    }
+    multiloquent_render_the_archive();
 } else {
     echo '<p>No related posts.</p>';
 }

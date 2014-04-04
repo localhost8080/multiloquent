@@ -20,12 +20,7 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				        <?php
-    while (have_posts()) {
-        the_post();
-        multiloquent_render_the_archive();
-    }
-    ?>
+				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>
