@@ -41,19 +41,8 @@ if (have_posts()) {
             <div class="tag-cloud">
                 <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
                 <div>
-                <?php
-        $posttags = get_the_tags();
-        if ($posttags) {
-            foreach ($posttags as $tag) {
-                // if($tag->count > 5){
-                echo '<a class="label ';
-                echo multiloquent_get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
-                // }
-            }
-        }
-        ?>
-                        </div>
+                    <?php multiloquent_render_tags($id);?>
+                </div>
             </div>
         </div>
     </section>

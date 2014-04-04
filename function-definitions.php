@@ -718,8 +718,16 @@ function multiloquent_render_the_archive($colour)
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
-    	<?php
-    $posttags = wp_get_post_tags($id);
+    	<?php multiloquent_render_tags($id);?>
+    	</p>
+    </div>
+</div>
+<?php
+}
+
+function multiloquent_render_tags($post_id)
+{
+    $posttags = wp_get_post_tags($post_id);
     if ($posttags) {
         foreach ($posttags as $tag) {
             echo '<a class="label ';
@@ -727,9 +735,4 @@ function multiloquent_render_the_archive($colour)
             echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
         }
     }
-    ?>
-    	</p>
-    </div>
-</div>
-<?php
 }
