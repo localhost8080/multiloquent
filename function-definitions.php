@@ -287,13 +287,14 @@ function multiloquent_breadcrumbs()
         $return .= 'Home';
         $return .= '</a></li><li>';
     }
+    echo $id = get_the_ID();
+    die;
     if (is_category() || (is_single() && ! is_attachment())) {
         $category = get_the_category($id);
         $catID = $category[0]->cat_ID;
         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
-    echo $id = get_the_ID();
-    die;
+
     if (is_single()) {
         $return .= multiloquent_post_title() . '</li>';
     }
