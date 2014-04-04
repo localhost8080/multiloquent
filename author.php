@@ -56,5 +56,4 @@ if (have_posts()) {
 </div>
 <?php
 }
-wp_reset_query();
 get_footer();
