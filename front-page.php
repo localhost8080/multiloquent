@@ -1,7 +1,7 @@
 <?php
 get_header();
-echo multiloquent_paralax_slider();
 if ('posts' == get_option('show_on_front')) {
+    echo multiloquent_paralax_slider();
     include (get_home_template());
 } else {
     ?>
@@ -17,6 +17,7 @@ if ('posts' == get_option('show_on_front')) {
             </div>
 </div>
 <!-- google_ad_section_end-->
+<?php echo multiloquent_paralax_slider();?>
 <div class="container">
             <?php get_template_part('advert');?>
         </div>
