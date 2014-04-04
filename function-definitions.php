@@ -695,8 +695,9 @@ function multiloquent_get_avatar($avatar)
 function multiloquent_render_the_archive($colour)
 {
     // set it to blank so that it doesnt get the previous one..
+    $id = get_the_ID();
     $slider_image = array();
-    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
+    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
     if (! empty($slider_image)) {
         $theimg = $slider_image[0];
         // $width = $slider_image[1];
@@ -716,7 +717,7 @@ function multiloquent_render_the_archive($colour)
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
     	<?php
-    $posttags = wp_get_post_tags(get_the_ID());
+    $posttags = wp_get_post_tags($id);
     if ($posttags) {
         foreach ($posttags as $tag) {
             echo '<a class="label ';
