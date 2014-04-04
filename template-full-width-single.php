@@ -22,6 +22,7 @@ if (have_posts()) {
         get_template_part('breadcrumb');
         ?>
 <div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
         <?php
         if ($values = get_post_custom_values("leadvideo")) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
@@ -34,15 +35,18 @@ if (have_posts()) {
         wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
         </div>
+</div>
 <?php
         get_template_part('advert');
         get_template_part('social');
         if (comments_open()) {
             ?>
-<section class="comments_full container">
-    <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
-                    <?php comments_template(); ?>    
-                </section>
+<section class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
+                    <?php comments_template(); ?>  
+         </div>
+</section>
 <?php
         }
         get_template_part('advert');
