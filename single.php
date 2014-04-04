@@ -76,4 +76,5 @@ if (have_posts()) {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
+get_template_part('social');
 get_footer();
