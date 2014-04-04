@@ -145,6 +145,7 @@ if (! empty(get_theme_mod('mulitloquent_navbar_border'))) {
 <?php
 }
 
+
 function multiloquent_scripts_method()
 {
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
