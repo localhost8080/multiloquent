@@ -61,38 +61,38 @@ function multiloquent_register_and_generate_custom_control($setting_name, $defau
 function multiloquent_customize_css()
 {
     echo '<style type="text/css">';
-    echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments { ';
+    echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')).'!important;';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
-    echo '}';
+    echo '} ';
     echo '.wrapper,.featured-posts { ';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')).';';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
-    echo '}';
+    echo '} ';
     echo 'body {';
     echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')).';';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
     echo '.sidebar,.sidebar a {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')).';';
-    echo '}';
+    echo '} ';
     echo '.jumbotron .nav-header,.well .nav-header {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
-    echo '}';
+    echo '} ';
     echo '.navbar-fixed-top,.featured-posts { ';
     echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '}';
+    echo '} ';
     echo '.navbar-fixed-bottom { ';
     echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '}';
+    echo '} ';
     echo '#search_form input,.navbar-form input { ';
     echo 'border-color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
-    echo '}';
+    echo '} ';
     echo '#search_form span { ';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
-    echo '}';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
+    echo '} ';
     echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
-    echo '}';  
+    echo '} ';  
     echo '</style>';
 }
 
