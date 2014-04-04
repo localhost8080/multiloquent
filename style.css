@@ -224,7 +224,7 @@ pre:before {
     }
 }
 @media ( max-width : 782px) {
-    .admin-bar .search-box form {
+    .admin-bar .sidebar form {
         margin: 0 0 0 38px !important;
         padding: 0 !important;
     }
