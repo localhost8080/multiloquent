@@ -1,16 +1,6 @@
 <?php
 get_header();
 if ('posts' == get_option('show_on_front')) {
-    ?>
-<div class="jumbotron">
-    <div class="container">
-        <header>
-            <h1 class="article_title">Featured Posts</h1>
-        </header>
-    </div>
-</div>
-<?php
-    echo multiloquent_paralax_slider();
     include (get_home_template());
 } else {
     ?>

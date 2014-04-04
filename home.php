@@ -2,6 +2,16 @@
 // this is the template for the home page when its set to display blog posts
 if (have_posts()) {
     ?>
+<div class="jumbotron">
+    <div class="container">
+        <header>
+            <h1 class="article_title">Featured Posts</h1>
+        </header>
+    </div>
+</div>
+<?php
+    echo multiloquent_paralax_slider();
+    ?>
 <p class="lead text-center">Recent Posts</p>
 <div class="container post">
     <div class="featurette">
