@@ -11,7 +11,7 @@ if ('posts' == get_option('show_on_front')) {
 </div>
 <?php
     echo multiloquent_paralax_slider();
-    include (get_home_template());
+    //include (get_home_template());
 } else {
     ?>
 <!-- google_ad_section_start-->

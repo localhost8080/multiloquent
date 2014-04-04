@@ -694,6 +694,7 @@ function multiloquent_get_avatar($avatar)
 
 function multiloquent_render_the_archive()
 {
+    global $post;
     $tile_colour = multiloquent_get_random_blue_class();
     $id = get_the_ID();
     // set it to blank so that it doesnt get the previous one..
