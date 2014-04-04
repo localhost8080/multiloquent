@@ -82,13 +82,13 @@ function multiloquent_customize_css()
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
     echo '}';
     echo '.navbar-fixed-top,.featured-posts { ';
-    echo 'border-bottom:1px solid ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
+    echo 'border-color:' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}';
     echo '.navbar-fixed-bottom { ';
-    echo 'border-top:1px solid ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
+    echo 'border-color ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}';
     echo '#search_form input,.navbar-form input { ';
-    echo 'border:1px solid ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
+    echo 'border-color ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).'!important;';
     echo '}';
     echo '#search_form span { ';
     echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_border')).';';
