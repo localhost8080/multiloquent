@@ -255,7 +255,6 @@ function multiloquent_add_tag_class($taglinks)
 
 function multiloquent_post_title($post_id = '')
 {
-    global $post;
     if (! empty($post_id)) {
         $the_title = get_the_title($post_id);
     } else {
@@ -295,10 +294,10 @@ function multiloquent_breadcrumbs()
     }
 
     if (is_single()) {
-        $return .= multiloquent_post_title() . '</li>';
+        $return .= multiloquent_post_title($post->ID) . '</li>';
     }
     if (is_page()) {
-        $return .= multiloquent_post_title() . '</li>';
+        $return .= multiloquent_post_title($post->ID) . '</li>';
     }
     if (is_tag()) {
         $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
