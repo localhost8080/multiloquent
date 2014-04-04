@@ -277,8 +277,7 @@ function multiloquent_tag_cloud_filter($return)
 function multiloquent_breadcrumbs()
 {
     global $post;
-    echo $id = get_the_ID();
-    die;
+
     $return = '';
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
@@ -293,6 +292,8 @@ function multiloquent_breadcrumbs()
         $catID = $category[0]->cat_ID;
         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
+    echo $id = get_the_ID();
+    die;
     if (is_single()) {
         $return .= multiloquent_post_title() . '</li>';
     }
