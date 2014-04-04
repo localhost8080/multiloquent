@@ -297,7 +297,7 @@ function multiloquent_breadcrumbs()
        // TODO - fix $return .= multiloquent_post_title() . '</li>';
     }
     if (is_page()) {
-        $return .= multiloquent_post_title() . '</li>';
+    // todo - fix    $return .= multiloquent_post_title() . '</li>';
     }
     if (is_tag()) {
         $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
