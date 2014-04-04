@@ -697,7 +697,8 @@ function multiloquent_render_the_archive()
     $tile_colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
-        $post = get_the_ID();
+        echo $post = get_the_ID();
+        die;
         // set it to blank so that it doesnt get the previous one..
         $slider_image = array();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post), 'single-post-thumbnail');
