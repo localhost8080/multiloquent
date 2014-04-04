@@ -63,7 +63,7 @@ function multiloquent_customize_css()
     echo '<style type="text/css">';
     echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments { ';
     if (! empty(get_theme_mod('mulitloquent_navbar'))) {
-        echo 'background:' . esc_attr(get_theme_mod('mulitloquent_navbar '));
+        echo 'background:' . esc_attr(get_theme_mod('mulitloquent_navbar'));
     }
     if (! empty(get_theme_mod('mulitloquent_navbar_text'))) {
         echo 'color: ' . esc_attr(get_theme_mod(' mulitloquent_navbar_text'));
