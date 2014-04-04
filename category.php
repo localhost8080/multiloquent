@@ -14,7 +14,7 @@ if (have_posts()) {
 </div>
 <div class="container post">
     <div class="featurette">
-        <section class="row">
+        <section>
 		<?php
     $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
