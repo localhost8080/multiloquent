@@ -692,7 +692,7 @@ function multiloquent_get_avatar($avatar)
     return $avatar;
 }
 
-function multiloquent_render_the_archive()
+function multiloquent_render_the_archive($posts)
 {
     $tile_colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
