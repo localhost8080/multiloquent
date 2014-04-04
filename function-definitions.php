@@ -294,10 +294,10 @@ function multiloquent_breadcrumbs()
     }
 
     if (is_single()) {
-        $return .= multiloquent_post_title($post->ID) . '</li>';
+       // TODO - fix $return .= multiloquent_post_title() . '</li>';
     }
     if (is_page()) {
-        $return .= multiloquent_post_title($post->ID) . '</li>';
+        $return .= multiloquent_post_title() . '</li>';
     }
     if (is_tag()) {
         $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
