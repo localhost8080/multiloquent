@@ -15,7 +15,13 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				<?php multiloquent_render_the_archive();?>
+		<?php
+    $colour = multiloquent_get_random_blue_class();
+    while (have_posts()) {
+        the_post();
+        multiloquent_render_the_archive($post, $colour);
+    }
+    ?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>

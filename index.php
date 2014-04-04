@@ -41,10 +41,11 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-        <?php
+ 		<?php
+    $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
-        multiloquent_render_the_archive();
+        multiloquent_render_the_archive($post, $colour);
     }
     ?>
 		</section>
