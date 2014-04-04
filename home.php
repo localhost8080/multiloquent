@@ -1,5 +1,6 @@
 <?php
 // this is the template for the home page when its set to display blog posts
+get_header();
 if (have_posts()) {
     ?>
 <div class="jumbotron">
@@ -43,4 +44,4 @@ if (have_posts()) {
 </div>
 <?php
 }
-
+get_footer();

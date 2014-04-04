@@ -1,8 +1,8 @@
 <?php
-get_header();
 if ('posts' == get_option('show_on_front')) {
     include (get_home_template());
 } else {
+    get_header();
     ?>
 <!-- google_ad_section_start-->
 <div class="jumbotron">
@@ -22,5 +22,6 @@ if ('posts' == get_option('show_on_front')) {
             <?php get_template_part('advert');?>
         </div>
 <?php
+    get_footer();
 }
-get_footer();
+
