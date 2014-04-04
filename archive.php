@@ -37,7 +37,7 @@ if (have_posts()) {
 <div class="container post">
     <div class="featurette">
         <section class="row">
-				<?php multiloquent_render_the_archive($posts);?>
+				<?php multiloquent_render_the_archive();?>
 		</section>
         <section>
 			<?php get_template_part('advert');?>
