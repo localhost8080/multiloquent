@@ -59,15 +59,7 @@ if (have_posts()) {
 <?php
         // get_template_part('social');
         if (function_exists('related_posts')) {
-            ?>
-<section class="container post">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <?php related_posts();?>
-        </div>
-    </div>
-</section>
-<?php
+            related_posts();
         }
         next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
         previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
