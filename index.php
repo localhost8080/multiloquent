@@ -45,7 +45,7 @@ if (have_posts()) {
     $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
-        multiloquent_render_the_archive($post, $colour);
+        multiloquent_render_the_archive($colour);
     }
     ?>
 		</section>

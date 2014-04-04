@@ -692,11 +692,11 @@ function multiloquent_get_avatar($avatar)
     return $avatar;
 }
 
-function multiloquent_render_the_archive($post, $colour)
+function multiloquent_render_the_archive($colour)
 {
     // set it to blank so that it doesnt get the previous one..
     $slider_image = array();
-    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail');
     if (! empty($slider_image)) {
         $theimg = $slider_image[0];
         // $width = $slider_image[1];
@@ -711,12 +711,12 @@ function multiloquent_render_the_archive($post, $colour)
     ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
     <img src="<?php echo $theimg?>" class="grayscale" alt="<?php echo multiloquent_post_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
-    <div class="paralax_image_bg <?php echo $tile_colour?>"></div>
+    <div class="paralax_image_bg <?php echo $colour?>"></div>
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
     	<?php
-    $posttags = wp_get_post_tags($post->ID);
+    $posttags = wp_get_post_tags(get_the_ID());
     if ($posttags) {
         foreach ($posttags as $tag) {
             echo '<a class="label ';
