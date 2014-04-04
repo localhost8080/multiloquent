@@ -1,6 +1,7 @@
 <?php
 get_header();
 if ('posts' == get_option('show_on_front')) {
+    echo '<p class="lead text-center">Featured Posts</p>';
     echo multiloquent_paralax_slider();
     include (get_home_template());
 } else {

@@ -1,7 +1,7 @@
 <?php 
 /**
- *  not used...
- *  totally should test this though...
+ * 
+ *  fallback page
  */
 
 get_header();
@@ -63,5 +63,4 @@ if (have_posts()) {
 </div>
 <?php
 }
-wp_reset_query();
 get_footer();
