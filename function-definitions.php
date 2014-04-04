@@ -34,7 +34,7 @@ function multiloquent_featured_image_in_feed($content)
 
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#F5F5F5', 'Main Elements Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('mulitloquent_navbar', '#f8f8f8', 'Main Elements Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
