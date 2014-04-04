@@ -276,6 +276,7 @@ function multiloquent_tag_cloud_filter($return)
  */
 function multiloquent_breadcrumbs()
 {
+    global $post;
     $return = '';
     // $image_url = get_template_directory_uri() ;
     if (! is_home()) {
