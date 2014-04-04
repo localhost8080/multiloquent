@@ -727,6 +727,8 @@ function multiloquent_render_the_archive($colour)
 
 function multiloquent_render_tags($post_id)
 {
+    echo $post_id;
+    
     $posttags = wp_get_post_tags($post_id);
     if ($posttags) {
         foreach ($posttags as $tag) {
