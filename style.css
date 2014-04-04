@@ -17,7 +17,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* these should be my custom things on top of the bootstrap, so that when versioning happens I can switch */
 /* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files to be loaded in the correct order*/
-
 .wp-caption {
     /* present in bootsrtap custom file*/
     
@@ -42,9 +41,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
     /* present in bootsrtap custom file*/
     
 }
+
 html {
-    font-size:20px;
+    font-size: 20px;
 }
+
 body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -223,14 +224,14 @@ pre:before {
         font-size: 1.5em;
     }
 }
+
 @media ( max-width : 782px) {
     .admin-bar .sidebar form {
-        margin: 0 0 0 38px !important;
-        padding: 0 !important;
+        padding-top: 65px !important;
     }
 }
 
-
+}
 @media ( max-width : 480px) {
     .jumbotron {
         padding: 5px !important;
@@ -1372,7 +1373,6 @@ body.rtl .sharing li {
 }
 
 .featured-posts {
-    
     border-bottom: 1px solid #E7E7E7;
     font-size: 0.8em;
     height: 85px;
@@ -1456,89 +1456,103 @@ body.rtl .sharing li {
 }
 
 .prev_link {
-  border-radius: 10px 0 0 10px;
-  position: fixed;
-  right: 0;
-  top: 50%;
-  padding:20px 5px;
+    border-radius: 10px 0 0 10px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    padding: 20px 5px;
 }
 
 .next_link {
-  border-radius: 0 10px 10px 0;
-  left: 0;
-  position: fixed;
-  top: 50%;
-  padding:20px 5px;
+    border-radius: 0 10px 10px 0;
+    left: 0;
+    position: fixed;
+    top: 50%;
+    padding: 20px 5px;
 }
 
-.comment{
-    font-size:15px;
-    font-weight:normal;
-    list-style:none;
+.comment {
+    font-size: 15px;
+    font-weight: normal;
+    list-style: none;
 }
+
 .comment footer {
-  padding: 0 !important;
-  position: absolute;
-  width: 100%;
-}
-.comment-body {
-  margin-bottom: 20px;
-  min-height: 75px;
-  position: relative;
-}
-.comment-content > p {
-  margin: 0 !important;
-}
-.comment .says {
-    display:none;
-}
-.comment-metadata {
-  position: absolute;
-  right: 0;
-  font-size:10px;
-}
-.comment-metadata a {
-  color: #CCCCCC !important;
-}
-.comment-author.vcard {
- 
-}
-.comment-content {
-  margin-left: 75px;
-  padding-top: 30px;
-}
-.comment .reply {
-  margin-left: 75px;
-  font-size:10px;
-}
-.comment-reply-link {
-  color: #CCCCCC !important;
-}
-.comment .avatar {
-  display: block;
-  float: left;
-  height: 56px;
-  margin-right: 10px;
-  width: 56px;
-}
-.comment-author b {
-  left: 75px;
-  position: absolute;
+    padding: 0 !important;
+    position: absolute;
+    width: 100%;
 }
 
-.comment-list{
-    margin:0;
+.comment-body {
+    margin-bottom: 20px;
+    min-height: 75px;
+    position: relative;
+}
+
+.comment-content>p {
+    margin: 0 !important;
+}
+
+.comment .says {
+    display: none;
+}
+
+.comment-metadata {
+    position: absolute;
+    right: 0;
+    font-size: 10px;
+}
+
+.comment-metadata a {
+    color: #CCCCCC !important;
+}
+
+.comment-author.vcard {
+    
+}
+
+.comment-content {
+    margin-left: 75px;
+    padding-top: 30px;
+}
+
+.comment .reply {
+    margin-left: 75px;
+    font-size: 10px;
+}
+
+.comment-reply-link {
+    color: #CCCCCC !important;
+}
+
+.comment .avatar {
+    display: block;
+    float: left;
+    height: 56px;
+    margin-right: 10px;
+    width: 56px;
+}
+
+.comment-author b {
+    left: 75px;
+    position: absolute;
+}
+
+.comment-list {
+    margin: 0;
 }
 
 .comment-form label {
-  clear: left;
-  float: left;
+    clear: left;
+    float: left;
 }
-.comment-form > p {
-  clear: left;
-  float:left;
+
+.comment-form>p {
+    clear: left;
+    float: left;
 }
-.comment-form input, .comment-form textarea {
-  clear: left;
-  float: left;
+
+.comment-form input,.comment-form textarea {
+    clear: left;
+    float: left;
 }
