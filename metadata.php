@@ -1,4 +1,3 @@
-<?php global $post;?>
 <li class="pull-right">
 <?php
 echo '<span class="author">';
