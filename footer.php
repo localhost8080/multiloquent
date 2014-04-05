@@ -23,7 +23,8 @@ get_template_part('navigation');
                             }
                             ?>
                 </div>
-                <hr/>
+            </div>
+            <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
                     <p class="nav-header">Useful Stuff</p>
                             <?php
