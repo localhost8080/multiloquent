@@ -1,7 +1,4 @@
 <?php
-/*
- * Template Name Posts: Full width
- */
 get_header();
 echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
@@ -41,13 +38,12 @@ if (have_posts()) {
         get_template_part('social');
         if (comments_open()) {
             ?>
-<div class="container">
+<section class="container">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
                     <?php comments_template(); ?>    
-                </section>
     </div>
-</div>
+</section>
 <?php
         }
         get_template_part('advert');
