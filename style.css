@@ -19,8 +19,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files to be loaded in the correct order*/
 
 /* this is for the tinymce editor background colours*/
-.mceEditor body{
-    background:#fff!important;
+.mceContentBody {
+  background: none repeat scroll 0 0 #FFFFFF !important;
 }
 
 .wp-caption {
