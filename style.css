@@ -1417,7 +1417,7 @@ body.rtl .sharing li {
     z-index: 400;
 }
 
-.sidebar .menu ul {
+.sidebar .menu ul, .sidebar ul.menu {
     margin: 0;
 }
 
