@@ -85,12 +85,13 @@ function multiloquent_customize_css()
 
 function multiloquent_scripts_method()
 {
+    wp_enqueue_script('menu-js', get_template_directory_uri() . '/menu.js', array(
+    'jquery'
+        ), '' ,true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
         'jquery'
     ), '' ,true);
-    wp_enqueue_script('menu-js', get_template_directory_uri() . '/menu.js', array(
-        'jquery'
-    ), '' ,true);
+    
 }
 
 function multiloquent_stylesheet_method()
