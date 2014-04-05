@@ -1,43 +1,44 @@
 function resize_sidebar() {
-    if ($('.wrapper').height() < $('.sidebar').height()) {
+    if (jQuery('.wrapper').height() < jQuery('.sidebar').height()) {
         // the sidebar is bigger than the wrapper
-        $('.wrapper').css("height", $('.sidebar').height());
+        jQuery('.wrapper').css("height", jQuery('.sidebar').height());
     }
 }
 // resize the sidebar onload
-$(document).load(function() {
+
+jQuery(document).load(function() {
     resize_sidebar();
 });
 // need to do it on ready for pages, for some reason it doesnt fire in webkit
-$(document).ready(function() {
+jQuery(document).ready(function() {
     resize_sidebar();
 });
-$('.sidebar-toggle').click(function() {
+jQuery('.sidebar-toggle').click(function() {
     // total fail fallback - if for some reason the page hasnt resized, force it
     // to resize now
     resize_sidebar();
-    if ($('.sidebar').css("margin-left") != '0px') {
+    if (jQuery('.sidebar').css("margin-left") != '0px') {
         // its not visible
-        $('.prev_link').hide();
-        $('.next_link').hide();
-        $('.wrapper').css("overflow", "hidden");
-        $('.wrapper').css("margin-left", "300px");
-        $('.sidebar').css("margin-left", "0px");
+        jQuery('.prev_link').hide();
+        jQuery('.next_link').hide();
+        jQuery('.wrapper').css("overflow", "hidden");
+        jQuery('.wrapper').css("margin-left", "300px");
+        jQuery('.sidebar').css("margin-left", "0px");
     } else {
         // its already on the screen
-        $('.wrapper').css("margin-left", "0px");
-        $('.sidebar').css("margin-left", "-300px");
-        $('.prev_link').show();
-        $('.next_link').show();
+        jQuery('.wrapper').css("margin-left", "0px");
+        jQuery('.sidebar').css("margin-left", "-300px");
+        jQuery('.prev_link').show();
+        jQuery('.next_link').show();
     }
 });
 
-$('.sidebar .menu a').click(function(event) {
+jQuery('.sidebar .menu a').click(function(event) {
     // stop the link click targetting the containing element
     event.stopPropagation();
 });
-$('.sidebar .menu ul > li.page_item_has_children').click(function(event) {
+jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(event) {
     // this breaks the links though...
-    $(this).children('ul.children').slideToggle('400', resize_sidebar);
+    jQuery(this).children('ul.children').slideToggle('400', resize_sidebar);
     event.stopPropagation();
 });
