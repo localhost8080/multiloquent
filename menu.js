@@ -42,3 +42,8 @@ jQuery('.sidebar .menu ul > li.page_item_has_children').click(function(event) {
     jQuery(this).children('ul.children').slideToggle('400', resize_sidebar);
     event.stopPropagation();
 });
+jQuery('.sidebar .menu ul > li.menu-item-has-children').click(function(event) {
+    // this breaks the links though...
+    jQuery(this).children('ul.sub-menu').slideToggle('400', resize_sidebar);
+    event.stopPropagation();
+});
