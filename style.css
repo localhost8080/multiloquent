@@ -16,36 +16,31 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 /* these should be my custom things on top of the bootstrap, so that when versioning happens I can switch */
-/* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files */ 
+/* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files */
 /* to be loaded in the correct order*/
 
 /* this is for the tinymce editor background colours*/
 .mceContentBody {
-  background: none repeat scroll 0 0 #FFFFFF !important;
+    background: none repeat scroll 0 0 #FFFFFF !important;
 }
 
 .wp-caption {
-    /* present in bootsrtap custom file*/
     font-size: inherit;
 }
 
 .wp-caption-text {
-    /* present in bootsrtap custom file*/
     font-size: inherit;
 }
 
 .sticky {
-    /* present in bootsrtap custom file*/
     font-size: inherit;
 }
 
 .gallery-caption {
-    /* present in bootsrtap custom file*/
     font-size: inherit;
 }
 
 .bypostauthor {
-    /* present in bootsrtap custom file*/
     font-size: inherit;
 }
 
@@ -238,7 +233,6 @@ pre:before {
     }
 }
 
-}
 @media ( max-width : 480px) {
     .jumbotron {
         padding: 5px !important;
@@ -1418,7 +1412,7 @@ body.rtl .sharing li {
     z-index: 400;
 }
 
-.sidebar .menu ul, .sidebar ul.menu {
+.sidebar .menu ul,.sidebar ul.menu {
     margin: 0;
 }
 
@@ -1426,7 +1420,7 @@ body.rtl .sharing li {
     list-style: none;
 }
 
-.sidebar .menu .page_item_has_children, .sidebar .menu .menu-item-has-children {
+.sidebar .menu .page_item_has_children,.sidebar .menu .menu-item-has-children {
     position: relative;
 }
 
@@ -1434,19 +1428,19 @@ body.rtl .sharing li {
     margin-left: 10px;
 }
 
-.sidebar .menu ul>li>ul,.sidebar ul.menu>li>ul  {
+.sidebar .menu ul>li>ul,.sidebar ul.menu>li>ul {
     display: none;
 }
 
-.sidebar .menu ul.children, .sidebar .menu ul.sub-menu {
+.sidebar .menu ul.children,.sidebar .menu ul.sub-menu {
     background: #676767;
 }
 
-.sidebar .menu ul.children ul.children, .sidebar .menu ul.sub-menu ul.sub-menu {
+.sidebar .menu ul.children ul.children,.sidebar .menu ul.sub-menu ul.sub-menu {
     background: #898989;
 }
 
-.sidebar .menu .page_item_has_children:after, .sidebar .menu .menu-item-has-children:after {
+.sidebar .menu .page_item_has_children:after,.sidebar .menu .menu-item-has-children:after {
     border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-right: 6px solid rgba(0, 0, 0, 0);
     border-style: solid;
