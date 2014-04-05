@@ -29,7 +29,7 @@ if (have_posts()) {
 		</section>
 </div>
 <div class="container post">
-    <nav class="navitems">
+    <nav class="navitems text-center">
         <ul class="pagination">
             <li><?php previous_posts_link('Previous Entries') ?></li>
             <li><?php next_posts_link('Next Entries') ?></li>
