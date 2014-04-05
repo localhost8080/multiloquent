@@ -61,31 +61,34 @@ function multiloquent_customize_css()
 {
     echo '<style type="text/css">';
     echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')).'!important;';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).'!important;';
-    echo '}'."\n";
+    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
+    echo '}' . "\n";
     echo '.wrapper,.featured-posts { ';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')).';';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
-    echo '}'."\n";
+    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
+    echo '}' . "\n";
     echo 'body {';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')).';';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')).';';
+    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
     echo '.sidebar,.sidebar a {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')).';';
-    echo '}'."\n";
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
+    echo '}' . "\n";
     echo '.jumbotron .nav-header,.well .nav-header {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')).';';
-    echo '}'."\n";
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
+    echo '}' . "\n";
     echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')).';';
-    echo '}'."\n";  
+    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
+    echo '}' . "\n";
     echo '</style>';
 }
 
 function multiloquent_scripts_method()
 {
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
+        'jquery'
+    ));
+    wp_enqueue_script('menu-js', get_template_directory_uri() . '/menu.js', array(
         'jquery'
     ));
 }
@@ -231,9 +234,9 @@ function multiloquent_breadcrumbs()
         $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
-         $category = get_the_category($id);
-         $catID = $category[0]->cat_ID;
-         $return .= get_category_parents($catID, true, '</li><li>', false);
+        $category = get_the_category($id);
+        $catID = $category[0]->cat_ID;
+        $return .= get_category_parents($catID, true, '</li><li>', false);
     }
     if (is_single()) {
         $return .= multiloquent_post_title() . '</li>';
