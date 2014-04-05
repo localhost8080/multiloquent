@@ -1425,7 +1425,7 @@ body.rtl .sharing li {
     list-style: none;
 }
 
-.sidebar .menu .page_item_has_children {
+.sidebar .menu .page_item_has_children, .sidebar .menu .menu-item-has-children {
     position: relative;
 }
 
@@ -1437,15 +1437,15 @@ body.rtl .sharing li {
     display: none;
 }
 
-.sidebar .menu ul.children {
+.sidebar .menu ul.children, .sidebar .menu ul.sub-menu {
     background: #676767;
 }
 
-.sidebar .menu ul.children ul.children {
+.sidebar .menu ul.children ul.children, .sidebar .menu ul.sub-menu ul.sub-menu {
     background: #898989;
 }
 
-.sidebar .menu .page_item_has_children:after {
+.sidebar .menu .page_item_has_children:after, .sidebar .menu .menu-item-has-children:after {
     border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-right: 6px solid rgba(0, 0, 0, 0);
     border-style: solid;
