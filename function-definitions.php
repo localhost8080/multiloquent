@@ -594,8 +594,8 @@ function multiloquent_paralax_featured_sliders()
         }
         // set to 4 items as the strict_limit doesnt appear to work correctly..
         
-        $posts_to_get = array_splice($posts_to_get, 4);
-        print_r($posts_to_get);
+        $posts_to_get = array_slice($posts_to_get, 0, 4);
+
         $args = array(
             'post__in' => $posts_to_get
         );
