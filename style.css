@@ -1260,6 +1260,11 @@ body.rtl .sharing li {
         vertical-align: middle;
         margin-left: -1500px;
     }
+    .paralax_image_holder.halfheight img {
+        border: 0 none;
+        height: 85px;
+        max-width: 5000px;
+    }
     .paralax_image_holder .paralax_image_bg {
         height: 255px;
         width: 100%;
@@ -1267,6 +1272,9 @@ body.rtl .sharing li {
     
     .paralax_image_holder.doubleheight,.paralax_image_holder .doubleheight {
         height: 510px;
+    }
+    .paralax_image_holder.halfheight,.paralax_image_holder .halfheight {
+        height: 85px;
     }
     .paralax_image_text {
         bottom: -80px;
@@ -1279,6 +1287,13 @@ body.rtl .sharing li {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
         bottom: 0;
         text-shadow: -1px 0 2px #000000;
+    }
+    .paralax_image_text.halfheight {
+        padding: 0 10px;
+        position: absolute;
+        top: 10px;
+        transition: all 1s ease 0s;
+        width: 100%;
     }
     .paralax_image_text .h1 {
         color: #FFFFFF;
