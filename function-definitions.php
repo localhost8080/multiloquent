@@ -614,6 +614,7 @@ function multiloquent_paralax_featured_sliders()
     }
     $count = 1;
     $output = '<div class="featured-posts hidden-xs">';
+    $colour = multiloquent_get_random_blue_class();
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         if ($slider_image) {
@@ -625,12 +626,14 @@ function multiloquent_paralax_featured_sliders()
         $width = $dimensions[0];
         $height = $dimensions[1];
         if ($count == '1' || $count == '2') {
-            $output .= '<div class="float_left col-sm-6 col-md-3 col-lg-3 alpha omega"> ';
+            $output .= '<div class="paralax_image_holder col-sm-6 col-md-3 col-lg-3 alpha omega">';
         } else {
-            $output .= '<div class="float_left hidden-sm col-md-3 col-lg-3 alpha omega">';
+            $output .= '<div class="paralax_image_holder col-sm-6 col-md-3 col-lg-3 alpha omega">';
         }
-        $output .= '<div class="row"><img src="' . $theimg . '" class="col-lg-4 col-md-4 col-sm-4 img-responsive" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
-        $output .= '<span class="col-lg-8 col-md-8 col-sm-8"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
+        $output .= '<img src="'.$theimg.'" class="grayscale" alt="'. multiloquent_post_title($val->ID).'" width="'. $width.'" height="'.$height.'">';
+        $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
+        $output .= '<div class="paralax_image_text">';
+        $output .= '<span class="h1"><a href="'. get_permalink($val->ID).'">'. multiloquent_post_title($val->ID).'</a></span>';
         $output .= '</div></div>';
         $count ++;
     }
