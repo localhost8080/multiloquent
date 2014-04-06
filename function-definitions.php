@@ -235,7 +235,7 @@ function multiloquent_breadcrumbs()
         $return .= '</a></li><li>';
     }
     if (is_category() || (is_single() && ! is_attachment())) {
-        $category = get_the_category($id);
+        $category = get_the_category();
         $catID = $category[0]->cat_ID;
         $return .= get_category_parents($catID, true, '</li><li>', false);
     }
