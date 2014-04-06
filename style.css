@@ -1151,6 +1151,11 @@ body.rtl .sharing li {
         height: 255px;
         max-width: 5000px;
     }
+    .paralax_image_holder.halfheight img {
+        border: 0 none;
+        height: 85px;
+        max-width: 5000px;
+    }
     .paralax_image_holder.doubleheight img {
         border: 0 none;
         width: 3000px;
@@ -1168,6 +1173,9 @@ body.rtl .sharing li {
     }
     .paralax_image_holder.doubleheight,.paralax_image_holder .doubleheight {
         height: 510px;
+    }
+    .paralax_image_holder.halfheight,.paralax_image_holder .halfheight {
+        height: 85px;
     }
     .paralax_image_text {
         bottom: -80px;
@@ -1374,7 +1382,6 @@ body.rtl .sharing li {
     font-size: 0.8em;
     height: 85px;
     overflow: hidden;
-    padding-top: 10px;
     top: 50px;
     z-index: 400;
 }
