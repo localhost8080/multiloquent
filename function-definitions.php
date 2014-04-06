@@ -617,7 +617,6 @@ function multiloquent_paralax_featured_sliders()
     $count = 1;
     $output = '<div class="featured-posts hidden-xs">';
     $colour = multiloquent_get_random_blue_class();
-    print_r($recent_posts);
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
         if ($slider_image) {
