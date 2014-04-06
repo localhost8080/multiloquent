@@ -633,8 +633,8 @@ function multiloquent_paralax_featured_sliders()
             $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
         }
         $output .= '<img src="'.$theimg.'" class="grayscale" alt="'. multiloquent_post_title($val->ID).'" width="'. $width.'" height="'.$height.'">';
-        $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
-        $output .= '<div class="paralax_image_text">';
+        $output .= '<div class="paralax_image_bg halfheight '.$colour.'"></div>';
+        $output .= '<div class="paralax_image_text halfheight">';
         $output .= '<span class="h1"><a href="'. get_permalink($val->ID).'">'. multiloquent_post_title($val->ID).'</a></span>';
         $output .= '</div></div>';
         $count ++;

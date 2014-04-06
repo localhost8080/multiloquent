@@ -1184,6 +1184,13 @@ body.rtl .sharing li {
         transition: all 1s ease 0s;
         width: 100%;
     }
+    .paralax_image_text.halfheight {
+        padding: 0 10px;
+        position: absolute;
+        top: 10px;
+        transition: all 1s ease 0s;
+        width: 100%;
+    }
     .paralax_image_holder:hover .paralax_image_text {
         background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
         bottom: 0;
