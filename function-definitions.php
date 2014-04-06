@@ -497,9 +497,7 @@ function multiloquent_paralax_slider()
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
-        
         print_r($top_ten_post_array);
-        
         foreach ($top_ten_post_array as $post => $val) {
             $posts_to_get[] = $val['ID'];
         }
