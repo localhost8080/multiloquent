@@ -7,7 +7,7 @@
  */
 function multiloquent_version()
 {
-    $version = '6.2.03';
+    $version = '6.3.0';
     return $version;
 }
 
@@ -628,7 +628,7 @@ function multiloquent_paralax_featured_sliders()
         $width = $dimensions[0];
         $height = $dimensions[1];
         if ($count == '1' || $count == '2') {
-            $output .= '<div class="paralax_image_holder halfheight hidden-sm col-sm-6 col-md-3 col-lg-3 alpha omega">';
+            $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
         } else {
             $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
         }
