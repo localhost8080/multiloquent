@@ -32,6 +32,7 @@ if (have_posts()) {
         }
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
+        get_template_part('advert');
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
         get_template_part('advert');
@@ -63,7 +64,6 @@ if (have_posts()) {
         }
         next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
         previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-        get_template_part('advert');
         echo '</div>';
     }
 } else {
