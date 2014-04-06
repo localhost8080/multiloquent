@@ -615,7 +615,7 @@ function multiloquent_paralax_featured_sliders()
         $recent_posts = get_posts($args);
     }
     $count = 1;
-    $output = '<div class="featured-posts hidden-sm">';
+    $output = '<div class="featured-posts">';
     $colour = multiloquent_get_random_blue_class();
     foreach ($recent_posts as $val) {
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
@@ -627,11 +627,11 @@ function multiloquent_paralax_featured_sliders()
         $dimensions = getimagesize($theimg);
         $width = $dimensions[0];
         $height = $dimensions[1];
-        //if ($count == '1' || $count == '2') {
-            $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
-        //} else {
-        //    $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
-        //}
+        if ($count == '1' || $count == '2') {
+            $output .= '<div class="paralax_image_holder halfheight hidden-sm col-sm-6 col-md-3 col-lg-3 alpha omega">';
+        } else {
+            $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
+        }
         $output .= '<img src="'.$theimg.'" class="grayscale" alt="'. multiloquent_post_title($val->ID).'" width="'. $width.'" height="'.$height.'">';
         $output .= '<div class="paralax_image_bg halfheight '.$colour.'"></div>';
         $output .= '<div class="paralax_image_text halfheight">';
