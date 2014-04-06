@@ -592,6 +592,8 @@ function multiloquent_paralax_featured_sliders()
         foreach ($top_ten_post_array as $post => $val) {
             $posts_to_get[] = $val['ID'];
         }
+        // set to 4 items as the strict_limit doesnt appear to work correctly..
+        $posts_to_get = array_splice($posts_to_get, 4);
         $args = array(
             'post__in' => $posts_to_get
         );
