@@ -1240,11 +1240,12 @@ body.rtl .sharing li {
         position: relative;
     }
     .paralax_image_bg {
-        display: none;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5) inset;
+        display: block;
         left: 0;
+        opacity: 0.8;
         position: absolute;
         top: 0;
-        transition: top 1s ease 0s;
     }
     .paralax_image_holder img {
         border: 0 none;
