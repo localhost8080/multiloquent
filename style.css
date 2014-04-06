@@ -1264,9 +1264,7 @@ body.rtl .sharing li {
         height: 255px;
         width: 100%;
     }
-    .paralax_image_holder:hover .paralax_image_bg {
-        top: -510px;
-    }
+    
     .paralax_image_holder.doubleheight,.paralax_image_holder .doubleheight {
         height: 510px;
     }
