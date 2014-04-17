@@ -86,12 +86,11 @@ function multiloquent_customize_css()
 function multiloquent_scripts_method()
 {
     wp_enqueue_script('menu-js', get_template_directory_uri() . '/menu.js', array(
-    'jquery'
-        ), '' ,true);
+        'jquery'
+    ), '', true);
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
         'jquery'
-    ), '' ,true);
-    
+    ), '', true);
 }
 
 function multiloquent_stylesheet_method()
@@ -489,15 +488,14 @@ function multiloquent_paralax_slider()
     $total_posts = '5';
     if (function_exists('tptn_pop_posts')) {
         $args = array(
-            'is_widget' => FALSE,
-            'daily' => FALSE,
-            'echo' => FALSE,
+            'is_widget' => false,
+            'daily' => false,
+            'echo' => false,
             'strict_limit' => $total_posts,
-            'posts_only' => TRUE
+            'posts_only' => true
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
-        
         foreach ($top_ten_post_array as $post => $val) {
             $posts_to_get[] = $val['ID'];
         }
@@ -581,11 +579,11 @@ function multiloquent_paralax_featured_sliders()
     $total_posts = '4';
     if (function_exists('tptn_pop_posts')) {
         $args = array(
-            'is_widget' => FALSE,
-            'daily' => FALSE,
-            'echo' => FALSE,
+            'is_widget' => false,
+            'daily' => false,
+            'echo' => false,
             'strict_limit' => $total_posts,
-            'posts_only' => TRUE
+            'posts_only' => true
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
@@ -593,9 +591,7 @@ function multiloquent_paralax_featured_sliders()
             $posts_to_get[] = $val['ID'];
         }
         // set to 4 items as the strict_limit doesnt appear to work correctly..
-        
         $posts_to_get = array_slice($posts_to_get, 0, 4);
-
         $args = array(
             'post__in' => $posts_to_get
         );
@@ -632,10 +628,10 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
         }
-        $output .= '<img src="'.$theimg.'" class="grayscale" alt="'. multiloquent_post_title($val->ID).'" width="'. $width.'" height="'.$height.'">';
-        $output .= '<div class="paralax_image_bg halfheight '.$colour.'"></div>';
+        $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . multiloquent_post_title($val->ID) . '" width="' . $width . '" height="' . $height . '">';
+        $output .= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
         $output .= '<div class="paralax_image_text halfheight">';
-        $output .= '<span class="h1"><a href="'. get_permalink($val->ID).'">'. multiloquent_post_title($val->ID).'</a></span>';
+        $output .= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . multiloquent_post_title($val->ID) . '</a></span>';
         $output .= '</div></div>';
         $count ++;
     }
