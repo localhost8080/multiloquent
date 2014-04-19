@@ -1,6 +1,7 @@
 </div>
 <?php
 get_sidebar();
+if(empty($hide_the_footer_links)){
 get_template_part('navigation');
 ?>
 <footer class="well">
@@ -48,6 +49,7 @@ get_template_part('navigation');
     </div>
 </footer>
 <?php
+}
 wp_footer();
 ?>
 </body>
