@@ -2,6 +2,7 @@
 /*
  * Template Name Posts: Full width with no header, footer adverts or tags
  */
+global $hide_the_footer_links;
 $hide_the_footer_links = '1';
 get_header();
 echo '<!-- google_ad_section_start-->';
