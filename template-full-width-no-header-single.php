@@ -2,7 +2,6 @@
 /*
  * Template Name Posts: Full width with no header, footer adverts or tags
  */
-
 $hide_the_footer_links = '1';
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -22,9 +21,7 @@ if (have_posts()) {
         }
         ?>
 <div>
-
         <?php
-
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
@@ -33,12 +30,16 @@ if (have_posts()) {
 
 </div>
 <?php
-
-      
         echo '</div>';
     }
 } else {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
-get_footer();
+?></div><?php
+get_sidebar();
+get_template_part('navigation');
+wp_footer();
+?>
+</body>
+</html>
