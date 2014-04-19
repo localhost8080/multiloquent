@@ -1,8 +1,9 @@
 </div>
 <?php
 get_sidebar();
-if(empty($hide_the_footer_links)){
+
 get_template_part('navigation');
+if(empty($hide_the_footer_links)){
 ?>
 <footer class="well">
     <div class="container">
