@@ -4,7 +4,11 @@ if (has_post_thumbnail()) {
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails
     $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
     $theimg = $slider_image[0];
-    $dimensions = getimagesize($theimg);
+    
+    // remove the domain part as some hosts baulk at it
+    $urlparts = parse_url($theimg);
+    $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
+    $dimensions = getimagesize($extracted);
     $width = $dimensions[0];
     $height = $dimensions[1];
     ?>

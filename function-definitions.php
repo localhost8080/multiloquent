@@ -526,7 +526,10 @@ function multiloquent_paralax_slider()
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
-        $dimensions = getimagesize($theimg);
+        // remove the domain part as some hosts baulk at it
+        $urlparts = parse_url($theimg);
+        $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
+        $dimensions = getimagesize($extracted);
         $width = $dimensions[0];
         $height = $dimensions[1];
         if ($count == '1') {
@@ -620,7 +623,10 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
-        $dimensions = getimagesize($theimg);
+        // remove the domain part as some hosts baulk at it
+        $urlparts = parse_url($theimg);
+        $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
+        $dimensions = getimagesize($extracted);
         $width = $dimensions[0];
         $height = $dimensions[1];
         if ($count == '1' || $count == '2') {
@@ -660,7 +666,10 @@ function multiloquent_render_the_archive($colour)
     } else {
         $theimg = get_template_directory_uri() . '/images/default-slider.png';
     }
-    $dimensions = getimagesize($theimg);
+    // remove the domain part as some hosts baulk at it
+    $urlparts = parse_url($theimg);
+    $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
+    $dimensions = getimagesize($extracted);
     $width = $dimensions[0];
     $height = $dimensions[1];
     ?>
