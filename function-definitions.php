@@ -7,7 +7,7 @@
  */
 function multiloquent_version()
 {
-    $version = '6.3.2';
+    $version = '6.3.4';
     return $version;
 }
 
