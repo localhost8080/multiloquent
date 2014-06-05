@@ -8,7 +8,7 @@ if (have_posts()) {
     <div class="container">
         <header>
             <h1 class="article_title">
-                <p>
+             <p>
 			<?php echo 'All entries by ' . get_the_author();?>
             </p>
             </h1>
@@ -32,20 +32,18 @@ if (have_posts()) {
         </header>
     </div>
 </div>
-<div class="container post">
-    <section>
-						<?php
+<section class="container post">
+	<?php
     $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
         multiloquent_render_the_archive($colour);
     }
     ?>
-		</section>
-    <section>
-			<?php get_template_part('advert');?>
-		</section>
-</div>
+</section>
+<section class="container post">
+	<?php get_template_part('advert');?>
+</section>
 <div class="container post">
     <nav class="navitems text-center">
         <ul class="pagination">
