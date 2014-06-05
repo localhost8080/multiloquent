@@ -34,8 +34,7 @@ if (have_posts()) {
         </header>
     </div>
 </div>
-<div class="container post">
-    <section>
+<section class="container post">
 		<?php
     $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
@@ -43,11 +42,10 @@ if (have_posts()) {
         multiloquent_render_the_archive($colour);
     }
     ?>
-		</section>
-    <section>
+</section>
+<section class="container post">
 			<?php get_template_part('advert');?>
-		</section>
-</div>
+</section>
 <div class="container post">
     <nav class="navitems text-center">
         <ul class="pagination">
@@ -58,7 +56,7 @@ if (have_posts()) {
 </div>
 <?php } else { ?>
 <div class="container post">  
-		<?php  get_template_part('error-snippet');?>
+	<?php  get_template_part('error-snippet');?>
 </div>
 <?php
 }
