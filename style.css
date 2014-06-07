@@ -1125,14 +1125,15 @@ body.rtl .sharing li {
     padding: 0 10px 0 0;
 }
 
-.paralax_image_holder img {
-  border: 0 none;
+.grayscale {
+  background-position: center center;
+  background-size: cover;
+  display: block;
   height: 100%;
-  left: 50%;
+  overflow: hidden;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
+  top: 0;
+  width: 100%;
 }
 
 @media ( min-width : 979px) {

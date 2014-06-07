@@ -526,35 +526,30 @@ function multiloquent_paralax_slider()
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
-        // remove the domain part as some hosts baulk at it
-        $urlparts = parse_url($theimg);
-        $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
-        $dimensions = getimagesize($extracted);
-        $width = $dimensions[0];
-        $height = $dimensions[1];
+        
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
         }
         if ($count == '2') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+             $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
         }
         if ($count == '4') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg swatch-blue"></div>';
         }
         if ($count == '5') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-            $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . trim(stripslashes(multiloquent_post_title($val->ID))) . '" width="' . $width . '" height="' . $height . '">';
+            $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
@@ -634,7 +629,7 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
         }
-        $output .= '<img src="' . $theimg . '" class="grayscale" alt="' . multiloquent_post_title($val->ID) . '" width="' . $width . '" height="' . $height . '">';
+        $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
         $output .= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
         $output .= '<div class="paralax_image_text halfheight">';
         $output .= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . multiloquent_post_title($val->ID) . '</a></span>';
@@ -674,7 +669,7 @@ function multiloquent_render_the_archive($colour)
     $height = $dimensions[1];
     ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-    <img src="<?php echo $theimg?>" class="grayscale" alt="<?php echo multiloquent_post_title()?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+    <span style="background-image:url('<?php echo $theimg?>');" class="grayscale"></span>
     <div class="paralax_image_bg <?php echo $colour?>"></div>
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
