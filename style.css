@@ -1126,22 +1126,16 @@ body.rtl .sharing li {
 }
 
 .paralax_image_holder img {
-    border: 0 none;
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
+  border: 0 none;
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
 }
 
 @media ( min-width : 979px) {
-    .paralax_image_holder .grayscale {
-        
-    }
-    .paralax_image_holder:hover .grayscale {
-        
-    }
     .paralax_image_holder {
         height: 255px;
         overflow: hidden;
@@ -1157,6 +1151,7 @@ body.rtl .sharing li {
         top: 0;
         transition: top 1s ease 0s;
     }  
+    
     .paralax_image_holder .paralax_image_bg {
         height: 255px;
         width: 100%;
