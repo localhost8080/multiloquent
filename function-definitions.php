@@ -629,7 +629,7 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
         }
-        $output .= '<span style="background-image:(' . $theimg . ');" class="grayscale"></span>';
+        $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
         $output .= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
         $output .= '<div class="paralax_image_text halfheight">';
         $output .= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . multiloquent_post_title($val->ID) . '</a></span>';
