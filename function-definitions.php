@@ -618,12 +618,6 @@ function multiloquent_paralax_featured_sliders()
         } else {
             $theimg = get_template_directory_uri() . '/images/default-slider.png';
         }
-        // remove the domain part as some hosts baulk at it
-        $urlparts = parse_url($theimg);
-        $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
-        $dimensions = getimagesize($extracted);
-        $width = $dimensions[0];
-        $height = $dimensions[1];
         if ($count == '1' || $count == '2') {
             $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
         } else {
@@ -661,12 +655,6 @@ function multiloquent_render_the_archive($colour)
     } else {
         $theimg = get_template_directory_uri() . '/images/default-slider.png';
     }
-    // remove the domain part as some hosts baulk at it
-    $urlparts = parse_url($theimg);
-    $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
-    $dimensions = getimagesize($extracted);
-    $width = $dimensions[0];
-    $height = $dimensions[1];
     ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
     <span style="background-image:url('<?php echo $theimg?>');" class="grayscale"></span>
