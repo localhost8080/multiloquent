@@ -167,7 +167,6 @@ pre:before {
     padding-left: 20px;
 }
 
-
 #wp-calendar {
     margin: 40px auto;
 }
@@ -1126,6 +1125,16 @@ body.rtl .sharing li {
     padding: 0 10px 0 0;
 }
 
+.paralax_image_holder img {
+    border: 0 none;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}
+
 @media ( min-width : 979px) {
     .paralax_image_holder .grayscale {
         
@@ -1134,6 +1143,7 @@ body.rtl .sharing li {
         
     }
     .paralax_image_holder {
+        height: 255px;
         overflow: hidden;
         padding: 0;
         position: relative;
@@ -1146,25 +1156,7 @@ body.rtl .sharing li {
         position: absolute;
         top: 0;
         transition: top 1s ease 0s;
-    }
-    .paralax_image_holder img {
-        border: 0 none;
-        height: 255px;
-        max-width: 5000px;
-    }
-    .paralax_image_holder.halfheight img {
-        border: 0 none;
-        height: 85px;
-        max-width: 5000px;
-    }
-    .paralax_image_holder.doubleheight img {
-        border: 0 none;
-        width: 3000px;
-        max-width: 3000px;
-        height: 510px;
-        vertical-align: middle;
-        margin-left: -1500px;
-    }
+    }  
     .paralax_image_holder .paralax_image_bg {
         height: 255px;
         width: 100%;
@@ -1174,9 +1166,11 @@ body.rtl .sharing li {
     }
     .paralax_image_holder.doubleheight,.paralax_image_holder .doubleheight {
         height: 510px;
+        position: relative;
     }
     .paralax_image_holder.halfheight,.paralax_image_holder .halfheight {
         height: 85px;
+        position:relative
     }
     .paralax_image_text {
         bottom: -80px;
@@ -1248,29 +1242,10 @@ body.rtl .sharing li {
         position: absolute;
         top: 0;
     }
-    .paralax_image_holder img {
-        border: 0 none;
-        height: 255px;
-        max-width: 5000px;
-    }
-    .paralax_image_holder.doubleheight img {
-        border: 0 none;
-        width: 3000px;
-        max-width: 3000px;
-        height: 510px;
-        vertical-align: middle;
-        margin-left: -1500px;
-    }
-    .paralax_image_holder.halfheight img {
-        border: 0 none;
-        height: 85px;
-        max-width: 5000px;
-    }
     .paralax_image_holder .paralax_image_bg {
         height: 255px;
         width: 100%;
     }
-    
     .paralax_image_holder.doubleheight,.paralax_image_holder .doubleheight {
         height: 510px;
     }
@@ -1446,7 +1421,7 @@ body.rtl .sharing li {
 
 .sidebar .menu li {
     list-style: none;
-    padding-left:10px;
+    padding-left: 10px;
 }
 
 .sidebar .menu .page_item_has_children,.sidebar .menu .menu-item-has-children {
@@ -1462,12 +1437,12 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu li {
-  list-style: none outside none;
+    list-style: none outside none;
 }
 
 .sidebar .menu ul.children,.sidebar .menu ul.sub-menu {
     background: #676767;
-    margin-left:-15px;
+    margin-left: -15px;
 }
 
 .sidebar .menu ul.children ul.children,.sidebar .menu ul.sub-menu ul.sub-menu {
