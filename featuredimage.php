@@ -13,14 +13,14 @@ if (has_post_thumbnail()) {
     $dimensions = getimagesize($extracted);
     $width = $dimensions[0];
     $height = $dimensions[1];
-    $thetitle = multiloquent_post_title();
+    
     ?>
 <figure class="thumbnail main_image">
     <img class="featured-image" width="<?php echo $width?>" height="<?php echo $height?>" src="<?php echo $theimg?>" alt="image for <?php echo multiloquent_post_title(); ?>" />
-    <h1 class="container text-center">
-         <?php echo $thetitle; ?>
+    <h1 class="container text-center multiloquent_h1_tag">
+         <?php echo multiloquent_post_title(); ?>
      </h1>
     <figcaption>
-    <span class="fa fa-comment-o fa-fw"></span> <?php echo $thetitle; ?></figcaption>
+    <span class="fa fa-comment-o fa-fw"></span> <?php echo multiloquent_post_title(); ?></figcaption>
 </figure>
 
