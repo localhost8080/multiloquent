@@ -1559,7 +1559,13 @@ body.rtl .sharing li {
     clear: left;
     float: left;
 }
-.multiloquent_h1_tag{
-    color:#fff;
-    text-shadow:1px 1px 5px #454545;    
+.multiloquent_h1_tag {
+  color: #FFFFFF;
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 5px #454545;
+  width: 100%;
+  line-height:350px;
 }
+
+

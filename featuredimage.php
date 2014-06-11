@@ -16,8 +16,7 @@ if (has_post_thumbnail()) {
     
     ?>
 <figure class="thumbnail main_image">
-    <img class="featured-image" width="<?php echo $width?>" height="<?php echo $height?>" src="<?php echo $theimg?>" alt="image for <?php echo multiloquent_post_title(); ?>" />
-    <h1 class="container text-center multiloquent_h1_tag">
+    <h1 class="greyscale text-center multiloquent_h1_tag" style="background-image:url('<?php echo $theimg;?>');">
          <?php echo multiloquent_post_title(); ?>
      </h1>
     <figcaption>
