@@ -1567,6 +1567,7 @@ body.rtl .sharing li {
   line-height:350px;
   background-position: center center;
   background-size: cover;
+  margin:0;
 }
 
 
