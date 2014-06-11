@@ -1561,11 +1561,12 @@ body.rtl .sharing li {
 }
 .multiloquent_h1_tag {
   color: #FFFFFF;
-  position: absolute;
   text-align: center;
   text-shadow: 1px 1px 5px #454545;
   width: 100%;
   line-height:350px;
+  background-position: center center;
+  background-size: cover;
 }
 
 
