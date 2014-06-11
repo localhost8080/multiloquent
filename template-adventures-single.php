@@ -12,13 +12,7 @@ if (have_posts()) {
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
-        if (empty($multiloquent_hide_h1_tag)) {
-            ?>
-<h1 class="container">
-					<?php echo multiloquent_post_title();?>
-				</h1>
-<?php
-        }
+        
         $title_string = multiloquent_post_title();
         $title_string = str_replace('plan', '', $title_string);
         $title_string = str_replace('part', '', $title_string);

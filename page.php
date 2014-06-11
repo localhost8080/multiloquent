@@ -9,13 +9,6 @@ if (have_posts()) {
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
-        if (empty($multiloquent_hide_h1_tag)) {
-            ?>
-<h1 class="container">
-<?php echo multiloquent_post_title();?>
-</h1>
-<?php
-        }
         get_template_part('breadcrumb');
         ?>
 <div class="container">
