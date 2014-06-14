@@ -1,6 +1,6 @@
 <?php 
 /**
- * generate the metadata snippet
+ * generate the metadata snippet.
  * used in the breadcrumbs
  */
 ?>

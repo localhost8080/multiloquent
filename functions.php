@@ -1,6 +1,6 @@
 <?php
 /**
- * multiloquent functions file
+ *  multiloquent functions file.
  */
 
 require_once (trailingslashit(get_template_directory()) . 'function-definitions.php');

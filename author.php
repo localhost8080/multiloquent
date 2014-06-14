@@ -1,5 +1,6 @@
 <?php
-/** author pages template part
+/** 
+ *  author pages template part.
  *  have an archive and a bio for the author
  */
 get_header();
@@ -13,7 +14,6 @@ if (have_posts()) {
 			<?php echo 'All entries by ' . get_the_author();?>
             </p>
             </h1>
-            <?php // TODO - look up the author specific details things to put them here, like avatars, etc?>
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
             <?php echo get_avatar(get_the_author_meta('ID'));?>
             </div>
