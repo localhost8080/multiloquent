@@ -3,9 +3,8 @@
  * generate the metadata snippet.
  * used in the breadcrumbs
  */
-?>
-<li class="pull-right">
-<?php
+
+echo'<li class="pull-right">';
 echo '<span class="author">';
 // check to see if the user has a url set in their meta data; if they have then use it as the rel=author link
 $user_url = get_the_author_meta('user_url');
@@ -22,5 +21,4 @@ if (get_the_time('c') != get_the_modified_time('c')) {
 }
 echo '</span> ';
 edit_post_link();
-?>
-</li>
+echo '</li>';
