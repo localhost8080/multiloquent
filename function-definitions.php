@@ -71,7 +71,6 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('colour','mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour','mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour','mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('image','mulitloquent_default_image', get_template_directory_uri() . '/images/default-slider.png', 'Default image for posts', $wp_customize, 'colors');
 }
 
 /**
@@ -99,13 +98,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             'section' => $section,
             'settings' => $setting_name
         )));
-    } elseif($setting_type == 'image') {
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, $setting_name, array(
-            'label' => $label,
-            'section' => $section,
-            'settings' => $setting_name
-        )));
-    }
+    } 
 }
 
 /**
@@ -197,6 +190,14 @@ function multiloquent_register()
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
     add_theme_support('post-thumbnails');
+    
+    $args = array(
+        'width'         => 1800,
+        'height'        => 600,
+        'default-image' => get_template_directory_uri() . '/images/default-slider.png',
+        'uploads'       => true,
+    );
+    add_theme_support('custom-header', $args);
     // actions
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
     add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
