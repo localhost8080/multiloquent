@@ -21,8 +21,8 @@ function multiloquent_version()
  * - includes the name of the php file passed. Uses require_once().
  * - limitations: cant pass the file extension, only includes php files.
  * 
- * @example multiloquent_get_template_part('somefile');
  * 
+ * @api
  * @param filename $file name of file to include, excluding .php extension
  * @global object $post the wordpress post object
  */
@@ -54,6 +54,7 @@ function multiloquent_featured_image_in_feed($content)
 
 /**
  * adds the multiloquent custom controls for wp customise api
+ * @api
  * @param object $wp_customize
  */
 function multiloquent_customize_register($wp_customize)
@@ -236,7 +237,9 @@ function multiloquent_generate_sidebars($array)
 }
 
 /**
- * removes classes from the post div
+ * removes css classes from the passed string
+ * 
+ * @api
  * @param array $classes
  * @return array
  */
@@ -249,7 +252,9 @@ function multiloquent_remove_hentry_function($classes)
 }
 
 /**
- * adds a class to the tag
+ * adds a css class to the tag
+ * 
+ * @api
  * @param string $html
  * @return string
  */
@@ -261,6 +266,7 @@ function multiloquent_add_class_the_tags($html)
 
 /**
  * generates a tag cloud
+ * 
  * @param array $args
  * @return array
  */
@@ -275,6 +281,8 @@ function multiloquent_widget_tag_cloud_args($args)
 
 /**
  * filter tag clould output so that it can be styled by CSS
+ * 
+ * @api
  * @param string $taglinks
  * @return string
  */
@@ -291,6 +299,8 @@ function multiloquent_add_tag_class($taglinks)
 
 /**
  * wrapper for the post title, if it has no title, supply one
+ * 
+ * @api
  * @param int $post_id
  * @return string
  * @example multiloquent_post_title(12);
@@ -310,6 +320,8 @@ function multiloquent_post_title($post_id = '')
 
 /**
  * wraps the tag cloud in a div
+ * 
+ * @api
  * @param string $tag_cloud
  * @return string
  */
@@ -320,6 +332,8 @@ function multiloquent_tag_cloud_filter($tag_cloud)
 
 /**
  * outputs the breadcrumb
+ * 
+ * @api
  * @return string
  */
 function multiloquent_breadcrumbs()
@@ -363,6 +377,7 @@ function multiloquent_breadcrumbs()
 /**
  * renders the pagination on the page
  * 
+ * @api
  * @todo make this return rather than echo
  */
 function multiloquent_render_pagingation()
@@ -401,6 +416,8 @@ function multiloquent_render_pagingation()
 
 /**
  * returns a random class from the list
+ * 
+ * @api
  * @param string $class
  * @return string <string>
  */
@@ -450,6 +467,8 @@ function multiloquent_get_random_solid_class($class = '')
 
 /**
  * returns a random value from the list
+ * 
+ * @api
  * @return  string
  */
 function multiloquent_get_random_blue_class()
@@ -496,6 +515,8 @@ function multiloquent_get_random_blue_class()
 
 /**
  * returns a random string from the list
+ * 
+ * @api
  * @param string $class
  * @return string|Ambigous <string>
  */
@@ -545,6 +566,8 @@ function multiloquent_get_random_colour_class($class = '')
 
 /**
  * outputs the category list as a hierarchy
+ * 
+ * @api
  * @param string $cat
  * @return string
  */
@@ -608,6 +631,8 @@ function multiloquent_category_list_as_hierarchy($cat = '0')
 
 /**
  * generates the homepage featured posts box
+ * 
+ * @api
  * @return string
  */
 function multiloquent_paralax_slider()
@@ -700,7 +725,9 @@ function multiloquent_paralax_slider()
 }
 
 /**
- * generates the featured pposts on the single post page
+ * generates the featured posts mini-boxes
+ * 
+ * @api
  * @return string
  */
 function multiloquent_paralax_featured_sliders()
@@ -769,6 +796,8 @@ function multiloquent_paralax_featured_sliders()
 
 /**
  * gets the users avatar
+ * 
+ * @api
  * @param unknown $avatar
  * @return mixed
  */
@@ -780,9 +809,14 @@ function multiloquent_get_avatar($avatar)
 
 /**
  * renders the archive lists in the colour supplied
+ * 
+ * @api
  * @param string $colour
  * 
  * @todo make this return rather than echo
+ * @see multiloquent_get_random_colour_class()
+ * @see multiloquent_get_random_solid_class()
+ * @see multiloquent_get_random_blue_class()
  */
 function multiloquent_render_the_archive($colour)
 {
@@ -815,6 +849,8 @@ function multiloquent_render_the_archive($colour)
 
 /**
  * renders the tags for the supplied post id
+ * 
+ * @api
  * @param int $post_id
  * @todo make this return rather than echo
  */
