@@ -5,6 +5,9 @@ Multiloquent is responsive and uses bootstrap for interface elements.
 http://jonathansblog.co.uk/multiloquent
 
 
+##Multiloquent has support for custom header image
+    they are used as the post header image unless a featured image has been set against that post, in which case, the featured image is used
+
 ##This theme has 10 widget areas:
 
     1 sidebar top
@@ -66,12 +69,14 @@ http://jonathansblog.co.uk/multiloquent
     [and puts them in the correct position in your post if you have it installed].
     http://wordpress.org/extend/plugins/jetpack/
 
-##There are 3 post template files included 
+##There are 4 post template files included 
     if you use http://wordpress.org/extend/plugins/custom-post-template/
     1 Default with comments at the right hand side in desktop (under the post in mobile)
     2 Full width post with comments underneath
     3 Adventures: this auto inserts a google map if your post is titled 'placeA to placeB'
         eg 'Glasgow to London' will insert a google map with a route pre-selected - comments are disabled on this post template.
+    4 Full width post with no header image or footer
+        useful for creating these one-page full-width layouts
 
 
 Multiloquent is licenced under the GPLv3 - please see the included LICENCE file

@@ -13,7 +13,7 @@
  */
 function multiloquent_version()
 {
-    $version = '6.3.7';
+    $version = '6.4.0';
     return $version;
 }
 
@@ -701,7 +701,7 @@ function multiloquent_paralax_slider()
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+            $theimg = get_custom_header();
         }
         
         if ($count == '1') {
@@ -799,7 +799,7 @@ function multiloquent_paralax_featured_sliders()
         if ($slider_image) {
             $theimg = $slider_image[0];
         } else {
-            $theimg = get_template_directory_uri() . '/images/default-slider.png';
+            $theimg = get_custom_header();
         }
         if ($count == '1' || $count == '2') {
             $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
@@ -854,7 +854,7 @@ function multiloquent_render_the_archive($colour)
         // $height = $slider_image[2];
         // in here I need to check if its a mobile, and then give a different image:
     } else {
-        $theimg = get_template_directory_uri() . '/images/default-slider.png';
+        $theimg = get_custom_header();
     }
     ?>
 <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
