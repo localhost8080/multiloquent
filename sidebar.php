@@ -1,4 +1,4 @@
-<div class="sidebar">
+<aside class="sidebar">
 
             <?php
             get_search_form();
@@ -17,4 +17,4 @@
             }
             ?>
 
-</div>
+</aside>

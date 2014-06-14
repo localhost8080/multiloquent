@@ -5,10 +5,11 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         get_template_part('featuredposts');
-        get_template_part('featuredimage');
-        echo '<div id="post-' . get_the_ID() . '" ';
+        
+        echo '<article id="post-' . get_the_ID() . '" ';
         echo post_class("post");
         echo '>';
+        get_template_part('featuredimage');
         get_template_part('breadcrumb');
         ?>
 <div class="container">
@@ -25,7 +26,6 @@ if (have_posts()) {
         }
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        get_template_part('advert');
         the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
         wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
         get_template_part('advert');
@@ -39,16 +39,18 @@ if (have_posts()) {
                 </div>
             </div>
         </div>
-    </section>
+        </section>
         <?php
         echo '</div>';
         if (comments_open()) {
-            echo '<section class="col-sm-12 col-md-6 col-lg-5 comments">';
+            echo '<div class="col-sm-12 col-md-6 col-lg-5 comments">';
             comments_template();
             get_template_part('advert');
-            echo '</section>';
+            echo '</div>';
         }
+        get_template_part('advert');
         ?>
+        
 </div>
 <?php
         // get_template_part('social');
@@ -57,7 +59,7 @@ if (have_posts()) {
         }
         next_post_link('%link', '<span style="text-indent:-9000px">%title</span><span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
         previous_post_link('%link', '<span style="text-indent:-9000px">%title</span><span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-        echo '</div>';
+        echo '</article>';
     }
 } else {
     echo '<p>Sorry, no posts matched your criteria.<p>';

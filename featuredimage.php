@@ -8,17 +8,16 @@ if (has_post_thumbnail()) {
 	$theimg = get_template_directory_uri() . '/images/default-slider.png';
 }   
     // remove the domain part as some hosts baulk at it
-    $urlparts = parse_url($theimg);
-    $extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
-    $dimensions = getimagesize($extracted);
-    $width = $dimensions[0];
-    $height = $dimensions[1];
+    //$urlparts = parse_url($theimg);
+    //$extracted = $_SERVER['DOCUMENT_ROOT'].$urlparts['path'];
+    //$dimensions = getimagesize($extracted);
+    //$width = $dimensions[0];
+    //$height = $dimensions[1];
     
     ?>
-<figure class="thumbnail main_image">
-    <h1 class="multiloquent_h1_tag" style="background-image:url('<?php echo $theimg;?>');">
-         <?php echo multiloquent_post_title(); ?>
-     </h1>
+
+ <h1 class="multiloquent_h1_tag" style="background-image:url('<?php echo $theimg;?>');"><?php echo multiloquent_post_title(); ?></h1>
+ <figure class="thumbnail main_image">
     <figcaption>
     <span class="fa fa-comment-o fa-fw"></span> <?php echo multiloquent_post_title(); ?></figcaption>
 </figure>

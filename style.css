@@ -20,6 +20,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* to be loaded in the correct order*/
 
 /* this is for the tinymce editor background colours*/
+.navbar h2 {
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    margin:0;
+    font-weight:300;
+}
+
 .mceContentBody {
     background: none repeat scroll 0 0 #FFFFFF !important;
 }
@@ -575,6 +583,7 @@ div.sharedaddy .sd-content {
     margin-bottom: 20px;
     overflow: hidden;
     width: 100%;
+    margin-top:20px;
 }
 
 .ads ins {
@@ -1126,14 +1135,14 @@ body.rtl .sharing li {
 }
 
 .grayscale {
-  background-position: center center;
-  background-size: cover;
-  display: block;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 @media ( min-width : 979px) {
@@ -1151,8 +1160,7 @@ body.rtl .sharing li {
         position: absolute;
         top: 0;
         transition: top 1s ease 0s;
-    }  
-    
+    }
     .paralax_image_holder .paralax_image_bg {
         height: 255px;
         width: 100%;
@@ -1166,7 +1174,7 @@ body.rtl .sharing li {
     }
     .paralax_image_holder.halfheight,.paralax_image_holder .halfheight {
         height: 85px;
-        position:relative
+        position: relative
     }
     .paralax_image_text {
         bottom: -80px;
@@ -1559,16 +1567,16 @@ body.rtl .sharing li {
     clear: left;
     float: left;
 }
+
 .multiloquent_h1_tag {
-  color: #FFFFFF;
-  text-align: center;
-  text-shadow: 1px 1px 5px #454545;
-  width: 100%;
-  line-height:350px;
-  background-position: center center;
-  background-size: cover;
-  margin:0;
-  white-space:nowrap;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 1px 1px 5px #454545;
+    width: 100%;
+    line-height: 350px;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+    white-space: nowrap;
+    overflow:hidden;
 }
-
-
