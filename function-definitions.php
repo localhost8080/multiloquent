@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Returns a version number
+ * Returns the current multiloquent version number
  *
  * @return string
  */
@@ -13,11 +13,13 @@ function multiloquent_version()
 
 /**
  * includes the name of the php file passed.
- * includes the name of the php file passed. Uses require_once().
- * limitations: cant pass the file extension, only includes php files.
- * eg: multiloquent_get_template_part('somefile') will include somefile.php from the template_directory
+ * - includes the name of the php file passed. Uses require_once().
+ * - limitations: cant pass the file extension, only includes php files.
  * 
- * @param filename $file
+ * @example multiloquent_get_template_part('somefile');
+ * 
+ * @param filename $file name of file to include, excluding .php extension
+ * @global object $post the wordpress post object
  */
 function multiloquent_get_template_part($file)
 {
@@ -94,6 +96,8 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
 
 /**
  * outputs the custom css for the wp customise API
+ * 
+ * @todo make this return, rather than echo
  */
 function multiloquent_customize_css()
 {
@@ -122,7 +126,9 @@ function multiloquent_customize_css()
 }
 
 /**
- * enqueues the javascripts
+ * enqueues the rewuired javascript libraries.
+ * - menu.js - custom built menu javascript for popout menu
+ * - bootstrap javascript library
  */
 function multiloquent_scripts_method()
 {
@@ -136,6 +142,10 @@ function multiloquent_scripts_method()
 
 /**
  * enqueues the stylesheets
+ * - bootstrap css
+ * - font awesome css
+ * - style css [wordpress required with custom overrides for bootstrap]
+ * - print css [custom overrides for printing]
  */
 function multiloquent_stylesheet_method()
 {
@@ -245,7 +255,7 @@ function multiloquent_add_class_the_tags($html)
 }
 
 /**
- * tag cloud
+ * generates a tag cloud
  * @param array $args
  * @return array
  */
@@ -276,8 +286,9 @@ function multiloquent_add_tag_class($taglinks)
 
 /**
  * wrapper for the post title, if it has no title, supply one
- * @param string $post_id
+ * @param int $post_id
  * @return string
+ * @example multiloquent_post_title(12);
  */
 function multiloquent_post_title($post_id = '')
 {
@@ -346,6 +357,8 @@ function multiloquent_breadcrumbs()
 
 /**
  * renders the pagination on the page
+ * 
+ * @todo make this return rather than echo
  */
 function multiloquent_render_pagingation()
 {
@@ -763,6 +776,8 @@ function multiloquent_get_avatar($avatar)
 /**
  * renders the archive lists in the colour supplied
  * @param string $colour
+ * 
+ * @todo make this return rather than echo
  */
 function multiloquent_render_the_archive($colour)
 {
@@ -796,6 +811,7 @@ function multiloquent_render_the_archive($colour)
 /**
  * renders the tags for the supplied post id
  * @param int $post_id
+ * @todo make this return rather than echo
  */
 function multiloquent_render_tags($post_id)
 {
