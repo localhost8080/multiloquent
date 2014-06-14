@@ -11,7 +11,7 @@ if (has_post_thumbnail()) {
     $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
     $theimg = $slider_image[0];
 } else {
-	$theimg = get_custom_header();
+	$theimg = get_header_image();
 }   
     // remove the domain part as some hosts baulk at it
     //$urlparts = parse_url($theimg);
