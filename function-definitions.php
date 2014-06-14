@@ -8,6 +8,7 @@
 /**
  * Returns the current multiloquent version number
  *
+ * @internal
  * @return string
  */
 function multiloquent_version()
@@ -18,9 +19,10 @@ function multiloquent_version()
 
 /**
  * includes the name of the php file passed.
+ * 
  * - includes the name of the php file passed. Uses require_once().
  * - limitations: cant pass the file extension, only includes php files.
- * 
+ * - eg: multiloquent_get_template_part('somefile'); to include somefile.php
  * 
  * @api
  * @param filename $file name of file to include, excluding .php extension
@@ -35,6 +37,8 @@ function multiloquent_get_template_part($file)
 
 /**
  * adds the featured image to the rss feed
+ * 
+ * @internal
  * @param string $content
  * @return string
  */
@@ -54,6 +58,7 @@ function multiloquent_featured_image_in_feed($content)
 
 /**
  * adds the multiloquent custom controls for wp customise api
+ * 
  * @api
  * @param object $wp_customize
  */
@@ -71,6 +76,9 @@ function multiloquent_customize_register($wp_customize)
 
 /**
  * registers and generates the custom controls for wp customise api
+ * 
+ * @internal
+ * @see multiloquent_customize_register();
  * @param string $setting_type
  * @param string $setting_name
  * @param string $default
@@ -103,6 +111,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
 /**
  * outputs the custom css for the wp customise API
  * 
+ * @internal
  * @todo make this return, rather than echo
  */
 function multiloquent_customize_css()
@@ -133,8 +142,11 @@ function multiloquent_customize_css()
 
 /**
  * enqueues the rewuired javascript libraries.
+ * 
  * - menu.js - custom built menu javascript for popout menu
  * - bootstrap javascript library
+ * 
+ * @internal
  */
 function multiloquent_scripts_method()
 {
@@ -148,10 +160,13 @@ function multiloquent_scripts_method()
 
 /**
  * enqueues the stylesheets
+ * 
  * - bootstrap css
  * - font awesome css
  * - style css [wordpress required with custom overrides for bootstrap]
  * - print css [custom overrides for printing]
+ * 
+ * @internal
  */
 function multiloquent_stylesheet_method()
 {
@@ -163,6 +178,8 @@ function multiloquent_stylesheet_method()
 
 /**
  * registers the wordpress menu location
+ * 
+ * @internal
  */
 function multiloquent_menu()
 {
@@ -171,6 +188,8 @@ function multiloquent_menu()
 
 /**
  * various register actions
+ * 
+ * @internal
  */
 function multiloquent_register()
 {
@@ -218,7 +237,9 @@ function multiloquent_register()
 
 /**
  * generates the sidebars
+ * 
  * @param array $array
+ * @internal
  */
 function multiloquent_generate_sidebars($array)
 {
@@ -269,6 +290,7 @@ function multiloquent_add_class_the_tags($html)
  * 
  * @param array $args
  * @return array
+ * @internal
  */
 function multiloquent_widget_tag_cloud_args($args)
 {
