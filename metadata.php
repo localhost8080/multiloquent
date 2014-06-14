@@ -1,6 +1,7 @@
 <?php 
 /**
  * generate the metadata snippet
+ * used in the breadcrumbs
  */
 ?>
 <li class="pull-right">
