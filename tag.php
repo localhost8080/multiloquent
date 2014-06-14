@@ -1,4 +1,7 @@
 <?php
+/**
+ * tag archive template part
+ */
 get_header();
 if (have_posts()) {
     ?>

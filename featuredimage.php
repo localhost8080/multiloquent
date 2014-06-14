@@ -1,4 +1,8 @@
 <?php
+/**
+ * template part to output a featured image
+ */
+
 if (has_post_thumbnail()) {
     // the current post has a thumbnail
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails

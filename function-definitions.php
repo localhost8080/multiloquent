@@ -1,4 +1,8 @@
 <?php
+/**
+ * multiloquent function definitions
+ * @todo - make this oo
+ */
 
 /**
  * Returns the current multiloquent version number
@@ -304,7 +308,7 @@ function multiloquent_post_title($post_id = '')
 }
 
 /**
- * 
+ * wraps the tag cloud in a div
  * @param string $tag_cloud
  * @return string
  */

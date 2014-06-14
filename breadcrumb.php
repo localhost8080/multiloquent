@@ -1,3 +1,8 @@
+<?php 
+/**
+ * breadcrumb template part
+ */
+?>
 <nav class="container hidden-xs">
     <ul class="breadcrumb clearfix">
 		<?php

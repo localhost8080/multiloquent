@@ -1,4 +1,7 @@
 <?php
+/**
+ * single post template part
+ */
 get_header();
 echo '<!-- google_ad_section_start-->';
 if (have_posts()) {

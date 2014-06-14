@@ -1,6 +1,7 @@
 <?php
-// author pages
-// have an archive and a bio for the author
+/** author pages template part
+ *  have an archive and a bio for the author
+ */
 get_header();
 if (have_posts()) {
     ?>

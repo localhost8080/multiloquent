@@ -1,4 +1,8 @@
 <?php
+/**
+ * default archive page template part
+ */
+
 get_header();
 if (have_posts()) {
     ?>

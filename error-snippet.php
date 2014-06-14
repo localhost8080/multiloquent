@@ -1,3 +1,8 @@
+<?php 
+/**
+ * snippet used if no results found template part
+ */
+?>
 <div class="container">
 		<?php get_template_part('advert');?>
 		<!-- google_ad_section_start-->

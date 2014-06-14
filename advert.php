@@ -1,3 +1,10 @@
+<?php 
+/**
+ * advert template part
+ */
+
+?>
+
 <div class="ads">
 <?php
 if (wp_is_mobile()) {

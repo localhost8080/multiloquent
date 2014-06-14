@@ -1,7 +1,6 @@
 <?php
 /**
- * 
- *  fallback page
+ * fallback page if no other index page found
  */
 get_header();
 if (have_posts()) {

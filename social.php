@@ -1,4 +1,8 @@
-<div class="navbar navbar-default navbar-fixed-bottom hidden-xs">
+<?php 
+/**
+ * social media template part
+ */?>
+ <div class="navbar navbar-default navbar-fixed-bottom hidden-xs">
     <div class="container">
         <div class="col-xs-4 col-sm-7 col-md-6 col-lg-6">
             <?php

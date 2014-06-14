@@ -1,3 +1,8 @@
+<?php 
+/**
+ * navigation template part
+ */
+?>
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
     <a title="navigation menu" href="javascript:void(0);" class="navbar-brand sidebar-toggle"><span class="fa fa-bars"></span></a>  

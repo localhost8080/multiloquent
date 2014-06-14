@@ -1,4 +1,8 @@
 <?php
+/**
+ * category archives template part
+ */
+
 get_header();
 if (have_posts()) {
     ?>

@@ -1,3 +1,8 @@
+<?php 
+/**
+ * sidebar template part 
+ */
+?>
 <aside class="sidebar">
 
             <?php

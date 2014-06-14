@@ -1,4 +1,7 @@
 <?php
+/**
+ * home page template part if static page selected as homepage
+ */
 if ('posts' == get_option('show_on_front')) {
     include (get_home_template());
 } else {
