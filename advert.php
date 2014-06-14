@@ -1,6 +1,8 @@
 <?php 
 /**
  * advert template part
+ * 
+ * @package multiloquent
  */
 
 ?>

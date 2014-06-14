@@ -1,6 +1,8 @@
 <?php
 /**
  * sidebar template part 
+ * 
+ * @package multiloquent\template_parts
  */
 
 echo '<aside class="sidebar">';

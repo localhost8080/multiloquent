@@ -1,6 +1,8 @@
 <?php 
 /**
  * footer template part
+ * 
+ * @package multiloquent\template_parts
  */
 ?>
 </div>

@@ -1,6 +1,8 @@
 <?php
 /**
  * fallback page if no other index page found
+ * 
+ * @package multiloquent\template_parts
  */
 get_header();
 if (have_posts()) {

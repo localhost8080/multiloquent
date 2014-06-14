@@ -2,6 +2,8 @@
 /**
  * search form.
  * wordpress template part
+ * 
+ * @package multiloquent\template_parts
  */
 
 ?>

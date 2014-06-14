@@ -1,6 +1,8 @@
 <?php
 /**
  * 404 error page template part
+ * 
+ * @package multiloquent
  */
 
 get_header();

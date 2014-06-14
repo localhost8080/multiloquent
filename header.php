@@ -1,6 +1,8 @@
 <?php
 /**
  * header template part
+ * 
+ * @package multiloquent\template_parts
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

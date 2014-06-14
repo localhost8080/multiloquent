@@ -1,6 +1,8 @@
 <?php
 /**
  * category archives template part
+ * 
+ * @package multiloquent\template_parts
  */
 
 get_header();

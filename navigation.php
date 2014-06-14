@@ -1,6 +1,8 @@
 <?php 
 /**
  * navigation template part
+ * 
+ * @package multiloquent\template_parts
  */
 ?>
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">

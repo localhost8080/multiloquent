@@ -1,6 +1,8 @@
 <?php
 /**
  * single post template part
+ * 
+ * @package multiloquent\template_parts
  */
 get_header();
 echo '<!-- google_ad_section_start-->';

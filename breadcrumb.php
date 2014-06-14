@@ -1,6 +1,8 @@
 <?php 
 /**
  * breadcrumb template part
+ * 
+ * @package multiloquent\template_parts
  */
 ?>
 <nav class="container hidden-xs">

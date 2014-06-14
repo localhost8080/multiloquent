@@ -1,6 +1,8 @@
 <?php
 /**
  * this is the template for the home page when its set to display blog posts
+ * 
+ * @package multiloquent\template_parts
  */
 get_header();
 if (have_posts()) {

@@ -1,6 +1,8 @@
 <?php
 /**
  * default archive page template part
+ * 
+ * @package multiloquent
  */
 
 get_header();

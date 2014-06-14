@@ -1,6 +1,8 @@
 <?php 
 /**
  * social media template part
+ * 
+ * @package multiloquent\template_parts
  */
  
 ?>

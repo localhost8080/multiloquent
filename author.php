@@ -2,6 +2,8 @@
 /** 
  *  author pages template part.
  *  have an archive and a bio for the author
+ *  
+ *  @package multiloquent
  */
 get_header();
 if (have_posts()) {

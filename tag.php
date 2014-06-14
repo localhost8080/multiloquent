@@ -1,6 +1,8 @@
 <?php
 /**
  * tag archive template part
+ * 
+ * @package multiloquent\template_parts
  */
 get_header();
 if (have_posts()) {

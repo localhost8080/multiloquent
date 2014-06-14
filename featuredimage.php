@@ -1,6 +1,8 @@
 <?php
 /**
  * template part to output a featured image
+ * 
+ * @package multiloquent\template_parts
  */
 
 if (has_post_thumbnail()) {
