@@ -1,6 +1,7 @@
 <?php 
 /**
- * snippet used if no results found template part
+ * snippet used if no results found.
+ * wordpress template part
  */
 
 ?><div class="container">
