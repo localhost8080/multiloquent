@@ -20,6 +20,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* to be loaded in the correct order*/
 
 /* this is for the tinymce editor background colours*/
+
+
+.name {
+  font-size: 30px;
+  padding-left: 200px;
+  position: absolute;
+}
+
+
 .navbar h2 {
     float: left;
     font-size: 18px;
