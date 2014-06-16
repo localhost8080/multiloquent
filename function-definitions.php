@@ -826,7 +826,7 @@ function multiloquent_paralax_featured_sliders()
  */
 function multiloquent_get_avatar($avatar)
 {
-    $avatar = str_replace("class='avatar", "class='avatar pull-left media-object", $avatar);
+    $avatar = str_replace("class='avatar", "class='avatar pull-left media-object img-responsive", $avatar);
     return $avatar;
 }
 
