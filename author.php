@@ -14,8 +14,7 @@ if (have_posts()) {
             <div class="well profile">
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
-                    <h2><?php echo get_avatar(get_the_author_meta('ID'));?></h2>
-                    <p><strong>Name: </strong> <?php the_author_meta('display_name'); ?> </p>
+                    <h2><?php the_author_meta('display_name'); ?></h2>
                     <p><strong>Website: </strong> <?php the_author_link();?> </p>
                    
                 </div>             
