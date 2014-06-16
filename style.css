@@ -37,6 +37,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
     display: inline-block;
 }
 
+figcaption.ratings {
+    margin-top: 20px;
+}
+
+figcaption.ratings a {
+    color: #f1c40f;
+    font-size: 11px;
+}
+
+figcaption.ratings a:hover {
+    color: #f39c12;
+    text-decoration: none;
+}
+
 .navbar h2 {
     float: left;
     font-size: 18px;
