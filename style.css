@@ -20,21 +20,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* to be loaded in the correct order*/
 
 /* this is for the tinymce editor background colours*/
-
-
-.name {
-  font-size: 30px;
-  padding-left: 200px;
-  position: absolute;
+.avatar {
+    border-radius: 50%;
 }
 
+.divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.emphasis {
+    border-top: 4px solid transparent;
+}
+
+.profile {
+    min-height: 355px;
+    display: inline-block;
+}
 
 .navbar h2 {
     float: left;
     font-size: 18px;
     line-height: 20px;
-    margin:0;
-    font-weight:300;
+    margin: 0;
+    font-weight: 300;
 }
 
 .mceContentBody {
@@ -592,7 +600,7 @@ div.sharedaddy .sd-content {
     margin-bottom: 20px;
     overflow: hidden;
     width: 100%;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .ads ins {
@@ -1587,5 +1595,5 @@ body.rtl .sharing li {
     background-size: cover;
     margin: 0;
     white-space: nowrap;
-    overflow:hidden;
+    overflow: hidden;
 }
