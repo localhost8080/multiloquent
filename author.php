@@ -10,8 +10,7 @@ if (have_posts()) {
     ?>
 <div class="jumbotron">
     <div class="container">
-        <header>
-            <div class="well profile">
+        <header class="well profile">
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
                     <h2><?php the_author_meta('display_name'); ?></h2>
@@ -36,7 +35,7 @@ if (have_posts()) {
     }
        ?>         
             </div>      
-          </div>      
+                
         </header>
     </div>
 </div>
