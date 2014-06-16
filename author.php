@@ -12,18 +12,18 @@ if (have_posts()) {
     <div class="container">
         <header>
             <h1 class="article_title">
-             <p>
+                <p>
 			<?php echo 'All entries by ' . get_the_author();?>
             </p>
             </h1>
-            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> 
-            <?php echo get_avatar(get_the_author_meta('ID'));?>
+            <div class="col-md-12">
+                <div class="panel">
+                    <?php echo get_avatar(get_the_author_meta('ID'));?>
+                    <small><?php the_author_meta('display_name'); ?>, <?php the_author_link();?></small>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                <p>
-                    <b>Author name: </b><?php the_author_meta('display_name'); ?></p>
-                <p>
-                    <b>Author homepage: </b><?php the_author_link();?></p>
+                    
             <?php
     $description = get_the_author_meta('description');
     if (! empty($description)) {
