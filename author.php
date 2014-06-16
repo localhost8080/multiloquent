@@ -25,7 +25,7 @@ if (have_posts()) {
                     </figure>
                 </div>
             </div>            
-            <div class="col-xs-12 divider text-center">    
+            <div class="col-xs-12 divider">    
           <?php
     $description = get_the_author_meta('description');
     if (! empty($description)) {
