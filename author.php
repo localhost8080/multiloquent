@@ -10,12 +10,11 @@ if (have_posts()) {
     ?>
 <div class="jumbotron">
     <div class="container">
-        <header class="well profile">
+        <header class="profile">
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
                     <h2><?php the_author_meta('display_name'); ?></h2>
                     <p><strong>Website: </strong> <?php the_author_link();?> </p>
-                   
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
@@ -26,16 +25,14 @@ if (have_posts()) {
                     </figure>
                 </div>
             </div>            
-            <div class="col-xs-12 divider text-center">
-                
+            <div class="col-xs-12 divider text-center">    
           <?php
     $description = get_the_author_meta('description');
     if (! empty($description)) {
         echo '<p>' . $description . '</p>';
     }
        ?>         
-            </div>      
-                
+            </div>   
         </header>
     </div>
 </div>
