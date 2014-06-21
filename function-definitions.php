@@ -74,6 +74,7 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootsqatch', $wp_customize, 'bootsqatch');
 }
 
 /**
@@ -102,6 +103,20 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             'section' => $section,
             'settings' => $setting_name
         )));
+    }
+    if ($setting_type == 'bootswatch') {
+        $wp_customize->add_control( $setting_name, array(
+            'label'   => 'Select Bootswatch style:',
+            'section' => $section,
+            'type'    => 'select',
+            'choices'    => array(
+                'default' => 'default bootstrap',
+                'slate' => 'slate',
+                'darkly' => 'darkly',
+                'flatly' => 'flatly',
+                
+            ),
+        ) );
     }
 }
 
@@ -198,7 +213,7 @@ function multiloquent_scripts_method()
  */
 function multiloquent_stylesheet_method()
 {
-    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
+    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/'.esc_attr(get_theme_mod('bootswatch')).'bootstrap.min.css');
     wp_enqueue_style('font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
     wp_enqueue_style('style-css', get_stylesheet_uri());
     wp_enqueue_style('print-css', get_template_directory_uri() . '/print.css');
