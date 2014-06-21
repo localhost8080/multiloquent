@@ -1,14 +1,14 @@
 <?php
+
 /**
  * multiloquent function definitions
  * @todo - make this oo
  * @package multiloquent\functions
  */
-
 /**
  * Returns the current multiloquent version number
  *
- * @internal
+ * @internal internal
  * @return string
  */
 function multiloquent_version()
@@ -19,13 +19,15 @@ function multiloquent_version()
 
 /**
  * includes the name of the php file passed.
- * 
+ *
  * - includes the name of the php file passed. Uses require_once().
  * - limitations: cant pass the file extension, only includes php files.
  * - eg: multiloquent_get_template_part('somefile'); to include somefile.php
- * 
+ *
  * @api
- * @param filename $file name of file to include, excluding .php extension
+ *
+ * @param filename $file
+ *            name of file to include, excluding .php extension
  * @global object $post the wordpress post object
  */
 function multiloquent_get_template_part($file)
@@ -37,9 +39,9 @@ function multiloquent_get_template_part($file)
 
 /**
  * adds the featured image to the rss feed
- * 
- * @internal
- * @param string $content
+ *
+ * @internal internal
+ * @param string $content            
  * @return string
  */
 function multiloquent_featured_image_in_feed($content)
@@ -58,32 +60,34 @@ function multiloquent_featured_image_in_feed($content)
 
 /**
  * adds the multiloquent custom controls for wp customise api
- * 
+ *
  * @api
- * @param object $wp_customize
+ *
+ * @param object $wp_customize            
  */
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_navbar', '#f8f8f8', 'Main Elements Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour','mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#f8f8f8', 'Main Elements Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
 }
 
 /**
  * registers and generates the custom controls for wp customise api
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  * @see multiloquent_customize_register();
- * @param string $setting_type
- * @param string $setting_name
- * @param string $default
- * @param string $label
- * @param object $wp_customize
- * @param string $section
+ * @param string $setting_type            
+ * @param string $setting_name            
+ * @param string $default            
+ * @param string $label            
+ * @param object $wp_customize            
+ * @param string $section            
  */
 function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section)
 {
@@ -92,54 +96,79 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_attr'
     ));
-    if($setting_type == 'colour'){
+    if ($setting_type == 'colour') {
         $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
             'label' => $label,
             'section' => $section,
             'settings' => $setting_name
         )));
-    } 
+    }
 }
 
 /**
  * outputs the custom css for the wp customise API
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  * @todo make this return, rather than echo
  */
 function multiloquent_customize_css()
 {
     echo '<style type="text/css">';
-    echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
-    echo '}' . "\n";
-    echo '.wrapper,.featured-posts { ';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
-    echo '}' . "\n";
-    echo 'body {';
-    echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
-    echo '.sidebar,.sidebar a {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
-    echo '}' . "\n";
-    echo '.jumbotron .nav-header,.well .nav-header {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
-    echo '}' . "\n";
-    echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
-    echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
-    echo '}' . "\n";
+    if (! empty(get_theme_mod('mulitloquent_navbar'))) {
+        echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
+        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
+    }
+    if (! empty(get_theme_mod('mulitloquent_navbar'))) {
+        echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_background_colour'))) {
+        echo '.wrapper,.featured-posts { ';
+        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
+    }
+    if (! empty(get_theme_mod('mulitloquent_background_colour'))) {
+        echo '.wrapper,.featured-posts { ';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_slideout_menu_colour'))) {
+        echo 'body {';
+        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_background_text_colour'))) {
+        echo 'body {';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_slideout_text_colour'))) {
+        echo '.sidebar,.sidebar a {';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_navbar_text'))) {
+        echo '.jumbotron .nav-header,.well .nav-header {';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
+        echo '}' . "\r\n";
+    }
+    if (! empty(get_theme_mod('mulitloquent_navbar_link'))) {
+        echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
+        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
+        echo '}' . "\r\n";
+    }
     echo '</style>';
 }
 
 /**
  * enqueues the rewuired javascript libraries.
- * 
+ *
  * - menu.js - custom built menu javascript for popout menu
  * - bootstrap javascript library
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  */
 function multiloquent_scripts_method()
 {
@@ -153,13 +182,14 @@ function multiloquent_scripts_method()
 
 /**
  * enqueues the stylesheets
- * 
+ *
  * - bootstrap css
  * - font awesome css
  * - style css [wordpress required with custom overrides for bootstrap]
  * - print css [custom overrides for printing]
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  */
 function multiloquent_stylesheet_method()
 {
@@ -171,8 +201,9 @@ function multiloquent_stylesheet_method()
 
 /**
  * registers the wordpress menu location
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  */
 function multiloquent_menu()
 {
@@ -181,8 +212,9 @@ function multiloquent_menu()
 
 /**
  * various register actions
- * 
- * @internal
+ *
+ * @internal internal
+ *          
  */
 function multiloquent_register()
 {
@@ -190,12 +222,11 @@ function multiloquent_register()
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
     add_theme_support('post-thumbnails');
-    
     $args = array(
-        'width'         => 1800,
-        'height'        => 600,
+        'width' => 1800,
+        'height' => 600,
         'default-image' => get_template_directory_uri() . '/images/default-slider.png',
-        'uploads'       => true,
+        'uploads' => true
     );
     add_theme_support('custom-header', $args);
     // actions
@@ -238,9 +269,10 @@ function multiloquent_register()
 
 /**
  * generates the sidebars
- * 
- * @param array $array
- * @internal
+ *
+ * @param array $array            
+ * @internal internal
+ *          
  */
 function multiloquent_generate_sidebars($array)
 {
@@ -260,9 +292,10 @@ function multiloquent_generate_sidebars($array)
 
 /**
  * removes css classes from the passed string
- * 
+ *
  * @api
- * @param array $classes
+ *
+ * @param array $classes            
  * @return array
  */
 function multiloquent_remove_hentry_function($classes)
@@ -275,9 +308,10 @@ function multiloquent_remove_hentry_function($classes)
 
 /**
  * adds a css class to the tag
- * 
+ *
  * @api
- * @param string $html
+ *
+ * @param string $html            
  * @return string
  */
 function multiloquent_add_class_the_tags($html)
@@ -288,10 +322,10 @@ function multiloquent_add_class_the_tags($html)
 
 /**
  * generates a tag cloud
- * 
- * @param array $args
+ *
+ * @param array $args            
  * @return array
- * @internal
+ * @internal internal
  */
 function multiloquent_widget_tag_cloud_args($args)
 {
@@ -304,9 +338,10 @@ function multiloquent_widget_tag_cloud_args($args)
 
 /**
  * filter tag clould output so that it can be styled by CSS
- * 
+ *
  * @api
- * @param string $taglinks
+ *
+ * @param string $taglinks            
  * @return string
  */
 function multiloquent_add_tag_class($taglinks)
@@ -322,9 +357,10 @@ function multiloquent_add_tag_class($taglinks)
 
 /**
  * wrapper for the post title, if it has no title, supply one
- * 
+ *
  * @api
- * @param int $post_id
+ *
+ * @param int $post_id            
  * @return string
  * @example multiloquent_post_title(12);
  */
@@ -343,9 +379,10 @@ function multiloquent_post_title($post_id = '')
 
 /**
  * wraps the tag cloud in a div
- * 
+ *
  * @api
- * @param string $tag_cloud
+ *
+ * @param string $tag_cloud            
  * @return string
  */
 function multiloquent_tag_cloud_filter($tag_cloud)
@@ -355,8 +392,9 @@ function multiloquent_tag_cloud_filter($tag_cloud)
 
 /**
  * outputs the breadcrumb
- * 
+ *
  * @api
+ *
  * @return string
  */
 function multiloquent_breadcrumbs()
@@ -399,8 +437,9 @@ function multiloquent_breadcrumbs()
 
 /**
  * renders the pagination on the page
- * 
+ *
  * @api
+ *
  * @todo make this return rather than echo
  */
 function multiloquent_render_pagingation()
@@ -439,9 +478,10 @@ function multiloquent_render_pagingation()
 
 /**
  * returns a random class from the list
- * 
+ *
  * @api
- * @param string $class
+ *
+ * @param string $class            
  * @return string <string>
  */
 function multiloquent_get_random_solid_class($class = '')
@@ -490,9 +530,10 @@ function multiloquent_get_random_solid_class($class = '')
 
 /**
  * returns a random value from the list
- * 
+ *
  * @api
- * @return  string
+ *
+ * @return string
  */
 function multiloquent_get_random_blue_class()
 {
@@ -538,10 +579,11 @@ function multiloquent_get_random_blue_class()
 
 /**
  * returns a random string from the list
- * 
+ *
  * @api
- * @param string $class
- * @return string|Ambigous <string>
+ *
+ * @param string $class            
+ * @return string Ambigous
  */
 function multiloquent_get_random_colour_class($class = '')
 {
@@ -589,9 +631,10 @@ function multiloquent_get_random_colour_class($class = '')
 
 /**
  * outputs the category list as a hierarchy
- * 
+ *
  * @api
- * @param string $cat
+ *
+ * @param string $cat            
  * @return string
  */
 function multiloquent_category_list_as_hierarchy($cat = '0')
@@ -654,8 +697,9 @@ function multiloquent_category_list_as_hierarchy($cat = '0')
 
 /**
  * generates the homepage featured posts box
- * 
+ *
  * @api
+ *
  * @return string
  */
 function multiloquent_paralax_slider()
@@ -703,7 +747,6 @@ function multiloquent_paralax_slider()
         } else {
             $theimg = get_header_image();
         }
-        
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
@@ -716,7 +759,7 @@ function multiloquent_paralax_slider()
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+            $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
         }
         if ($count == '4') {
@@ -749,8 +792,9 @@ function multiloquent_paralax_slider()
 
 /**
  * generates the featured posts mini-boxes
- * 
+ *
  * @api
+ *
  * @return string
  */
 function multiloquent_paralax_featured_sliders()
@@ -819,9 +863,10 @@ function multiloquent_paralax_featured_sliders()
 
 /**
  * gets the users avatar
- * 
+ *
  * @api
- * @param unknown $avatar
+ *
+ * @param unknown $avatar            
  * @return mixed
  */
 function multiloquent_get_avatar($avatar)
@@ -832,10 +877,11 @@ function multiloquent_get_avatar($avatar)
 
 /**
  * renders the archive lists in the colour supplied
- * 
+ *
  * @api
- * @param string $colour
- * 
+ *
+ * @param string $colour            
+ *
  * @todo make this return rather than echo
  * @see multiloquent_get_random_colour_class()
  * @see multiloquent_get_random_solid_class()
@@ -872,9 +918,10 @@ function multiloquent_render_the_archive($colour)
 
 /**
  * renders the tags for the supplied post id
- * 
+ *
  * @api
- * @param int $post_id
+ *
+ * @param int $post_id            
  * @todo make this return rather than echo
  */
 function multiloquent_render_tags($post_id)
