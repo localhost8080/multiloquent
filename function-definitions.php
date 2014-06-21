@@ -74,7 +74,7 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootsqatch', $wp_customize, 'bootsqatch');
+    multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootsqatch', $wp_customize, 'colors');
 }
 
 /**
