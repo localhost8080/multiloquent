@@ -67,10 +67,10 @@ function multiloquent_featured_image_in_feed($content)
  */
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#f8f8f8', 'Main Elements Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
-    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#ffffff', 'Body Background Color', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
@@ -114,52 +114,51 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
  */
 function multiloquent_customize_css()
 {
-    
     // I need to get an array with each of the mods in it (and their default values)
     $mods = get_theme_mods();
-    
     echo '<style type="text/css">';
-    if (! empty($mods['mulitloquent_navbar'])) {
+    // only show if its set and its not the default value
+    if (! empty($mods['mulitloquent_navbar']) && $mods['mulitloquent_navbar'] != '#F8F8F8') {
         echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_navbar'])) {
+    if (! empty($mods['mulitloquent_navbar_text']) && $mods['mulitloquent_navbar_text'] != '#777777') {
         echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_background_colour'])) {
+    if (! empty($mods['mulitloquent_background_colour']) && $mods['mulitloquent_background_colour'] != '#FFFFFF') {
         echo '.wrapper,.featured-posts { ';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_background_colour'])) {
+    if (! empty($mods['mulitloquent_background_text_colour']) && $mods['mulitloquent_background_text_colour'] != '#333333') {
         echo '.wrapper,.featured-posts { ';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_slideout_menu_colour'])) {
+    if (! empty($mods['mulitloquent_slideout_menu_colour']) && $mods['mulitloquent_slideout_menu_colour'] != '#333333') {
         echo 'body {';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_background_text_colour'])) {
+    if (! empty($mods['mulitloquent_background_text_colour']) && $mods['mulitloquent_background_text_colour'] != '#333333') {
         echo 'body {';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_slideout_text_colour'])) {
+    if (! empty($mods['mulitloquent_slideout_text_colour']) && $mods['mulitloquent_slideout_text_colour'] != '#FFFFFF') {
         echo '.sidebar,.sidebar a {';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_navbar_text'])) {
+    if (! empty($mods['mulitloquent_navbar_text']) && $mods['mulitloquent_navbar_text'] != '#777777') {
         echo '.jumbotron .nav-header,.well .nav-header {';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
         echo '}' . "\r\n";
     }
-    if (! empty($mods['mulitloquent_navbar_link'])) {
+    if (! empty($mods['mulitloquent_navbar_link']) && $mods['mulitloquent_navbar_link'] != '#777777') {
         echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
         echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
         echo '}' . "\r\n";
