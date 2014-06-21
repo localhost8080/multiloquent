@@ -173,17 +173,15 @@ pre:before {
 }
 
 .well {
-    background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
     border: 0 none;
     border-radius: 0;
-    color: #232323;
     margin-bottom: 20px;
     min-height: 20px;
     padding: 19px;
 }
 
 .well a {
-    color: #676767;
+    
 }
 
 .well .nav>li>a:hover {
