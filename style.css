@@ -89,12 +89,6 @@ html {
 
 body {
     margin: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 1em;
-    line-height: 1.6;
-    color: #333333;
-    background-color: #333333;
     padding-top: 51px;
 }
 
@@ -239,11 +233,6 @@ pre:before {
     display: block;
     line-height: 1;
     margin: 0 auto;
-}
-
-.jumbotron {
-    background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
-    color: #676767;
 }
 
 @media ( min-width : 768px) and (max-width: 979px) {
@@ -1428,7 +1417,6 @@ body.rtl .sharing li {
 }
 
 .wrapper {
-    background: #ffffff;
     transition: margin 0.2s linear 0s;
 }
 
@@ -1477,12 +1465,11 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu ul.children,.sidebar .menu ul.sub-menu {
-    background: #676767;
     margin-left: -15px;
 }
 
 .sidebar .menu ul.children ul.children,.sidebar .menu ul.sub-menu ul.sub-menu {
-    background: #898989;
+    
 }
 
 .sidebar .menu .page_item_has_children:after,.sidebar .menu .menu-item-has-children:after {
