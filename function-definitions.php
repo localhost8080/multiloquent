@@ -122,6 +122,7 @@ function multiloquent_customize_css()
     if (! empty($mods['mulitloquent_navbar'])) {
         echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
+        echo '}' . "\r\n";
     }
     if (! empty($mods['mulitloquent_navbar'])) {
         echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
@@ -131,6 +132,7 @@ function multiloquent_customize_css()
     if (! empty($mods['mulitloquent_background_colour'])) {
         echo '.wrapper,.featured-posts { ';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
+        echo '}' . "\r\n";
     }
     if (! empty($mods['mulitloquent_background_colour'])) {
         echo '.wrapper,.featured-posts { ';
