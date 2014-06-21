@@ -115,10 +115,10 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
 function multiloquent_customize_css()
 {
     echo '<style type="text/css">';
-    if (! empty(get_theme_mod('mulitloquent_navbar'))) {
+    //if (! empty(get_theme_mod('mulitloquent_navbar'))) {
         echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
         echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
-    }
+    //}
     
     echo '</style>';
 }
