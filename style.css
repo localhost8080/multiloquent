@@ -239,9 +239,7 @@ pre:before {
 }
 
 @media ( max-width : 782px) {
-    .admin-bar .sidebar form {
-        padding-top: 65px !important;
-    }
+    
 }
 
 @media ( max-width : 480px) {
@@ -1414,11 +1412,12 @@ body.rtl .sharing li {
 .sidebar {
     left: 0;
     position: absolute;
-    top: 50px;
+    top: 0;
     width: 300px;
     overflow-x: hidden;
     transition: all 0.2s linear 0s;
     margin-left: -300px;
+    border-radius:0;
 }
 
 .sidebar a {
@@ -1581,8 +1580,4 @@ body.rtl .sharing li {
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
-}
-
-.admin-bar .sidebar {
-    margin-top: 32px;
 }
