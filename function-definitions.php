@@ -75,7 +75,6 @@ function multiloquent_customize_register($wp_customize)
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
-    
 }
 
 /**
@@ -106,11 +105,11 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
         )));
     }
     if ($setting_type == 'bootswatch') {
-        $wp_customize->add_control( $setting_name, array(
-            'label'   => 'Select Bootswatch style:',
+        $wp_customize->add_control($setting_name, array(
+            'label' => 'Select Bootswatch style:',
             'section' => $section,
-            'type'    => 'select',
-            'choices'    => array(
+            'type' => 'select',
+            'choices' => array(
                 'default' => 'multiloquent',
                 'amelia' => 'amelia',
                 'bootstrap' => 'bootstrap',
@@ -124,10 +123,9 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
                 'slate' => 'slate',
                 'superhero' => 'superhero',
                 'united' => 'united',
-                'yeti' => 'yeti',
-
-            ),
-        ) );
+                'yeti' => 'yeti'
+            )
+        ));
     }
 }
 
@@ -227,7 +225,7 @@ function multiloquent_stylesheet_method()
     // todo - make is use the default one if none are set
     $mods = get_theme_mods();
     if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
-        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/'.esc_attr(get_theme_mod('bootswatch')).'/bootstrap.min.css');
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
         wp_enqueue_style('style', get_stylesheet_uri());
     } else {
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/default/bootstrap.min.css');
@@ -235,7 +233,6 @@ function multiloquent_stylesheet_method()
         // use my custom bootstrap overrides
         wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/default/style.css');
     }
-
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
     wp_enqueue_style('print', get_template_directory_uri() . '/print.css');
 }
@@ -278,7 +275,7 @@ function multiloquent_register()
     // filters
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
-    //add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
+    // add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
     add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
     add_filter('get_avatar', 'multiloquent_get_avatar');
@@ -393,7 +390,6 @@ function multiloquent_add_tag_class($taglinks)
         $tagn[] = preg_replace($regex, "('$1$2 label '.multiloquent_get_random_solid_class(get_tag($2)->slug).'$3')", $tag);
     }
     $taglinks = implode('</a>', $tagn);
-    
     return $taglinks;
 }
 
@@ -528,18 +524,30 @@ function multiloquent_render_pagingation()
  */
 function multiloquent_get_random_solid_class($class = '')
 {
-    $input = array(
-        "swatch-red",
-        "swatch-orange",
-        "swatch-yellow",
-        "swatch-green",
-        "swatch-teal",
-        "swatch-blue",
-        "swatch-violet",
-        "swatch-pink",
-        "swatch-mid-gray",
-        "swatch-gray"
-    );
+    $mods = get_theme_mods();
+    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        // if it uses one of the bootswatch themes, use the bootstrap colours
+        $input = array(
+            "bg-primary",
+            "bg-success",
+            "bg-warning",
+            "bg-info",
+            "bg-danger"
+        );
+    } else {
+        $input = array(
+            "swatch-red",
+            "swatch-orange",
+            "swatch-yellow",
+            "swatch-green",
+            "swatch-teal",
+            "swatch-blue",
+            "swatch-violet",
+            "swatch-pink",
+            "swatch-mid-gray",
+            "swatch-gray"
+        );
+    }
     $apps = array(
         "phone",
         "appstore",
@@ -579,16 +587,28 @@ function multiloquent_get_random_solid_class($class = '')
  */
 function multiloquent_get_random_blue_class()
 {
-    $input = array(
-        "swatch-blue1",
-        "swatch-blue2",
-        "swatch-blue3",
-        "swatch-blue4",
-        "swatch-blue5",
-        "swatch-blue",
-        "swatch-gray",
-        "swatch-violet"
-    );
+    $mods = get_theme_mods();
+    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        // if it uses one of the bootswatch themes, use the bootstrap colours
+        $input = array(
+            "bg-primary",
+            "bg-success",
+            "bg-warning",
+            "bg-info",
+            "bg-danger"
+        );
+    } else {
+        $input = array(
+            "swatch-blue1",
+            "swatch-blue2",
+            "swatch-blue3",
+            "swatch-blue4",
+            "swatch-blue5",
+            "swatch-blue",
+            "swatch-gray",
+            "swatch-violet"
+        );
+    }
     $apps = array(
         "phone",
         "appstore",
@@ -629,18 +649,30 @@ function multiloquent_get_random_blue_class()
  */
 function multiloquent_get_random_colour_class($class = '')
 {
-    $input = array(
-        "gradient-red",
-        "gradient-orange",
-        "gradient-yellow",
-        "gradient-green",
-        "gradient-teal",
-        "gradient-blue",
-        "gradient-violet",
-        "gradient-magenta",
-        "gradient-black",
-        "gradient-silver"
-    );
+    $mods = get_theme_mods();
+    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        // if it uses one of the bootswatch themes, use the bootstrap colours
+        $input = array(
+            "bg-primary",
+            "bg-success",
+            "bg-warning",
+            "bg-info",
+            "bg-danger"
+        );
+    } else {
+        $input = array(
+            "gradient-red",
+            "gradient-orange",
+            "gradient-yellow",
+            "gradient-green",
+            "gradient-teal",
+            "gradient-blue",
+            "gradient-violet",
+            "gradient-magenta",
+            "gradient-black",
+            "gradient-silver"
+        );
+    }
     $apps = array(
         "phone",
         "appstore",
