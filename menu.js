@@ -1,10 +1,10 @@
 function resize_sidebar() {
     if (jQuery('.wrapper').height() < jQuery('.sidebar').height()) {
         // the sidebar is bigger than the wrapper
-        jQuery('.wrapper').css("height", jQuery('.sidebar').height());
+        jQuery('.wrapper').css("min-height", jQuery('.sidebar').height());
     } else {
         // make the sidebar the same height as the wrapper, incase its smaller
-        jQuery('.sidebar').css("height", jQuery('.wrapper').height());
+        jQuery('.sidebar').css("min-height", jQuery('.wrapper').height());
     }
 }
 // resize the sidebar onload
