@@ -112,10 +112,18 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             'type'    => 'select',
             'choices'    => array(
                 'default' => 'multiloquent',
-                'slate' => 'slate',
+                'amelia' => 'amelia',
+                'bootstrap' => 'bootstrap',
+                'cyborg' => 'cyborg',
                 'darkly' => 'darkly',
                 'flatly' => 'flatly',
-                'bootstrap' => 'bootstrap',
+                'lumen' => 'lumen',
+                'slate' => 'slate',
+                'superhero' => 'superhero',
+                'united' => 'united',
+                'yeti' => 'yeti',
+                
+                
                 
             ),
         ) );
