@@ -7,7 +7,6 @@
  * 
  * @package multiloquent\template_parts
  */
- 
 if (post_password_required()) {
     return;
 }
@@ -69,6 +68,11 @@ if (comments_open()) {
       <p><?php printf('You must be <a href="%s">logged in</a> to post a comment.', wp_login_url(get_permalink())); ?></p>
     <?php
     } else {
+        $comments_args = array(
+            // redefine your own textarea (the comment body)
+            'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x('Comment', 'noun') . '</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>'
+        );
+        comment_form($comments_args);
         comment_form();
     }
     ?>
