@@ -1439,6 +1439,9 @@ body.rtl .sharing li {
     margin-left: -300px;
     background: #333333;
     border-radius:0;
+    padding-top:0;
+    padding-bottom:0;
+    margin-bottom:0;
 }
 
 .navbar-fixed-top,.navbar-fixed-bottom {
