@@ -84,7 +84,7 @@ figcaption.ratings a:hover {
 }
 
 html {
-    font-size: 20px;
+    
 }
 
 body {
@@ -128,6 +128,7 @@ p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
 
 .container .comments {
     margin-top: -20px;
+    border-radius:0;
 }
 
 img,.aligncenter,.alignnone,.alignleft,.alignright {
@@ -204,7 +205,6 @@ pre:before {
 
 .breadcrumb {
     margin-left: 0;
-    font-size: 0.7em;
 }
 
 .thumbnail,.aligncenter,.alignnone,.alignleft,.alignright {
@@ -1492,7 +1492,6 @@ footer {
 }
 
 .comment {
-    font-size: 15px;
     font-weight: normal;
     list-style: none;
 }
@@ -1538,7 +1537,6 @@ footer {
 
 .comment .reply {
     margin-left: 75px;
-    font-size: 10px;
 }
 
 .comment-reply-link {
