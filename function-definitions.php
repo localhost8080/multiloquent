@@ -275,7 +275,7 @@ function multiloquent_register()
     // filters
     add_filter('the_content', 'multiloquent_featured_image_in_feed');
     add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
-    add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
+    //add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
     add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
     add_filter('get_avatar', 'multiloquent_get_avatar');
