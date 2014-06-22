@@ -202,10 +202,10 @@ function multiloquent_customize_css()
  */
 function multiloquent_scripts_method()
 {
-    wp_enqueue_script('menu-js', get_template_directory_uri() . '/menu.js', array(
+    wp_enqueue_script('menu', get_template_directory_uri() . '/menu.js', array(
         'jquery'
     ), '', true);
-    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
         'jquery'
     ), '', true);
 }
@@ -226,17 +226,17 @@ function multiloquent_stylesheet_method()
     // todo - make is use the default one if none are set
     $mods = get_theme_mods();
     if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
-        wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/'.esc_attr(get_theme_mod('bootswatch')).'/bootstrap.min.css');
-        wp_enqueue_style('style-css', get_stylesheet_uri());
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/'.esc_attr(get_theme_mod('bootswatch')).'/bootstrap.min.css');
+        wp_enqueue_style('style', get_stylesheet_uri());
     } else {
-        wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/bootstrap/css/default/bootstrap.min.css');
-        wp_enqueue_style('style-css', get_stylesheet_uri());
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/default/bootstrap.min.css');
+        wp_enqueue_style('style', get_stylesheet_uri());
         // use my custom bootstrap overrides
-        wp_enqueue_style('multiloquent-css', get_template_directory_uri() . '/bootstrap/css/default/style.css');
+        wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/default/style.css');
     }
 
-    wp_enqueue_style('font-awesome-css', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
-    wp_enqueue_style('print-css', get_template_directory_uri() . '/print.css');
+    wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
+    wp_enqueue_style('print', get_template_directory_uri() . '/print.css');
 }
 
 /**
