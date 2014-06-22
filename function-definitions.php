@@ -824,30 +824,31 @@ function multiloquent_paralax_slider()
         } else {
             $theimg = get_header_image();
         }
+        $colour = multiloquent_get_random_blue_class();
         if ($count == '1') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-            $output .= '<div class="paralax_image_bg doubleheight swatch-blue4"></div>';
+            $output .= '<div class="paralax_image_bg doubleheight '.$colour.'"></div>';
         }
         if ($count == '2') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
+            $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
         }
         if ($count == '3') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-            $output .= '<div class="paralax_image_bg swatch-blue5"></div>';
+            $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
         }
         if ($count == '4') {
             $output .= '<div class="paralax_image_holder float_left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-            $output .= '<div class="paralax_image_bg swatch-blue"></div>';
+            $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
         }
         if ($count == '5') {
             $output .= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-            $output .= '<div class="paralax_image_bg swatch-blue2"></div>';
+            $output .= '<div class="paralax_image_bg '.$colour.'"></div>';
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '<p>';
