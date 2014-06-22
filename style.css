@@ -127,8 +127,6 @@ p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
 }
 
 .container .comments {
-    background: none repeat scroll 0 0 #f8f8f8;
-    border-left: 1px solid #EEEEEE;
     margin-top: -20px;
 }
 

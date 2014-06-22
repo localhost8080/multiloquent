@@ -48,7 +48,7 @@ if (have_posts()) {
         <?php
         echo '</div>';
         if (comments_open()) {
-            echo '<div class="col-sm-12 col-md-6 col-lg-5 comments">';
+            echo '<div class="col-sm-12 col-md-6 col-lg-5 comments breadcrumb">';
             comments_template();
             get_template_part('advert');
             echo '</div>';
