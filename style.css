@@ -1470,6 +1470,10 @@ body.rtl .sharing li {
     top: 10px;
 }
 
+footer {
+  padding-bottom: 80px !important;
+}
+
 .prev_link {
     border-radius: 10px 0 0 10px;
     position: fixed;
