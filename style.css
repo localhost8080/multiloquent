@@ -25,7 +25,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .divider {
-   
+    
 }
 
 .emphasis {
@@ -33,7 +33,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .profile {
-    
     display: inline-block;
 }
 
@@ -128,7 +127,7 @@ p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
 
 .container .comments {
     margin-top: -20px;
-    border-radius:0;
+    border-radius: 0;
 }
 
 img,.aligncenter,.alignnone,.alignleft,.alignright {
@@ -155,10 +154,10 @@ blockquote {
 }
 
 code {
-  display: block;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 pre:before {
@@ -1404,8 +1403,8 @@ body.rtl .sharing li {
     transition: margin 0.2s linear 0s;
 }
 
-.sidebar-pad{
-    padding:15px;
+.sidebar-pad {
+    padding: 15px;
 }
 
 .sidebar {
@@ -1419,7 +1418,7 @@ body.rtl .sharing li {
 }
 
 .sidebar a {
-  
+    
 }
 
 .navbar-fixed-top,.navbar-fixed-bottom {
@@ -1432,7 +1431,6 @@ body.rtl .sharing li {
 
 .sidebar .menu li {
     list-style: none;
-    
 }
 
 .sidebar .menu .page_item_has_children,.sidebar .menu .menu-item-has-children {
@@ -1452,7 +1450,7 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu ul.children,.sidebar .menu ul.sub-menu {
-   
+    
 }
 
 .sidebar .menu ul.children ul.children,.sidebar .menu ul.sub-menu ul.sub-menu {
@@ -1460,18 +1458,15 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu .page_item_has_children:after,.sidebar .menu .menu-item-has-children:after {
-    border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-    border-right: 6px solid rgba(0, 0, 0, 0);
-    border-style: solid;
-    border-width: 6px;
-    content: "";
+    content: "";
     display: inline-block;
+    font-family: FontAwesome;
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
-
+}
 .prev_link {
     border-radius: 10px 0 0 10px;
     position: fixed;
@@ -1586,5 +1581,5 @@ body.rtl .sharing li {
 }
 
 .admin-bar .sidebar {
-  margin-top: 32px;
+    margin-top: 32px;
 }

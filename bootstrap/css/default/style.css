@@ -25,7 +25,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .divider {
-   
+    
 }
 
 .emphasis {
@@ -33,7 +33,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .profile {
-    
     display: inline-block;
 }
 
@@ -1431,8 +1430,8 @@ body.rtl .sharing li {
     transition: margin 0.2s linear 0s;
 }
 
-.sidebar-pad{
-    padding:15px;
+.sidebar-pad {
+    padding: 15px;
 }
 
 .sidebar {
@@ -1444,9 +1443,8 @@ body.rtl .sharing li {
     overflow-x: hidden;
     transition: all 0.2s linear 0s;
     margin-left: -300px;
-    background:#333333;
+    background: #333333;
 }
-
 
 .navbar-fixed-top,.navbar-fixed-bottom {
     z-index: 400;
@@ -1489,17 +1487,15 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu .page_item_has_children:after,.sidebar .menu .menu-item-has-children:after {
-    border-color: #FFFFFF rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-    border-right: 6px solid rgba(0, 0, 0, 0);
-    border-style: solid;
-    border-width: 6px;
-    content: "";
+    content: "";
     display: inline-block;
+    font-family: FontAwesome;
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
+}
 .prev_link {
     border-radius: 10px 0 0 10px;
     position: fixed;
