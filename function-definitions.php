@@ -387,9 +387,10 @@ function multiloquent_add_tag_class($taglinks)
     $tags = explode('</a>', $taglinks);
     $regex = "#(.*tag-link[-])(.*)(' title.*)#e";
     foreach ($tags as $tag) {
-        $tagn[] = preg_replace($regex, "('$1$2 label tag-'.get_tag($2)->slug.'$3')", $tag);
+        $tagn[] = preg_replace($regex, "('$1$2 label '.multiloquent_get_random_solid_class(get_tag($2)->slug).'$3')", $tag);
     }
     $taglinks = implode('</a>', $tagn);
+    
     return $taglinks;
 }
 
