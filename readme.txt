@@ -1,12 +1,29 @@
-#This is the readme.txt for multiloquent theme v6
+#This is the readme.txt for multiloquent theme v7
+
+##Multiloquent html5 / bootstrap theme - 
+  a theme with 10 dynamic sidebars in various locations
+  using twitter bootstrap complete with yaarp related posts theme, 
+  dynamic top10 front page featured posts, fontawesome icons, 
+  category index page template, 
+  tag index page template and 4 post templates. 
+  Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
+  Version 6.4.0 adds support for custom header images
+  Version 7.0.0 adds support for bootswatch themes via the customisation panel
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
-http://jonathansblog.co.uk/multiloquent
+Multiloquent is available at http://wordpress.org/themes/multiloquent
+Multiloquent has a github repo: https://github.com/localhost8080/multiloquent
+Support questions should be submitted in the wordpress theme support site: http://wordpress.org/support/theme/multiloquent
+For the latest news / information on multiloquent theme, please check the multiloquent blog category: http://jonathansblog.co.uk/multiloquent-wordpress-theme
 
 
 ##Multiloquent has support for custom header image
     they are used as the post header image unless a featured image has been set against that post, in which case, the featured image is used
+
+##Multiloquent now has a theme selector - as of v7.0.0
+    Using the wordpress customisation panel you can select between all of the themes from bootswatch.com and they will be applied to your site (aswell as the multiloqent theme and berebones bootstrap too)
+
 
 ##This theme has 10 widget areas:
 
@@ -82,3 +99,4 @@ http://jonathansblog.co.uk/multiloquent
 Multiloquent is licenced under the GPLv3 - please see the included LICENCE file
 Multiloquent uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence http://www.apache.org/licenses/LICENSE-2.0
 Multiloquent uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
+Multiloquent uses styles from bootswatch: http://bootswatch.com - MIT Licence https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE
