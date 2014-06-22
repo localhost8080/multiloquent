@@ -1,7 +1,7 @@
 #This is the readme.txt for multiloquent theme v7
 
 ##Multiloquent html5 / bootstrap theme - 
-  a theme with 10 dynamic sidebars in various locations
+  a wordpress theme with 10 dynamic sidebars in various locations
   using twitter bootstrap complete with yaarp related posts theme, 
   dynamic top10 front page featured posts, fontawesome icons, 
   category index page template, 
@@ -19,10 +19,12 @@ For the latest news / information on multiloquent theme, please check the multil
 
 
 ##Multiloquent has support for custom header image
-    they are used as the post header image unless a featured image has been set against that post, in which case, the featured image is used
+    they are used as the post header image unless a featured image has been set against that post, 
+    in which case, the featured image is used
 
 ##Multiloquent now has a theme selector - as of v7.0.0
-    Using the wordpress customisation panel you can select between all of the themes from bootswatch.com and they will be applied to your site (aswell as the multiloqent theme and berebones bootstrap too)
+    Using the wordpress customisation panel you can select between all of the themes from bootswatch.com 
+    and they will be applied to your site (aswell as the multiloqent theme and berebones bootstrap too)
 
 
 ##This theme has 10 widget areas:
