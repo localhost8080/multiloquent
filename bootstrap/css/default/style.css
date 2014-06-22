@@ -203,7 +203,6 @@ pre:before {
 
 .sidebar .nav-header {
     color: #FFFFFF;
-    padding-left: 20px;
 }
 
 #wp-calendar {
@@ -1432,6 +1431,10 @@ body.rtl .sharing li {
     transition: margin 0.2s linear 0s;
 }
 
+.sidebar-pad{
+    padding:15px;
+}
+
 .sidebar {
     left: 0;
     position: absolute;
@@ -1444,12 +1447,13 @@ body.rtl .sharing li {
     background:#333333;
 }
 
-.sidebar a {
-    color: #fff;
-}
 
 .navbar-fixed-top,.navbar-fixed-bottom {
     z-index: 400;
+}
+
+.sidebar a {
+    color: #fff;
 }
 
 .sidebar .menu ul,.sidebar ul.menu {
@@ -1458,7 +1462,6 @@ body.rtl .sharing li {
 
 .sidebar .menu li {
     list-style: none;
-    padding-left: 10px;
 }
 
 .sidebar .menu .page_item_has_children,.sidebar .menu .menu-item-has-children {
@@ -1479,7 +1482,6 @@ body.rtl .sharing li {
 
 .sidebar .menu ul.children,.sidebar .menu ul.sub-menu {
     background: #676767;
-    margin-left: -15px;
 }
 
 .sidebar .menu ul.children ul.children,.sidebar .menu ul.sub-menu ul.sub-menu {

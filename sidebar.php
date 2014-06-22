@@ -6,7 +6,7 @@
  */
 
 echo '<aside class="sidebar navbar-default">';
-echo '<div>';
+echo '<div class="sidebar-pad">';
 get_search_form();
 wp_nav_menu(array(
     'theme_location' => 'primary-menu'
