@@ -208,10 +208,6 @@ pre:before {
     margin: 40px auto;
 }
 
-#search_form {
-    padding: 45px 0 0 0;
-}
-
 .navbar-form,.navbar-form input,#search_form,#search_form input {
     color: #777777;
     font-weight: 200;
