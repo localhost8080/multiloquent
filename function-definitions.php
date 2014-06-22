@@ -122,9 +122,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
                 'superhero' => 'superhero',
                 'united' => 'united',
                 'yeti' => 'yeti',
-                
-                
-                
+
             ),
         ) );
     }
