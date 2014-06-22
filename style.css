@@ -99,7 +99,7 @@ h1,.h1 {
 
 footer {
     margin-bottom: 0 !important;
-    padding-bottom: 50px !important;
+    padding-bottom: 80px !important;
 }
 
 a {
@@ -1471,9 +1471,6 @@ body.rtl .sharing li {
     top: 10px;
 }
 
-footer {
-  padding-bottom: 80px !important;
-}
 
 .prev_link {
     border-radius: 10px 0 0 10px;
