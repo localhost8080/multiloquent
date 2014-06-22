@@ -29,21 +29,27 @@ if (have_posts()) {
         wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
         </div>
+        <?php 
+        get_template_part('advert');
+        ?>
 </div>
 <?php
-        get_template_part('advert');
+       
         get_template_part('social');
         if (comments_open()) {
             ?>
 <section class="container">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
-                    <?php comments_template(); ?>  
-         </div>
+                    <?php 
+                    comments_template();
+                    get_template_part('advert');
+                    ?>    
+    </div>
 </section>
 <?php
         }
-        get_template_part('advert');
+       
         ?>
 <section class="container">
     <div class="tagcloud">
@@ -68,9 +74,16 @@ if (have_posts()) {
         if (function_exists('related_posts')) {
             related_posts();
         }
-        next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
-        previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-        get_template_part('advert');
+        ?>
+                <section class="container">
+                <?php
+                get_template_part('advert');
+                ?>
+                </section><?php
+                
+        next_post_link('%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
+        previous_post_link('%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
+        
         echo '</div>';
     }
 } else {

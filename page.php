@@ -30,25 +30,37 @@ if (have_posts()) {
         wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
         ?>
         </div>
+        <?php
+        get_template_part('advert');
+        ?>
 </div>
 <?php
-        get_template_part('advert');
+        
         get_template_part('social');
         if (comments_open()) {
             ?>
 <section class="container">
     <div class="col-sm-12 col-md-12 col-lg-12">
         <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
-                    <?php comments_template(); ?>    
+                    <?php 
+                    comments_template();
+                    get_template_part('advert');
+                    ?>    
     </div>
 </section>
 <?php
         }
-        get_template_part('advert');
+        
         if (function_exists('related_posts')) {
             related_posts();
         }
+        ?>
+        <section class="container">
+        <?php
         get_template_part('advert');
+        ?>
+        </section>
+        <?php
         echo '</div>';
     }
 } else {
