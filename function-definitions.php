@@ -528,11 +528,12 @@ function multiloquent_get_random_solid_class($class = '')
     if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "bg-primary",
-            "alert-success",
-            "alert-warning",
-            "alert-info",
-            "alert-danger"
+            "label-primary",
+            "label-success",
+            "label-warning",
+            "label-info",
+            "label-danger",
+            "label-default",
         );
     } else {
         $input = array(
@@ -591,11 +592,12 @@ function multiloquent_get_random_blue_class()
     if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "bg-primary",
-            "alert-success",
-            "alert-warning",
-            "alert-info",
-            "alert-danger"
+            "label-primary",
+            "label-success",
+            "label-warning",
+            "label-info",
+            "label-danger",
+            "label-default",
         );
     } else {
         $input = array(
@@ -653,11 +655,12 @@ function multiloquent_get_random_colour_class($class = '')
     if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "bg-primary",
-            "alert-success",
-            "alert-warning",
-            "alert-info",
-            "alert-danger"
+            "label-primary",
+            "label-success",
+            "label-warning",
+            "label-info",
+            "label-danger",
+            "label-default",
         );
     } else {
         $input = array(
