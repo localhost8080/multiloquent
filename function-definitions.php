@@ -529,10 +529,10 @@ function multiloquent_get_random_solid_class($class = '')
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
             "bg-primary",
-            "bg-success",
-            "bg-warning",
-            "bg-info",
-            "bg-danger"
+            "alert-success",
+            "alert-warning",
+            "alert-info",
+            "alert-danger"
         );
     } else {
         $input = array(
@@ -592,10 +592,10 @@ function multiloquent_get_random_blue_class()
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
             "bg-primary",
-            "bg-success",
-            "bg-warning",
-            "bg-info",
-            "bg-danger"
+            "alert-success",
+            "alert-warning",
+            "alert-info",
+            "alert-danger"
         );
     } else {
         $input = array(
@@ -654,10 +654,10 @@ function multiloquent_get_random_colour_class($class = '')
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
             "bg-primary",
-            "bg-success",
-            "bg-warning",
-            "bg-info",
-            "bg-danger"
+            "alert-success",
+            "alert-warning",
+            "alert-info",
+            "alert-danger"
         );
     } else {
         $input = array(
