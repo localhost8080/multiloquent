@@ -1458,7 +1458,7 @@ body.rtl .sharing li {
 }
 
 .sidebar .menu .page_item_has_children:after,.sidebar .menu .menu-item-has-children:after {
-    content: "";
+    content: "";
     display: inline-block;
     font-family: FontAwesome;
     position: absolute;
