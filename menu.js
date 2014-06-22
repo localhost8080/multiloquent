@@ -26,11 +26,13 @@ jQuery('.sidebar-toggle').click(function() {
         jQuery('.next_link').hide();
         jQuery('.wrapper').css("overflow", "hidden");
         jQuery('.wrapper').css("margin-left", "300px");
+        jQuery('.wrapper').css("margin-right", "-300px");
         jQuery('.sidebar').css("margin-left", "0px");
     } else {
         // its already on the screen
         jQuery('.wrapper').css("margin-left", "0px");
         jQuery('.sidebar').css("margin-left", "-300px");
+        jQuery('.wrapper').css("margin-right", "0px");
         jQuery('.prev_link').show();
         jQuery('.next_link').show();
     }
