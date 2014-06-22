@@ -19,4 +19,6 @@
     ?>
 </head>
 <body <?php body_class();?>>
+    <div style="position:relative;">
     <div class="wrapper">
+   

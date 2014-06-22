@@ -4,7 +4,9 @@
  * 
  * @package multiloquent\template_parts
  */
-
+?>
+</div>
+<?php
 get_sidebar();
 ?>
 </div>
