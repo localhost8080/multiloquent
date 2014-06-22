@@ -1580,3 +1580,9 @@ body.rtl .sharing li {
     white-space: nowrap;
     overflow: hidden;
 }
+
+.holder{
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}

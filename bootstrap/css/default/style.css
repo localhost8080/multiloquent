@@ -3,12 +3,8 @@ Theme Name: multiloquent
 Theme URI: http://jonathansblog.co.uk/multiloquent
 Author: Jonathan
 Author URI: http://jonathansblog.co.uk
-Description: multiloquent html5 / bootstrap theme - a theme with 10 dynamic sidebars in various locations using twitter bootstrap complete with yaarp related posts theme, dynamic top10 front page featured posts, fontawesome icons, category index page template, tag index page template and 3 post templates. Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. Version 6.4.0 adds support for custom header images
-Version: 6.4.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: custom-header, sticky-post, custom-colors, light, editor-style, gray, white, one-column, two-columns, right-sidebar, custom-menu, featured-images, fluid-layout, responsive-layout, full-width-template, microformats, post-formats
-Text Domain: multiloquent
 This theme, like WordPress, is licensed under the GPL.
 the theme uses bootstrap: http://getbootstrap.com v3.0.4 - Apache-20 Licence http://www.apache.org/licenses/LICENSE-2.0
 the theme uses font-awesome: http://fontawesome.io - SiL Open Font Licence http://scripts.sil.org/OFL
@@ -1606,4 +1602,10 @@ body.rtl .sharing li {
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.holder{
+    width:100%;
+    position:relative;
+    overflow:hidden;
 }

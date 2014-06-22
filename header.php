@@ -19,6 +19,6 @@
     ?>
 </head>
 <body <?php body_class();?>>
-    <div style="position:relative;">
+    <div class="holder">
     <div class="wrapper">
    
