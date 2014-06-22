@@ -12,7 +12,7 @@
         <input type="text" id="s" name="s" autocomplete="off" placeholder="Search" class="form-control"> 
         <input type="hidden" value="the_search_text" name="action">
         <span class="input-group-btn">
-            <span class="btn btn-default"><label title="search" for="s" class="add-on">Go!</label></span>
+            <label title="search" for="s" class="btn btn-default">Go!</label>
         </span>
     </div>   
 </form>
