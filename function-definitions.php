@@ -133,6 +133,28 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
 }
 
 /**
+ * return true if there is a bootswatch other than the default one and a value is set against the checked item,
+ * or if the value is set and its not the default value [we might need to use the default values if they have a
+ * different bootswatch theme set]
+ * ie, if bootswatch is set to 'darkly' and the multiloquent_navbar is set to the default value, show it
+ * or if the bootswatch is set to the default value and the multiloquent_navbar is not the default value, show it
+ * or if the bootswatch is set to the default value and the multiloquent_navbar is the default value, dont show it
+ *
+ * @param string $item            
+ * @param string $default_value            
+ * @param object $mods            
+ * @return boolean
+ */
+function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
+{
+    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || (! empty($mods[$item]) && $mods[$item] != $default_value)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
  * outputs the custom css for the wp customise API
  *
  * @internal internal
@@ -141,61 +163,58 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
  */
 function multiloquent_customize_css()
 {
-
-    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+    
+    $output = '';
     $mods = get_theme_mods();
-    echo '<style type="text/css">';
-    // only show if there is a bootswatch other than the default one and a value is set, 
-    // or if the value is set and its not the default value [we might need to use the default values if they have a different bootswatch theme set]
-    // ie, if bootswatch is set to 'darkly' and the multiloquent_navbar is set to the default value, show it
-    // or if the bootswatch is set to the default value and the multiloquent_navbar is not the default value, show it
-    // or if the bootswatch is set to the default value and the multiloquent_navbar is the default value, dont show it
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods['mulitloquent_navbar'])) || (! empty($mods['mulitloquent_navbar']) && $mods['mulitloquent_navbar'] != '#F8F8F8')) {
-        echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
-        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_navbar', '#F8F8F8', $mods)) {
+        $output .= '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
+        $output .= 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods['mulitloquent_navbar_text'])) || (! empty($mods['mulitloquent_navbar_text']) && $mods['mulitloquent_navbar_text'] != '#777777')) {
-        echo '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
+        $output .= '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods['mulitloquent_background_colour'])) || (! empty($mods['mulitloquent_background_colour']) && $mods['mulitloquent_background_colour'] != '#FFFFFF')) {
-        echo '.wrapper,.featured-posts { ';
-        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_background_colour', '#FFFFFF', $mods)) {
+        $output .= '.wrapper,.featured-posts { ';
+        $output .= 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_background_text_colour'])) || (! empty($mods['mulitloquent_background_text_colour']) && $mods['mulitloquent_background_text_colour'] != '#333333')) {
-        echo '.wrapper,.featured-posts { ';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
+        $output .= '.wrapper,.featured-posts { ';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_slideout_menu_colour'])) || (! empty($mods['mulitloquent_slideout_menu_colour']) && $mods['mulitloquent_slideout_menu_colour'] != '#333333')) {
-        echo 'body {';
-        echo 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_slideout_menu_colour', '#333333', $mods)) {
+        $output .= 'body {';
+        $output .= 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_background_text_colour'])) || (! empty($mods['mulitloquent_background_text_colour']) && $mods['mulitloquent_background_text_colour'] != '#333333')) {
-        echo 'body {';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
+        $output .= 'body {';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_slideout_text_colour'])) || (! empty($mods['mulitloquent_slideout_text_colour']) && $mods['mulitloquent_slideout_text_colour'] != '#FFFFFF')) {
-        echo '.sidebar,.sidebar a {';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_slideout_text_colour', '#FFFFFF', $mods)) {
+        $output .= '.sidebar,.sidebar a {';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_navbar_text']) ) || (! empty($mods['mulitloquent_navbar_text']) && $mods['mulitloquent_navbar_text'] != '#777777')) {
-        echo '.jumbotron .nav-header,.well .nav-header {';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
+        $output .= '.jumbotron .nav-header,.well .nav-header {';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
+        $output .= '}' . "\r\n";
     }
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods['mulitloquent_navbar_link'])) || (! empty($mods['mulitloquent_navbar_link']) && $mods['mulitloquent_navbar_link'] != '#777777')) {
-        echo '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
-        echo 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
-        echo '}' . "\r\n";
+    if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_link', '#777777', $mods)) {
+        $output .= '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
+        $output .= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
+        $output .= '}' . "\r\n";
     }
-    echo '</style>';
+    // if there is any output, render it
+    if (! empty($output)) {
+        echo '<style type="text/css">' . $output . '</style>';
+    }
 }
 
 /**
