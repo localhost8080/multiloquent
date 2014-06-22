@@ -1414,14 +1414,13 @@ body.rtl .sharing li {
     position: absolute;
     top: 50px;
     width: 300px;
-    color: #fff;
     overflow-x: hidden;
     transition: all 0.2s linear 0s;
     margin-left: -300px;
 }
 
 .sidebar a {
-    color: #fff;
+  
 }
 
 .navbar-fixed-top,.navbar-fixed-bottom {
