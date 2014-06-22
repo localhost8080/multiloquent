@@ -1586,3 +1586,6 @@ body.rtl .sharing li {
     position:relative;
     overflow:hidden;
 }
+.sidebar.breadcrumb {
+  font-size: 1em;
+}
