@@ -1609,3 +1609,6 @@ body.rtl .sharing li {
     position:relative;
     overflow:hidden;
 }
+#search_form{
+    margin-top:30px;
+}

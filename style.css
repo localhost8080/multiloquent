@@ -1589,3 +1589,7 @@ body.rtl .sharing li {
 .sidebar.breadcrumb {
   font-size: 1em;
 }
+
+#search_form{
+    margin-top:30px;
+}
