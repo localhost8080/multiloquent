@@ -653,9 +653,10 @@ h3.nowrap {
     margin-top: 4px;
 }
 
-.navbar{
-    height:50px;
+.navbar {
+    height: 50px;
 }
+
 .thumbnail .featured-image {
     width: 100%;
 }
@@ -1469,7 +1470,6 @@ body.rtl .sharing li {
     top: 10px;
 }
 
-}
 .prev_link {
     border-radius: 10px 0 0 10px;
     position: fixed;
