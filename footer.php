@@ -4,10 +4,11 @@
  * 
  * @package multiloquent\template_parts
  */
+
+get_sidebar();
 ?>
 </div>
 <?php
-get_sidebar();
 get_template_part('navigation');
 if (empty($hide_the_footer_links)) {
     ?>
