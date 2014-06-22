@@ -158,14 +158,7 @@ blockquote {
 }
 
 code {
-    background-color: #F7F7F9;
-    border: 1px solid #E1E1E8;
-    color: #DD1144;
-    display: block;
-    padding: 2px 4px;
-    white-space: pre-wrap;
-    word-break: break-all;
-    word-wrap: break-word;
+    
 }
 
 pre:before {
@@ -190,11 +183,10 @@ pre:before {
 }
 
 .nav-header {
-    color: #454545;
+    
 }
 
 .sidebar .nav-header {
-    color: #FFFFFF;
     padding-left: 20px;
 }
 
@@ -207,7 +199,6 @@ pre:before {
 }
 
 .navbar-form,.navbar-form input,#search_form,#search_form input {
-    color: #777777;
     font-weight: 200;
 }
 
