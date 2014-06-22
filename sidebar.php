@@ -5,8 +5,8 @@
  * @package multiloquent\template_parts
  */
 
-echo '<aside class="sidebar navbar-default">';
-echo '<div class="sidebar-pad">';
+echo '<aside class="sidebar breadcrumb">';
+echo '<div class="">';
 get_search_form();
 wp_nav_menu(array(
     'theme_location' => 'primary-menu'
