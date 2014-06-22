@@ -189,7 +189,7 @@ pre:before {
 }
 
 #search_form {
-    padding: 45px 0 0 20px;
+    padding: 45px 0 0 0;
 }
 
 .navbar-form,.navbar-form input,#search_form,#search_form input {
@@ -1405,10 +1405,6 @@ body.rtl .sharing li {
 
 .sidebar-pad{
     padding:15px;
-}
-
-.sidebar .nav-header {
-    padding-left: 20px;
 }
 
 .sidebar {
