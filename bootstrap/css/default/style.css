@@ -1441,6 +1441,7 @@ body.rtl .sharing li {
     overflow-x: hidden;
     transition: all 0.2s linear 0s;
     margin-left: -300px;
+    background:#333333;
 }
 
 .sidebar a {
