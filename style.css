@@ -433,6 +433,66 @@ ul {
     background: linear-gradient(to bottom, #DBDDDE 0%, #898C90 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 
+.swatch-red {
+    background-color: #FF3B30;
+}
+
+.swatch-orange {
+    background-color: #FF9500;
+}
+
+.swatch-yellow {
+    background-color: #FFCC00;
+}
+
+.swatch-green {
+    background-color: #4CD964;
+}
+
+.swatch-teal {
+    background-color: #34AADC;
+}
+
+.swatch-blue {
+    background-color: #007AFF;
+}
+
+.swatch-blue1 {
+    background-color: #0063cf;
+}
+
+.swatch-blue2 {
+    background-color: #004ea3;
+}
+
+.swatch-blue3 {
+    background-color: #003a7a;
+}
+
+.swatch-blue4 {
+    background-color: #002a59;
+}
+
+.swatch-blue5 {
+    background-color: #009559;
+}
+
+.swatch-violet {
+    background-color: #5856D6;
+}
+
+.swatch-pink {
+    background-color: #FF2D55;
+}
+
+.swatch-mid-gray {
+    background-color: #8E8E93;
+}
+
+.swatch-gray {
+    background-color: #C7C7CC;
+}
+
 .facebook {
     background-color: #000080;
 }
