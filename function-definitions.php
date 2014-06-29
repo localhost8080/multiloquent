@@ -899,9 +899,9 @@ function multiloquent_paralax_slider()
             // they have selected 'excerpt'
             $excerpt = '';
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
-            $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $val->ID));
+            $excerpt = apply_filters('the_excerpt', $val->post_excerpt);
             if (empty($excerpt)) {
-                $excerpt = wp_trim_words(get_post_field('post_content', $val->ID));
+                $excerpt = '<p>'.wp_trim_words($val->post_content).'<p>';
             }
             $output .= $excerpt;
         } else {
