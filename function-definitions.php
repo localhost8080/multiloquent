@@ -294,11 +294,7 @@ function multiloquent_menu()
  */
 function multiloquent_register()
 {
-    global $wp_customize;
-    $wp_customize->add_section('multiloquent_settings', array(
-        'title' => __('Multiloquent Settings', 'multiloquent'),
-        'priority' => 30
-    ));
+    
     // theme support
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
