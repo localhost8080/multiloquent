@@ -67,7 +67,8 @@ function multiloquent_featured_image_in_feed($content)
  */
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootsqatch', $wp_customize, 'colors');
+    multiloquent_register_and_generate_custom_control('paralax_featured', 'homepage paralax featured posts', 'default', 'paralax_featured', $wp_customize, 'multiloquent_settings');
+    multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
@@ -130,6 +131,17 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             )
         ));
     }
+    if ($setting_type == 'paralax_featured') {
+        $wp_customize->add_control($setting_name, array(
+            'label' => 'Select Featured posts style:',
+            'section' => $section,
+            'type' => 'select',
+            'choices' => array(
+                'Show Tags' => 'tags',
+                'Show Excerpt' => 'excerpt'
+            )
+        ));
+    }
 }
 
 /**
@@ -163,7 +175,6 @@ function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
  */
 function multiloquent_customize_css()
 {
-    
     $output = '';
     $mods = get_theme_mods();
     if (multiloquent_check_theme_mod_colour('mulitloquent_navbar', '#F8F8F8', $mods)) {
@@ -283,6 +294,10 @@ function multiloquent_menu()
  */
 function multiloquent_register()
 {
+    $wp_customize->add_section('multiloquent_settings', array(
+        'title' => __('Multiloquent Settings', 'multiloquent'),
+        'priority' => 30
+    ));
     // theme support
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
@@ -879,12 +894,19 @@ function multiloquent_paralax_slider()
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '<p>';
-        $posttags = wp_get_post_tags($val->ID);
-        if ($posttags) {
-            foreach ($posttags as $tag) {
-                $output .= '<a class="label ';
-                $output .= multiloquent_get_random_solid_class($tag->slug);
-                $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+        // check if they have selected tags or excerpt
+        $mods = get_theme_mods();
+        if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags') {
+            // they have selected 'excerpt'
+            $output .= get_the_excerpt();
+        } else {
+            $posttags = wp_get_post_tags($val->ID);
+            if ($posttags) {
+                foreach ($posttags as $tag) {
+                    $output .= '<a class="label ';
+                    $output .= multiloquent_get_random_solid_class($tag->slug);
+                    $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                }
             }
         }
         $output .= '</p></div>';
