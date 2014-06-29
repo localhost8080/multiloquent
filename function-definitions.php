@@ -896,7 +896,7 @@ function multiloquent_paralax_slider()
         $output .= '<p>';
        
         // get tags function call in here
-        multiloquent_render_tags($val);
+        $output .= multiloquent_render_tags($val);
         
         $output .= '</p>';
         $output .= '</div>';
@@ -1026,7 +1026,7 @@ function multiloquent_render_the_archive($colour)
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
-    	<?php multiloquent_render_tags($post);?>
+    	<?php echo multiloquent_render_tags($post);?>
     	</p>
     </div>
 </div>
@@ -1034,12 +1034,12 @@ function multiloquent_render_the_archive($colour)
 }
 
 /**
- * renders the tags for the supplied post id
+ * renders the tags or the excerpt for the supplied post id, depending on the setting in the wp_customize setting
  *
  * @api
  *
- * @param int $post_id            
- * @todo make this return rather than echo
+ * @param object $post 
+ * @param bool $force_tags (set to true to force tag output)           
  */
 function multiloquent_render_tags($val, $force_tags = 0)
 {
@@ -1067,5 +1067,5 @@ function multiloquent_render_tags($val, $force_tags = 0)
         }
     
     }
-    
+    return $output;
 }
