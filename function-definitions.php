@@ -298,7 +298,6 @@ function multiloquent_menu()
  */
 function multiloquent_register()
 {
-    
     // theme support
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
@@ -894,17 +893,19 @@ function multiloquent_paralax_slider()
             $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
-        $output .= '<p>';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
         if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags') {
             // they have selected 'excerpt'
-            
             $excerpt = '';
-            //$excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
+            // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $val->ID));
+            if (empty($excerpt)) {
+                $excerpt = wp_trim_words(get_post_field('post_content', $val->ID));
+            }
             $output .= $excerpt;
         } else {
+            $output .= '<p>';
             $posttags = wp_get_post_tags($val->ID);
             if ($posttags) {
                 foreach ($posttags as $tag) {
@@ -913,8 +914,9 @@ function multiloquent_paralax_slider()
                     $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
                 }
             }
+            $output .= '</p>';
         }
-        $output .= '</p></div>';
+        $output .= '</div>';
         $output .= '</div>';
         $count ++;
     }
