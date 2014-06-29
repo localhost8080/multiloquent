@@ -9,6 +9,7 @@
   Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
   Version 6.4.0 adds support for custom header images
   Version 7.0.0 adds support for bootswatch themes via the customisation panel
+  Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
