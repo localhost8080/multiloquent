@@ -67,7 +67,11 @@ function multiloquent_featured_image_in_feed($content)
  */
 function multiloquent_customize_register($wp_customize)
 {
-    multiloquent_register_and_generate_custom_control('paralax_featured', 'homepage paralax featured posts', 'default', 'paralax_featured', $wp_customize, 'multiloquent_settings');
+    $wp_customize->add_section('multiloquent_settings', array(
+        'title' => __('Multiloquent Settings', 'multiloquent'),
+        'priority' => 30
+    ));
+    multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
     multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
