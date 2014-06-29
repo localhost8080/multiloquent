@@ -895,17 +895,18 @@ function multiloquent_paralax_slider()
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
+        $output .= '<p>';
         if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags') {
             // they have selected 'excerpt'
             $excerpt = '';
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
-            $excerpt = apply_filters('the_excerpt', $val->post_excerpt);
+            $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
             if (empty($excerpt)) {
                 $excerpt = wp_trim_words($val->post_content);
             }
             $output .= $excerpt;
         } else {
-            $output .= '<p>';
+            
             $posttags = wp_get_post_tags($val->ID);
             if ($posttags) {
                 foreach ($posttags as $tag) {
@@ -914,8 +915,9 @@ function multiloquent_paralax_slider()
                     $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
                 }
             }
-            $output .= '</p>';
+            
         }
+        $output .= '</p>';
         $output .= '</div>';
         $output .= '</div>';
         $count ++;
