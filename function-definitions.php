@@ -899,7 +899,8 @@ function multiloquent_paralax_slider()
         $mods = get_theme_mods();
         if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags') {
             // they have selected 'excerpt'
-            $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $val->ID));
+            //$excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $val->ID));
+            $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $output .= $excerpt;
         } else {
             $posttags = wp_get_post_tags($val->ID);
