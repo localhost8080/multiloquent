@@ -893,30 +893,11 @@ function multiloquent_paralax_slider()
             $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
-        // check if they have selected tags or excerpt
-        $mods = get_theme_mods();
         $output .= '<p>';
-        if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags') {
-            // they have selected 'excerpt'
-            $excerpt = '';
-            // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
-            $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
-            if (empty($excerpt)) {
-                $excerpt = wp_trim_words($val->post_content);
-            }
-            $output .= $excerpt;
-        } else {
-            
-            $posttags = wp_get_post_tags($val->ID);
-            if ($posttags) {
-                foreach ($posttags as $tag) {
-                    $output .= '<a class="label ';
-                    $output .= multiloquent_get_random_solid_class($tag->slug);
-                    $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
-                }
-            }
-            
-        }
+       
+        // get tags function call in here
+        multiloquent_render_tags($val);
+        
         $output .= '</p>';
         $output .= '</div>';
         $output .= '</div>';
@@ -1045,7 +1026,7 @@ function multiloquent_render_the_archive($colour)
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
         <p>
-    	<?php multiloquent_render_tags($id);?>
+    	<?php multiloquent_render_tags($post);?>
     	</p>
     </div>
 </div>
@@ -1060,14 +1041,31 @@ function multiloquent_render_the_archive($colour)
  * @param int $post_id            
  * @todo make this return rather than echo
  */
-function multiloquent_render_tags($post_id)
+function multiloquent_render_tags($val, $force_tags = 0)
 {
-    $posttags = wp_get_post_tags($post_id);
-    if ($posttags) {
-        foreach ($posttags as $tag) {
-            echo '<a class="label ';
-            echo multiloquent_get_random_solid_class($tag->slug);
-            echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+    $output = '';
+    // check if they have selected tags or excerpt
+    $mods = get_theme_mods();
+    
+    if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags' && empty($force_tags)) {
+        // they have selected 'excerpt'
+        $excerpt = '';
+        // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
+        $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
+        if (empty($excerpt)) {
+            $excerpt = wp_trim_words($val->post_content);
         }
+        $output .= $excerpt;
+    } else {
+        $posttags = wp_get_post_tags($val->ID);
+        if ($posttags) {
+            foreach ($posttags as $tag) {
+                $output .= '<a class="label ';
+                $output .= multiloquent_get_random_solid_class($tag->slug);
+                $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+            }
+        }
+    
     }
+    
 }

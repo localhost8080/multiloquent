@@ -40,7 +40,7 @@ if (have_posts()) {
             <div class="tag-cloud">
                 <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
                 <div>
-                    <?php multiloquent_render_tags($id);?>
+                    <?php multiloquent_render_tags($post, 1);?>
                 </div>
             </div>
         </div>
