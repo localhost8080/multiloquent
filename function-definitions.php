@@ -13,7 +13,7 @@
  */
 function multiloquent_version()
 {
-    $version = '7.1.0';
+    $version = '7.1.1';
     return $version;
 }
 
@@ -141,8 +141,9 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             'section' => $section,
             'type' => 'select',
             'choices' => array(
-                'Show Tags' => 'tags',
-                'Show Excerpt' => 'excerpt'
+                'empty' => 'empty',
+                'default' => 'tags',
+                'excerpt' => 'excerpt'
             )
         ));
     }
@@ -321,6 +322,7 @@ function multiloquent_register()
     add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
     add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
     add_filter('get_avatar', 'multiloquent_get_avatar');
+    add_filter('widget_text', 'do_shortcode');
     // misc
     if (is_admin()) {
         add_editor_style('style.css');
@@ -894,10 +896,8 @@ function multiloquent_paralax_slider()
         }
         $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes(multiloquent_post_title($val->ID))) . '</a></span>';
         $output .= '<p>';
-       
         // get tags function call in here
         $output .= multiloquent_render_tags($val);
-        
         $output .= '</p>';
         $output .= '</div>';
         $output .= '</div>';
@@ -1038,16 +1038,16 @@ function multiloquent_render_the_archive($colour)
  *
  * @api
  *
- * @param object $post 
- * @param bool $force_tags (set to true to force tag output)           
+ * @param object $post            
+ * @param bool $force_tags
+ *            (set to true to force tag output)
  */
 function multiloquent_render_tags($val, $force_tags = 0)
 {
     $output = '';
     // check if they have selected tags or excerpt
     $mods = get_theme_mods();
-    
-    if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] != 'tags' && empty($force_tags)) {
+    if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
         // they have selected 'excerpt'
         $excerpt = '';
         // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
@@ -1056,6 +1056,8 @@ function multiloquent_render_tags($val, $force_tags = 0)
             $excerpt = wp_trim_words($val->post_content);
         }
         $output .= $excerpt;
+    } elseif (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+        // dont output anything, leave the tags thing empty
     } else {
         $posttags = wp_get_post_tags($val->ID);
         if ($posttags) {
@@ -1065,7 +1067,6 @@ function multiloquent_render_tags($val, $force_tags = 0)
                 $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
-    
     }
     return $output;
 }
