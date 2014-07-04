@@ -6,3 +6,11 @@ php:
 notifications:
   slack: jonathansblog:xcTlLtSp7QrTmEjxjH9Jq3bR
   email: false
+
+install:
+ - pyrus install http://phptal.org/latest.tar.gz
+ - pear install pear/PHP_CodeSniffer
+ - phpenv rehash
+ 
+script:
+ - phpcs --extensions=php --standard=PSR2
