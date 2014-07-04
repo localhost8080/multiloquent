@@ -27,4 +27,3 @@ if (has_post_thumbnail()) {
     <figcaption>
     <span class="fa fa-comment-o fa-fw"></span> <?php echo multiloquent_post_title(); ?></figcaption>
 </figure>
-
