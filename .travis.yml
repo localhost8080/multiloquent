@@ -1,2 +1,13 @@
+language: php
+php:
+  - 5.5
+  - 5.4
+
+  
+pyrus install pear/PHP_CodeSniffer
+phpenv rehash
+script: phpcs --standard=PSR2
+
+
 notifications:
   slack: jonathansblog:xcTlLtSp7QrTmEjxjH9Jq3bR
