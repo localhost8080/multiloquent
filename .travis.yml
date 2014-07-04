@@ -13,4 +13,4 @@ install:
  - phpenv rehash
  
 script:
- - phpcs --extensions=php --standard=PSR2
+ - phpcs --extensions=php --standard=PSR2 .
