@@ -15,4 +15,4 @@ install:
  - phpenv rehash
  
 script:
- - phpcs --extensions=php --standard=WordPress .
+ - phpcs --extensions=php --standard=$(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress .
