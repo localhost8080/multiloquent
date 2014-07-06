@@ -22,7 +22,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 </div>
 <!-- google_ad_section_end-->
 <p class="lead text-center">Featured Posts</p>
-<?php echo esc_attr( multiloquent_paralax_slider() );?>
+<?php multiloquent_paralax_slider();?>
 <div class="container">
     <?php get_template_part( 'advert' );?>
 </div>

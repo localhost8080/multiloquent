@@ -907,7 +907,7 @@ function multiloquent_paralax_slider( )
         $count ++;
     }
     $output .= '</div>';
-    return $output;
+    echo $output;
 }
 
 /**

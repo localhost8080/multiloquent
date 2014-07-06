@@ -15,7 +15,7 @@ if ( have_posts() ) {
     </div>
 </div>
 <?php
-    echo esc_attr( multiloquent_paralax_slider() );
+    multiloquent_paralax_slider();
     ?>
 <p class="lead text-center">Recent Posts</p>
 <section class="container post">
