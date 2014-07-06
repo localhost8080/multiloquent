@@ -21,3 +21,4 @@ script:
 notifications:
   slack: jonathansblog:xcTlLtSp7QrTmEjxjH9Jq3bR
   email: false:
+
