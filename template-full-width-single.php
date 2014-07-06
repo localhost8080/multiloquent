@@ -62,7 +62,7 @@ if (have_posts()) {
                 // if($tag->count > 5){
                 echo '<a class="label ';
                 echo multiloquent_get_random_solid_class($tag->slug);
-                echo '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="icon-tag icon-white"></span> ' . $tag->name . '</a>';
+                echo '" href="' . get_tag_link($tag->term_id) . '"><span class="icon-tag icon-white"></span> ' . $tag->name . '</a>';
                 // }
             }
         }

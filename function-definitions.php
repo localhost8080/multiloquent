@@ -1064,7 +1064,7 @@ function multiloquent_render_tags($val, $force_tags = 0)
             foreach ($posttags as $tag) {
                 $output .= '<a class="label ';
                 $output .= multiloquent_get_random_solid_class($tag->slug);
-                $output .= '" rel="nofollow" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
+                $output .= '" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
             }
         }
     }
