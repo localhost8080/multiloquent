@@ -11,6 +11,7 @@
  * @internal internal
  * @return string
  */
+
 function multiloquent_version()
 {
     $version = '7.1.1';
@@ -30,11 +31,12 @@ function multiloquent_version()
  *            name of file to include, excluding .php extension
  * @global object $post the wordpress post object
  */
-function multiloquent_get_template_part($file)
+
+function multiloquent_get_template_part( $file )
 {
     // needed for the included files...
     global $post;
-    require_once (trailingslashit(get_template_directory()) . $file . '.php');
+    require_once ( trailingslashit(get_template_directory( ) ) . $file . '.php');
 }
 
 /**
@@ -44,14 +46,14 @@ function multiloquent_get_template_part($file)
  * @param string $content            
  * @return string
  */
-function multiloquent_featured_image_in_feed($content)
+function multiloquent_featured_image_in_feed( $content )
 {
     global $post;
-    if (is_feed()) {
-        if (has_post_thumbnail($post->ID)) {
-            $output = get_the_post_thumbnail($post->ID, 'medium', array(
-                'style' => 'float:right; margin:0 0 10px 10px;'
-            ));
+    if ( is_feed( ) ) {
+        if ( has_post_thumbnail( $post->ID ) ) {
+            $output = get_the_post_thumbnail( $post->ID, 'medium', array(
+                'style' => 'float:right; margin:0 0 10px 10px;',
+            ) );
             $content = $output . $content;
         }
     }
