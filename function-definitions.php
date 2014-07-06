@@ -5,13 +5,14 @@
  * @todo - make this oo
  * @package multiloquent\functions
  */
+
+
 /**
  * Returns the current multiloquent version number
  *
  * @internal internal
  * @return string
  */
-
 function multiloquent_version( )
 {
     $version = '7.1.1';
@@ -31,7 +32,6 @@ function multiloquent_version( )
  *            name of file to include, excluding .php extension
  * @global object $post the wordpress post object
  */
-
 function multiloquent_get_template_part( $file )
 {
     // needed for the included files...
