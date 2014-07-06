@@ -5,4 +5,4 @@
  * 
  * @package multiloquent\template_parts
  */
-echo multiloquent_paralax_featured_sliders();
+echo esc_attr( multiloquent_paralax_featured_sliders() );

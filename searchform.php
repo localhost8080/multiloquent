@@ -7,7 +7,7 @@
  */
 
 ?>
-<form action="<?php echo esc_url(home_url('/')); ?>" id="search_form" class="mb">
+<form action="<?php echo esc_url( home_url( '/' ) ); ?>" id="search_form" class="mb">
     <div class="input-group">
 
         <input type="text" id="s" name="s" autocomplete="off" placeholder="Search" class="form-control"> 

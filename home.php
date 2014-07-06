@@ -5,7 +5,7 @@
  * @package multiloquent\template_parts
  */
 get_header();
-if (have_posts()) {
+if ( have_posts() ) {
     ?>
 <div class="jumbotron">
     <div class="container">
@@ -15,32 +15,32 @@ if (have_posts()) {
     </div>
 </div>
 <?php
-    echo multiloquent_paralax_slider();
+    echo esc_attr( multiloquent_paralax_slider() );
     ?>
 <p class="lead text-center">Recent Posts</p>
 <section class="container post">
 		<?php
     $colour = multiloquent_get_random_blue_class();
-    while (have_posts()) {
+    while ( have_posts() ) {
         the_post();
-        multiloquent_render_the_archive($colour);
+        multiloquent_render_the_archive( $colour );
     }
     ?>
 </section>
 <section class="container post">
-			<?php get_template_part('advert');?>
+			<?php get_template_part( 'advert' );?>
 </section>
 <div class="container post">
     <nav class="navitems text-center">
         <ul class="pagination">
-            <li><?php previous_posts_link('Previous Entries') ?></li>
-            <li><?php next_posts_link('Next Entries') ?></li>
+            <li><?php previous_posts_link( 'Previous Entries' ) ?></li>
+            <li><?php next_posts_link( 'Next Entries' ) ?></li>
         </ul>
     </nav>
 </div>
 <?php } else { ?>
 <div class="container post">  
-		<?php  get_template_part('error-snippet');?>
+		<?php  get_template_part( 'error-snippet' );?>
 </div>
 <?php
 }
