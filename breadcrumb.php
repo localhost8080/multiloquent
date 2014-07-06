@@ -8,7 +8,7 @@
 <nav class="container hidden-xs">
     <ul class="breadcrumb clearfix">
 		<?php
-echo esc_attr( multiloquent_breadcrumbs() );
+multiloquent_breadcrumbs();
 get_template_part( 'metadata' );
 ?>
 	</ul>

@@ -517,7 +517,7 @@ function multiloquent_breadcrumbs( )
     if ( is_year( ) ) {
         $return .= get_the_time( 'Y' ) . '</li>';
     }
-    return $return;
+    echo $return;
 }
 
 /**
