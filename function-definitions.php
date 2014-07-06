@@ -1029,7 +1029,7 @@ function multiloquent_render_the_archive( $colour )
     <div class="paralax_image_text">
         <span class="h1"><a href="<?php the_permalink( ); ?>"><?php  echo esc_attr( multiloquent_post_title( ) );?></a></span>
         <p>
-    	<?php echo esc_attr( multiloquent_render_tags( $post ) );?>
+    	<?php echo multiloquent_render_tags( $post );?>
     	</p>
     </div>
 </div>
