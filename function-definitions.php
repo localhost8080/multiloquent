@@ -978,7 +978,7 @@ function multiloquent_paralax_featured_sliders( )
         $count ++;
     }
     $output .= '</div>';
-    return $output;
+    echo $output;
 }
 
 /**
