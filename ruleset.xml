@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+    <description>Wordpress, but without linelength check.</description>
+    <rule ref="WordPress">
+	<exclude name="Generic.Files.LineLength"/>
+	<exclude name="Generic.WhiteSpace.ScopeIndent"/>
+	<exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+	<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
+	<exclude name="WordPress.WhiteSpace.PhpIndent"/>
+	<exclude name="WordPress.WhiteSpace.ScopeIndent"/>
+    </rule>
+</ruleset>
