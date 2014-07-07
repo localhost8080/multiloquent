@@ -50,7 +50,7 @@ function multiloquent_featured_image_in_feed($content)
     if (is_feed()) {
         if (has_post_thumbnail($post->ID)) {
             $output = get_the_post_thumbnail($post->ID, 'medium', array(
-                'style' => 'float:right; margin:0 0 10px 10px;'
+                'style' => 'float:right; margin:0 0 10px 10px;',
             ));
             $content = $output . $content;
         }
@@ -69,7 +69,7 @@ function multiloquent_customize_register($wp_customize)
 {
     $wp_customize->add_section('multiloquent_settings', array(
         'title' => __('Multiloquent Settings', 'multiloquent'),
-        'priority' => 30
+        'priority' => 30,
     ));
     multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
     multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
@@ -100,13 +100,13 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
     $wp_customize->add_setting($setting_name, array(
         'default' => $default,
         'transport' => 'refresh',
-        'sanitize_callback' => 'esc_attr'
+        'sanitize_callback' => 'esc_attr',
     ));
     if ($setting_type == 'colour') {
         $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
             'label' => $label,
             'section' => $section,
-            'settings' => $setting_name
+            'settings' => $setting_name,
         )));
     }
     if ($setting_type == 'bootswatch') {
@@ -131,7 +131,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
                 'spacelab' => 'spacelab',
                 'superhero' => 'superhero',
                 'united' => 'united',
-                'yeti' => 'yeti'
+                'yeti' => 'yeti',
             )
         ));
     }
@@ -143,7 +143,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
             'choices' => array(
                 'empty' => 'empty',
                 'default' => 'tags',
-                'excerpt' => 'excerpt'
+                'excerpt' => 'excerpt',
             )
         ));
     }
@@ -164,7 +164,7 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
  */
 function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
 {
-    if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || (! empty($mods[$item]) && $mods[$item] != $default_value)) {
+    if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[ $item ])) || ( ! empty($mods[ $item ]) && $mods[ $item ] != $default_value)) {
         return true;
     } else {
         return false;
@@ -228,7 +228,7 @@ function multiloquent_customize_css()
         $output .= '}' . "\r\n";
     }
     // if there is any output, render it
-    if (! empty($output)) {
+    if ( ! empty($output)) {
         echo '<style type="text/css">' . $output . '</style>';
     }
 }
@@ -267,7 +267,7 @@ function multiloquent_stylesheet_method()
 {
     // todo - make is use the default one if none are set
     $mods = get_theme_mods();
-    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+    if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
         wp_enqueue_style('style', get_stylesheet_uri());
     } else {
@@ -307,7 +307,7 @@ function multiloquent_register()
         'width' => 1800,
         'height' => 600,
         'default-image' => get_template_directory_uri() . '/images/default-slider.png',
-        'uploads' => true
+        'uploads' => true,
     );
     add_theme_support('custom-header', $args);
     // actions
@@ -330,7 +330,7 @@ function multiloquent_register()
     multiloquent_menu();
     set_post_thumbnail_size(605, 100);
     add_image_size('featured-post-thumbnail', 605, 100);
-    if (! isset($content_width)) {
+    if ( ! isset($content_width)) {
         $content_width = 900;
     }
     // sidebars
@@ -344,7 +344,7 @@ function multiloquent_register()
         '7' => 'footer top right',
         '8' => 'social media',
         '9' => 'footer bottom left',
-        '10' => 'footer bottom right'
+        '10' => 'footer bottom right',
     );
     multiloquent_generate_sidebars($sidebars);
 }
@@ -366,7 +366,7 @@ function multiloquent_generate_sidebars($array)
             'after_widget' => '',
             'before_title' => '<p class="nav-header">',
             'after_title' => '</p>',
-            'class' => ''
+            'class' => '',
         );
         register_sidebar($args);
     }
@@ -383,7 +383,7 @@ function multiloquent_generate_sidebars($array)
 function multiloquent_remove_hentry_function($classes)
 {
     if (($key = array_search('hentry', $classes)) !== false) {
-        unset($classes[$key]);
+        unset($classes[ $key ]);
     }
     return $classes;
 }
@@ -448,7 +448,7 @@ function multiloquent_add_tag_class($taglinks)
  */
 function multiloquent_post_title($post_id = '')
 {
-    if (! empty($post_id)) {
+    if ( ! empty($post_id)) {
         $the_title = get_the_title($post_id);
     } else {
         $the_title = get_the_title();
@@ -484,7 +484,7 @@ function multiloquent_breadcrumbs()
     global $post;
     $return = '';
     // $image_url = get_template_directory_uri() ;
-    if (! is_home()) {
+    if ( ! is_home()) {
         $return .= '<li><a href="';
         $return .= home_url();
         $return .= '">';
@@ -550,8 +550,8 @@ function multiloquent_render_pagingation()
             'tax_query' => array(
                 array(
                     'taxonomy' => 'categorias',
-                    'field' => 'slug'
-                )
+                    'field' => 'slug',
+                ),
             )
         ));
     }
@@ -569,53 +569,53 @@ function multiloquent_render_pagingation()
 function multiloquent_get_random_solid_class($class = '')
 {
     $mods = get_theme_mods();
-    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+    if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "label-primary",
-            "label-success",
-            "label-warning",
-            "label-info",
-            "label-danger",
-            "label-default"
+            'label-primary',
+            'label-success',
+            'label-warning',
+            'label-info',
+            'label-danger',
+            'label-default',
         );
     } else {
         $input = array(
-            "swatch-red",
-            "swatch-orange",
-            "swatch-yellow",
-            "swatch-green",
-            "swatch-teal",
-            "swatch-blue",
-            "swatch-violet",
-            "swatch-pink",
-            "swatch-mid-gray",
-            "swatch-gray"
+            'swatch-red',
+            'swatch-orange',
+            'swatch-yellow',
+            'swatch-green',
+            'swatch-teal',
+            'swatch-blue',
+            'swatch-violet',
+            'swatch-pink',
+            'swatch-mid-gray',
+            'swatch-gray',
         );
     }
     $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
+        'phone',
+        'appstore',
+        'calculator',
+        'compass',
+        'itunes',
+        'mail',
+        'music',
+        'weather',
+        'maps',
+        'videos',
+        'notes',
+        'reminders',
+        'calendar',
+        'facebook',
+        'google',
+        'twitter',
+        'linkedin',
+        'finder',
+        'safari',
+        'firefox',
     );
-    if (! empty($class) && in_array($class, $apps)) {
+    if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
@@ -633,51 +633,51 @@ function multiloquent_get_random_solid_class($class = '')
 function multiloquent_get_random_blue_class()
 {
     $mods = get_theme_mods();
-    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+    if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "label-primary",
-            "label-success",
-            "label-warning",
-            "label-info",
-            "label-danger",
-            "label-default"
+            'label-primary',
+            'label-success',
+            'label-warning',
+            'label-info',
+            'label-danger',
+            'label-default',
         );
     } else {
         $input = array(
-            "swatch-blue1",
-            "swatch-blue2",
-            "swatch-blue3",
-            "swatch-blue4",
-            "swatch-blue5",
-            "swatch-blue",
-            "swatch-gray",
-            "swatch-violet"
+            'swatch-blue1',
+            'swatch-blue2',
+            'swatch-blue3',
+            'swatch-blue4',
+            'swatch-blue5',
+            'swatch-blue',
+            'swatch-gray',
+            'swatch-violet',
         );
     }
     $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
+        'phone',
+        'appstore',
+        'calculator',
+        'compass',
+        'itunes',
+        'mail',
+        'music',
+        'weather',
+        'maps',
+        'videos',
+        'notes',
+        'reminders',
+        'calendar',
+        'facebook',
+        'google',
+        'twitter',
+        'linkedin',
+        'finder',
+        'safari',
+        'firefox',
     );
-    if (! empty($class) && in_array($class, $apps)) {
+    if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
@@ -696,53 +696,53 @@ function multiloquent_get_random_blue_class()
 function multiloquent_get_random_colour_class($class = '')
 {
     $mods = get_theme_mods();
-    if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+    if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
         // if it uses one of the bootswatch themes, use the bootstrap colours
         $input = array(
-            "label-primary",
-            "label-success",
-            "label-warning",
-            "label-info",
-            "label-danger",
-            "label-default"
+            'label-primary',
+            'label-success',
+            'label-warning',
+            'label-info',
+            'label-danger',
+            'label-default',
         );
     } else {
         $input = array(
-            "gradient-red",
-            "gradient-orange",
-            "gradient-yellow",
-            "gradient-green",
-            "gradient-teal",
-            "gradient-blue",
-            "gradient-violet",
-            "gradient-magenta",
-            "gradient-black",
-            "gradient-silver"
+            'gradient-red',
+            'gradient-orange',
+            'gradient-yellow',
+            'gradient-green',
+            'gradient-teal',
+            'gradient-blue',
+            'gradient-violet',
+            'gradient-magenta',
+            'gradient-black',
+            'gradient-silver',
         );
     }
     $apps = array(
-        "phone",
-        "appstore",
-        "calculator",
-        "compass",
-        "itunes",
-        "mail",
-        "music",
-        "weather",
-        "maps",
-        "videos",
-        "notes",
-        "reminders",
-        "calendar",
-        "facebook",
-        "google",
-        "twitter",
-        "linkedin",
-        "finder",
-        "safari",
-        "firefox"
+        'phone',
+        'appstore',
+        'calculator',
+        'compass',
+        'itunes',
+        'mail',
+        'music',
+        'weather',
+        'maps',
+        'videos',
+        'notes',
+        'reminders',
+        'calendar',
+        'facebook',
+        'google',
+        'twitter',
+        'linkedin',
+        'finder',
+        'safari',
+        'firefox',
     );
-    if (! empty($class) && in_array($class, $apps)) {
+    if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
@@ -834,7 +834,7 @@ function multiloquent_paralax_slider()
             'daily' => false,
             'echo' => false,
             'strict_limit' => $total_posts,
-            'posts_only' => true
+            'posts_only' => true,
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
@@ -855,7 +855,7 @@ function multiloquent_paralax_slider()
             'include' => '',
             'exclude' => '',
             'post_type' => 'post',
-            'post_status' => 'publish'
+            'post_status' => 'publish',
         );
         $recent_posts = get_posts($args);
     }
@@ -925,7 +925,7 @@ function multiloquent_paralax_featured_sliders()
             'daily' => false,
             'echo' => false,
             'strict_limit' => $total_posts,
-            'posts_only' => true
+            'posts_only' => true,
         );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
@@ -948,7 +948,7 @@ function multiloquent_paralax_featured_sliders()
             'include' => '',
             'exclude' => '',
             'post_type' => 'post',
-            'post_status' => 'publish'
+            'post_status' => 'publish',
         );
         $recent_posts = get_posts($args);
     }
@@ -1011,7 +1011,7 @@ function multiloquent_render_the_archive($colour)
     $id = get_the_ID();
     $slider_image = array();
     $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
-    if (! empty($slider_image)) {
+    if ( ! empty($slider_image)) {
         $theimg = $slider_image[0];
         // $width = $slider_image[1];
         // $height = $slider_image[2];
@@ -1047,7 +1047,7 @@ function multiloquent_render_tags($val, $force_tags = 0)
     $output = '';
     // check if they have selected tags or excerpt
     $mods = get_theme_mods();
-    if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
+    if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
         // they have selected 'excerpt'
         $excerpt = '';
         // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
@@ -1056,7 +1056,7 @@ function multiloquent_render_tags($val, $force_tags = 0)
             $excerpt = wp_trim_words($val->post_content);
         }
         $output .= $excerpt;
-    } elseif (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+    } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
         // dont output anything, leave the tags thing empty
     } else {
         $posttags = wp_get_post_tags($val->ID);

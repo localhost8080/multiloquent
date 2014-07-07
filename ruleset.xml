@@ -9,5 +9,6 @@
         <exclude name="WordPress.WhiteSpace.PhpIndent"/>
         <exclude name="WordPress.WhiteSpace.ScopeIndent"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
+        <exclude name="WordPress.Functions.FunctionCallSignature"/>
     </rule>
 </ruleset>
