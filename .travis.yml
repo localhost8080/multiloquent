@@ -17,7 +17,7 @@ before_script:
 
 script:
 
-- /tmp/phpcs/scripts/phpcs -p -s -v -n . --standard=WordPress --extensions=php
+- /tmp/phpcs/scripts/phpcs --standard=ruleset.xml --extensions=php
 
 notifications:
   slack: jonathansblog:xcTlLtSp7QrTmEjxjH9Jq3bR
