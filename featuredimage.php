@@ -5,10 +5,10 @@
  * @package multiloquent\template_parts
  */
 
-if ( has_post_thumbnail() ) {
+if (has_post_thumbnail()) {
     // the current post has a thumbnail
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails
-    $slider_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+    $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
     $theimg = $slider_image[0];
 } else {
 	$theimg = get_header_image();
@@ -22,8 +22,9 @@ if ( has_post_thumbnail() ) {
     
     ?>
 
- <h1 class="multiloquent_h1_tag" style="background-image:url('<?php echo esc_attr( $theimg );?>');"><?php echo esc_attr( multiloquent_post_title() ); ?></h1>
+ <h1 class="multiloquent_h1_tag" style="background-image:url('<?php echo $theimg;?>');"><?php echo multiloquent_post_title(); ?></h1>
  <figure class="thumbnail main_image">
     <figcaption>
-    <span class="fa fa-comment-o fa-fw"></span> <?php echo esc_attr( multiloquent_post_title() ); ?></figcaption>
+    <span class="fa fa-comment-o fa-fw"></span> <?php echo multiloquent_post_title(); ?></figcaption>
 </figure>
+

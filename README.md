@@ -1,7 +1,5 @@
 #This is the readme.txt for multiloquent theme v7
 
-[![Build Status](https://travis-ci.org/localhost8080/multiloquent.svg?branch=master)](https://travis-ci.org/localhost8080/multiloquent)
-
 ##Multiloquent html5 / bootstrap theme - 
   a wordpress theme with 10 dynamic sidebars in various locations
   using twitter bootstrap complete with yaarp related posts theme, 

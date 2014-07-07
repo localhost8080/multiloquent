@@ -4,8 +4,8 @@
  * 
  * @package multiloquent\template_parts
  */
-if ( 'posts' == get_option( 'show_on_front' ) ) {
-    include ( get_home_template() );
+if ('posts' == get_option('show_on_front')) {
+    include (get_home_template());
 } else {
     get_header();
     ?>
@@ -13,18 +13,18 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 <div class="jumbotron">
     <div class="container">
             <?php
-    while ( have_posts() ) {
+    while (have_posts()) {
         the_post();
-        the_content( '<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>' );
+        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
     }
     ?>    
             </div>
 </div>
 <!-- google_ad_section_end-->
 <p class="lead text-center">Featured Posts</p>
-<?php multiloquent_paralax_slider();?>
+<?php echo multiloquent_paralax_slider();?>
 <div class="container">
-    <?php get_template_part( 'advert' );?>
+    <?php get_template_part('advert');?>
 </div>
 <?php
     get_footer();

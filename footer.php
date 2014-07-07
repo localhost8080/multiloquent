@@ -11,8 +11,8 @@ get_sidebar();
 ?>
 </div>
 <?php
-get_template_part( 'navigation' );
-if ( empty( $hide_the_footer_links ) ) {
+get_template_part('navigation');
+if (empty($hide_the_footer_links)) {
     ?>
 <footer class="well">
     <div class="container">
@@ -21,16 +21,16 @@ if ( empty( $hide_the_footer_links ) ) {
                 <div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
                     
                             <?php
-    if ( is_active_sidebar( 6 ) ) {
-        dynamic_sidebar( 6 );
+    if (is_active_sidebar(6)) {
+        dynamic_sidebar(6);
     }
     ?>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
                  
                             <?php
-    if ( is_active_sidebar( 7 ) ) {
-        dynamic_sidebar( 7 );
+    if (is_active_sidebar(7)) {
+        dynamic_sidebar(7);
     }
     ?>
                 </div>
@@ -40,8 +40,8 @@ if ( empty( $hide_the_footer_links ) ) {
                     <p class="nav-header">Useful Stuff</p>
                             <?php
     // sidebar 10 for some things in footer
-    if ( is_active_sidebar( 9 ) ) {
-        dynamic_sidebar( 9 );
+    if (is_active_sidebar(9)) {
+        dynamic_sidebar(9);
     }
     ?>
                 </div>
@@ -49,8 +49,8 @@ if ( empty( $hide_the_footer_links ) ) {
                     <p class="nav-header">More Useful Stuff</p>
                             <?php
     // sidebar 10 for some things in footer
-    if ( is_active_sidebar( 10 ) ) {
-        dynamic_sidebar( 10 );
+    if (is_active_sidebar(10)) {
+        dynamic_sidebar(10);
     }
     ?>
                 </div>
