@@ -1,22 +1,22 @@
 #This is the readme.txt for multiloquent theme v7
 
 ##Multiloquent html5 / bootstrap theme - 
-  a wordpress theme with 10 dynamic sidebars in various locations
-  using twitter bootstrap complete with yaarp related posts theme, 
-  dynamic top10 front page featured posts, fontawesome icons, 
-  category index page template, 
-  tag index page template and 4 post templates. 
-  Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
-  Version 6.4.0 adds support for custom header images
-  Version 7.0.0 adds support for bootswatch themes via the customisation panel
-  Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
+ - a wordpress theme with 10 dynamic sidebars in various locations
+ - using twitter bootstrap complete with yaarp related posts theme, 
+ - dynamic top10 front page featured posts, fontawesome icons, 
+ - category index page template, 
+ - tag index page template and 4 post templates. 
+ - Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
+ - Version 6.4.0 adds support for custom header images
+ - Version 7.0.0 adds support for bootswatch themes via the customisation panel
+ - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
-Multiloquent is available at http://wordpress.org/themes/multiloquent
-Multiloquent has a github repo: https://github.com/localhost8080/multiloquent
-Support questions should be submitted in the wordpress theme support site: http://wordpress.org/support/theme/multiloquent
-For the latest news / information on multiloquent theme, please check the multiloquent blog category: http://jonathansblog.co.uk/multiloquent-wordpress-theme
+ - Multiloquent is available [here](http://wordpress.org/themes/multiloquent)
+ - Multiloquent has a [github repo](https://github.com/localhost8080/multiloquent)
+ - Support questions should be submitted in the wordpress [multiloquent theme support site](http://wordpress.org/support/theme/multiloquent)
+For the latest news / information on multiloquent theme, please check the [multiloquent blog](http://jonathansblog.co.uk/multiloquent-wordpress-theme)
 
 
 ##Multiloquent has support for custom header image
