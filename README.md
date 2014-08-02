@@ -16,6 +16,7 @@ Multiloquent is responsive and uses bootstrap for interface elements.
  - Multiloquent is available [here](http://wordpress.org/themes/multiloquent)
  - Multiloquent has a [github repo](https://github.com/localhost8080/multiloquent)
  - Support questions should be submitted in the wordpress [multiloquent theme support site](http://wordpress.org/support/theme/multiloquent)
+
 For the latest news / information on multiloquent theme, please check the [multiloquent blog](http://jonathansblog.co.uk/multiloquent-wordpress-theme)
 
 
