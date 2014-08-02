@@ -9,15 +9,15 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         echo '<div id="post-' . get_the_ID() . '" ';
-        echo post_class("post");
+        echo post_class('post');
         echo '>';
         ?>
 <div>
         <?php
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
-        wp_link_pages("<p><strong>Pages:</strong>", '</p>', 'number');
+        the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
+        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
         ?>
 
 </div>

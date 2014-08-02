@@ -12,7 +12,7 @@ if (have_posts()) {
         get_template_part('featuredposts');
         
         echo '<article id="post-' . get_the_ID() . '" ';
-        echo post_class("post");
+        echo post_class('post');
         echo '>';
         get_template_part('featuredimage');
         get_template_part('breadcrumb');
@@ -24,15 +24,15 @@ if (have_posts()) {
         } else {
             echo '<div class="col-sm-12 col-md-12 col-lg-12">';
         }
-        if ($values = get_post_custom_values("leadvideo")) {
+        if ($values = get_post_custom_values('leadvideo')) {
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];
             echo '" frameborder="0" allowfullscreen></iframe>';
         }
         remove_filter('the_content', 'sharing_display', 19);
         remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content("<p class=\"serif\">" . 'Read the rest of this page' . " &raquo;</p>");
-        wp_link_pages("<p><strong>" . 'Pages' . ":</strong>", '</p>', 'number');
+        the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
+        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
         get_template_part('advert');
         ?>
         <section class="row">

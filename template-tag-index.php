@@ -20,7 +20,7 @@ get_header();
       //  foreach ($characters as $index => $character) {
             // Get the tag information for each characters in the array.
             $tags = get_tags(array(
-                'order' => 'ASC'
+                'order' => 'ASC',
             ));
             // print_r($tags);
             if ($index != 0 && $index % 4 == 0) {
@@ -70,7 +70,7 @@ get_header();
                         $html .= "{$tag->name}</a></h2>";
                     }
                     $html .= '<span class="badge">' . $tag->count . '</span>';
-                    $html .= "</li>";
+                    $html .= '</li>';
                 }
                 $html .= '</ul>';
             }
