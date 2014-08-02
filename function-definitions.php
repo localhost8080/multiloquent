@@ -619,7 +619,7 @@ function multiloquent_get_random_solid_class($class = '')
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
-        return $tile_colour = $input[$rand_keys];
+        return $tile_colour = $input[ $rand_keys ];
     }
 }
 
@@ -681,7 +681,7 @@ function multiloquent_get_random_blue_class()
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
-        return $tile_colour = $input[$rand_keys];
+        return $tile_colour = $input[ $rand_keys ];
     }
 }
 
@@ -746,7 +746,7 @@ function multiloquent_get_random_colour_class($class = '')
         return $tile_colour = $class;
     } else {
         $rand_keys = array_rand($input);
-        return $tile_colour = $input[$rand_keys];
+        return $tile_colour = $input[ $rand_keys ];
     }
 }
 
@@ -806,7 +806,7 @@ function multiloquent_category_list_as_hierarchy($cat = '0')
                 $html .= '<h2><a href="' . $tag_link . '" title="View the article tagged ' . $tag->name . '" >' . $tag->name . '</a></h2>';
             }
             $html .= '<span class="badge">' . $tag->count . '</span>';
-            $html .= "</li>";
+            $html .= '</li>';
             $html .= multiloquent_category_list_as_hierarchy($tag->term_id);
             if ($cat == '0') {
                 $html .= '</ul>';
@@ -842,7 +842,7 @@ function multiloquent_paralax_slider()
             $posts_to_get[] = $val['ID'];
         }
         $args = array(
-            'post__in' => $posts_to_get
+            'post__in' => $posts_to_get,
         );
         $recent_posts = get_posts($args);
     } else {
@@ -935,7 +935,7 @@ function multiloquent_paralax_featured_sliders()
         // set to 4 items as the strict_limit doesnt appear to work correctly..
         $posts_to_get = array_slice($posts_to_get, 0, 4);
         $args = array(
-            'post__in' => $posts_to_get
+            'post__in' => $posts_to_get,
         );
         $recent_posts = get_posts($args);
     } else {
