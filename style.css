@@ -161,9 +161,9 @@ code {
     word-wrap: break-word;
 }
 
-pre:before {
+/*pre:before {
     content: "# ";
-}
+}*/
 
 .well {
     border: 0 none;
