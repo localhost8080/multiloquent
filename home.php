@@ -7,28 +7,28 @@
 get_header();
 if (have_posts()) {
     ?>
-<div class="jumbotron">
-    <div class="container">
-        <header>
-            <h1 class="article_title">Featured Posts</h1>
-        </header>
+    <div class="jumbotron">
+        <div class="container">
+            <header>
+                <h1 class="article_title">Featured Posts</h1>
+            </header>
+        </div>
     </div>
-</div>
-<?php
+    <?php
     echo multiloquent_paralax_slider();
     ?>
-<p class="lead text-center">Recent Posts</p>
-<section class="container post">
-		<?php
-    $colour = multiloquent_get_random_blue_class();
-    while (have_posts()) {
+    <p class="lead text-center">Recent Posts</p>
+    <section class="container post">
+      <?php
+      $colour = multiloquent_get_random_blue_class();
+      while (have_posts()) {
         the_post();
         multiloquent_render_the_archive($colour);
     }
     ?>
 </section>
 <section class="container post">
-			<?php get_template_part('advert');?>
+   <?php get_template_part('advert');?>
 </section>
 <div class="container post">
     <nav class="navitems text-center">
@@ -40,7 +40,7 @@ if (have_posts()) {
 </div>
 <?php } else { ?>
 <div class="container post">  
-		<?php  get_template_part('error-snippet');?>
+  <?php  get_template_part('error-snippet');?>
 </div>
 <?php
 }

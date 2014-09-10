@@ -51,7 +51,7 @@ function multiloquent_featured_image_in_feed($content)
         if (has_post_thumbnail($post->ID)) {
             $output = get_the_post_thumbnail($post->ID, 'medium', array(
                 'style' => 'float:right; margin:0 0 10px 10px;',
-            ));
+                ));
             $content = $output . $content;
         }
     }
@@ -70,7 +70,7 @@ function multiloquent_customize_register($wp_customize)
     $wp_customize->add_section('multiloquent_settings', array(
         'title' => __('Multiloquent Settings', 'multiloquent'),
         'priority' => 30,
-    ));
+        ));
     multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
     multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
     multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
@@ -101,13 +101,13 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
         'default' => $default,
         'transport' => 'refresh',
         'sanitize_callback' => 'esc_attr',
-    ));
+        ));
     if ($setting_type == 'colour') {
         $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
             'label' => $label,
             'section' => $section,
             'settings' => $setting_name,
-        )));
+            )));
     }
     if ($setting_type == 'bootswatch') {
         $wp_customize->add_control($setting_name, array(
@@ -132,8 +132,8 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
                 'superhero' => 'superhero',
                 'united' => 'united',
                 'yeti' => 'yeti',
-            )
-        ));
+                )
+            ));
     }
     if ($setting_type == 'paralax_featured') {
         $wp_customize->add_control($setting_name, array(
@@ -144,8 +144,8 @@ function multiloquent_register_and_generate_custom_control($setting_type, $setti
                 'empty' => 'empty',
                 'default' => 'tags',
                 'excerpt' => 'excerpt',
-            )
-        ));
+                )
+            ));
     }
 }
 
@@ -246,10 +246,10 @@ function multiloquent_scripts_method()
 {
     wp_enqueue_script('menu', get_template_directory_uri() . '/menu.js', array(
         'jquery'
-    ), '', true);
+        ), '', true);
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
         'jquery'
-    ), '', true);
+        ), '', true);
 }
 
 /**
@@ -308,7 +308,7 @@ function multiloquent_register()
         'height' => 600,
         'default-image' => get_template_directory_uri() . '/images/default-slider.png',
         'uploads' => true,
-    );
+        );
     add_theme_support('custom-header', $args);
     // actions
     add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
@@ -345,7 +345,7 @@ function multiloquent_register()
         '8' => 'social media',
         '9' => 'footer bottom left',
         '10' => 'footer bottom right',
-    );
+        );
     multiloquent_generate_sidebars($sidebars);
 }
 
@@ -367,7 +367,7 @@ function multiloquent_generate_sidebars($array)
             'before_title' => '<p class="nav-header">',
             'after_title' => '</p>',
             'class' => '',
-        );
+            );
         register_sidebar($args);
     }
 }
@@ -551,9 +551,9 @@ function multiloquent_render_pagingation()
                 array(
                     'taxonomy' => 'categorias',
                     'field' => 'slug',
-                ),
-            )
-        ));
+                    ),
+                )
+            ));
     }
     echo paginate_links();
 }
@@ -578,7 +578,7 @@ function multiloquent_get_random_solid_class($class = '')
             'label-info',
             'label-danger',
             'label-default',
-        );
+            );
     } else {
         $input = array(
             'swatch-red',
@@ -591,7 +591,7 @@ function multiloquent_get_random_solid_class($class = '')
             'swatch-pink',
             'swatch-mid-gray',
             'swatch-gray',
-        );
+            );
     }
     $apps = array(
         'phone',
@@ -614,7 +614,7 @@ function multiloquent_get_random_solid_class($class = '')
         'finder',
         'safari',
         'firefox',
-    );
+        );
     if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -642,7 +642,7 @@ function multiloquent_get_random_blue_class()
             'label-info',
             'label-danger',
             'label-default',
-        );
+            );
     } else {
         $input = array(
             'swatch-blue1',
@@ -653,7 +653,7 @@ function multiloquent_get_random_blue_class()
             'swatch-blue',
             'swatch-gray',
             'swatch-violet',
-        );
+            );
     }
     $apps = array(
         'phone',
@@ -676,7 +676,7 @@ function multiloquent_get_random_blue_class()
         'finder',
         'safari',
         'firefox',
-    );
+        );
     if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -705,7 +705,7 @@ function multiloquent_get_random_colour_class($class = '')
             'label-info',
             'label-danger',
             'label-default',
-        );
+            );
     } else {
         $input = array(
             'gradient-red',
@@ -718,7 +718,7 @@ function multiloquent_get_random_colour_class($class = '')
             'gradient-magenta',
             'gradient-black',
             'gradient-silver',
-        );
+            );
     }
     $apps = array(
         'phone',
@@ -741,7 +741,7 @@ function multiloquent_get_random_colour_class($class = '')
         'finder',
         'safari',
         'firefox',
-    );
+        );
     if ( ! empty($class) && in_array($class, $apps)) {
         return $tile_colour = $class;
     } else {
@@ -835,7 +835,7 @@ function multiloquent_paralax_slider()
             'echo' => false,
             'strict_limit' => $total_posts,
             'posts_only' => true,
-        );
+            );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
         foreach ($top_ten_post_array as $post => $val) {
@@ -843,7 +843,7 @@ function multiloquent_paralax_slider()
         }
         $args = array(
             'post__in' => $posts_to_get,
-        );
+            );
         $recent_posts = get_posts($args);
     } else {
         $args = array(
@@ -856,7 +856,7 @@ function multiloquent_paralax_slider()
             'exclude' => '',
             'post_type' => 'post',
             'post_status' => 'publish',
-        );
+            );
         $recent_posts = get_posts($args);
     }
     $count = 1;
@@ -926,7 +926,7 @@ function multiloquent_paralax_featured_sliders()
             'echo' => false,
             'strict_limit' => $total_posts,
             'posts_only' => true,
-        );
+            );
         // todo - this needs to be an array of objects..
         $top_ten_post_array = tptn_pop_posts($args);
         foreach ($top_ten_post_array as $post => $val) {
@@ -936,7 +936,7 @@ function multiloquent_paralax_featured_sliders()
         $posts_to_get = array_slice($posts_to_get, 0, 4);
         $args = array(
             'post__in' => $posts_to_get,
-        );
+            );
         $recent_posts = get_posts($args);
     } else {
         $args = array(
@@ -949,7 +949,7 @@ function multiloquent_paralax_featured_sliders()
             'exclude' => '',
             'post_type' => 'post',
             'post_status' => 'publish',
-        );
+            );
         $recent_posts = get_posts($args);
     }
     $count = 1;
@@ -1020,17 +1020,17 @@ function multiloquent_render_the_archive($colour)
         $theimg = get_header_image();
     }
     ?>
-<div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-    <span style="background-image:url('<?php echo $theimg?>');" class="grayscale"></span>
-    <div class="paralax_image_bg <?php echo $colour?>"></div>
-    <div class="paralax_image_text">
-        <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
-        <p>
-    	<?php echo multiloquent_render_tags($post);?>
-    	</p>
-    </div>
-</div>
-<?php
+    <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+        <span style="background-image:url('<?php echo $theimg?>');" class="grayscale"></span>
+        <div class="paralax_image_bg <?php echo $colour?>"></div>
+        <div class="paralax_image_text">
+            <span class="h1"><a href="<?php the_permalink() ?>"><?php  echo multiloquent_post_title()?></a></span>
+            <p>
+               <?php echo multiloquent_render_tags($post);?>
+           </p>
+       </div>
+   </div>
+   <?php
 }
 
 /**

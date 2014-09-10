@@ -26,33 +26,33 @@ if (have_posts()) {
         $locations = explode(' to ', $title_string);
         get_template_part('breadcrumb');
         ?>
-<div class="container">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
-					<?php
-        if ($values = get_post_custom_values('leadvideo')) {
-            echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
-            echo $values[0];
-            echo '" frameborder="0" allowfullscreen></iframe>';
-        }
-        ?></div>
-</div>
-<div class="container">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-					<?php
-        remove_filter('the_content', 'sharing_display', 19);
-        remove_filter('the_excerpt', 'sharing_display', 19);
-        the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
-        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-        ?>
-	</div>
-</div>
-<?php
-        next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
-        previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-        echo '</div>';
-    }
-} else {
+        <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
+                <?php
+                if ($values = get_post_custom_values('leadvideo')) {
+                    echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
+                    echo $values[0];
+                    echo '" frameborder="0" allowfullscreen></iframe>';
+                }
+                ?></div>
+            </div>
+            <div class="container">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                   <?php
+                   remove_filter('the_content', 'sharing_display', 19);
+                   remove_filter('the_excerpt', 'sharing_display', 19);
+                   the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
+                   wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
+                   ?>
+               </div>
+           </div>
+           <?php
+           next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
+           previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
+           echo '</div>';
+       }
+   } else {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
