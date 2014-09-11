@@ -20,6 +20,6 @@
                 }
                 ?>
             </div>
-        </div>
+        </div>ß
     </div>
 </section>

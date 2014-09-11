@@ -20,8 +20,8 @@ get_header();
     //  foreach ($characters as $index => $character) {
     // Get the tag information for each characters in the array.
      $tags = get_tags(array(
-        'order' => 'ASC',
-        ));
+                      'order' => 'ASC',
+                      ));
             // print_r($tags);
      if ($index != 0 && $index % 4 == 0) {
         $html = "<div class='post-tags clearfix' style='clear:left;'>";
