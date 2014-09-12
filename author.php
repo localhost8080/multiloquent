@@ -1,4 +1,4 @@
-<?php
+    <?php
 /** 
  *  author pages template part.
  *  have an archive and a bio for the author
