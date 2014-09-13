@@ -14,5 +14,6 @@
 		<span class="input-group-addon">
 			<label title="search" for="s" class="" style="margin:0"><span class="fa fa-search fafw"></span></label>
 		</span>
+        <?php wp_nonce_field('search','search'); ?>
 	</div>   
 </form>
