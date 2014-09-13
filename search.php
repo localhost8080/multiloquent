@@ -5,7 +5,7 @@
  * @package multiloquent\template_parts
  */
 
-if (empty( $_REQUEST['name_of_nonce_field'])  || ! wp_verify_nonce( $_REQUEST['search'], 'search' ) ) {
+if (empty( $_REQUEST['search'])  || ! wp_verify_nonce( $_REQUEST['search'], 'search' ) ) {
     // 404 ?
     get_header();
     echo '<div class="container post"> ';
