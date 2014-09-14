@@ -5,6 +5,7 @@
  * @todo - make this oo
  * @package multiloquent\functions
  */
+
 /**
  * Returns the current multiloquent version number
  *
@@ -1041,6 +1042,7 @@ function multiloquent_render_the_archive($colour)
  * @param object $post            
  * @param bool $force_tags
  *            (set to true to force tag output)
+ * @return string
  */
 function multiloquent_render_tags($val, $force_tags = 0)
 {
