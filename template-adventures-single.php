@@ -11,8 +11,8 @@ if (have_posts()) {
         get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
-        echo '>';
-        $title_string = $multiloquent->multiloquent_post_title();
+        echo '>';    
+        $title_string = multiloquent_post_title();
         $title_string = str_replace('plan', '', $title_string);
         $title_string = str_replace('part', '', $title_string);
         $title_string = str_replace('day', '', $title_string);

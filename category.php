@@ -1,7 +1,7 @@
 <?php
 /**
  * category archives template part
- *
+ * 
  * @package multiloquent\template_parts
  */
 
@@ -20,10 +20,10 @@ if (have_posts()) {
    </div>
    <section class="container post">
       <?php
-      $colour = $multiloquent->multiloquent_get_random_blue_class();
+      $colour = multiloquent_get_random_blue_class();
       while (have_posts()) {
         the_post();
-        $multiloquent->multiloquent_render_the_archive($colour);
+        multiloquent_render_the_archive($colour);
     }
     ?>
 </section>

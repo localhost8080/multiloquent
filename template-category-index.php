@@ -12,7 +12,7 @@ get_header();
 <div class="container">
 	<!-- google_ad_section_start-->
 	<article>
-		<?php echo $multiloquent->multiloquent_category_list_as_hierarchy('0'); ?>
+		<?php echo multiloquent_category_list_as_hierarchy('0'); ?>	
 	</article>
 	<!-- google_ad_section_end-->
 	<?php get_template_part('advert'); ?>

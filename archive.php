@@ -1,7 +1,7 @@
 <?php
 /**
  * default archive page template part
- *
+ * 
  * @package multiloquent
  */
 
@@ -42,10 +42,10 @@ if (have_posts()) {
     </div>
 <section class="container post">
   <?php
-  $colour = $multiloquent->multiloquent_get_random_blue_class();
+  $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
-        $multiloquent->multiloquent_render_the_archive($colour);
+        multiloquent_render_the_archive($colour);
     }
     ?>
 </section>
@@ -62,11 +62,11 @@ if (have_posts()) {
         </ul>
     </nav>
 </div>
-    <?php
-    } else {
+    <?php 
+    } else { 
     ?>
-<div class="container post">
-    <?php
+<div class="container post">  
+    <?php 
     get_template_part('error-snippet');
     ?>
 </div>

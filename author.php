@@ -1,8 +1,8 @@
     <?php
-/**
+/** 
  *  author pages template part.
  *  have an archive and a bio for the author
- *
+ *  
  *  @package multiloquent
  */
 get_header();
@@ -15,7 +15,7 @@ if (have_posts()) {
                     <div class="col-xs-12 col-sm-8">
                         <h2><?php the_author_meta('display_name'); ?></h2>
                         <p><strong>Website: </strong> <?php the_author_link();?> </p>
-                    </div>
+                    </div>             
                     <div class="col-xs-12 col-sm-4 text-center">
                         <figure>
                             <?php echo get_avatar(get_the_author_meta('ID'));?>
@@ -24,7 +24,7 @@ if (have_posts()) {
                             </figcaption>
                         </figure>
                     </div>
-                </div>
+                </div>            
                 <div class="col-xs-12 divider">
                     <div class="col-xs-12">
                       <?php
@@ -34,16 +34,16 @@ if (have_posts()) {
                     }
                     ?>
                 </div>
-            </div>
+            </div>   
         </header>
     </div>
 </div>
 <section class="container post">
 	<?php
-    $colour = $multiloquent->multiloquent_get_random_blue_class();
+    $colour = multiloquent_get_random_blue_class();
     while (have_posts()) {
         the_post();
-        $multiloquent->multiloquent_render_the_archive($colour);
+        multiloquent_render_the_archive($colour);
     }
     ?>
 </section>
@@ -59,7 +59,7 @@ if (have_posts()) {
     </nav>
 </div>
 <?php } else { ?>
-<div class="container post">
+<div class="container post"> 
   <?php  get_template_part('error-snippet');?>
 </div>
 <?php

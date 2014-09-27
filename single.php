@@ -1,7 +1,7 @@
 <?php
 /**
  * single post template part
- *
+ * 
  * @package multiloquent\template_parts
  */
 get_header();
@@ -37,9 +37,9 @@ if (have_posts()) {
             <section class="row">
                 <div class="tagcloud clearfix mb">
                     <div class="tag-cloud">
-                        <h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+                        <h3>Tags for <?php echo multiloquent_post_title(); ?></h3>
                         <div>
-                            <?php echo $multiloquent->multiloquent_render_tags($post, 1);?>
+                            <?php echo multiloquent_render_tags($post, 1);?>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ if (have_posts()) {
                 echo '</div>';
             }
             get_template_part('advert');
-            ?>ß
+            ?>ß 
         </div>
         <?php
         // get_template_part('social');
