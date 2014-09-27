@@ -63,11 +63,8 @@ class multiloquent_base
     /**
      * adds the multiloquent custom controls for wp customise api
      *
-     * @api
-     *
-     * @param object $wp_customize
      */
-    function multiloquent_customize_register($wp_customize) {
+    function multiloquent_customize_register() {
         global $wp_customize;
         $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30,));
         $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
@@ -95,7 +92,6 @@ class multiloquent_base
      * @param string $section
      */
     function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
-        global $wp_customize;
         $wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr',));
         if ($setting_type == 'colour') {
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name,)));
