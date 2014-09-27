@@ -10,7 +10,8 @@ class multiloquent_base
      * [__constructor ]
      */
     function __construct() {
-        $this->wp_customze = new WP_Customize_Manager();
+        global $wp_customize;
+        $this->wp_customize = $wp_customize;
     }
 
     /**
