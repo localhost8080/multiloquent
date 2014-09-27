@@ -10,7 +10,7 @@ class multiloquent_base
      * [__constructor ]
      */
     function __construct() {
-
+        $this->wp_customze = new WP_Customize_Manager();
     }
 
     /**
@@ -65,17 +65,16 @@ class multiloquent_base
      *
      */
     function multiloquent_customize_register() {
-        global $wp_customize;
-        $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30,));
-        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
-        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
+        $this->wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30,));
+        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', 'multiloquent_settings');
+        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', 'colors');
     }
 
     /**
@@ -88,19 +87,19 @@ class multiloquent_base
      * @param string $setting_name
      * @param string $default
      * @param string $label
-     * @param object $wp_customize
+     * @param object $this->wp_customize
      * @param string $section
      */
-    function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
-        $wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr',));
+    function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $section) {
+        $this->wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr',));
         if ($setting_type == 'colour') {
-            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name,)));
+            $this->wp_customize->add_control(new WP_Customize_Color_Control($this->wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name,)));
         }
         if ($setting_type == 'bootswatch') {
-            $wp_customize->add_control($setting_name, array('label' => 'Select Bootswatch style:', 'section' => $section, 'type' => 'select', 'choices' => array('default' => 'multiloquent', 'amelia' => 'amelia', 'bootstrap' => 'bootstrap', 'cerulean' => 'cerulean', 'cosmo' => 'cosmo', 'cyborg' => 'cyborg', 'darkly' => 'darkly', 'flatly' => 'flatly', 'journal' => 'journal', 'lumen' => 'lumen', 'readable' => 'readable', 'simplex' => 'simplex', 'slate' => 'slate', 'spacelab' => 'spacelab', 'superhero' => 'superhero', 'united' => 'united', 'yeti' => 'yeti',)));
+            $this->wp_customize->add_control($setting_name, array('label' => 'Select Bootswatch style:', 'section' => $section, 'type' => 'select', 'choices' => array('default' => 'multiloquent', 'amelia' => 'amelia', 'bootstrap' => 'bootstrap', 'cerulean' => 'cerulean', 'cosmo' => 'cosmo', 'cyborg' => 'cyborg', 'darkly' => 'darkly', 'flatly' => 'flatly', 'journal' => 'journal', 'lumen' => 'lumen', 'readable' => 'readable', 'simplex' => 'simplex', 'slate' => 'slate', 'spacelab' => 'spacelab', 'superhero' => 'superhero', 'united' => 'united', 'yeti' => 'yeti',)));
         }
         if ($setting_type == 'paralax_featured') {
-            $wp_customize->add_control($setting_name, array('label' => 'Select Featured posts style:', 'section' => $section, 'type' => 'select', 'choices' => array('empty' => 'empty', 'default' => 'tags', 'excerpt' => 'excerpt',)));
+            $this->wp_customize->add_control($setting_name, array('label' => 'Select Featured posts style:', 'section' => $section, 'type' => 'select', 'choices' => array('empty' => 'empty', 'default' => 'tags', 'excerpt' => 'excerpt',)));
         }
     }
 
