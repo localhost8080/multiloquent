@@ -68,6 +68,7 @@ class multiloquent_base
      * @param object $wp_customize
      */
     function multiloquent_customize_register($wp_customize) {
+        global $wp_customize;
         $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30,));
         $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
         $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
