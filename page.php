@@ -1,7 +1,7 @@
 <?php
 /**
  * static page template part
- * 
+ *
  * @package multiloquent\template_parts
  */
 get_header();
@@ -35,22 +35,22 @@ if (have_posts()) {
             ?>
         </div>
         <?php
-        
+
         get_template_part('social');
         if (comments_open()) {
             ?>
             <section class="container">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
-                    <?php 
+                    <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+                    <?php
                     comments_template();
                     get_template_part('advert');
-                    ?>    
+                    ?>
                 </div>
             </section>
             <?php
         }
-        
+
         if (function_exists('related_posts')) {
             related_posts();
         }
