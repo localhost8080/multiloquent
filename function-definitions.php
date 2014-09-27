@@ -68,15 +68,15 @@ class multiloquent_base
      */
     function multiloquent_customize_register($wp_customize) {
         $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30,));
-        multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
-        multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
-        multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
+        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
     }
 
     /**
@@ -136,47 +136,47 @@ class multiloquent_base
     function multiloquent_customize_css() {
         $output = '';
         $mods = get_theme_mods();
-        if (multiloquent_check_theme_mod_colour('mulitloquent_navbar', '#F8F8F8', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_navbar', '#F8F8F8', $mods)) {
             $output.= '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
             $output.= 'background: ' . esc_attr(get_theme_mod('mulitloquent_navbar')) . '!important;';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
             $output.= '.navbar-default,.navbar-default .navbar-brand,.navbar-form,.jumbotron,.well,.breadcrumb,.comments, .navbar-default a:hover { ';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . '!important;';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_background_colour', '#FFFFFF', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_background_colour', '#FFFFFF', $mods)) {
             $output.= '.wrapper,.featured-posts { ';
             $output.= 'background: ' . esc_attr(get_theme_mod('mulitloquent_background_colour')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
             $output.= '.wrapper,.featured-posts { ';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_slideout_menu_colour', '#333333', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_slideout_menu_colour', '#333333', $mods)) {
             $output.= 'body {';
             $output.= 'background: ' . esc_attr(get_theme_mod('mulitloquent_slideout_menu_colour')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_background_text_colour', '#333333', $mods)) {
             $output.= 'body {';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_background_text_colour')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_slideout_text_colour', '#FFFFFF', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_slideout_text_colour', '#FFFFFF', $mods)) {
             $output.= '.sidebar,.sidebar a {';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_slideout_text_colour')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_navbar_text', '#777777', $mods)) {
             $output.= '.jumbotron .nav-header,.well .nav-header {';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_text')) . ';';
             $output.= '}' . "\r\n";
         }
-        if (multiloquent_check_theme_mod_colour('mulitloquent_navbar_link', '#777777', $mods)) {
+        if ($this->multiloquent_check_theme_mod_colour('mulitloquent_navbar_link', '#777777', $mods)) {
             $output.= '.breadcrumb a,.breadcrumb a:hover,.breadcrumb a:visited,.comments a,.comments a:hover,.comments a:visited,.well a,.well a:hover,.well a:visited,.jumbotron a:visited,.jumbotron a,.jumbotron a:hover {';
             $output.= 'color: ' . esc_attr(get_theme_mod('mulitloquent_navbar_link')) . ';';
             $output.= '}' . "\r\n";
@@ -257,26 +257,26 @@ class multiloquent_base
         add_theme_support('custom-header', $args);
 
         // actions
-        add_action('wp_enqueue_scripts', 'multiloquent_scripts_method');
-        add_action('wp_enqueue_scripts', 'multiloquent_stylesheet_method');
-        add_action('customize_register', 'multiloquent_customize_register');
-        add_action('wp_tag_cloud', 'multiloquent_add_tag_class');
+        add_action('wp_enqueue_scripts', $this->multiloquent_scripts_method);
+        add_action('wp_enqueue_scripts', $this->multiloquent_stylesheet_method);
+        add_action('customize_register', $this->multiloquent_customize_register);
+        add_action('wp_tag_cloud', $this->multiloquent_add_tag_class);
 
         // filters
-        add_filter('the_content', 'multiloquent_featured_image_in_feed');
-        add_filter('post_class', 'multiloquent_remove_hentry_function', 20);
+        add_filter('the_content', $this->multiloquent_featured_image_in_feed);
+        add_filter('post_class', $this->multiloquent_remove_hentry_function, 20);
 
-        // add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
-        add_filter('widget_tag_cloud_args', 'multiloquent_widget_tag_cloud_args');
-        add_filter('wp_tag_cloud', 'multiloquent_tag_cloud_filter', 10, 2);
-        add_filter('get_avatar', 'multiloquent_get_avatar');
+        // add_filter('the_tags', $this->multiloquent_add_class_the_tags, 10, 1);
+        add_filter('widget_tag_cloud_args', $this->multiloquent_widget_tag_cloud_args);
+        add_filter('wp_tag_cloud', $this->multiloquent_tag_cloud_filter, 10, 2);
+        add_filter('get_avatar', $this->multiloquent_get_avatar);
         add_filter('widget_text', 'do_shortcode');
 
         // misc
         if (is_admin()) {
             add_editor_style('style.css');
         }
-        multiloquent_menu();
+        $this->multiloquent_menu();
         set_post_thumbnail_size(605, 100);
         add_image_size('featured-post-thumbnail', 605, 100);
         if (!isset($content_width)) {
@@ -285,7 +285,7 @@ class multiloquent_base
 
         // sidebars
         $sidebars = array('1' => 'sidebar top', '2' => 'mobile specific advert', '3' => 'non-mobile specific advert', '4' => 'sidebar middle', '5' => 'sidebar bottom', '6' => 'footer top left', '7' => 'footer top right', '8' => 'social media', '9' => 'footer bottom left', '10' => 'footer bottom right',);
-        multiloquent_generate_sidebars($sidebars);
+        $this->multiloquent_generate_sidebars($sidebars);
     }
 
     /**
@@ -361,7 +361,7 @@ class multiloquent_base
         $tags = explode('</a>', $taglinks);
         $regex = "#(.*tag-link[-])(.*)(' title.*)#e";
         foreach ($tags as $tag) {
-            $tagn[] = preg_replace($regex, "('$1$2 label '.multiloquent_get_random_solid_class(get_tag($2)->slug).'$3')", $tag);
+            $tagn[] = preg_replace($regex, "('$1$2 label '.$this->multiloquent_get_random_solid_class(get_tag($2)->slug).'$3')", $tag);
         }
         $taglinks = implode('</a>', $tagn);
         return $taglinks;
@@ -425,10 +425,10 @@ class multiloquent_base
             $return.= get_category_parents($catID, true, '</li><li>', false);
         }
         if (is_single()) {
-            $return.= multiloquent_post_title() . '</li>';
+            $return.= $this->multiloquent_post_title() . '</li>';
         }
         if (is_page()) {
-            $return.= multiloquent_post_title() . '</li>';
+            $return.= $this->multiloquent_post_title() . '</li>';
         }
         if (is_tag()) {
             $return.= 'Tag: ' . single_tag_title('', false) . '</li>';
@@ -565,11 +565,11 @@ class multiloquent_base
 
             // Output the markup for each tag found for each character.
             // in here I need to recurse down
-            $old_tile_colour = multiloquent_get_random_blue_class();
+            $old_tile_colour = $this->multiloquent_get_random_blue_class();
             foreach ((array)$tags as $tag) {
 
                 // set the old colour so I can re-set it at the bottom
-                $new_tile_colour = multiloquent_get_random_solid_class($tag->slug);
+                $new_tile_colour = $this->multiloquent_get_random_solid_class($tag->slug);
 
                 // fetch the new colour, if the returned string matches the slug, then set the tile_colour to it, otherwise,
                 // set it to the old one which is only set before this loop
@@ -608,7 +608,7 @@ class multiloquent_base
                 }
                 $html.= '<span class="badge">' . $tag->count . '</span>';
                 $html.= '</li>';
-                $html.= multiloquent_category_list_as_hierarchy($tag->term_id);
+                $html.= $this->multiloquent_category_list_as_hierarchy($tag->term_id);
                 if ($cat == '0') {
                     $html.= '</ul>';
                 }
@@ -651,7 +651,7 @@ class multiloquent_base
             } else {
                 $theimg = get_header_image();
             }
-            $colour = multiloquent_get_random_blue_class();
+            $colour = $this->multiloquent_get_random_blue_class();
             if ($count == '1') {
                 $output.= '<div class="paralax_image_holder float_left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
                 $output.= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
@@ -681,7 +681,7 @@ class multiloquent_base
             $output.= '<p>';
 
             // get tags function call in here
-            $output.= multiloquent_render_tags($val);
+            $output.= $this->multiloquent_render_tags($val);
             $output.= '</p>';
             $output.= '</div>';
             $output.= '</div>';
@@ -721,7 +721,7 @@ class multiloquent_base
         }
         $count = 1;
         $output = '<div class="featured-posts">';
-        $colour = multiloquent_get_random_blue_class();
+        $colour = $this->multiloquent_get_random_blue_class();
         foreach ($recent_posts as $val) {
             $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
             if ($slider_image) {
@@ -737,7 +737,7 @@ class multiloquent_base
             $output.= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
             $output.= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
             $output.= '<div class="paralax_image_text halfheight">';
-            $output.= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . multiloquent_post_title($val->ID) . '</a></span>';
+            $output.= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . $this->multiloquent_post_title($val->ID) . '</a></span>';
             $output.= '</div></div>';
             $count++;
         }
@@ -794,8 +794,8 @@ class multiloquent_base
         $output.= '<span style="background-image:url(\'' . $theimg . '\');" class="grayscale"></span>';
         $output.= '<div class="paralax_image_bg ' . $colour . '"></div>';
         $output.= '<div class="paralax_image_text">';
-        $output.= '<span class="h1"><a href="' . the_permalink() . '">' . multiloquent_post_title() . '</a></span>';
-        $output.= '<p>' . multiloquent_render_tags($post) . '</p>';
+        $output.= '<span class="h1"><a href="' . the_permalink() . '">' . $this->multiloquent_post_title() . '</a></span>';
+        $output.= '<p>' . $this->multiloquent_render_tags($post) . '</p>';
         $output.= '</div>';
         $output.= '</div>';
         echo $output;
@@ -837,7 +837,7 @@ class multiloquent_base
             if ($posttags) {
                 foreach ($posttags as $tag) {
                     $output.= '<a class="label ';
-                    $output.= multiloquent_get_random_solid_class($tag->slug);
+                    $output.= $this->multiloquent_get_random_solid_class($tag->slug);
                     $output.= '" href="' . get_tag_link($tag->term_id) . '"><span class="fa fa-folder-o fa-fw"></span> ' . $tag->name . '</a>';
                 }
             }
