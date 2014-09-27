@@ -10,6 +10,7 @@ class multiloquent_base
      * [__constructor ]
      */
     function __construct() {
+
     }
 
     /**
@@ -93,6 +94,7 @@ class multiloquent_base
      * @param string $section
      */
     function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
+        global $wp_customize;
         $wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr',));
         if ($setting_type == 'colour') {
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name,)));
