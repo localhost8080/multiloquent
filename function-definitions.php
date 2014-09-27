@@ -257,19 +257,19 @@ class multiloquent_base
         add_theme_support('custom-header', $args);
 
         // actions
-        add_action('wp_enqueue_scripts', $this->multiloquent_scripts_method);
-        add_action('wp_enqueue_scripts', $this->multiloquent_stylesheet_method);
-        add_action('customize_register', $this->multiloquent_customize_register);
-        add_action('wp_tag_cloud', $this->multiloquent_add_tag_class);
+        add_action('wp_enqueue_scripts', $this->multiloquent_scripts_method());
+        add_action('wp_enqueue_scripts', $this->multiloquent_stylesheet_method());
+        add_action('customize_register', $this->multiloquent_customize_register());
+        add_action('wp_tag_cloud', $this->multiloquent_add_tag_class());
 
         // filters
-        add_filter('the_content', $this->multiloquent_featured_image_in_feed);
-        add_filter('post_class', $this->multiloquent_remove_hentry_function, 20);
+        add_filter('the_content', $this->multiloquent_featured_image_in_feed());
+        add_filter('post_class', $this->multiloquent_remove_hentry_function(), 20);
 
         // add_filter('the_tags', $this->multiloquent_add_class_the_tags, 10, 1);
-        add_filter('widget_tag_cloud_args', $this->multiloquent_widget_tag_cloud_args);
-        add_filter('wp_tag_cloud', $this->multiloquent_tag_cloud_filter, 10, 2);
-        add_filter('get_avatar', $this->multiloquent_get_avatar);
+        add_filter('widget_tag_cloud_args', $this->multiloquent_widget_tag_cloud_args());
+        add_filter('wp_tag_cloud', $this->multiloquent_tag_cloud_filter(), 10, 2);
+        add_filter('get_avatar', $this->multiloquent_get_avatar());
         add_filter('widget_text', 'do_shortcode');
 
         // misc
