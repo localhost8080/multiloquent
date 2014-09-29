@@ -1,7 +1,7 @@
 <?php
 /**
  * home page template part if static page selected as homepage
- * 
+ *
  * @package multiloquent\template_parts
  */
 if ('posts' == get_option('show_on_front')) {
@@ -17,12 +17,12 @@ if ('posts' == get_option('show_on_front')) {
                 the_post();
                 the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
             }
-            ?>    
+            ?>
         </div>
     </div>
     <!-- google_ad_section_end-->
     <p class="lead text-center">Featured Posts</p>
-    <?php echo multiloquent_paralax_slider();?>
+    <?php echo $multiloquent->multiloquent_paralax_slider();?>
     <div class="container">
         <?php get_template_part('advert');?>
     </div>
