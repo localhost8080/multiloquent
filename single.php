@@ -11,7 +11,9 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         echo $multiloquent->multiloquent_paralax_featured_sliders();
-        echo '<article id="post-' . get_the_ID() . '" ' . post_class('post') . '>';
+        echo '<article id="post-' . get_the_ID() . '" ';
+        echo post_class('post');
+        echo '>';
         require(locate_template('featuredimage.php'));
         require(locate_template('breadcrumb.php'));
         ?>
