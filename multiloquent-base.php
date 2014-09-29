@@ -734,7 +734,7 @@ class multiloquent_base
             $output.= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
             $output.= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
             $output.= '<div class="paralax_image_text halfheight">';
-            $output.= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . multiloquent_post_title($val->ID) . '</a></span>';
+            $output.= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . $this->multiloquent_post_title($val->ID) . '</a></span>';
             $output.= '</div></div>';
             $count++;
         }
