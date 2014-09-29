@@ -338,8 +338,8 @@ class multiloquent_base
         $args['number'] = 20;
 
         // show less tags
-        $args['largest'] = 8;
-        $args['smallest'] = 20;
+        $args['largest'] = 20;
+        $args['smallest'] = 8;
         $args['unit'] = 'pt';
         return $args;
     }
