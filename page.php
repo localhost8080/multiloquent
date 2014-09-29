@@ -42,7 +42,7 @@ if (have_posts()) {
             ?>
             <section class="container">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
+                    <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
                     <?php
                     comments_template();
                     require(locate_template('advert.php'));
