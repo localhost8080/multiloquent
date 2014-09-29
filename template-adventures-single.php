@@ -14,24 +14,15 @@ if (have_posts()) {
         echo post_class('post');
         echo '>';
         $title_string = $multiloquent->multiloquent_post_title();
-        $title_string = str_replace('plan', '', $title_string);
-        $title_string = str_replace('part', '', $title_string);
-        $title_string = str_replace('day', '', $title_string);
-        $title_string = str_replace('the', '', $title_string);
-        $title_string = str_replace('in', '', $title_string);
-        $title_string = str_replace('off', '', $title_string);
-        $title_string = str_replace(':', '', $title_string);
         $title_string = preg_replace('(\d+)', '', $title_string);
         $title_string = preg_replace("/[^A-Za-z0-9 ]/", '', $title_string);
-        
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
-        require(locate_template('breadcrumb.php'));
-        
+
         $map_url  = 'https://www.google.com/maps/embed/v1/directions';
         $map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
-        $map_url .= '&origin='.trim($locations[0]);
-        $map_url .= '&destination='.trim($locations[1]);
+        $map_url .= '&origin='.urlencode(trim($locations[0]));
+        $map_url .= '&destination='.urlencode(trim($locations[1]));
         $map_url .= '&mode=walking';
         
         
