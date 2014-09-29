@@ -12,7 +12,7 @@
  * @internal internal
  *
  */
-function multiloquent_register() {
+function multiloquent_register($multiloquent) {
     // theme support
     add_theme_support('automatic-feed-links');
     add_theme_support('html5');
