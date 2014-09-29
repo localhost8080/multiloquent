@@ -6,5 +6,5 @@
  */
 
 get_header();
-get_template_part('error-snippet');
+require(locate_template('error-snippet'));
 get_footer();

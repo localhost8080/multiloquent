@@ -50,7 +50,7 @@ if (have_posts()) {
 </section>
 <section class="container post">
  <?php
- get_template_part('advert');
+ require(locate_template('advert'));
  ?>
 </section>
 <div class="container post">
@@ -66,7 +66,7 @@ if (have_posts()) {
     ?>
 <div class="container post">
     <?php
-    get_template_part('error-snippet');
+    require(locate_template('error-snippet'));
     ?>
 </div>
 <?php

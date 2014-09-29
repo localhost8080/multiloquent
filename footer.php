@@ -11,7 +11,7 @@ get_sidebar();
 ?>
 </div>
 <?php
-get_template_part('navigation');
+require(locate_template('navigation'));
 if (empty($hide_the_footer_links)) {
     ?>
     <footer class="well">

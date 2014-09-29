@@ -9,11 +9,11 @@ if (empty( $_REQUEST['search'])  || ! wp_verify_nonce( sanitize_text_field($_REQ
     // 404 ?
     get_header();
     echo '<div class="container post"> ';
-    get_template_part('error-snippet');
+    require(locate_template('error-snippet'));
     echo '</div>';
     get_footer();
     exit;
 } else {
    // process form data
-    get_template_part('archive');
+    require(locate_template('archive'));
 }

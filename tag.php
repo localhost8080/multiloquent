@@ -33,7 +33,7 @@ if (have_posts()) {
     ?>
 </section>
 <section class="container post">
-   <?php get_template_part('advert');?>
+   <?php require(locate_template('advert'));?>
 </section>
 <div class="container post">
     <nav class="navitems text-center">
@@ -45,7 +45,7 @@ if (have_posts()) {
 </div>
 <?php } else { ?>
 <div class="container post">
-  <?php  get_template_part('error-snippet');?>
+  <?php  require(locate_template('error-snippet'));?>
 </div>
 <?php
 }

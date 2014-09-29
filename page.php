@@ -11,11 +11,11 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         echo $multiloquent->multiloquent_paralax_featured_sliders();
-        get_template_part('featuredimage');
+        require(locate_template('featuredimage'));
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
-        get_template_part('breadcrumb');
+        require(locate_template('breadcrumb'));
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -32,12 +32,12 @@ if (have_posts()) {
                 ?>
             </div>
             <?php
-            get_template_part('advert');
+            require(locate_template('advert'));
             ?>
         </div>
         <?php
 
-        get_template_part('social');
+        require(locate_template('social'));
         if (comments_open()) {
             ?>
             <section class="container">
@@ -45,7 +45,7 @@ if (have_posts()) {
                     <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
                     <?php
                     comments_template();
-                    get_template_part('advert');
+                    require(locate_template('advert'));
                     ?>
                 </div>
             </section>
@@ -58,7 +58,7 @@ if (have_posts()) {
         ?>
         <section class="container">
             <?php
-            get_template_part('advert');
+            require(locate_template('advert'));
             ?>
         </section>
         <?php

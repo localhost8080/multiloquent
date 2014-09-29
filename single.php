@@ -14,8 +14,8 @@ if (have_posts()) {
         echo '<article id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
-        get_template_part('featuredimage');
-        get_template_part('breadcrumb');
+        require(locate_template('featuredimage'));
+        require(locate_template('breadcrumb'));
         ?>
         <div class="container">
             <?php
@@ -33,7 +33,7 @@ if (have_posts()) {
             remove_filter('the_excerpt', 'sharing_display', 19);
             the_content('<p class="serif">' . 'Read the rest of this page' . ' &raquo;</p>');
             wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-            get_template_part('advert');
+            require(locate_template('advert'));
             ?>
             <section class="row">
                 <div class="tagcloud clearfix mb">
@@ -50,10 +50,10 @@ if (have_posts()) {
             if (comments_open()) {
                 echo '<div class="col-sm-12 col-md-6 col-lg-5 comments breadcrumb">';
                 comments_template();
-                get_template_part('advert');
+                require(locate_template('advert'));
                 echo '</div>';
             }
-            get_template_part('advert');
+            require(locate_template('advert'));
             ?>
         </div>
         <?php
@@ -69,5 +69,5 @@ if (have_posts()) {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
-get_template_part('social');
+require(locate_template('social'));
 get_footer();
