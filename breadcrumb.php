@@ -4,7 +4,6 @@
  *
  * @package multiloquent\template_parts
  */
-global $multiloquent;
 ?>
 <nav class="container hidden-xs">
 	<ul class="breadcrumb clearfix">

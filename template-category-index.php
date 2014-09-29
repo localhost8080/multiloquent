@@ -2,7 +2,7 @@
 /*
  * Template Name: Category Index
  */
-global $multiloquent;
+
 get_header();
 ?>
 <div class="jumbotron">

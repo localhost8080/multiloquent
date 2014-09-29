@@ -2,7 +2,7 @@
 /*
  * YARPP Template: multiloquent Author: jonathan Description: A simple example YARPP template.
  */
-global $multiloquent;
+
 ?>
 
 <section class="container post">
@@ -22,6 +22,6 @@ global $multiloquent;
                 }
                 ?>
             </div>
-        </div>ß
+        </div>
     </div>
 </section>

@@ -5,7 +5,6 @@
  *
  *  @package multiloquent
  */
-global $multiloquent;
 get_header();
 if (have_posts()) {
     ?>

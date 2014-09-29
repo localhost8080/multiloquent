@@ -850,3 +850,6 @@ class multiloquent_base
         return $output;
     }
 }
+
+global $multiloquent;
+$multiloquent = new multiloquent_base();

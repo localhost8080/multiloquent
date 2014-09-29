@@ -4,7 +4,6 @@
  *
  * @package multiloquent\template_parts
  */
-global $multiloquent;
 get_header();
 if (have_posts()) {
     ?>

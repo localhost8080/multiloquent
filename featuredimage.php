@@ -5,8 +5,6 @@
  * @package multiloquent\template_parts
  */
 
-global $multiloquent;
-
 if (has_post_thumbnail()) {
     // the current post has a thumbnail
     // set_post_thumbnail_size( 605, 100,1 ); // Normal post thumbnails

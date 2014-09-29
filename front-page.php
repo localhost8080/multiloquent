@@ -4,7 +4,6 @@
  *
  * @package multiloquent\template_parts
  */
-global $multiloquent;
 
 if ('posts' == get_option('show_on_front')) {
     include (get_home_template());
