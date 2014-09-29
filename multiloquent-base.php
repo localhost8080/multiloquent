@@ -53,7 +53,7 @@ class multiloquent_base
         if (is_admin()) {
             add_editor_style('style.css');
         }
-        multiloquent_menu();
+        $this->multiloquent_menu();
         set_post_thumbnail_size(605, 100);
         add_image_size('featured-post-thumbnail', 605, 100);
         if (!isset($content_width)) {
