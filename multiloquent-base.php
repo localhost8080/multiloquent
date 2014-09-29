@@ -732,6 +732,7 @@ class multiloquent_base
             // $height = $slider_image[2];
             // in here I need to check if its a mobile, and then give a different image:
 
+
         } else {
             $theimg = get_header_image();
         }
