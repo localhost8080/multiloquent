@@ -37,7 +37,7 @@ class multiloquent_base
         add_action('wp_enqueue_scripts', array( $this, 'multiloquent_scripts_method'));
         add_action('wp_enqueue_scripts', array( $this, 'multiloquent_stylesheet_method'));
         add_action('customize_register', array( $this, 'multiloquent_customize_register'));
-        add_action('wp_tag_cloud', array( $this, 'multiloquent_add_tag_class'));
+        //add_action('wp_tag_cloud', array( $this, 'multiloquent_add_tag_class'));
 
         // filters
         add_filter('the_content', array( $this, 'multiloquent_featured_image_in_feed'));
