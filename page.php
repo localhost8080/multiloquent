@@ -1,9 +1,10 @@
 <?php
 /**
  * static page template part
- * 
+ *
  * @package multiloquent\template_parts
  */
+
 get_header();
 echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
@@ -35,22 +36,22 @@ if (have_posts()) {
             ?>
         </div>
         <?php
-        
+
         get_template_part('social');
         if (comments_open()) {
             ?>
             <section class="container">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h3 class="hidden-lg">Comments for <?php echo multiloquent_post_title(); ?></h3>
-                    <?php 
+                    <?php
                     comments_template();
                     get_template_part('advert');
-                    ?>    
+                    ?>
                 </div>
             </section>
             <?php
         }
-        
+
         if (function_exists('related_posts')) {
             related_posts();
         }

@@ -1,9 +1,10 @@
 <?php
 /**
  * tag archive template part
- * 
+ *
  * @package multiloquent\template_parts
  */
+global $multiloquent;
 get_header();
 if (have_posts()) {
     ?>
@@ -24,9 +25,9 @@ if (have_posts()) {
    </div>
    <section class="container post">
       <?php
-      $colour = multiloquent_get_random_blue_class();
+      $colour = $multiloquent->multiloquent_get_random_blue_class();
       while (have_posts()) {
-        the_post();
+        $multiloquent->the_post();
         multiloquent_render_the_archive($colour);
     }
     ?>

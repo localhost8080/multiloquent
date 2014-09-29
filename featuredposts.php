@@ -5,4 +5,5 @@
  *
  * @package multiloquent\template_parts
  */
+global $multiloquent;
 echo $multiloquent->multiloquent_paralax_featured_sliders();

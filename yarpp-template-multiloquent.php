@@ -2,7 +2,9 @@
 /*
  * YARPP Template: multiloquent Author: jonathan Description: A simple example YARPP template.
  */
+global $multiloquent;
 ?>
+
 <section class="container post">
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">

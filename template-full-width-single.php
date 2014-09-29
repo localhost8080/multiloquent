@@ -2,6 +2,7 @@
 /*
  * Template Name Posts: Full width
  */
+global $multiloquent;
 get_header();
 echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
