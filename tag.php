@@ -27,8 +27,8 @@ if (have_posts()) {
       <?php
       $colour = $multiloquent->multiloquent_get_random_blue_class();
       while (have_posts()) {
-        $multiloquent->the_post();
-        multiloquent_render_the_archive($colour);
+        the_post();
+        $multiloquent->multiloquent_render_the_archive($colour);
     }
     ?>
 </section>

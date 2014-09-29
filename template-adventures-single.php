@@ -8,7 +8,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        require(locate_template('featuredposts.php'));
+        echo $multiloquent->multiloquent_paralax_featured_sliders();
         require(locate_template('featuredimage.php'));
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
