@@ -10,7 +10,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part('featuredposts');
+        echo $multiloquent->multiloquent_paralax_featured_sliders();
         echo '<article id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
@@ -54,7 +54,7 @@ if (have_posts()) {
                 echo '</div>';
             }
             get_template_part('advert');
-            ?>ß
+            ?>
         </div>
         <?php
         // get_template_part('social');
