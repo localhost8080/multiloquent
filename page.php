@@ -10,7 +10,7 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part('featuredposts');
+        echo $multiloquent->multiloquent_paralax_featured_sliders();
         get_template_part('featuredimage');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
