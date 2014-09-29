@@ -16,6 +16,6 @@ get_header();
 		<?php echo $multiloquent->multiloquent_category_list_as_hierarchy('0'); ?>
 	</article>
 	<!-- google_ad_section_end-->
-	<?php require(locate_template('advert')); ?>
+	<?php require(locate_template('advert.php')); ?>
 </div>
 <?php get_footer();

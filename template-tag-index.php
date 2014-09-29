@@ -84,6 +84,6 @@ get_header();
     ?>
 </article>
 <!-- google_ad_section_end-->
-<?php require(locate_template('advert'));?>
+<?php require(locate_template('advert.php'));?>
 </div>
 <?php get_footer();

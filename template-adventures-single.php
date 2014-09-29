@@ -8,8 +8,8 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        require(locate_template('featuredposts'));
-        require(locate_template('featuredimage'));
+        require(locate_template('featuredposts.php'));
+        require(locate_template('featuredimage.php'));
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
@@ -24,7 +24,7 @@ if (have_posts()) {
         $title_string = preg_replace('(\d+)', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
-        require(locate_template('breadcrumb'));
+        require(locate_template('breadcrumb.php'));
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">

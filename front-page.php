@@ -25,7 +25,7 @@ if ('posts' == get_option('show_on_front')) {
     <p class="lead text-center">Featured Posts</p>
     <?php echo $multiloquent->multiloquent_paralax_slider();?>
     <div class="container">
-        <?php require(locate_template('advert'));?>
+        <?php require(locate_template('advert.php'));?>
     </div>
     <?php
     get_footer();

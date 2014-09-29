@@ -30,7 +30,7 @@ if (have_posts()) {
 echo '<!-- google_ad_section_end-->';
 ?></div><?php
 get_sidebar();
-require(locate_template('navigation'));
+require(locate_template('navigation.php'));
 wp_footer();
 ?>
 </body>

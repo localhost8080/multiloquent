@@ -8,13 +8,13 @@ echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        require(locate_template('featuredposts'));
-        require(locate_template('featuredimage'));
+        require(locate_template('featuredposts.php'));
+        require(locate_template('featuredimage.php'));
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
 
-        require(locate_template('breadcrumb'));
+        require(locate_template('breadcrumb.php'));
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -31,11 +31,11 @@ if (have_posts()) {
                 ?>
             </div>
             <?php
-            require(locate_template('advert'));
+            require(locate_template('advert.php'));
             ?>
         </div>
         <?php
-        require(locate_template('social'));
+        require(locate_template('social.php'));
         if (comments_open()) {
             ?>
             <section class="container">
@@ -43,7 +43,7 @@ if (have_posts()) {
                     <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
                     <?php
                     comments_template();
-                    require(locate_template('advert'));
+                    require(locate_template('advert.php'));
                     ?>
                 </div>
             </section>
@@ -76,7 +76,7 @@ if (have_posts()) {
         ?>
         <section class="container">
             <?php
-            require(locate_template('advert'));
+            require(locate_template('advert.php'));
             ?>
         </section>
         <?php

@@ -9,7 +9,7 @@
 	<ul class="breadcrumb clearfix">
 		<?php
 		echo $multiloquent->multiloquent_breadcrumbs();
-		require(locate_template('metadata'));
+		require(locate_template('metadata.php'));
 		?>
 	</ul>
 </nav>

@@ -7,7 +7,7 @@
  */
 
 ?><div class="container">
-<?php require(locate_template('advert'));?>
+<?php require(locate_template('advert.php'));?>
 <!-- google_ad_section_start-->
 </div>
 <article class="container">
@@ -16,5 +16,5 @@
 </article>
 <div class="container">
 	<!-- google_ad_section_end-->
-	<?php require(locate_template('advert'));?>
+	<?php require(locate_template('advert.php'));?>
 </div>
