@@ -25,10 +25,20 @@ if (have_posts()) {
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
         require(locate_template('breadcrumb.php'));
+        
+        $map_url  = 'https://www.google.com/maps/embed/v1/directions';
+        
+        $map_url .= '?origin='.trim($locations[0]);
+        $map_url .= '&destination='.trim($locations[1]);
+        $map_url .= '&mode=walking';
+        
+        
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="//maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;q=<?php echo $title_string?>&amp;saddr=<?php echo trim($locations[0])?>&amp;daddr=<?php echo trim($locations[1])?>&amp;ie=UTF8&amp;t=m&amp;z=8&amp;output=embed"></iframe>
+                
+                
+                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?=$map_url?>"></iframe>
                 <?php
                 if ($values = get_post_custom_values('leadvideo')) {
                     echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
