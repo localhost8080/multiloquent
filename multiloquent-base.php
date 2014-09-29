@@ -338,11 +338,9 @@ class multiloquent_base
         $args['number'] = 20;
 
         // show less tags
-        $args['largest'] = 9.75;
-
-        // make largest and smallest the same - i don't like the varying font-size look
-        $args['smallest'] = 9.75;
-        $args['unit'] = 'px';
+        $args['largest'] = 8;
+        $args['smallest'] = 20;
+        $args['unit'] = 'pt';
         return $args;
     }
 
