@@ -11,6 +11,9 @@
 class MultiloquentBase
 {
 
+    /**
+     * constructor - add some actions to wordpress startup
+     */
     function __construct()
     {
         add_action('after_setup_theme', array(
@@ -1069,7 +1072,7 @@ class MultiloquentBase
      *
      * @api
      *
-     * @param object $post
+     * @param object $val
      * @param bool $force_tags
      *            (set to true to force tag output)
      * @return string
