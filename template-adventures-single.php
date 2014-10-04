@@ -27,7 +27,7 @@ if (have_posts()) {
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?=$map_url?>"></iframe>
+                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url?>"></iframe>
                 <?php
                 if ($values = get_post_custom_values('leadvideo')) {
                     echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
