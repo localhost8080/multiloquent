@@ -1,7 +1,12 @@
 <?php
 /**
+ * homepage when set to display blog posts on homepage
+ */
+
+/**
  * this is the template for the home page when its set to display blog posts
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
 

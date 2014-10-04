@@ -1,7 +1,11 @@
 <?php
 /**
- * sidebar template part 
- * 
+ * the sidebar for multiloquent
+ */
+
+/**
+ * sidebar template part
+ *
  * @package multiloquent\template_parts
  */
 ?>

@@ -1,7 +1,12 @@
 <?php
 /**
+ * static page template
+ */
+
+/**
  * static page template part
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
 

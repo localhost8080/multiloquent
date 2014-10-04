@@ -1,7 +1,12 @@
 <?php
 /**
+ * template for tag archives
+ */
+
+/**
  * tag archive template part
  *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
 

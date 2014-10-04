@@ -1,4 +1,7 @@
 <?php
+/**
+ * the social media things
+ */
 
 /**
 * social media template part

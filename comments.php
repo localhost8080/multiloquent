@@ -1,10 +1,14 @@
 <?php
-/** 
+/**
+ * comment form
+ */
+
+/**
  * comment template part.
- * this is a direct lift of the comments from shoestrap; 
+ * this is a direct lift of the comments from shoestrap;
  * I personally use disqus for my comments, but this comment  system was already done :D
  * http://shoestrap.org/
- * 
+ *
  * @package multiloquent\template_parts
  */
 if (post_password_required()) {
@@ -18,7 +22,7 @@ if (have_comments()) {
             <ol class="comment-list">
               <?php wp_list_comments(); ?>
           </ol>
-          
+
           <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
           <nav>
             <ul class="pager">

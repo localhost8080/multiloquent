@@ -1,7 +1,11 @@
-<?php 
+<?php
+/**
+ * multiloquent theme footer
+ */
+
 /**
  * footer template part
- * 
+ *
  * @package multiloquent\template_parts
  */
 ?>

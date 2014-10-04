@@ -1,7 +1,12 @@
-<?php 
+<?php
+/**
+ * search results page
+ */
+
 /**
  * search result template part
- * 
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
 

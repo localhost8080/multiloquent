@@ -1,7 +1,11 @@
 <?php
 /**
+ * Header template part
+ */
+
+/**
  * header template part
- * 
+ *
  * @package multiloquent\template_parts
  */
 ?><!DOCTYPE html>
@@ -21,4 +25,4 @@
 <body <?php body_class();?>>
 	<div class="holder">
 		<div class="wrapper">
-			
+

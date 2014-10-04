@@ -1,8 +1,12 @@
-<?php 
+<?php
+/**
+ * generate metadata for posts
+ */
+
 /**
  * generate the metadata snippet.
  * used in the breadcrumbs
- * 
+ *
  * @package multiloquent\template_parts
  */
 

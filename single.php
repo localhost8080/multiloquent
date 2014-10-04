@@ -1,5 +1,9 @@
 <?php
 /**
+ * template for blog posts
+ */
+
+/**
  * single post template part
  *
  * @package multiloquent\template_parts

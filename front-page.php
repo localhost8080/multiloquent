@@ -1,6 +1,12 @@
 <?php
 /**
+ * template for static homepage if set in options
+ */
+
+/**
  * home page template part if static page selected as homepage
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
  *
  * @package multiloquent\template_parts
  */
