@@ -1,7 +1,11 @@
-<?php 
+<?php
+/**
+ * snippet to display adverts
+ */
+
 /**
  * advert template part
- * 
+ *
  * @package multiloquent
  */
 

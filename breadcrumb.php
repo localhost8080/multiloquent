@@ -1,5 +1,9 @@
 <?php
 /**
+ * the breadcrumb for pages
+ */
+
+/**
  * breadcrumb template part
  *
  * @package multiloquent\template_parts
