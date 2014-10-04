@@ -2,6 +2,7 @@
 /**
  * The template for displaying Archive pages
  */
+
 /**
  * The template for displaying Archive pages
  *
@@ -14,7 +15,6 @@
  * and author.php for Author archives.
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
- *
  * @package multiloquent
  */
 get_header();

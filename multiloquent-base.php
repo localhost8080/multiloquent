@@ -1,5 +1,13 @@
 <?php
+/**
+ * multiloquent calss file to orgainse functions
+ *
+ */
 
+/**
+ * multiloquent calss file to orgainse functions
+ *
+ */
 class MultiloquentBase
 {
 
