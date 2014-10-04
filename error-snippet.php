@@ -1,8 +1,12 @@
-<?php 
+<?php
+/**
+ *  This is the error template part - it is included when no result is found from a search or archive page
+ */
+
 /**
  * snippet used if no results found.
  * wordpress template part
- * 
+ *
  * @package multiloquent\template_parts
  */
 
