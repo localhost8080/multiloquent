@@ -15,7 +15,7 @@ if (have_posts()) {
         echo '>';
         $title_string = $multiloquent->multiloquent_post_title();
         $title_string = preg_replace('(\d+)', '', $title_string);
-        $title_string = preg_replace("/[^A-Za-z0-9 ]/", '', $title_string);
+        $title_string = preg_replace('/[^A-Za-z0-9 ]/', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
 
@@ -24,13 +24,9 @@ if (have_posts()) {
         $map_url .= '&origin='.urlencode(trim($locations[0]));
         $map_url .= '&destination='.urlencode(trim($locations[1]));
         $map_url .= '&mode=walking';
-        
-        
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                
-                
                 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?=$map_url?>"></iframe>
                 <?php
                 if ($values = get_post_custom_values('leadvideo')) {
