@@ -11,7 +11,8 @@
  * @package multiloquent\template_parts
  */
 
-?><div class="container">
+?>
+<div class="container">
 <?php require(locate_template('advert.php'));?>
 <!-- google_ad_section_start-->
 </div>
