@@ -23,7 +23,7 @@ class MultiloquentBase
      */
     function multiloquent_version()
     {
-        $version = '7.9.900';
+        $version = '8.0.0';
         return $version;
     }
 
