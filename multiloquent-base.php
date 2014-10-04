@@ -1,6 +1,6 @@
 <?php
 
-class multiloquentBase
+class MultiloquentBase
 {
 
     function __construct()
@@ -1096,4 +1096,4 @@ class multiloquentBase
     }
 }
 global $multiloquent;
-$multiloquent = new multiloquentBase();
+$multiloquent = new MultiloquentBase();
