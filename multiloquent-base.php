@@ -90,7 +90,7 @@ class multiloquentBase
         $this->multiloquent_menu();
         set_post_thumbnail_size(605, 100);
         add_image_size('featured-post-thumbnail', 605, 100);
-        if (! isset($content_width)) {
+        if ( ! isset($content_width)) {
             $content_width = 900;
         }
         // sidebars
@@ -256,7 +256,7 @@ class multiloquentBase
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
     {
-        if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || (! empty($mods[$item]) && $mods[$item] != $default_value)) {
+        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
             return false;
@@ -320,7 +320,7 @@ class multiloquentBase
             $output .= '}' . "\r\n";
         }
         // if there is any output, render it
-        if (! empty($output)) {
+        if ( ! empty($output)) {
             echo '<style type="text/css">' . $output . '</style>';
         }
     }
@@ -359,7 +359,7 @@ class multiloquentBase
     {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
         } else {
@@ -464,7 +464,7 @@ class multiloquentBase
      */
     function multiloquent_post_title($post_id = '')
     {
-        if (! empty($post_id)) {
+        if ( ! empty($post_id)) {
             $the_title = get_the_title($post_id);
         } else {
             $the_title = get_the_title();
@@ -500,7 +500,7 @@ class multiloquentBase
         global $post;
         $return = '';
         // $image_url = get_template_directory_uri() ;
-        if (! is_home()) {
+        if ( ! is_home()) {
             $return .= '<li><a href="';
             $return .= home_url();
             $return .= '">';
@@ -585,7 +585,7 @@ class multiloquentBase
     function multiloquent_get_random_solid_class($class = '')
     {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -631,7 +631,7 @@ class multiloquentBase
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -649,7 +649,7 @@ class multiloquentBase
     function multiloquent_get_random_blue_class()
     {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -693,7 +693,7 @@ class multiloquentBase
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -712,7 +712,7 @@ class multiloquentBase
     function multiloquent_get_random_colour_class($class = '')
     {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -758,7 +758,7 @@ class multiloquentBase
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -1028,7 +1028,7 @@ class multiloquentBase
         $id = get_the_ID();
         $slider_image = array();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
-        if (! empty($slider_image)) {
+        if ( ! empty($slider_image)) {
             $theimg = $slider_image[0];
             // $width = $slider_image[1];
             // $height = $slider_image[2];
@@ -1071,7 +1071,7 @@ class multiloquentBase
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
-        if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
+        if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
             // they have selected 'excerpt'
             $excerpt = '';
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
@@ -1080,7 +1080,7 @@ class multiloquentBase
                 $excerpt = wp_trim_words($val->post_content);
             }
             $output .= $excerpt;
-        } elseif (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+        } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
             // dont output anything, leave the tags thing empty
         } else {
             $posttags = wp_get_post_tags($val->ID);
