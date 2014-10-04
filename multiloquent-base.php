@@ -1,11 +1,11 @@
 <?php
 /**
- * multiloquent calss file to orgainse functions
+ * multiloquent class file to orgainse functions
  *
  */
 
 /**
- * multiloquent calss file to orgainse functions
+ * multiloquent class file to orgainse functions
  *
  */
 class MultiloquentBase
@@ -228,7 +228,9 @@ class MultiloquentBase
                     'flatly' => 'flatly',
                     'journal' => 'journal',
                     'lumen' => 'lumen',
+                    'paper' => 'paper',
                     'readable' => 'readable',
+                    'sandstone' => 'sandstone',
                     'simplex' => 'simplex',
                     'slate' => 'slate',
                     'spacelab' => 'spacelab',

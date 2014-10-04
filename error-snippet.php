@@ -1,7 +1,7 @@
 <?php
 /**
- *  This is the error template part - it is included when no result is found from a search or archive page
- *  @package multiloquent\template_parts
+ * This is the error template part - it is included when no result is found from a search or archive page
+ * @package multiloquent\template_parts
  */
 
 /**

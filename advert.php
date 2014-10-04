@@ -1,6 +1,7 @@
 <?php
 /**
  * snippet to display adverts
+ * @package multiloquent\template_parts
  */
 
 /**
