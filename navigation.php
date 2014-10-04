@@ -1,6 +1,7 @@
 <?php
 /**
  * nav bar
+ * @package multiloquent\template_parts
  */
 
 /**

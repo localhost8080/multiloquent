@@ -6,7 +6,7 @@
 /**
  * advert template part
  *
- * @package multiloquent
+ * @package multiloquent\template_parts
  */
 
 ?>
