@@ -1,6 +1,6 @@
 <?php
 
-class multiloquent_base
+class multiloquentBase
 {
 
     function __construct()
@@ -31,7 +31,7 @@ class multiloquent_base
      * various register actions
      *
      * @internal internal
-     *          
+     *
      */
     function multiloquent_register()
     {
@@ -104,7 +104,7 @@ class multiloquent_base
             '7' => 'footer top right',
             '8' => 'social media',
             '9' => 'footer bottom left',
-            '10' => 'footer bottom right'
+            '10' => 'footer bottom right',
         );
         $this->multiloquent_generate_sidebars($sidebars);
     }
@@ -113,7 +113,7 @@ class multiloquent_base
      * adds the featured image to the rss feed
      *
      * @internal internal
-     * @param string $content            
+     * @param string $content
      * @return string
      */
     function multiloquent_featured_image_in_feed($content)
@@ -155,7 +155,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param object $wp_customize            
+     * @param object $wp_customize
      */
     function multiloquent_customize_register($wp_customize)
     {
@@ -178,14 +178,14 @@ class multiloquent_base
      * registers and generates the custom controls for wp customise api
      *
      * @internal internal
-     *          
+     *
      * @see multiloquent_customize_register();
-     * @param string $setting_type            
-     * @param string $setting_name            
-     * @param string $default            
-     * @param string $label            
-     * @param object $wp_customize            
-     * @param string $section            
+     * @param string $setting_type
+     * @param string $setting_name
+     * @param string $default
+     * @param string $label
+     * @param object $wp_customize
+     * @param string $section
      */
     function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section)
     {
@@ -249,9 +249,9 @@ class multiloquent_base
      * or if the bootswatch is set to the default value and the multiloquent_navbar is not the default value, show it
      * or if the bootswatch is set to the default value and the multiloquent_navbar is the default value, dont show it
      *
-     * @param string $item            
-     * @param string $default_value            
-     * @param object $mods            
+     * @param string $item
+     * @param string $default_value
+     * @param object $mods
      * @return boolean
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
@@ -267,7 +267,7 @@ class multiloquent_base
      * outputs the custom css for the wp customise API
      *
      * @internal internal
-     *          
+     *
      * @todo make this return, rather than echo
      */
     function multiloquent_customize_css()
@@ -332,7 +332,7 @@ class multiloquent_base
      * - bootstrap javascript library
      *
      * @internal internal
-     *          
+     *
      */
     function multiloquent_scripts_method()
     {
@@ -353,7 +353,7 @@ class multiloquent_base
      * - print css [custom overrides for printing]
      *
      * @internal internal
-     *          
+     *
      */
     function multiloquent_stylesheet_method()
     {
@@ -376,7 +376,7 @@ class multiloquent_base
      * registers the wordpress menu location
      *
      * @internal internal
-     *          
+     *
      */
     function multiloquent_menu()
     {
@@ -386,9 +386,9 @@ class multiloquent_base
     /**
      * generates the sidebars
      *
-     * @param array $array            
+     * @param array $array
      * @internal internal
-     *          
+     *
      */
     function multiloquent_generate_sidebars($array)
     {
@@ -411,7 +411,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param array $classes            
+     * @param array $classes
      * @return array
      */
     function multiloquent_remove_hentry_function($classes)
@@ -427,7 +427,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $html            
+     * @param string $html
      * @return string
      */
     function multiloquent_add_class_the_tags($html)
@@ -439,7 +439,7 @@ class multiloquent_base
     /**
      * generates a tag cloud
      *
-     * @param array $args            
+     * @param array $args
      * @return array
      * @internal internal
      */
@@ -458,7 +458,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param int $post_id            
+     * @param int $post_id
      * @return string
      * @example multiloquent_post_title(12);
      */
@@ -480,7 +480,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $tag_cloud            
+     * @param string $tag_cloud
      * @return string
      */
     function multiloquent_tag_cloud_filter($tag_cloud)
@@ -579,7 +579,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $class            
+     * @param string $class
      * @return string <string>
      */
     function multiloquent_get_random_solid_class($class = '')
@@ -706,7 +706,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $class            
+     * @param string $class
      * @return string Ambigous
      */
     function multiloquent_get_random_colour_class($class = '')
@@ -771,7 +771,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $cat            
+     * @param string $cat
      * @return string
      */
     function multiloquent_category_list_as_hierarchy($cat = '0')
@@ -1000,7 +1000,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param unknown $avatar            
+     * @param unknown $avatar
      * @return mixed
      */
     function multiloquent_get_avatar($avatar)
@@ -1014,7 +1014,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param string $colour            
+     * @param string $colour
      *
      * @todo make this return rather than echo
      * @see multiloquent_get_random_colour_class()
@@ -1061,7 +1061,7 @@ class multiloquent_base
      *
      * @api
      *
-     * @param object $post            
+     * @param object $post
      * @param bool $force_tags
      *            (set to true to force tag output)
      * @return string
@@ -1096,4 +1096,4 @@ class multiloquent_base
     }
 }
 global $multiloquent;
-$multiloquent = new multiloquent_base();
+$multiloquent = new multiloquentBase();
