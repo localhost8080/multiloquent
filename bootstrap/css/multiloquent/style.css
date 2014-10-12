@@ -81,10 +81,10 @@ body {
   color: #1c567f;
 }
 .text-success {
-  color: #4cd964;
+  color: #009559;
 }
 .text-info {
-  color: #007aff;
+  color: #0063cf;
 }
 .text-warning {
   color: #ffcc00;
@@ -106,20 +106,20 @@ body {
   border-color: #0a1d2b;
 }
 .btn-success {
-  background: #4cd964;
-  border-color: #2ac845;
+  background: #009559;
+  border-color: #00623b;
 }
 .btn-success:hover {
-  background: #2ac845;
-  border-color: #219e37;
+  background: #00623b;
+  border-color: #002f1c;
 }
 .btn-info {
-  background: #007aff;
-  border-color: #0062cc;
+  background: #0063cf;
+  border-color: #004b9c;
 }
 .btn-info:hover {
-  background: #0062cc;
-  border-color: #004999;
+  background: #004b9c;
+  border-color: #003269;
 }
 .btn-danger {
   background: #ff3b30;
@@ -219,14 +219,14 @@ body {
 .has-success .checkbox,
 .has-success .radio-inline,
 .has-success .checkbox-inline {
-  color: #4cd964;
+  color: #009559;
 }
 .has-success .form-control {
-  border-color: #4cd964;
+  border-color: #009559;
 }
 .has-success .form-control:focus {
-  border-color: #4cd964;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #4cd964;
+  border-color: #009559;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #009559;
 }
 .has-danger .help-block,
 .has-danger .control-label,
@@ -258,16 +258,16 @@ body {
   background-color: #1c567f;
 }
 .panel-success {
-  border-color: #4cd964;
+  border-color: #009559;
 }
 .panel-success > .panel-heading {
-  background-color: #4cd964;
+  background-color: #009559;
 }
 .panel-info {
-  border-color: #007aff;
+  border-color: #0063cf;
 }
 .panel-info > .panel-heading {
-  background-color: #007aff;
+  background-color: #0063cf;
 }
 .panel-warning {
   border-color: #ffcc00;
