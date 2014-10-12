@@ -828,6 +828,10 @@ h3.nowrap {
 .pagination .page-numbers > li.active > span {
   background-color: #1c567f;
 }
+.pagination .page-numbers > li.active > a:hover,
+.pagination .page-numbers > li.active > span:hover {
+  background-color: #2572a9;
+}
 .pagination > li {
   display: inline;
 }
@@ -838,6 +842,10 @@ h3.nowrap {
 .pagination > li.active > a,
 .pagination > li.active > span {
   background-color: #1c567f;
+}
+.pagination > li.active > a:hover,
+.pagination > li.active > span:hover {
+  background-color: #2572a9;
 }
 .pager li > a,
 .pager li > span {

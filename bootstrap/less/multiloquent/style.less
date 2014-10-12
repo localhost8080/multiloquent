@@ -963,6 +963,9 @@ h3.nowrap {
             &.active {
                 &>a, &>span {
                     background-color: @primary-color;
+                    &:hover{
+                        background-color: lighten(@primary-color,10%);
+                    }
                 }
             }
         }
@@ -975,6 +978,9 @@ h3.nowrap {
         &.active {
             &>a, &>span {
                 background-color: @primary-color;
+                &:hover{
+                    background-color: lighten(@primary-color,10%);
+                }
             }
         }
     }
