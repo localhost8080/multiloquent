@@ -33,35 +33,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 /* ---- wordpress required ---- */
-
-/* ---- typography ---- */
-
-/* ---- header ---- */
-
-/* ----  ---- */
-
-.avatar {
-    border-radius: 50%;
+.aligncenter {
+    margin: 0 auto;
 }
 
-.emphasis {
-    border-top: 4px solid transparent;
-}
-
-.profile {
-    display: inline-block;
-}
-
-.navbar h2 {
+.alignleft {
     float: left;
-    font-size: 18px;
-    line-height: 20px;
-    margin: 0;
-    font-weight: 300;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
-.mceContentBody {
-    background: none repeat scroll 0 0 #FFFFFF !important;
+.alignright {
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .wp-caption {
@@ -84,6 +71,39 @@ Use it to make something cool, have fun, and share what you've learned with othe
     font-size: inherit;
 }
 
+.avatar {
+    border-radius: 50%;
+}
+
+.emphasis {
+    border-top: 4px solid transparent;
+}
+
+.profile {
+    display: inline-block;
+}
+
+/* ---- typography ---- */
+
+/* ---- header ---- */
+
+/* ----  ---- */
+
+
+.navbar{
+
+    h2 {
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0;
+        font-weight: 300;
+    }
+}
+
+.mceContentBody {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+}
 
 
 h1,.h1 {
@@ -109,6 +129,9 @@ body {
 footer {
     margin-bottom: 0 !important;
     padding-bottom: 50px !important;
+    ul {
+        margin: 0;
+    }
 }
 
 a {
@@ -120,20 +143,17 @@ a {
     }
 }
 
-footer ul {
-    margin: 0;
-}
-
 p {
     margin: 0 0 30px;
+    &.h1,&.h2,&.h3,&.h4,&.h5,&.h6 {
+        a {
+            color: #fff;
+        }
+    }
 }
 
 .lead {
     font-weight: 300;
-}
-
-p.h1 a,p.h2 a,p.h3 a,p.h4 a,p.h5 a,p.h6 a {
-    color: #fff;
 }
 
 .container .comments {
@@ -154,6 +174,7 @@ img,.aligncenter,.alignnone,.alignleft,.alignright {
 ul,ol {
     padding: 0;
     margin: 0 0 25px 25px;
+    list-style: disc inside none;
 }
 
 blockquote {
@@ -232,13 +253,13 @@ code {
 .jumbotron {
     background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
     color: #676767;
+    a {
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
-
-
-
-
-
-
 
 @media ( min-width : 768px) and (max-width: 979px) {
     .search-box form {
@@ -285,17 +306,11 @@ code {
 @media ( min-width : 980px) {
 }
 
-ul {
-    list-style: disc inside none;
-}
-
 .thumbnails>li.tile h1,.thumbnails>li.tile h2,.thumbnails>li.tile h3,.thumbnails>li.tile h4,.thumbnails>li.tile h5,.thumbnails>li.tile h6,.thumbnails>li.tile h1 a,.thumbnails>li.tile h2 a,.thumbnails>li.tile h3 a,.thumbnails>li.tile h4 a,.thumbnails>li.tile h5 a,.thumbnails>li.tile h6 a {
     color: #FFFFFF;
     word-wrap: break-word;
     padding-bottom: 0;
 }
-
-
 
 /* ---- colours for all the elements ---- */
 
@@ -575,24 +590,6 @@ figcaption {
     text-align: center;
 }
 
-.aligncenter {
-    margin: 0 auto;
-}
-
-.alignleft {
-    float: left;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    margin-top: 10px;
-}
-
-.alignright {
-    float: right;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-top: 10px;
-}
-
 div.thumbnail .featured-image {
     height: 100px;
 }
@@ -602,20 +599,23 @@ div.thumbnail .featured-image {
 }
 
 .btn-primary {
-    background:;
+    background: @primary-color;
+    border-color: darken(@primary-color, 10%);
 }
-
+.btn-success {
+    background: @success-color;
+    border-color: darken(@success-color, 10%);
+}
 
 .ads {
     margin-bottom: 20px;
     overflow: hidden;
     width: 100%;
     margin-top: 20px;
-}
-
-.ads ins {
-    display: block !important;
-    margin: 0 auto !important;
+    ins {
+        display: block !important;
+        margin: 0 auto !important;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -684,6 +684,10 @@ h3.nowrap {
 .tile {
     height: 150px;
     list-style: none;
+    h2 {
+        font-size: 45px !important;
+        margin: 15px 0 0 !important;
+    }
 }
 
 .scroll-text {
@@ -696,25 +700,12 @@ h3.nowrap {
     position: relative;
 }
 
-.tile h2 {
-    font-size: 45px !important;
-    margin: 15px 0 0 !important;
-}
-
 #disqus_thread {
     margin-top: 40px;
 }
 
 .navbar-inner {
     opacity: 0.96;
-}
-
-.jumbotron a {
-    font-weight: bold;
-}
-
-.jumbotron a:hover {
-    text-decoration: underline;
 }
 
 .grayscale {
@@ -728,7 +719,7 @@ h3.nowrap {
     width: 100%;
 }
 
-@media ( min-width : 979px) {
+@media ( min-width : 980px) {
     .paralax_image_holder {
         height: 255px;
         overflow: hidden;
@@ -852,32 +843,36 @@ h3.nowrap {
         bottom: 0;
         text-shadow: -1px 0 2px #000000;
     }
-    .paralax_image_text.halfheight {
-        padding: 0 10px;
-        position: absolute;
-        top: 10px;
-        transition: all 1s ease 0s;
-        width: 100%;
-    }
-    .paralax_image_text .h1 {
-        color: #FFFFFF;
-        font-size: 25px;
-        font-weight: lighter;
-        margin-bottom: 32px;
-        line-height: 28px;
-    }
-    .paralax_image_text .h1 a {
-        color: #FFFFFF;
-        font-size: 25px;
-        font-weight: lighter;
-    }
-    .paralax_image_text .h1 span {
-        font-weight: normal;
-    }
-    .paralax_image_text p {
-        color: #FFFFFF;
-        height: 80px;
-        margin: 0;
+    .paralax_image_text {
+        &.halfheight {
+            padding: 0 10px;
+            position: absolute;
+            top: 10px;
+            transition: all 1s ease 0s;
+            width: 100%;
+        }
+        .h1 {
+            color: #FFFFFF;
+            font-size: 25px;
+            font-weight: lighter;
+            margin-bottom: 32px;
+            line-height: 28px;
+
+            a {
+                color: #FFFFFF;
+                font-size: 25px;
+                font-weight: lighter;
+            }
+            span {
+                font-weight: normal;
+            }
+        }
+
+        p {
+            color: #FFFFFF;
+            height: 80px;
+            margin: 0;
+        }
     }
     .admin-bar .navbar-fixed-top {
         height: 55px;
@@ -1116,10 +1111,6 @@ h3.nowrap {
     position: relative;
 }
 
-.comment-content>p {
-    margin: 0 !important;
-}
-
 .comment-metadata {
     position: absolute;
     right: 0;
@@ -1132,6 +1123,9 @@ h3.nowrap {
 .comment-content {
     margin-left: 75px;
     padding-top: 30px;
+    &>p {
+        margin: 0 !important;
+    }
 }
 
 .comment-reply-link {
@@ -1147,21 +1141,24 @@ h3.nowrap {
     margin: 0;
 }
 
-.comment-form label {
-    clear: left;
-    float: left;
+.comment-form {
+    label {
+        clear: left;
+        float: left;
+    }
+    &>p {
+        clear: left;
+        float: left;
+    }
+    input {
+        clear: left;
+        float: left;
+    }
+    textarea {
+        clear: left;
+        float: left;
+    }
 }
-
-.comment-form>p {
-    clear: left;
-    float: left;
-}
-
-.comment-form input,.comment-form textarea {
-    clear: left;
-    float: left;
-}
-
 .multiloquent_h1_tag {
     color: #FFFFFF;
     text-align: center;

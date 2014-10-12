@@ -20,27 +20,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* to be loaded in the correct order*/
 /* this is for the tinymce editor background colours*/
 /* ---- wordpress required ---- */
-/* ---- typography ---- */
-/* ---- header ---- */
-/* ----  ---- */
-.avatar {
-  border-radius: 50%;
+.aligncenter {
+  margin: 0 auto;
 }
-.emphasis {
-  border-top: 4px solid transparent;
-}
-.profile {
-  display: inline-block;
-}
-.navbar h2 {
+.alignleft {
   float: left;
-  font-size: 18px;
-  line-height: 20px;
-  margin: 0;
-  font-weight: 300;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
 }
-.mceContentBody {
-  background: none repeat scroll 0 0 #FFFFFF !important;
+.alignright {
+  float: right;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 .wp-caption {
   font-size: inherit;
@@ -56,6 +49,28 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .bypostauthor {
   font-size: inherit;
+}
+.avatar {
+  border-radius: 50%;
+}
+.emphasis {
+  border-top: 4px solid transparent;
+}
+.profile {
+  display: inline-block;
+}
+/* ---- typography ---- */
+/* ---- header ---- */
+/* ----  ---- */
+.navbar h2 {
+  float: left;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+.mceContentBody {
+  background: none repeat scroll 0 0 #FFFFFF !important;
 }
 h1,
 .h1 {
@@ -79,6 +94,9 @@ footer {
   margin-bottom: 0 !important;
   padding-bottom: 50px !important;
 }
+footer ul {
+  margin: 0;
+}
 a {
   color: #1c567f;
   text-decoration: none;
@@ -87,14 +105,8 @@ a:hover {
   color: #133a55;
   text-decoration: underline;
 }
-footer ul {
-  margin: 0;
-}
 p {
   margin: 0 0 30px;
-}
-.lead {
-  font-weight: 300;
 }
 p.h1 a,
 p.h2 a,
@@ -103,6 +115,9 @@ p.h4 a,
 p.h5 a,
 p.h6 a {
   color: #fff;
+}
+.lead {
+  font-weight: 300;
 }
 .container .comments {
   background: none repeat scroll 0 0 #f8f8f8;
@@ -124,6 +139,7 @@ ul,
 ol {
   padding: 0;
   margin: 0 0 25px 25px;
+  list-style: disc inside none;
 }
 blockquote {
   padding: 15px 15px 15px 25px;
@@ -200,6 +216,12 @@ code {
   background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
   color: #676767;
 }
+.jumbotron a {
+  font-weight: bold;
+}
+.jumbotron a:hover {
+  text-decoration: underline;
+}
 @media (min-width: 768px) and (max-width: 979px) {
   .search-box form {
     margin: 0 0 0 28px !important;
@@ -231,9 +253,6 @@ code {
   #disqus_thread {
     margin-top: 0px !important;
   }
-}
-ul {
-  list-style: disc inside none;
 }
 .thumbnails > li.tile h1,
 .thumbnails > li.tile h2,
@@ -462,21 +481,6 @@ figcaption {
   font-weight: 300;
   text-align: center;
 }
-.aligncenter {
-  margin: 0 auto;
-}
-.alignleft {
-  float: left;
-  margin-bottom: 10px;
-  margin-right: 20px;
-  margin-top: 10px;
-}
-.alignright {
-  float: right;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
 div.thumbnail .featured-image {
   height: 100px;
 }
@@ -484,7 +488,12 @@ div.thumbnail .featured-image {
   background: none repeat scroll 0 0 #FFFFFF;
 }
 .btn-primary {
-  background: ;
+  background: #1c567f;
+  border-color: #133a55;
+}
+.btn-success {
+  background: #4cd964;
+  border-color: #2ac845;
 }
 .ads {
   margin-bottom: 20px;
@@ -554,6 +563,10 @@ h3.nowrap {
   height: 150px;
   list-style: none;
 }
+.tile h2 {
+  font-size: 45px !important;
+  margin: 15px 0 0 !important;
+}
 .scroll-text {
   position: absolute;
   white-space: nowrap;
@@ -562,21 +575,11 @@ h3.nowrap {
   overflow: hidden;
   position: relative;
 }
-.tile h2 {
-  font-size: 45px !important;
-  margin: 15px 0 0 !important;
-}
 #disqus_thread {
   margin-top: 40px;
 }
 .navbar-inner {
   opacity: 0.96;
-}
-.jumbotron a {
-  font-weight: bold;
-}
-.jumbotron a:hover {
-  text-decoration: underline;
 }
 .grayscale {
   background-position: center center;
@@ -588,7 +591,7 @@ h3.nowrap {
   top: 0;
   width: 100%;
 }
-@media (min-width: 979px) {
+@media (min-width: 980px) {
   .paralax_image_holder {
     height: 255px;
     overflow: hidden;
@@ -945,9 +948,6 @@ h3.nowrap {
   min-height: 75px;
   position: relative;
 }
-.comment-content > p {
-  margin: 0 !important;
-}
 .comment-metadata {
   position: absolute;
   right: 0;
@@ -959,6 +959,9 @@ h3.nowrap {
 .comment-content {
   margin-left: 75px;
   padding-top: 30px;
+}
+.comment-content > p {
+  margin: 0 !important;
 }
 .comment-reply-link {
   color: #CCCCCC !important;
@@ -978,7 +981,10 @@ h3.nowrap {
   clear: left;
   float: left;
 }
-.comment-form input,
+.comment-form input {
+  clear: left;
+  float: left;
+}
 .comment-form textarea {
   clear: left;
   float: left;
