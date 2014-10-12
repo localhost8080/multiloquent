@@ -194,6 +194,10 @@ body {
   background-color: #2572a9;
 }
 /* ---- inputs ---- */
+.form-control:focus {
+  border-color: #1c567f;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #1c567f;
+}
 .has-warning .help-block,
 .has-warning .control-label,
 .has-warning .radio,
