@@ -949,6 +949,7 @@ h3.nowrap {
 }
 
 
+/* ---- pagination --- */
 
 .pagination {
     .page-numbers {
@@ -989,6 +990,27 @@ h3.nowrap {
 .pager li > a, .pager li > span {
     border-radius: 5px;
 }
+
+
+/* ---- nav-pills --- */
+
+.nav-pills {
+    &>li {
+        display: inline;
+        &>a, &>span {
+            color: @primary-color;
+        }
+        &.active {
+            &>a, &>span {
+                background-color: @primary-color;
+                &:hover{
+                    background-color: lighten(@primary-color,10%);
+                }
+            }
+        }
+    }
+}
+
 
 .restricted-height-sidebar {
     line-height: 53px;
