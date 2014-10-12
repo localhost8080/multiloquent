@@ -61,6 +61,71 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 /* ---- typography ---- */
 /* ---- header ---- */
+/* ---- buttons ---- */
+.btn-white {
+  background: none repeat scroll 0 0 #FFFFFF;
+}
+.btn-primary {
+  background: #1c567f;
+  border-color: #133a55;
+}
+.btn-primary:hover {
+  background: #133a55;
+  border-color: #0a1d2b;
+}
+.btn-success {
+  background: #4cd964;
+  border-color: #2ac845;
+}
+.btn-success:hover {
+  background: #2ac845;
+  border-color: #219e37;
+}
+.btn-info {
+  background: #003a7a;
+  border-color: #002247;
+}
+.btn-info:hover {
+  background: #002247;
+  border-color: #000a14;
+}
+.btn-danger {
+  background: #ff3b30;
+  border-color: #fc0d00;
+}
+.btn-danger:hover {
+  background: #fc0d00;
+  border-color: #c90b00;
+}
+.btn-warning {
+  background: #ffcc00;
+  border-color: #cca300;
+}
+.btn-warning:hover {
+  background: #cca300;
+  border-color: #997a00;
+}
+/* ---- alerts ---- */
+.alert-warning {
+  background: #ffcc00;
+  border-color: #cca300;
+  color: #ffeb99;
+}
+.alert-danger {
+  background: #ff3b30;
+  border-color: #fc0d00;
+  color: #ffccc9;
+}
+.alert-info {
+  background: #003a7a;
+  border-color: #002247;
+  color: #1484ff;
+}
+.alert-success {
+  background: #4cd964;
+  border-color: #2ac845;
+  color: #caf4d1;
+}
 /* ----  ---- */
 .navbar h2 {
   float: left;
@@ -483,17 +548,6 @@ figcaption {
 }
 div.thumbnail .featured-image {
   height: 100px;
-}
-.btn-white {
-  background: none repeat scroll 0 0 #FFFFFF;
-}
-.btn-primary {
-  background: #1c567f;
-  border-color: #133a55;
-}
-.btn-success {
-  background: #4cd964;
-  border-color: #2ac845;
 }
 .ads {
   margin-bottom: 20px;

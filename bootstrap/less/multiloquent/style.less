@@ -87,8 +87,81 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* ---- header ---- */
 
-/* ----  ---- */
+/* ---- buttons ---- */
 
+
+.btn-white {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.btn-primary {
+    background: @primary-color;
+    border-color: darken(@primary-color, 10%);
+    &:hover{
+        background: darken(@primary-color, 10%);
+        border-color: darken(@primary-color, 20%);
+    }
+}
+.btn-success {
+    background: @success-color;
+    border-color: darken(@success-color, 10%);
+    &:hover{
+        background: darken(@success-color, 10%);
+        border-color: darken(@success-color, 20%);
+    }
+}
+.btn-info {
+    background: @info-color;
+    border-color: darken(@info-color, 10%);
+    &:hover{
+        background: darken(@info-color, 10%);
+        border-color: darken(@info-color, 20%);
+    }
+}
+.btn-danger {
+    background: @danger-color;
+    border-color: darken(@danger-color, 10%);
+    &:hover{
+        background: darken(@danger-color, 10%);
+        border-color: darken(@danger-color, 20%);
+    }
+}
+.btn-warning {
+    background: @warning-color;
+    border-color: darken(@warning-color, 10%);
+    &:hover{
+        background: darken(@warning-color, 10%);
+        border-color: darken(@warning-color, 20%);
+    }
+}
+
+/* ---- alerts ---- */
+
+.alert-warning {
+    background: @warning-color;
+    border-color: darken(@warning-color, 10%);
+    color: lighten(@warning-color, 30%);
+}
+
+.alert-danger {
+    background: @danger-color;
+    border-color: darken(@danger-color, 10%);
+    color: lighten(@danger-color, 30%);
+}
+
+.alert-info {
+    background: @info-color;
+    border-color: darken(@info-color, 10%);
+    color: lighten(@info-color, 30%);
+}
+
+.alert-success {
+    background: @success-color;
+    border-color: darken(@success-color, 10%);
+    color: lighten(@success-color, 30%);
+}
+
+/* ----  ---- */
 
 .navbar{
 
@@ -592,19 +665,6 @@ figcaption {
 
 div.thumbnail .featured-image {
     height: 100px;
-}
-
-.btn-white {
-    background: none repeat scroll 0 0 #FFFFFF;
-}
-
-.btn-primary {
-    background: @primary-color;
-    border-color: darken(@primary-color, 10%);
-}
-.btn-success {
-    background: @success-color;
-    border-color: darken(@success-color, 10%);
 }
 
 .ads {
