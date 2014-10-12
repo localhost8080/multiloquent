@@ -193,6 +193,52 @@ body {
 .nav-pills > li.active > span:hover {
   background-color: #2572a9;
 }
+/* ---- inputs ---- */
+.has-warning .help-block,
+.has-warning .control-label,
+.has-warning .radio,
+.has-warning .checkbox,
+.has-warning .radio-inline,
+.has-warning .checkbox-inline {
+  color: #ffcc00;
+}
+.has-warning .form-control {
+  border-color: #ffcc00;
+}
+.has-warning .form-control:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ffcc00;
+}
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline {
+  color: #4cd964;
+}
+.has-success .form-control {
+  border-color: #4cd964;
+}
+.has-success .form-control:focus {
+  border-color: #4cd964;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #4cd964;
+}
+.has-danger .help-block,
+.has-danger .control-label,
+.has-danger .radio,
+.has-danger .checkbox,
+.has-danger .radio-inline,
+.has-danger .checkbox-inline {
+  color: #ff3b30;
+}
+.has-danger .form-control {
+  border-color: #ff3b30;
+}
+.has-danger .form-control:focus {
+  border-color: #ff3b30;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ff3b30;
+}
 /* ----  ---- */
 .navbar h2 {
   float: left;

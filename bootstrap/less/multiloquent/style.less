@@ -233,6 +233,44 @@ body {
     }
 }
 
+/* ---- inputs ---- */
+.has-warning {
+    .help-block, .control-label, .radio, .checkbox, .radio-inline, .checkbox-inline {
+      color: @warning-color;
+  }
+  .form-control {
+      border-color: @warning-color;
+      &:focus {
+          border-color: @warning-color;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px @warning-color;
+      }
+  }
+}
+.has-success {
+    .help-block, .control-label, .radio, .checkbox, .radio-inline, .checkbox-inline {
+      color: @success-color;
+  }
+  .form-control {
+      border-color: @success-color;
+      &:focus {
+          border-color: @success-color;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px @success-color;
+      }
+  }
+}
+.has-danger {
+    .help-block, .control-label, .radio, .checkbox, .radio-inline, .checkbox-inline {
+      color: @danger-color;
+  }
+  .form-control {
+      border-color: @danger-color;
+      &:focus {
+          border-color: @danger-color;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px @danger-color;
+      }
+  }
+}
+
 /* ----  ---- */
 
 .navbar{
