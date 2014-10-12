@@ -105,39 +105,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
   background: #cca300;
   border-color: #997a00;
 }
-/* ---- alerts ---- */
-.alert-warning {
-  background: #ffeb99;
-  border-color: #ffe066;
-  color: #ffcc00;
-}
-.alert-warning a {
-  color: #ffcc00;
-}
-.alert-info {
-  background: #69b1ff;
-  border-color: #3696ff;
-  color: #0063cf;
-}
-.alert-info a {
-  color: #0063cf;
-}
-.alert-success {
-  background: #caf4d1;
-  border-color: #a0ebad;
-  color: #4cd964;
-}
-.alert-success a {
-  color: #4cd964;
-}
-.alert-danger {
-  background: #ffccc9;
-  border-color: #ff9c96;
-  color: #ff3b30;
-}
-.alert-danger a {
-  color: #ff3b30;
-}
 /* ----  ---- */
 .navbar h2 {
   float: left;
