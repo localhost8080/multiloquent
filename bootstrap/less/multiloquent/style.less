@@ -85,6 +85,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* ---- typography ---- */
 
+.text-primary{
+    color: @primary-color;
+}
+.text-success{
+    color:@success-color;
+}
+.text-info{
+    color:@info-color;
+}
+.text-warning{
+    color:@warning-color;
+}
+.text-danger{
+    color:@warning-color;
+}
+
 /* ---- header ---- */
 
 /* ---- buttons ---- */
@@ -132,6 +148,69 @@ Use it to make something cool, have fun, and share what you've learned with othe
     &:hover{
         background: darken(@warning-color, 10%);
         border-color: darken(@warning-color, 20%);
+    }
+}
+
+
+/* ---- pagination --- */
+
+.pagination {
+    .page-numbers {
+        display: inline-block;
+        margin: 0;
+        padding-left: 0;
+        &>li {
+            display: inline;
+            &>a, &>span {
+                color: @primary-color;
+            }
+            &.active {
+                &>a, &>span {
+                    background-color: @primary-color;
+                    &:hover{
+                        background-color: lighten(@primary-color,10%);
+                    }
+                }
+            }
+        }
+    }
+    &>li {
+        display: inline;
+        &>a, &>span {
+            color: @primary-color;
+        }
+        &.active {
+            &>a, &>span {
+                background-color: @primary-color;
+                &:hover{
+                    background-color: lighten(@primary-color,10%);
+                }
+            }
+        }
+    }
+}
+
+.pager li > a, .pager li > span {
+    border-radius: 5px;
+}
+
+
+/* ---- nav-pills --- */
+
+.nav-pills {
+    &>li {
+        display: inline;
+        &>a, &>span {
+            color: @primary-color;
+        }
+        &.active {
+            &>a, &>span {
+                background-color: @primary-color;
+                &:hover{
+                    background-color: lighten(@primary-color,10%);
+                }
+            }
+        }
     }
 }
 
@@ -947,70 +1026,6 @@ h3.nowrap {
 .navitems.article.white2 {
     text-align: center;
 }
-
-
-/* ---- pagination --- */
-
-.pagination {
-    .page-numbers {
-        display: inline-block;
-        margin: 0;
-        padding-left: 0;
-        &>li {
-            display: inline;
-            &>a, &>span {
-                color: @primary-color;
-            }
-            &.active {
-                &>a, &>span {
-                    background-color: @primary-color;
-                    &:hover{
-                        background-color: lighten(@primary-color,10%);
-                    }
-                }
-            }
-        }
-    }
-    &>li {
-        display: inline;
-        &>a, &>span {
-            color: @primary-color;
-        }
-        &.active {
-            &>a, &>span {
-                background-color: @primary-color;
-                &:hover{
-                    background-color: lighten(@primary-color,10%);
-                }
-            }
-        }
-    }
-}
-
-.pager li > a, .pager li > span {
-    border-radius: 5px;
-}
-
-
-/* ---- nav-pills --- */
-
-.nav-pills {
-    &>li {
-        display: inline;
-        &>a, &>span {
-            color: @primary-color;
-        }
-        &.active {
-            &>a, &>span {
-                background-color: @primary-color;
-                &:hover{
-                    background-color: lighten(@primary-color,10%);
-                }
-            }
-        }
-    }
-}
-
 
 .restricted-height-sidebar {
     line-height: 53px;

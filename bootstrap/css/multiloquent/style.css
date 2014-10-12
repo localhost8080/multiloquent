@@ -60,6 +60,21 @@ Use it to make something cool, have fun, and share what you've learned with othe
   display: inline-block;
 }
 /* ---- typography ---- */
+.text-primary {
+  color: #1c567f;
+}
+.text-success {
+  color: #4cd964;
+}
+.text-info {
+  color: #0063cf;
+}
+.text-warning {
+  color: #ffcc00;
+}
+.text-danger {
+  color: #ffcc00;
+}
 /* ---- header ---- */
 /* ---- buttons ---- */
 .btn-white {
@@ -104,6 +119,62 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .btn-warning:hover {
   background: #cca300;
   border-color: #997a00;
+}
+/* ---- pagination --- */
+.pagination .page-numbers {
+  display: inline-block;
+  margin: 0;
+  padding-left: 0;
+}
+.pagination .page-numbers > li {
+  display: inline;
+}
+.pagination .page-numbers > li > a,
+.pagination .page-numbers > li > span {
+  color: #1c567f;
+}
+.pagination .page-numbers > li.active > a,
+.pagination .page-numbers > li.active > span {
+  background-color: #1c567f;
+}
+.pagination .page-numbers > li.active > a:hover,
+.pagination .page-numbers > li.active > span:hover {
+  background-color: #2572a9;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #1c567f;
+}
+.pagination > li.active > a,
+.pagination > li.active > span {
+  background-color: #1c567f;
+}
+.pagination > li.active > a:hover,
+.pagination > li.active > span:hover {
+  background-color: #2572a9;
+}
+.pager li > a,
+.pager li > span {
+  border-radius: 5px;
+}
+/* ---- nav-pills --- */
+.nav-pills > li {
+  display: inline;
+}
+.nav-pills > li > a,
+.nav-pills > li > span {
+  color: #1c567f;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > span {
+  background-color: #1c567f;
+}
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > span:hover {
+  background-color: #2572a9;
 }
 /* ----  ---- */
 .navbar h2 {
@@ -811,62 +882,6 @@ h3.nowrap {
 }
 .navitems.article.white2 {
   text-align: center;
-}
-/* ---- pagination --- */
-.pagination .page-numbers {
-  display: inline-block;
-  margin: 0;
-  padding-left: 0;
-}
-.pagination .page-numbers > li {
-  display: inline;
-}
-.pagination .page-numbers > li > a,
-.pagination .page-numbers > li > span {
-  color: #1c567f;
-}
-.pagination .page-numbers > li.active > a,
-.pagination .page-numbers > li.active > span {
-  background-color: #1c567f;
-}
-.pagination .page-numbers > li.active > a:hover,
-.pagination .page-numbers > li.active > span:hover {
-  background-color: #2572a9;
-}
-.pagination > li {
-  display: inline;
-}
-.pagination > li > a,
-.pagination > li > span {
-  color: #1c567f;
-}
-.pagination > li.active > a,
-.pagination > li.active > span {
-  background-color: #1c567f;
-}
-.pagination > li.active > a:hover,
-.pagination > li.active > span:hover {
-  background-color: #2572a9;
-}
-.pager li > a,
-.pager li > span {
-  border-radius: 5px;
-}
-/* ---- nav-pills --- */
-.nav-pills > li {
-  display: inline;
-}
-.nav-pills > li > a,
-.nav-pills > li > span {
-  color: #1c567f;
-}
-.nav-pills > li.active > a,
-.nav-pills > li.active > span {
-  background-color: #1c567f;
-}
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > span:hover {
-  background-color: #2572a9;
 }
 .restricted-height-sidebar {
   line-height: 53px;
