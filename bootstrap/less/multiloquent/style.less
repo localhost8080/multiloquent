@@ -987,6 +987,37 @@ h3.nowrap {
             }
         }
     }
+    &>li {
+        display: inline;
+        &:first-child{
+            &>a,&>span {
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+                margin-right: 0;
+            }
+        }
+        &:last-child{
+            &>a,&>span {
+                border-bottom-right-radius: 4px;
+                border-top-right-radius: 4px;
+                margin-left: 0;
+            }
+        }
+        &>a, &>span {
+            color: @primary-color;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            float: left;
+            line-height: 1.42857;
+            margin-left: -1px;
+            padding: 6px 12px;
+            position: relative;
+            text-decoration: none;
+        }
+        .active {
+            background-color: @primary-color;
+        }
+    }
 }
 
 .restricted-height-sidebar {
