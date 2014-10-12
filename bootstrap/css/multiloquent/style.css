@@ -107,32 +107,32 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 /* ---- alerts ---- */
 .alert-warning {
-  background: #ffffff;
-  border-color: #fff5cc;
+  background: #ffeb99;
+  border-color: #ffe066;
   color: #ffffff;
 }
 .alert-warning a {
   color: #ffffff;
 }
 .alert-info {
-  background: #cfe6ff;
-  border-color: #9ccbff;
-  color: #ffffff;
+  background: #69b1ff;
+  border-color: #3696ff;
+  color: #cfe6ff;
 }
 .alert-info a {
-  color: #ffffff;
+  color: #cfe6ff;
 }
 .alert-success {
-  background: #ffffff;
-  border-color: #f4fdf6;
+  background: #caf4d1;
+  border-color: #a0ebad;
   color: #ffffff;
 }
 .alert-success a {
   color: #ffffff;
 }
 .alert-danger {
-  background: #ffffff;
-  border-color: #fffcfc;
+  background: #ffccc9;
+  border-color: #ff9c96;
   color: #ffffff;
 }
 .alert-danger a {
