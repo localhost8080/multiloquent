@@ -92,6 +92,22 @@ body {
 .text-danger {
   color: #cf0000;
 }
+/* ---- labels ---- */
+.label-primary {
+  background-color: #1c567f;
+}
+.label-success {
+  background-color: #009559;
+}
+.label-info {
+  background-color: #0063cf;
+}
+.label-danger {
+  background-color: #cf0000;
+}
+.label-warning {
+  background-color: #cfb700;
+}
 /* ---- header ---- */
 /* ---- buttons ---- */
 .btn-white {
@@ -646,12 +662,6 @@ code {
 .navbar .nav > li {
   text-transform: capitalize;
   font-size: 17px;
-}
-.label {
-  padding: 5px 10px 5px 10px;
-  margin: 0 0 0 5px;
-  white-space: normal;
-  display: inline-block;
 }
 .badge {
   padding: 5px 10px 5px 10px;
