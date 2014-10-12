@@ -19,6 +19,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files */
 /* to be loaded in the correct order*/
 /* this is for the tinymce editor background colours*/
+/* ---- wordpress required ---- */
+/* ---- typography ---- */
+/* ---- header ---- */
+/* ----  ---- */
 .avatar {
   border-radius: 50%;
 }
@@ -27,17 +31,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .profile {
   display: inline-block;
-}
-figcaption.ratings {
-  margin-top: 20px;
-}
-figcaption.ratings a {
-  color: #f1c40f;
-  font-size: 11px;
-}
-figcaption.ratings:hover {
-  color: #f39c12;
-  text-decoration: none;
 }
 .navbar h2 {
   float: left;
@@ -64,6 +57,11 @@ figcaption.ratings:hover {
 .bypostauthor {
   font-size: inherit;
 }
+h1,
+.h1 {
+  font-size: 2em;
+  font-weight: 300;
+}
 html {
   font-size: 20px;
 }
@@ -77,11 +75,6 @@ body {
   background-color: #333333;
   padding-top: 50px;
 }
-h1,
-.h1 {
-  font-size: 2em;
-  font-weight: 300;
-}
 footer {
   margin-bottom: 0 !important;
   padding-bottom: 50px !important;
@@ -91,7 +84,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #1c567f;
+  color: #133a55;
   text-decoration: underline;
 }
 footer ul {
@@ -150,9 +143,9 @@ code {
   word-break: break-all;
   word-wrap: break-word;
 }
-pre:before {
-  content: "# ";
-}
+/*pre:before {
+    content: "# ";
+}*/
 .well {
   background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
   border: 0 none;
@@ -264,6 +257,7 @@ ul {
   word-wrap: break-word;
   padding-bottom: 0;
 }
+/* ---- colours for all the elements ---- */
 .phone {
   background: linear-gradient(to bottom, #8ffd78 0%, #0cd318 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
@@ -492,12 +486,11 @@ figcaption {
 div.thumbnail .featured-image {
   height: 100px;
 }
-div.sharedaddy .sd-content {
-  float: left !important;
-  width: 100% !important;
-}
 .btn-white {
   background: none repeat scroll 0 0 #FFFFFF;
+}
+.btn-primary {
+  background: ;
 }
 .ads {
   margin-bottom: 20px;
@@ -585,407 +578,11 @@ h3.nowrap {
 .navbar-inner {
   opacity: 0.96;
 }
-div.sharedaddy div.sd-block {
-  border: 0 !important;
-}
-div.sharedaddy {
-  float: left;
-}
 .jumbotron a {
   font-weight: bold;
 }
 .jumbotron a:hover {
   text-decoration: underline;
-}
-li.share-print a.sd-button > spandiv.sharedaddy ul,
-div.sharedaddy li {
-  background: none;
-  border: medium none;
-  list-style: none outside none;
-  margin: 0;
-  padding: 0;
-}
-div.sharedaddy,
-#content div.sharedaddy,
-#main div.sharedaddy {
-  clear: both;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-}
-div.sharedaddy,
-div.sharedaddy div {
-  border-radius: 0 0 0 0 !important;
-}
-div.sharedaddy h3,
-#content div.sharedaddy h3,
-#main div.sharedaddy h3,
-#primary div.sharedaddy h3 {
-  background: none;
-  border: medium none;
-  float: left;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: 1;
-  margin: 3px 0;
-  padding: 0;
-  position: static;
-  text-transform: none;
-  width: 15.625%;
-}
-.rtl div.sharedaddy h3,
-.rtl #content div.sharedaddy h3,
-.rtl #main div.sharedaddy h3,
-.rtl #primary div.sharedaddy h3 {
-  float: right;
-  text-align: right;
-}
-div.sharedaddy ul,
-div.sharedaddy li {
-  margin: 0 !important;
-  padding: 0 !important;
-  text-indent: 0;
-}
-div.sharedaddy li:before {
-  content: "";
-}
-div.sharedaddy div.pd-rating {
-  margin: 0;
-  min-height: 23px;
-}
-div.sharedaddy a,
-div.sharedaddy a:link,
-div.sharedaddy a:visited {
-  font-style: normal;
-}
-div.sharedaddy:before,
-div.sharedaddy:after,
-div.sharedaddy .sd-block:before,
-div.sharedaddy .sd-block:after,
-div.sharedaddy ul:before,
-div.sharedaddy ul:after {
-  content: " ";
-  display: block;
-  height: 0;
-  overflow: hidden;
-}
-div.sharedaddy:after,
-div.sharedaddy .sd-block:after,
-div.sharedaddy ul:after {
-  clear: both;
-}
-div.sharedaddy div.sd-block {
-  border-top: 1px solid rgba(0, 0, 0, 0.13);
-  margin: 0;
-  padding: 10px 0 5px;
-  width: 100% !important;
-}
-div.sharedaddy.sharedaddy-dark .sd-block {
-  border-top-color: rgba(50, 50, 50, 0.5);
-}
-div.sharedaddy .sd-content {
-  float: right;
-  margin: -2px 0 0;
-  width: 82.125%;
-}
-div.sharedaddy .sd-content ul {
-  margin: 0;
-}
-div.sharedaddy .sd-content li {
-  display: block;
-  float: left;
-  margin: 0 5px 5px 0 !important;
-}
-.rtl div.sharedaddy .sd-content {
-  float: right;
-}
-.rtl div.sharedaddy .sd-content li {
-  float: right;
-  margin: 0 0 5px 5px !important;
-}
-div.sharedaddy a.sd-button {
-  background: linear-gradient(180deg, #efefef 100%, #f7f7f7 100%);
-  border: 1px solid #DDDDDD !important;
-  border-radius: 3px 3px 3px 3px;
-  box-shadow: 0 1px 0 #FFFFFF inset;
-  color: #000000 !important;
-  display: inline-block;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-div.sharedaddy a.sd-button:hover {
-  background: linear-gradient(180deg, #efefef 100%, #eeeeee 100%);
-  border-color: #CCCCCC;
-  color: #000000;
-  text-shadow: 0 1px 0 #FFFFFF;
-}
-div.sharedaddy a.sd-button:active {
-  background-color: #EFEFEF;
-  border-color: #DDDDDD;
-  box-shadow: 0 -1px 0 #ffffff inset;
-}
-a.sd-button > span {
-  display: block;
-  line-height: 1.5em;
-  opacity: 0.8;
-  padding: 4px 8px;
-  text-shadow: none;
-}
-a.sd-button:hover span {
-  opacity: 1;
-}
-.sd-button span.share-count {
-  color: #666666;
-  font-size: 90%;
-  line-height: 1;
-  margin-left: 5px;
-}
-.rtl .sd-button span.share-count {
-  margin-right: 5px;
-}
-.sd-social-icon-text a.sd-button > span,
-a.sd-button > span {
-  background-position: 2px center;
-  background-repeat: no-repeat;
-  padding: 1px 5px 1px 23px;
-}
-.sd-social-icon a.sd-button > span {
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 16px;
-  padding: 3px;
-  text-indent: -9999px;
-  width: 16px;
-}
-.sd-social-text a.sd-button > span {
-  background: none repeat scroll 0 0 transparent !important;
-  padding-left: 5px;
-}
-.sd-social-official li {
-  height: 21px;
-}
-div.sharedaddy .no-text {
-  height: 21px;
-  width: 21px;
-}
-div.sharedaddy .no-text a {
-  text-decoration: none;
-}
-div.sharedaddy .no-icon a span,
-div.sharedaddy li.no-icon div a span {
-  background-image: none;
-  padding-left: 5px;
-}
-.rtl .sd-social-icon-text a.sd-button > span,
-.rtl a.sd-button > span {
-  background-position: 98% center;
-  padding: 3px 23px 3px 5px;
-}
-.rtl .sd-social-text a.sd-button > span {
-  padding-left: 0;
-  padding-right: 5px;
-}
-.rtl div.sharedaddy .no-icon a span,
-.rtl div.sharedaddy li.no-icon div a span {
-  padding-left: 0;
-  padding-right: 5px;
-}
-li.share-facebook a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/facebook.png");
-}
-li.share-tumblr a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/tumblr.png");
-}
-li.share-twitter a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/twitter.png");
-}
-li.share-google-plus-1 a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/googleplus1.png");
-}
-li.share-linkedin a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/linkedin.png");
-}
-li.share-press-this a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/wordpress.png");
-}
-li.share-digg a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/digg.png");
-}
-li.share-stumbleupon a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/stumbleupon.png");
-}
-li.share-reddit a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/reddit.png");
-}
-li.share-pinterest a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/pinterest.png");
-}
-li.share-pocket a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/pocket.png");
-}
-li.share-kindle a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/kindle.png");
-}
-li.share-email a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/email.png");
-}
-li.share-print a.sd-button > span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/print.png");
-}
-a.sd-button.share-more span {
-  background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/more.png");
-}
-@media not all, not all, not all, not all, only screen and (min-resolution: 120dpi) {
-  li.share-facebook a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/facebook@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-tumblr a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/tumblr@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-twitter a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/twitter@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-google-plus-1 a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/googleplus1@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-linkedin a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/linkedin@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-press-this a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/wordpress@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-digg a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/digg@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-stumbleupon a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/stumbleupon@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-reddit a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/reddit@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-pinterest a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/pinterest@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-pocket a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/pocket@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-kindle a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/kindle@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-email a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/email@2x.png");
-    background-size: 16px 16px;
-  }
-  li.share-print a.sd-button > span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/print@2x.png");
-    background-size: 16px 16px;
-  }
-  a.sd-button.share-more span {
-    background-image: url("/wp-content/plugins/jetpack/modules/sharedaddy/images/more@2x.png");
-    background-size: 16px 16px;
-  }
-}
-div.sharedaddy .sharing-hidden .inner {
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  border-radius: 3px 3px 3px 3px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  margin-left: -100px;
-  max-width: 250px;
-  padding: 15px 15px 10px;
-  position: absolute;
-  z-index: 1001;
-}
-.rtl div.sharedaddy .sharing-hidden .inner {
-  margin-left: 0;
-  margin-right: -100px;
-}
-div.sharedaddy.sharedaddy-dark .sharing-hidden .inner {
-  border-color: #222222;
-}
-#sharing_email {
-  background-color: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  border-radius: 3px 3px 3px 3px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  margin-left: -120px;
-  padding: 15px;
-  position: absolute;
-  text-align: left;
-  width: 312px;
-  z-index: 1001;
-}
-div.sharedaddy.sharedaddy-dark #sharing_email {
-  border-color: #FFFFFF;
-}
-#sharing_email .errors {
-  background-color: #771A09;
-  color: #FFFFFF;
-  font-size: 11px;
-  line-height: 11px;
-  margin: 10px 0 0;
-  padding: 5px 8px;
-}
-#sharing_email label {
-  color: #333333;
-  display: block;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 0 0 4px;
-  text-align: left;
-  text-shadow: none;
-}
-#sharing_email input[type="text"] {
-  background: none repeat scroll 0 0 #FFFFFF;
-  color: #1C567F;
-  border: 1px solid #1C567F;
-  margin-bottom: 12px;
-  width: 98.5%;
-}
-#sharing_email .sharing_cancel {
-  font-size: 11px;
-  padding: 0 0 0 10px;
-  text-shadow: none;
-}
-#sharing_email .recaptcha {
-  height: 123px;
-  margin: 10px 0 14px;
-  width: 312px;
-}
-body.rtl .sharing ul {
-  float: right;
-}
-body.rtl .sharing li {
-  margin: 0 0 0 10px !important;
-}
-.rtl #sharing_email {
-  margin-left: 0;
-  margin-right: -120px;
-  text-align: right;
-}
-.rtl #sharing_email label {
-  text-align: right;
-}
-.rtl #sharing_email .sharing_cancel {
-  padding: 0 10px 0 0;
 }
 .grayscale {
   background-position: center center;
@@ -1238,10 +835,15 @@ body.rtl .sharing li {
 .featured-posts div:first-child {
   margin-left: 0;
 }
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  z-index: 400;
+}
 .wrapper {
   background: #ffffff;
   transition: margin 0.2s linear 0s;
 }
+/* ---- sidebar ---- */
 .sidebar-pad {
   padding: 15px;
 }
@@ -1259,10 +861,6 @@ body.rtl .sharing li {
   padding-top: 0;
   padding-bottom: 0;
   margin-bottom: 0;
-}
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  z-index: 400;
 }
 .sidebar a {
   color: #fff;
@@ -1319,6 +917,7 @@ body.rtl .sharing li {
   top: 50%;
   padding: 20px 5px;
 }
+/* ---- comment form ---- */
 .comment {
   font-size: 15px;
   font-weight: normal;
