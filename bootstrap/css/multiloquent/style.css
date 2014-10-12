@@ -143,9 +143,6 @@ code {
   word-break: break-all;
   word-wrap: break-word;
 }
-/*pre:before {
-    content: "# ";
-}*/
 .well {
   background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
   border: 0 none;
@@ -164,9 +161,6 @@ code {
 }
 .nav-header {
   color: #454545;
-}
-.sidebar .nav-header {
-  color: #FFFFFF;
 }
 #wp-calendar {
   margin: 40px auto;
@@ -865,30 +859,34 @@ h3.nowrap {
 .sidebar a {
   color: #fff;
 }
-.sidebar .menu ul,
-.sidebar ul.menu {
+.sidebar .nav-header {
+  color: #FFFFFF;
+}
+.sidebar .menu ul {
   margin: 0;
+}
+.sidebar .menu ul.children,
+.sidebar .menu ul.sub-menu {
+  background: #676767;
 }
 .sidebar .menu li {
   list-style: none;
 }
-.sidebar .menu .page_item_has_children,
+.sidebar .menu .page_item_has_children {
+  position: relative;
+}
 .sidebar .menu .menu-item-has-children {
   position: relative;
 }
 .sidebar .menu ul > li > a {
   margin-left: 10px;
 }
+.sidebar ul .menu {
+  margin: 0;
+}
 .sidebar .menu ul > li > ul,
 .sidebar ul.menu > li > ul {
   display: none;
-}
-.sidebar .menu li {
-  list-style: none outside none;
-}
-.sidebar .menu ul.children,
-.sidebar .menu ul.sub-menu {
-  background: #676767;
 }
 .sidebar .menu ul.children ul.children,
 .sidebar .menu ul.sub-menu ul.sub-menu {
@@ -928,6 +926,20 @@ h3.nowrap {
   position: absolute;
   width: 100%;
 }
+.comment .says {
+  display: none;
+}
+.comment .reply {
+  margin-left: 75px;
+  font-size: 10px;
+}
+.comment .avatar {
+  display: block;
+  float: left;
+  height: 56px;
+  margin-right: 10px;
+  width: 56px;
+}
 .comment-body {
   margin-bottom: 20px;
   min-height: 75px;
@@ -936,34 +948,20 @@ h3.nowrap {
 .comment-content > p {
   margin: 0 !important;
 }
-.comment .says {
-  display: none;
-}
 .comment-metadata {
   position: absolute;
   right: 0;
   font-size: 10px;
 }
-.comment-metadata a {
+.comment-metadata .comment-metadata a {
   color: #CCCCCC !important;
 }
 .comment-content {
   margin-left: 75px;
   padding-top: 30px;
 }
-.comment .reply {
-  margin-left: 75px;
-  font-size: 10px;
-}
 .comment-reply-link {
   color: #CCCCCC !important;
-}
-.comment .avatar {
-  display: block;
-  float: left;
-  height: 56px;
-  margin-right: 10px;
-  width: 56px;
 }
 .comment-author b {
   left: 75px;
