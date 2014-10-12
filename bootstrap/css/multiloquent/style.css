@@ -842,8 +842,8 @@ h3.nowrap {
   position: relative;
   text-decoration: none;
 }
-.pagination .page-numbers > li .active > a,
-.pagination .page-numbers > li .active > span {
+.pagination .page-numbers > li.active > a,
+.pagination .page-numbers > li.active > span {
   background-color: #1c567f;
   color: #ffffff;
 }
@@ -872,8 +872,8 @@ h3.nowrap {
   position: relative;
   text-decoration: none;
 }
-.pagination > li .active > a,
-.pagination > li .active > span {
+.pagination > li.active > a,
+.pagination > li.active > span {
   background-color: #1c567f;
   color: #ffffff;
 }
