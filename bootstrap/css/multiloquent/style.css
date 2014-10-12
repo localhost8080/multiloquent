@@ -87,10 +87,10 @@ body {
   color: #0063cf;
 }
 .text-warning {
-  color: #ffcc00;
+  color: #cfb700;
 }
 .text-danger {
-  color: #ff3b30;
+  color: #cf0000;
 }
 /* ---- header ---- */
 /* ---- buttons ---- */
@@ -122,20 +122,20 @@ body {
   border-color: #003269;
 }
 .btn-danger {
-  background: #ff3b30;
-  border-color: #fc0d00;
+  background: #cf0000;
+  border-color: #9c0000;
 }
 .btn-danger:hover {
-  background: #fc0d00;
-  border-color: #c90b00;
+  background: #9c0000;
+  border-color: #690000;
 }
 .btn-warning {
-  background: #ffcc00;
-  border-color: #cca300;
+  background: #cfb700;
+  border-color: #9c8a00;
 }
 .btn-warning:hover {
-  background: #cca300;
-  border-color: #997a00;
+  background: #9c8a00;
+  border-color: #695d00;
 }
 /* ---- pagination --- */
 .pagination .page-numbers {
@@ -204,14 +204,14 @@ body {
 .has-warning .checkbox,
 .has-warning .radio-inline,
 .has-warning .checkbox-inline {
-  color: #ffcc00;
+  color: #cfb700;
 }
 .has-warning .form-control {
-  border-color: #ffcc00;
+  border-color: #cfb700;
 }
 .has-warning .form-control:focus {
-  border-color: #ffcc00;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ffcc00;
+  border-color: #cfb700;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #cfb700;
 }
 .has-success .help-block,
 .has-success .control-label,
@@ -234,14 +234,14 @@ body {
 .has-danger .checkbox,
 .has-danger .radio-inline,
 .has-danger .checkbox-inline {
-  color: #ff3b30;
+  color: #cf0000;
 }
 .has-danger .form-control {
-  border-color: #ff3b30;
+  border-color: #cf0000;
 }
 .has-danger .form-control:focus {
-  border-color: #ff3b30;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ff3b30;
+  border-color: #cf0000;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #cf0000;
 }
 /* ---- list-groups ---- */
 .list-group-item.active,
@@ -270,16 +270,16 @@ body {
   background-color: #0063cf;
 }
 .panel-warning {
-  border-color: #ffcc00;
+  border-color: #cfb700;
 }
 .panel-warning > .panel-heading {
-  background-color: #ffcc00;
+  background-color: #cfb700;
 }
 .panel-danger {
-  border-color: #ff3b30;
+  border-color: #cf0000;
 }
 .panel-danger > .panel-heading {
-  background-color: #ff3b30;
+  background-color: #cf0000;
 }
 /* ----  ---- */
 .navbar h2 {
