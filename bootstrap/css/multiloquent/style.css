@@ -19,6 +19,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* I had to mive my custom things to custom.css to load it via wp_enqueue_scripts in order for the css files */
 /* to be loaded in the correct order*/
 /* this is for the tinymce editor background colours*/
+/* ----  setup ---- */
+html {
+  font-size: 20px;
+}
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #333333;
+  padding-top: 50px;
+}
 /* ---- wordpress required ---- */
 .aligncenter {
   margin: 0 auto;
@@ -58,6 +72,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 .profile {
   display: inline-block;
+}
+#wp-calendar {
+  margin: 40px auto;
 }
 /* ---- typography ---- */
 .text-primary {
@@ -192,19 +209,6 @@ h1,
   font-size: 2em;
   font-weight: 300;
 }
-html {
-  font-size: 20px;
-}
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 1em;
-  line-height: 1.6;
-  color: #333333;
-  background-color: #333333;
-  padding-top: 50px;
-}
 footer {
   margin-bottom: 0 !important;
   padding-bottom: 50px !important;
@@ -256,23 +260,8 @@ ol {
   margin: 0 0 25px 25px;
   list-style: disc inside none;
 }
-blockquote {
-  padding: 15px 15px 15px 25px;
-  margin: 0 0 25px;
-  border-color: #E0E0E0;
-  border-image: none;
-  border-style: solid;
-  border-width: 1px 1px 1px 5px;
-}
 code {
-  background-color: #F7F7F9;
-  border: 1px solid #E1E1E8;
-  color: #DD1144;
   display: block;
-  padding: 2px 4px;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
 }
 .well {
   background: url("/wp-content/themes/multiloquent/images/jumbotron.png") no-repeat scroll 100% 100% #f8f8f8 !important;
@@ -292,9 +281,6 @@ code {
 }
 .nav-header {
   color: #454545;
-}
-#wp-calendar {
-  margin: 40px auto;
 }
 .navbar-form,
 .navbar-form input,
