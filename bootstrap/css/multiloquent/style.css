@@ -82,12 +82,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
   border-color: #219e37;
 }
 .btn-info {
-  background: #003a7a;
-  border-color: #002247;
+  background: #0063cf;
+  border-color: #004b9c;
 }
 .btn-info:hover {
-  background: #002247;
-  border-color: #000a14;
+  background: #004b9c;
+  border-color: #003269;
 }
 .btn-danger {
   background: #ff3b30;
@@ -117,9 +117,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
   color: #ffccc9;
 }
 .alert-info {
-  background: #003a7a;
-  border-color: #002247;
-  color: #1484ff;
+  background: #0063cf;
+  border-color: #004b9c;
+  color: #69b1ff;
 }
 .alert-success {
   background: #4cd964;
