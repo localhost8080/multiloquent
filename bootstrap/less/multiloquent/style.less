@@ -948,8 +948,9 @@ h3.nowrap {
     text-align: center;
 }
 
-.pagination {
 
+
+.pagination {
     .page-numbers {
         display: inline-block;
         margin: 0;
@@ -971,6 +972,7 @@ h3.nowrap {
                 }
             }
             &>a, &>span {
+                color: @primary-color;
                 background-color: #FFFFFF;
                 border: 1px solid #DDDDDD;
                 float: left;
@@ -979,6 +981,9 @@ h3.nowrap {
                 padding: 6px 12px;
                 position: relative;
                 text-decoration: none;
+            }
+            .active {
+                background-color: @primary-color;
             }
         }
     }

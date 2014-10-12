@@ -834,6 +834,7 @@ h3.nowrap {
 }
 .pagination .page-numbers > li > a,
 .pagination .page-numbers > li > span {
+  color: #1c567f;
   background-color: #FFFFFF;
   border: 1px solid #DDDDDD;
   float: left;
@@ -842,6 +843,9 @@ h3.nowrap {
   padding: 6px 12px;
   position: relative;
   text-decoration: none;
+}
+.pagination .page-numbers > li .active {
+  background-color: #1c567f;
 }
 .restricted-height-sidebar {
   line-height: 53px;
