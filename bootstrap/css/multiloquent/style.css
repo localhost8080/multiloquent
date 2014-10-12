@@ -243,6 +243,44 @@ body {
   border-color: #ff3b30;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #ff3b30;
 }
+/* ---- list-groups ---- */
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  background-color: #1c567f;
+  border-color: #1c567f;
+}
+/* ---- panels ---- */
+.panel-primary {
+  border-color: #1c567f;
+}
+.panel-primary > .panel-heading {
+  background-color: #1c567f;
+}
+.panel-success {
+  border-color: #4cd964;
+}
+.panel-success > .panel-heading {
+  background-color: #4cd964;
+}
+.panel-info {
+  border-color: #0063cf;
+}
+.panel-info > .panel-heading {
+  background-color: #0063cf;
+}
+.panel-warning {
+  border-color: #ffcc00;
+}
+.panel-warning > .panel-heading {
+  background-color: #ffcc00;
+}
+.panel-danger {
+  border-color: #ff3b30;
+}
+.panel-danger > .panel-heading {
+  background-color: #ff3b30;
+}
 /* ----  ---- */
 .navbar h2 {
   float: left;
