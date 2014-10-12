@@ -111,23 +111,11 @@ class MultiloquentBase
             $content_width = 900;
         }
         // sidebars
-        $sidebars = array(
-            '1' => 'sidebar top',
-            '2' => 'mobile specific advert',
-            '3' => 'non-mobile specific advert',
-            '4' => 'sidebar middle',
-            '5' => 'sidebar bottom',
-            '6' => 'footer top left',
-            '7' => 'footer top right',
-            '8' => 'social media',
-            '9' => 'footer bottom left',
-            '10' => 'footer bottom right',
-            );
         add_action(
             'widgets_init',
-            array($this,'multiloquent_generate_sidebars'),
-            $sidebars
+            array($this,'multiloquent_generate_sidebars')
             );
+
     }
 
     /**
@@ -413,9 +401,22 @@ if ($setting_type == 'paralax_featured') {
      * @internal internal
      *
      */
-    function multiloquent_generate_sidebars($array)
+    function multiloquent_generate_sidebars()
     {
-        foreach ($array as $name) {
+        $sidebars = array(
+            '1' => 'sidebar top',
+            '2' => 'mobile specific advert',
+            '3' => 'non-mobile specific advert',
+            '4' => 'sidebar middle',
+            '5' => 'sidebar bottom',
+            '6' => 'footer top left',
+            '7' => 'footer top right',
+            '8' => 'social media',
+            '9' => 'footer bottom left',
+            '10' => 'footer bottom right',
+            );
+
+        foreach ($sidebars as $name) {
             $args = array(
                 'name' => $name . ' sidebar',
                 'description' => $name . ' sidebar',
@@ -1070,11 +1071,11 @@ echo $colour?>"></div>
         the_permalink()?>"><?php
         echo $this->multiloquent_post_title()?></a></span>
         <p>
-           <?php
-           echo $this->multiloquent_render_tags($post);
-           ?>
-       </p>
-   </div>
+         <?php
+         echo $this->multiloquent_render_tags($post);
+         ?>
+     </p>
+ </div>
 </div>
 <?php
 }
