@@ -835,8 +835,6 @@ h3.nowrap {
 .pagination .page-numbers > li > a,
 .pagination .page-numbers > li > span {
   color: #1c567f;
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
   float: left;
   line-height: 1.42857;
   margin-left: -1px;
@@ -844,8 +842,10 @@ h3.nowrap {
   position: relative;
   text-decoration: none;
 }
-.pagination .page-numbers > li .active {
+.pagination .page-numbers > li .active > a,
+.pagination .page-numbers > li .active > span {
   background-color: #1c567f;
+  color: #ffffff;
 }
 .pagination > li {
   display: inline;
@@ -865,8 +865,6 @@ h3.nowrap {
 .pagination > li > a,
 .pagination > li > span {
   color: #1c567f;
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
   float: left;
   line-height: 1.42857;
   margin-left: -1px;
@@ -874,8 +872,10 @@ h3.nowrap {
   position: relative;
   text-decoration: none;
 }
-.pagination > li .active {
+.pagination > li .active > a,
+.pagination > li .active > span {
   background-color: #1c567f;
+  color: #ffffff;
 }
 .restricted-height-sidebar {
   line-height: 53px;

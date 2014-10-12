@@ -973,8 +973,6 @@ h3.nowrap {
             }
             &>a, &>span {
                 color: @primary-color;
-                background-color: #FFFFFF;
-                border: 1px solid #DDDDDD;
                 float: left;
                 line-height: 1.42857;
                 margin-left: -1px;
@@ -983,7 +981,10 @@ h3.nowrap {
                 text-decoration: none;
             }
             .active {
-                background-color: @primary-color;
+                &>a, &>span {
+                    background-color: @primary-color;
+                    color: #ffffff;
+                }
             }
         }
     }
@@ -1005,8 +1006,6 @@ h3.nowrap {
         }
         &>a, &>span {
             color: @primary-color;
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
             float: left;
             line-height: 1.42857;
             margin-left: -1px;
@@ -1015,7 +1014,10 @@ h3.nowrap {
             text-decoration: none;
         }
         .active {
-            background-color: @primary-color;
+            &>a, &>span {
+                background-color: @primary-color;
+                color: #ffffff;
+            }
         }
     }
 }
