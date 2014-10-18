@@ -12,5 +12,6 @@
         <exclude name="WordPress.Functions.FunctionCallSignature"/>
         <exclude name="WordPress.XSS.EscapeOutput"/>
         <exclude name="WordPress.Arrays.ArrayDeclaration"/>
+        <exclude name="WordPress.PHP.YodaConditions"/>
     </rule>
 </ruleset>
