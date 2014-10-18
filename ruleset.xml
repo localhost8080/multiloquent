@@ -7,7 +7,6 @@
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
         <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
         <exclude name="WordPress.WhiteSpace.PhpIndent"/>
-        <exclude name="WordPress.WhiteSpace.ScopeIndent"/>
         <exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
         <exclude name="WordPress.Functions.FunctionCallSignature"/>
         <exclude name="WordPress.XSS.EscapeOutput"/>
