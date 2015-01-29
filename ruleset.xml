@@ -6,11 +6,15 @@
         <exclude name="Generic.WhiteSpace.ScopeIndent"/>
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
         <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
-        <exclude name="WordPress.WhiteSpace.PhpIndent"/>
-        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
-        <exclude name="WordPress.Functions.FunctionCallSignature"/>
-        <exclude name="WordPress.XSS.EscapeOutput"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis"/>
         <exclude name="WordPress.Arrays.ArrayDeclaration"/>
         <exclude name="WordPress.PHP.YodaConditions"/>
+        <exclude name="WordPress.XSS.EscapeOutput"/>
+        <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions"/>
+        <exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.Indent"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
     </rule>
 </ruleset>

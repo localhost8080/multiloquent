@@ -237,20 +237,20 @@ class MultiloquentBase
                     'yeti' => 'yeti'
                     )
                 ));
-}
-if ($setting_type == 'paralax_featured') {
-    $wp_customize->add_control($setting_name, array(
-        'label' => 'Select Featured posts style:',
-        'section' => $section,
-        'type' => 'select',
-        'choices' => array(
-            'empty' => 'empty',
-            'default' => 'tags',
-            'excerpt' => 'excerpt'
-            )
-        ));
-}
-}
+        }
+        if ($setting_type == 'paralax_featured') {
+            $wp_customize->add_control($setting_name, array(
+                'label' => 'Select Featured posts style:',
+                'section' => $section,
+                'type' => 'select',
+                'choices' => array(
+                    'empty' => 'empty',
+                    'default' => 'tags',
+                    'excerpt' => 'excerpt'
+                    )
+                ));
+        }
+    }
 
     /**
      * return true if there is a bootswatch other than the default one and a value is set against the checked item,
@@ -1071,11 +1071,11 @@ echo $colour?>"></div>
         the_permalink()?>"><?php
         echo $this->multiloquent_post_title()?></a></span>
         <p>
-         <?php
-         echo $this->multiloquent_render_tags($post);
-         ?>
-     </p>
- </div>
+           <?php
+           echo $this->multiloquent_render_tags($post);
+           ?>
+       </p>
+   </div>
 </div>
 <?php
 }
