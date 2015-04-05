@@ -12,7 +12,7 @@ class MultiloquentBase
 {
 
     /**
-     * constructor - add some actions to wordpress startup
+     * constructor - add some actions to WordPress startup
      */
     function __construct()
     {
@@ -148,7 +148,7 @@ class MultiloquentBase
      *
      * @api
      *
-     * @param filename $file
+     * @param string $file
      *            name of file to include, excluding .php extension
      * @global object $post the wordpress post object
      */
@@ -262,7 +262,7 @@ class MultiloquentBase
      *
      * @param string $item
      * @param string $default_value
-     * @param object $mods
+     * @param array $mods
      * @return boolean
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
@@ -337,9 +337,9 @@ class MultiloquentBase
     }
 
     /**
-     * enqueues the required javascript libraries.
+     * enqueue the required javascript libraries.
      *
-     * - menu.js - custom built menu javascript for popout menu
+     * - menu.js - custom built menu javascript for pop out menu
      * - bootstrap javascript library
      *
      * @internal internal
@@ -356,11 +356,11 @@ class MultiloquentBase
     }
 
     /**
-     * enqueues the stylesheets
+     * enqueue the stylesheets
      *
      * - bootstrap css
      * - font awesome css
-     * - style css [wordpress required with custom overrides for bootstrap]
+     * - style css [WordPress required with custom overrides for bootstrap]
      * - print css [custom overrides for printing]
      *
      * @internal internal
@@ -384,7 +384,7 @@ class MultiloquentBase
     }
 
     /**
-     * registers the wordpress menu location
+     * registers the WordPress menu location
      *
      * @internal internal
      *
@@ -396,9 +396,6 @@ class MultiloquentBase
 
     /**
      * generates the sidebars
-     *
-     * @param array $array
-     * @internal internal
      *
      */
     function multiloquent_generate_sidebars()
@@ -486,7 +483,7 @@ class MultiloquentBase
      * @return string
      * @example multiloquent_post_title(12);
      */
-    function multiloquent_post_title($post_id = '')
+    function multiloquent_post_title($post_id = 0)
     {
         if ( ! empty($post_id)) {
             $the_title = get_the_title($post_id);
@@ -580,7 +577,6 @@ class MultiloquentBase
             $current_page = max(1, get_query_var('paged'));
             echo paginate_links(array(
                 'base' => get_pagenum_link(1) . '%_%',
-                'posts_per_page' => - 1,
                 'current' => $current_page,
                 'total' => $total_pages,
                 'posts_per_page' => - 1,
@@ -867,7 +863,6 @@ class MultiloquentBase
     function multiloquent_paralax_slider()
     {
         global $wpdb;
-        $output = '';
         $total_posts = '5';
         if (function_exists('tptn_pop_posts')) {
             $args = array(
@@ -879,7 +874,8 @@ class MultiloquentBase
                 );
             // todo - this needs to be an array of objects..
             $top_ten_post_array = tptn_pop_posts($args);
-            foreach ($top_ten_post_array as $post => $val) {
+	        $posts_to_get = '';
+	        foreach ($top_ten_post_array as $post => $val) {
                 $posts_to_get[] = $val['ID'];
             }
             $args = array(
@@ -958,7 +954,6 @@ class MultiloquentBase
     function multiloquent_paralax_featured_sliders()
     {
         global $wpdb;
-        $output = '';
         $total_posts = '4';
         if (function_exists('tptn_pop_posts')) {
             $args = array(
@@ -1024,7 +1019,7 @@ class MultiloquentBase
      *
      * @api
      *
-     * @param unknown $avatar
+     * @param string $avatar
      * @return mixed
      */
     function multiloquent_get_avatar($avatar)
@@ -1050,35 +1045,36 @@ class MultiloquentBase
         // set it to blank so that it doesnt get the previous one..
         global $post;
         $id = get_the_ID();
-        $slider_image = array();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
         if ( ! empty($slider_image)) {
-            $theimg = $slider_image[0];
+            $the_image = $slider_image[0];
             // $width = $slider_image[1];
             // $height = $slider_image[2];
             // in here I need to check if its a mobile, and then give a different image:
         } else {
-            $theimg = get_header_image();
+	        $the_image = get_header_image();
         }
         ?>
         <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-            <span style="background-image:url('<?php
-            echo $theimg?>');" class="grayscale"></span>
-<div class="paralax_image_bg <?php
-echo $colour?>"></div>
-<div class="paralax_image_text">
-    <span class="h1"><a href="<?php
-        the_permalink()?>"><?php
-        echo $this->multiloquent_post_title()?></a></span>
-        <p>
-           <?php
-           echo $this->multiloquent_render_tags($post);
-           ?>
-       </p>
-   </div>
-</div>
-<?php
-}
+            <span style="background-image:url('<?php echo $the_image?>');" class="grayscale"></span>
+			<div class="paralax_image_bg <?php echo $colour?>"></div>
+			<div class="paralax_image_text">
+			    <span class="h1">
+				    <a href="<?php the_permalink()?>">
+					    <?php
+					    echo $this->multiloquent_post_title();
+					    ?>
+				    </a>
+			    </span>
+			        <p>
+			           <?php
+			           echo $this->multiloquent_render_tags($post);
+			           ?>
+			       </p>
+			   </div>
+			</div>
+	<?php
+	}
 
     /**
      * renders the tags or the excerpt for the supplied post id, depending on the setting in the wp_customize setting
@@ -1090,14 +1086,13 @@ echo $colour?>"></div>
      *            (set to true to force tag output)
      * @return string
      */
-    function multiloquent_render_tags($val, $force_tags = 0)
+    function multiloquent_render_tags($val, $force_tags = false)
     {
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
         if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
             // they have selected 'excerpt'
-            $excerpt = '';
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
             if (empty($excerpt)) {

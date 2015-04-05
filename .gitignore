@@ -5,3 +5,5 @@ sftp-config.json
 .project
 .buildpath
 *.prefs
+scopes
+.idea
