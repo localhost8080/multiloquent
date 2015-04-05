@@ -1,11 +1,11 @@
 <?php
 /**
- * multiloquent class file to orgainse functions
+ * multiloquent class file to organise functions
  *
  */
 
 /**
- * multiloquent class file to orgainse functions
+ * multiloquent class file to organise functions
  *
  */
 class MultiloquentBase
@@ -955,6 +955,7 @@ class MultiloquentBase
     {
         global $wpdb;
         $total_posts = '4';
+	    $posts_to_get = '';
         if (function_exists('tptn_pop_posts')) {
             $args = array(
                 'is_widget' => false,
@@ -968,7 +969,7 @@ class MultiloquentBase
             foreach ($top_ten_post_array as $post => $val) {
                 $posts_to_get[] = $val['ID'];
             }
-            // set to 4 items as the strict_limit doesnt appear to work correctly..
+            // set to 4 items as the strict_limit doesn't appear to work correctly..
             $posts_to_get = array_slice($posts_to_get, 0, 4);
             $args = array(
                 'post__in' => $posts_to_get
