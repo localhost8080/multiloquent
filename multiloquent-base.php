@@ -30,7 +30,7 @@ class MultiloquentBase {
      * @return string
      */
     function multiloquent_version() {
-        $version = '8.0.03';
+        $version = '9.0.0';
         return $version;
     }
 
@@ -107,7 +107,7 @@ class MultiloquentBase {
     /**
      * adds the featured image to the rss feed
      * @internal internal
-     * @param string $content            
+     * @param string $content
      * @return string
      */
     function multiloquent_featured_image_in_feed($content) {
@@ -142,7 +142,7 @@ class MultiloquentBase {
     /**
      * adds the multiloquent custom controls for wp customise api
      * @api
-     * @param object $wp_customize            
+     * @param object $wp_customize
      */
     function multiloquent_customize_register($wp_customize) {
         $wp_customize->add_section('multiloquent_settings', array(
@@ -164,12 +164,12 @@ class MultiloquentBase {
      * registers and generates the custom controls for wp customise api
      * @internal internal
      * @see multiloquent_customize_register();
-     * @param string $setting_type            
-     * @param string $setting_name            
-     * @param string $default            
-     * @param string $label            
-     * @param object $wp_customize            
-     * @param string $section            
+     * @param string $setting_type
+     * @param string $setting_name
+     * @param string $default
+     * @param string $label
+     * @param object $wp_customize
+     * @param string $section
      */
     function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
         $wp_customize->add_setting($setting_name, array(
@@ -191,7 +191,6 @@ class MultiloquentBase {
                 'type' => 'select',
                 'choices' => array(
                     'default' => 'multiloquent',
-                    'amelia' => 'amelia',
                     'bootstrap' => 'bootstrap',
                     'cerulean' => 'cerulean',
                     'cosmo' => 'cosmo',
@@ -233,9 +232,9 @@ class MultiloquentBase {
      * ie, if bootswatch is set to 'darkly' and the multiloquent_navbar is set to the default value, show it
      * or if the bootswatch is set to the default value and the multiloquent_navbar is not the default value, show it
      * or if the bootswatch is set to the default value and the multiloquent_navbar is the default value, dont show it
-     * @param string $item            
-     * @param string $default_value            
-     * @param array $mods            
+     * @param string $item
+     * @param string $default_value
+     * @param array $mods
      * @return boolean
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods) {
@@ -385,7 +384,7 @@ class MultiloquentBase {
     /**
      * removes css classes from the passed string
      * @api
-     * @param array $classes            
+     * @param array $classes
      * @return array
      */
     function multiloquent_remove_hentry_function($classes) {
@@ -398,7 +397,7 @@ class MultiloquentBase {
     /**
      * adds a css class to the tag
      * @api
-     * @param string $html            
+     * @param string $html
      * @return string
      */
     function multiloquent_add_class_the_tags($html) {
@@ -408,7 +407,7 @@ class MultiloquentBase {
 
     /**
      * generates a tag cloud
-     * @param array $args            
+     * @param array $args
      * @return array
      * @internal internal
      */
@@ -424,7 +423,7 @@ class MultiloquentBase {
     /**
      * wrapper for the post title, if it has no title, supply one
      * @api
-     * @param int $post_id            
+     * @param int $post_id
      * @return string
      * @example multiloquent_post_title(12);
      */
@@ -443,7 +442,7 @@ class MultiloquentBase {
     /**
      * wraps the tag cloud in a div
      * @api
-     * @param string $tag_cloud            
+     * @param string $tag_cloud
      * @return string
      */
     function multiloquent_tag_cloud_filter($tag_cloud) {
@@ -532,7 +531,7 @@ class MultiloquentBase {
     /**
      * returns a random class from the list
      * @api
-     * @param string $class            
+     * @param string $class
      * @return string <string>
      */
     function multiloquent_get_random_solid_class($class = '') {
@@ -653,7 +652,7 @@ class MultiloquentBase {
     /**
      * returns a random string from the list
      * @api
-     * @param string $class            
+     * @param string $class
      * @return string Ambigous
      */
     function multiloquent_get_random_colour_class($class = '') {
@@ -715,7 +714,7 @@ class MultiloquentBase {
     /**
      * outputs the category list as a hierarchy
      * @api
-     * @param string $cat            
+     * @param string $cat
      * @return string
      */
     function multiloquent_category_list_as_hierarchy($cat = '0') {
@@ -935,7 +934,7 @@ class MultiloquentBase {
     /**
      * gets the users avatar
      * @api
-     * @param string $avatar            
+     * @param string $avatar
      * @return mixed
      */
     function multiloquent_get_avatar($avatar) {
@@ -945,7 +944,7 @@ class MultiloquentBase {
 
     /**
      * renders the archive lists in the colour supplied
-     * 
+     *
      * @api
      * @param string $colour
      * @todo make this return rather than echo
