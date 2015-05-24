@@ -246,7 +246,7 @@ class MultiloquentBase {
      * @return boolean
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods) {
-        if ((! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || (! empty($mods[$item]) && $mods[$item] != $default_value)) {
+        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
             return false;
@@ -308,7 +308,7 @@ class MultiloquentBase {
             $output .= '}' . "\r\n";
         }
         // if there is any output, render it
-        if (! empty($output)) {
+        if ( ! empty($output)) {
             echo '<style type="text/css">' . $output . '</style>';
         }
     }
@@ -341,7 +341,7 @@ class MultiloquentBase {
     function multiloquent_stylesheet_method() {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
         } else {
@@ -444,7 +444,7 @@ class MultiloquentBase {
      * @example multiloquent_post_title(12);
      */
     function multiloquent_post_title($post_id = 0) {
-        if (! empty($post_id)) {
+        if ( ! empty($post_id)) {
             $the_title = get_the_title($post_id);
         } else {
             $the_title = get_the_title();
@@ -556,7 +556,7 @@ class MultiloquentBase {
      */
     function multiloquent_get_random_solid_class($class = '') {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -602,7 +602,7 @@ class MultiloquentBase {
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -618,7 +618,7 @@ class MultiloquentBase {
      */
     function multiloquent_get_random_blue_class() {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -662,7 +662,7 @@ class MultiloquentBase {
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -679,7 +679,7 @@ class MultiloquentBase {
      */
     function multiloquent_get_random_colour_class($class = '') {
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'label-primary',
@@ -725,7 +725,7 @@ class MultiloquentBase {
             'safari',
             'firefox'
         );
-        if (! empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -984,7 +984,7 @@ class MultiloquentBase {
         global $post;
         $id = get_the_ID();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
-        if (! empty($slider_image)) {
+        if ( ! empty($slider_image)) {
             $the_image = $slider_image[0];
             // $width = $slider_image[1];
             // $height = $slider_image[2];
@@ -1029,7 +1029,7 @@ class MultiloquentBase {
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
-        if (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
+        if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
             // they have selected 'excerpt'
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
@@ -1037,7 +1037,7 @@ class MultiloquentBase {
                 $excerpt = wp_trim_words($val->post_content);
             }
             $output .= $excerpt;
-        } elseif (! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+        } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
             // dont output anything, leave the tags thing empty
         } else {
             $posttags = wp_get_post_tags($val->ID);
