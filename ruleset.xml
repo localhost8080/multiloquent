@@ -13,6 +13,7 @@
         <exclude name="WordPress.XSS.EscapeOutput"/>
         <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions"/>
         <exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.get_tag_link"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.Indent"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
