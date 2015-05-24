@@ -1,9 +1,5 @@
 <?php
 /**
- * The template for displaying Author archive pages
- */
-
-/**
  *  author pages template part.
  *  have an archive and a bio for the author
  *
@@ -11,6 +7,11 @@
  * @link http://codex.wordpress.org/Template_Hierarchy
  *  @package multiloquent
  */
+
+/**
+ * The template for displaying Author archive pages
+ */
+
 get_header();
 if (have_posts()) {
     ?>

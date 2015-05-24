@@ -1,9 +1,5 @@
 <?php
 /**
- *  multiloquent functions file.
- */
-
-/**
  * functions and definitions
  *
  * Set up the theme and provides some helper functions, which are used in the
@@ -27,5 +23,8 @@
  *  @package multiloquent\functions
  */
 
+/**
+ *  multiloquent functions file.
+ */
 require_once (trailingslashit(get_template_directory()) . 'multiloquent-base.php');
 

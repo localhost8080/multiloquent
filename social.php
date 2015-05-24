@@ -1,13 +1,14 @@
 <?php
 /**
- * the social media things
+ * social media template part
+ *
+ * @package multiloquent\template_parts
  */
 
 /**
-* social media template part
-*
-* @package multiloquent\template_parts
-*/
+ * the social media things
+ */
+
 ?>
 <div class="navbar navbar-default navbar-fixed-bottom hidden-xs">
     <div class="container">

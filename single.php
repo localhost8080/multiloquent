@@ -1,12 +1,12 @@
 <?php
 /**
- * template for blog posts
- */
-
-/**
  * single post template part
  *
  * @package multiloquent\template_parts
+ */
+
+/**
+ * template for blog posts
  */
 
 get_header();

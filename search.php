@@ -1,13 +1,13 @@
 <?php
 /**
- * search results page
- */
-
-/**
  * search result template part
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
+ */
+
+/**
+ * search results page
  */
 
 if (empty( $_REQUEST['search'])  || ! wp_verify_nonce( sanitize_text_field($_REQUEST['search']), 'search' ) ) {

@@ -7,7 +7,6 @@
 /**
  * Advert template part
  *
- * @package multiloquent\template_parts
  */
 
 ?>

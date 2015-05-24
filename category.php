@@ -1,14 +1,15 @@
 <?php
 /**
  * category archives template part
- */
-
-/**
- * category archives template part
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
+
+/**
+ * category archives template part
+ */
+
 get_header();
 if (have_posts()) {
     ?>

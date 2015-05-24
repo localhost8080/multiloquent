@@ -1,13 +1,14 @@
 <?php
 /**
- * Header template part
- */
-
-/**
  * header template part
  *
  * @package multiloquent\template_parts
  */
+
+/**
+ * Header template part
+ */
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

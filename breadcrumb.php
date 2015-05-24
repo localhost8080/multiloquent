@@ -1,13 +1,15 @@
 <?php
 /**
- * the breadcrumb for pages
- */
-
-/**
  * breadcrumb template part
  *
  * @package multiloquent\template_parts
  */
+
+/**
+ * the breadcrumb for pages
+ */
+
+
 ?>
 <nav class="container hidden-xs">
 	<ul class="breadcrumb clearfix">

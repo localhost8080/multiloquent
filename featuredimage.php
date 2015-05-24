@@ -1,13 +1,15 @@
 <?php
 /**
- * output the featured image, or a default image if none set
- */
-
-/**
  * template part to output a featured image or a default image if none set
  *
  * @package multiloquent\template_parts
  */
+
+/**
+ * output the featured image, or a default image if none set
+ */
+
+
 
 if (has_post_thumbnail()) {
     // the current post has a thumbnail

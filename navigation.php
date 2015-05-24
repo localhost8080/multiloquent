@@ -1,14 +1,14 @@
 <?php
 /**
- * nav bar
- * @package multiloquent\template_parts
- */
-
-/**
  * navigation template part
  *
  * @package multiloquent\template_parts
  */
+
+/**
+ * nav bar
+ */
+
 ?>
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
 	<div class="navbar-header">

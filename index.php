@@ -1,14 +1,13 @@
 <?php
 /**
- * fallback if no other archive pages are found
- */
-
-/**
  * fallback page if no other index page found
  * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent\template_parts
  */
 
+/**
+ * fallback if no other archive pages are found
+ */
 get_header();
 if (have_posts()) {
     ?>

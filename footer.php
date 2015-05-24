@@ -1,12 +1,12 @@
 <?php
 /**
  * multiloquent theme footer
+ * 
+ * @package multiloquent\template_parts
  */
 
 /**
  * footer template part
- *
- * @package multiloquent\template_parts
  */
 ?>
 </div>

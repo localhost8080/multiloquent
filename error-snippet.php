@@ -7,8 +7,6 @@
 /**
  * snippet used if no results found.
  * wordpress template part
- *
- * @package multiloquent\template_parts
  */
 
 ?>
