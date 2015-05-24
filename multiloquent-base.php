@@ -136,7 +136,7 @@ class MultiloquentBase {
     function multiloquent_get_template_part($file) {
         // needed for the included files...
         global $post;
-        require_once (trailingslashit(get_template_directory()) . $file . '.php');
+        require_once(trailingslashit(get_template_directory()) . $file . '.php');
     }
 
     /**
@@ -239,7 +239,7 @@ class MultiloquentBase {
      * @return boolean
      */
     function multiloquent_check_theme_mod_colour($item, $default_value, $mods) {
-        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' &&  ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
+        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
             return false;
@@ -466,7 +466,7 @@ class MultiloquentBase {
             $return .= 'Home';
             $return .= '</a></li><li>';
         }
-        if (is_category() || (is_single() &&  ! is_attachment())) {
+        if (is_category() || (is_single() && ! is_attachment())) {
             $category = get_the_category();
             $catID = $category[0]->cat_ID;
             $return .= get_category_parents($catID, true, '</li><li>', false);
@@ -514,7 +514,7 @@ class MultiloquentBase {
                 'base' => get_pagenum_link(1) . '%_%',
                 'current' => $current_page,
                 'total' => $total_pages,
-                'posts_per_page' =>  - 1,
+                'posts_per_page' => - 1,
                 'orderby' => 'date',
                 'order' => 'asc',
                 'paged' => $paged,
