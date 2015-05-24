@@ -1,14 +1,15 @@
 <?php
 /**
- * the search form
- */
-
-/**
  * search form.
  * wordpress template part
  *
  * @package multiloquent\template_parts
  */
+
+/**
+ * the search form
+ */
+
 
 ?>
 <form action="<?php echo esc_url(home_url('/')); ?>" id="search_form" class="mb" method="post">
