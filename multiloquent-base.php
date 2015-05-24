@@ -1,10 +1,10 @@
 <?php
-
 /**
  * multiloquent class file to organise functions
  *
  * @package  multiloquent
  */
+
 /**
  * multiloquent class file to organise functions
  */
@@ -26,7 +26,6 @@ class MultiloquentBase {
 
     /**
      * Returns the current multiloquent version number
-     *
      * @internal internal
      * @return string
      */
@@ -37,7 +36,6 @@ class MultiloquentBase {
 
     /**
      * various register actions
-     *
      * @internal internal
      */
     function multiloquent_register() {
@@ -108,7 +106,6 @@ class MultiloquentBase {
 
     /**
      * adds the featured image to the rss feed
-     *
      * @internal internal
      * @param string $content            
      * @return string
@@ -132,7 +129,6 @@ class MultiloquentBase {
      * - limitations: cant pass the file extension, only includes php files.
      * - eg: multiloquent_get_template_part('somefile'); to include somefile.php
      * @api
-     *
      * @param string $file
      *            name of file to include, excluding .php extension
      * @global object $post the wordpress post object
@@ -146,7 +142,6 @@ class MultiloquentBase {
     /**
      * adds the multiloquent custom controls for wp customise api
      * @api
-     *
      * @param object $wp_customize            
      */
     function multiloquent_customize_register($wp_customize) {
@@ -167,7 +162,6 @@ class MultiloquentBase {
 
     /**
      * registers and generates the custom controls for wp customise api
-     *
      * @internal internal
      * @see multiloquent_customize_register();
      * @param string $setting_type            
@@ -239,7 +233,6 @@ class MultiloquentBase {
      * ie, if bootswatch is set to 'darkly' and the multiloquent_navbar is set to the default value, show it
      * or if the bootswatch is set to the default value and the multiloquent_navbar is not the default value, show it
      * or if the bootswatch is set to the default value and the multiloquent_navbar is the default value, dont show it
-     *
      * @param string $item            
      * @param string $default_value            
      * @param array $mods            
@@ -255,7 +248,6 @@ class MultiloquentBase {
 
     /**
      * outputs the custom css for the wp customise API
-     *
      * @internal internal
      * @todo make this return, rather than echo
      */
@@ -317,7 +309,6 @@ class MultiloquentBase {
      * enqueue the required javascript libraries.
      * - menu.js - custom built menu javascript for pop out menu
      * - bootstrap javascript library
-     *
      * @internal internal
      */
     function multiloquent_scripts_method() {
@@ -335,7 +326,6 @@ class MultiloquentBase {
      * - font awesome css
      * - style css [WordPress required with custom overrides for bootstrap]
      * - print css [custom overrides for printing]
-     *
      * @internal internal
      */
     function multiloquent_stylesheet_method() {
@@ -356,7 +346,6 @@ class MultiloquentBase {
 
     /**
      * registers the WordPress menu location
-     *
      * @internal internal
      */
     function multiloquent_menu() {
@@ -396,7 +385,6 @@ class MultiloquentBase {
     /**
      * removes css classes from the passed string
      * @api
-     *
      * @param array $classes            
      * @return array
      */
@@ -410,7 +398,6 @@ class MultiloquentBase {
     /**
      * adds a css class to the tag
      * @api
-     *
      * @param string $html            
      * @return string
      */
@@ -421,7 +408,6 @@ class MultiloquentBase {
 
     /**
      * generates a tag cloud
-     *
      * @param array $args            
      * @return array
      * @internal internal
@@ -438,7 +424,6 @@ class MultiloquentBase {
     /**
      * wrapper for the post title, if it has no title, supply one
      * @api
-     *
      * @param int $post_id            
      * @return string
      * @example multiloquent_post_title(12);
@@ -458,7 +443,6 @@ class MultiloquentBase {
     /**
      * wraps the tag cloud in a div
      * @api
-     *
      * @param string $tag_cloud            
      * @return string
      */
@@ -469,7 +453,6 @@ class MultiloquentBase {
     /**
      * outputs the breadcrumb
      * @api
-     *
      * @return string
      */
     function multiloquent_breadcrumbs() {
@@ -512,7 +495,6 @@ class MultiloquentBase {
     /**
      * renders the pagination on the page
      * @api
-     *
      * @todo make this return rather than echo
      */
     function multiloquent_render_pagingation() {
@@ -550,7 +532,6 @@ class MultiloquentBase {
     /**
      * returns a random class from the list
      * @api
-     *
      * @param string $class            
      * @return string <string>
      */
@@ -613,7 +594,6 @@ class MultiloquentBase {
     /**
      * returns a random value from the list
      * @api
-     *
      * @return string
      */
     function multiloquent_get_random_blue_class() {
@@ -673,7 +653,6 @@ class MultiloquentBase {
     /**
      * returns a random string from the list
      * @api
-     *
      * @param string $class            
      * @return string Ambigous
      */
@@ -736,7 +715,6 @@ class MultiloquentBase {
     /**
      * outputs the category list as a hierarchy
      * @api
-     *
      * @param string $cat            
      * @return string
      */
@@ -801,7 +779,6 @@ class MultiloquentBase {
     /**
      * generates the homepage featured posts box
      * @api
-     *
      * @return string
      */
     function multiloquent_paralax_slider() {
@@ -890,7 +867,6 @@ class MultiloquentBase {
     /**
      * generates the featured posts mini-boxes
      * @api
-     *
      * @return string
      */
     function multiloquent_paralax_featured_sliders() {
@@ -959,7 +935,6 @@ class MultiloquentBase {
     /**
      * gets the users avatar
      * @api
-     *
      * @param string $avatar            
      * @return mixed
      */
@@ -971,9 +946,7 @@ class MultiloquentBase {
     /**
      * renders the archive lists in the colour supplied
      * @api
-     *
      * @param string $colour            
-     *
      * @todo make this return rather than echo
      * @see multiloquent_get_random_colour_class()
      * @see multiloquent_get_random_solid_class()
@@ -1019,7 +992,6 @@ class MultiloquentBase {
     /**
      * renders the tags or the excerpt for the supplied post id, depending on the setting in the wp_customize setting
      * @api
-     *
      * @param object $val            
      * @param bool $force_tags
      *            (set to true to force tag output)
@@ -1038,7 +1010,9 @@ class MultiloquentBase {
             }
             $output .= $excerpt;
         } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
-            // dont output anything, leave the tags thing empty
+            // dont output anything, leave the tags thing empty, append nothing to the output to fool the wordpress
+            // coding standards
+            $output .= '';
         } else {
             $posttags = wp_get_post_tags($val->ID);
             if ($posttags) {
