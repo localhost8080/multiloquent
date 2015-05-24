@@ -1,11 +1,9 @@
 <?php
 /**
  * functions and definitions
- *
  * Set up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
- *
  * When using a child theme you can override certain functions (those wrapped
  * in a function_exists() call) by defining them first in your child theme's
  * functions.php file. The child theme's functions.php file is included before
@@ -26,5 +24,4 @@
 /**
  * multiloquent functions file.
  */
-require_once (trailingslashit(get_template_directory()) . 'multiloquent-base.php');
-
+require_once(trailingslashit(get_template_directory()) . 'multiloquent-base.php');
