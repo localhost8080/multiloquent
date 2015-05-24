@@ -1,12 +1,12 @@
 <?php
 /**
  * Comment form
+ * 
  * @package multiloquent\template_parts
  * this is a direct lift of the comments from shoestrap;
  * I personally use disqus for my comments, but this comment system was already done :D
  * http://shoestrap.org/
- *
- * /
+ */
 
 /**
  * Comment template part.

@@ -1,7 +1,6 @@
 <?php
 /**
  * multiloquent theme footer
- * 
  * @package multiloquent\template_parts
  */
 

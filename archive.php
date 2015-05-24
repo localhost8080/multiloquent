@@ -10,7 +10,6 @@
  * already has tag.php for Tag archives, category.php for Category archives,
  * and author.php for Author archives.
  *
- *
  * @link http://codex.wordpress.org/Template_Hierarchy
  * @package multiloquent
  */

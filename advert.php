@@ -6,9 +6,7 @@
 
 /**
  * Advert template part
- *
  */
-
 ?>
 
 <div class="ads">
