@@ -945,8 +945,9 @@ class MultiloquentBase {
 
     /**
      * renders the archive lists in the colour supplied
+     * 
      * @api
-     * @param string $colour            
+     * @param string $colour
      * @todo make this return rather than echo
      * @see multiloquent_get_random_colour_class()
      * @see multiloquent_get_random_solid_class()
@@ -992,7 +993,7 @@ class MultiloquentBase {
     /**
      * renders the tags or the excerpt for the supplied post id, depending on the setting in the wp_customize setting
      * @api
-     * @param object $val            
+     * @param object $val
      * @param bool $force_tags
      *            (set to true to force tag output)
      * @return string
