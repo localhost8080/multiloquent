@@ -1,11 +1,11 @@
 <?php
 /**
- * snippet to display adverts
+ * Snippet to display adverts
  * @package multiloquent\template_parts
  */
 
 /**
- * advert template part
+ * Advert template part
  *
  * @package multiloquent\template_parts
  */

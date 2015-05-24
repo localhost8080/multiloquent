@@ -17,5 +17,7 @@
         <exclude name="PEAR.Functions.FunctionCallSignature.Indent"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+        <exclude name="Generic.Commenting.DocComment.ShortNotCapital"/>
+        <exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
     </rule>
 </ruleset>

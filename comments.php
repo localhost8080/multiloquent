@@ -1,15 +1,16 @@
 <?php
 /**
- * comment form
- */
+ * Comment form
+ * @package multiloquent\template_parts
+ *
+ * /
 
 /**
- * comment template part.
+ * Comment template part.
  * this is a direct lift of the comments from shoestrap;
  * I personally use disqus for my comments, but this comment  system was already done :D
  * http://shoestrap.org/
  *
- * @package multiloquent\template_parts
  */
 if (post_password_required()) {
     return;
@@ -73,7 +74,7 @@ if (comments_open()) {
             <?php
         } else {
             $comments_args = array(
-            // redefine your own textarea (the comment body)
+            // Redefine your own textarea (the comment body)
                 'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>'
                 );
             comment_form($comments_args);
