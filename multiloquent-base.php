@@ -492,43 +492,6 @@ class MultiloquentBase {
     }
 
     /**
-     * renders the pagination on the page
-     * @api
-     * @todo make this return rather than echo
-     */
-    function multiloquent_render_pagingation() {
-        global $wp_query;
-        $total_pages = $wp_query->max_num_pages;
-        // check if search result
-        if (get_query_var('paged')) {
-            $paged = get_query_var('paged');
-        } elseif (get_query_var('page')) {
-            $paged = get_query_var('page');
-        } else {
-            $paged = 1;
-        }
-        if ($total_pages > 1) {
-            $current_page = max(1, get_query_var('paged'));
-            echo paginate_links(array(
-                'base' => get_pagenum_link(1) . '%_%',
-                'current' => $current_page,
-                'total' => $total_pages,
-                'posts_per_page' => - 1,
-                'orderby' => 'date',
-                'order' => 'asc',
-                'paged' => $paged,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'categorias',
-                        'field' => 'slug'
-                    )
-                )
-            ));
-        }
-        echo paginate_links();
-    }
-
-    /**
      * returns a random class from the list
      * @api
      * @param string $class
@@ -955,8 +918,8 @@ class MultiloquentBase {
     function multiloquent_render_the_archive($colour) {
         // set it to blank so that it doesnt get the previous one..
         global $post;
-        $id = get_the_ID();
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'single-post-thumbnail');
+        $thumbnail_id = get_the_ID();
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($thumbnail_id), 'single-post-thumbnail');
         if ( ! empty($slider_image)) {
             $the_image = $slider_image[0];
             // $width = $slider_image[1];

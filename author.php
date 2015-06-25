@@ -4,7 +4,7 @@
  *  have an archive and a bio for the author
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
- *  @package multiloquent
+ * @package multiloquent
  */
 
 /**
