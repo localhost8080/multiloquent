@@ -929,27 +929,23 @@ class MultiloquentBase {
             $the_image = get_header_image();
         }
         ?>
-<div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-    <span style="background-image:url('<?php
-        echo $the_image?>');" class="grayscale"></span>
-    <div class="paralax_image_bg <?php
-        echo $colour?>"></div>
-    <div class="paralax_image_text">
-        <span class="h1"> <a href="<?php
-        the_permalink()?>">
+        <div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+            <span style="background-image:url('<?php echo $the_image?>');" class="grayscale"></span>
+            <div class="paralax_image_bg <?php echo $colour?>"></div>
+            <div class="paralax_image_text">
+                <span class="h1">
+                    <a href="<?php the_permalink()?>">
+                        <?php
+                            echo $this->multiloquent_post_title();
+                        ?>
+                    </a>
+                </span>
+                <p>
+                  <?php echo $this->multiloquent_render_tags($post); ?>
+                </p>
+            </div>
+        </div>
     <?php
-        echo $this->multiloquent_post_title();
-        ?>
-</a>
-        </span>
-        <p>
-  <?php
-        echo $this->multiloquent_render_tags($post);
-        ?>
-</p>
-    </div>
-</div>
-<?php
     }
 
     /**
