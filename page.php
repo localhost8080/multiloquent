@@ -1,14 +1,14 @@
 <?php
 /**
- * static page template part
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- * @package multiloquent\template_parts
- */
+* static page template part
+*
+* @link http://codex.wordpress.org/Template_Hierarchy
+* @package multiloquent\template_parts
+*/
 
 /**
- * static page template
- */
+* static page template
+*/
 
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -41,7 +41,6 @@ if (have_posts()) {
             ?>
         </div>
         <?php
-
         require(locate_template('social.php'));
         if (comments_open()) {
             ?>

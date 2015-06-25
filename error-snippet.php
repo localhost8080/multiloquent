@@ -11,8 +11,8 @@
 
 ?>
 <div class="container">
-<?php require(locate_template('advert.php'));?>
-<!-- google_ad_section_start-->
+    <?php require(locate_template('advert.php'));?>
+    <!-- google_ad_section_start-->
 </div>
 <article class="container">
 	<h1>I dont have anything that matches (or nearly matches) that</h1>

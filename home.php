@@ -1,14 +1,14 @@
 <?php
 /**
- * this is the template for the home page when its set to display blog posts
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- * @package multiloquent\template_parts
- */
+* this is the template for the home page when its set to display blog posts
+*
+* @link http://codex.wordpress.org/Template_Hierarchy
+* @package multiloquent\template_parts
+*/
 
 /**
- * homepage when set to display blog posts on homepage
- */
+* homepage when set to display blog posts on homepage
+*/
 
 get_header();
 if (have_posts()) {
@@ -25,29 +25,29 @@ if (have_posts()) {
     ?>
     <p class="lead text-center">Recent Posts</p>
     <section class="container post">
-      <?php
-      $colour = $multiloquent->multiloquent_get_random_blue_class();
-      while (have_posts()) {
-        the_post();
-        $multiloquent->multiloquent_render_the_archive($colour);
-    }
-    ?>
-</section>
-<section class="container post">
-   <?php require(locate_template('advert.php'));?>
-</section>
-<div class="container post">
-    <nav class="navitems text-center">
-        <ul class="pagination">
-            <li><?php previous_posts_link('Previous Entries') ?></li>
-            <li><?php next_posts_link('Next Entries') ?></li>
-        </ul>
-    </nav>
-</div>
-<?php } else { ?>
-<div class="container post">
-  <?php  require(locate_template('error-snippet.php'));?>
-</div>
-<?php
+        <?php
+        $colour = $multiloquent->multiloquent_get_random_blue_class();
+        while (have_posts()) {
+            the_post();
+            $multiloquent->multiloquent_render_the_archive($colour);
+        }
+        ?>
+    </section>
+    <section class="container post">
+        <?php require(locate_template('advert.php'));?>
+    </section>
+    <div class="container post">
+        <nav class="navitems text-center">
+            <ul class="pagination">
+                <li><?php previous_posts_link('Previous Entries') ?></li>
+                <li><?php next_posts_link('Next Entries') ?></li>
+            </ul>
+        </nav>
+    </div>
+    <?php } else { ?>
+    <div class="container post">
+        <?php  require(locate_template('error-snippet.php'));?>
+    </div>
+    <?php
 }
 get_footer();

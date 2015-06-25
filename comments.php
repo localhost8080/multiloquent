@@ -1,15 +1,15 @@
 <?php
 /**
- * Comment form
- * this is a direct lift of the comments from shoestrap;
- * I personally use disqus for my comments, but this comment system was already done :D
- * http://shoestrap.org/
- * @package multiloquent\template_parts
- */
+* Comment form
+* this is a direct lift of the comments from shoestrap;
+* I personally use disqus for my comments, but this comment system was already done :D
+* http://shoestrap.org/
+* @package multiloquent\template_parts
+*/
 
 /**
- * Comment template part.
- */
+* Comment template part.
+*/
 if (post_password_required()) {
     return;
 }
@@ -19,35 +19,35 @@ if (have_comments()) {
         <div>
             <h3><?php printf(_n('One comment', '%1$s comments', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number())); ?></h3>
             <ol class="comment-list">
-              <?php wp_list_comments(); ?>
-          </ol>
+                <?php wp_list_comments(); ?>
+            </ol>
 
-          <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
-          <nav>
-            <ul class="pager">
-                <?php if (get_previous_comments_link()) { ?>
-                <li class="previous"><?php previous_comments_link('&larr; Older comments'); ?></li>
-                <?php
-            }
-            if (get_next_comments_link()) {
+            <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) { ?>
+            <nav>
+                <ul class="pager">
+                    <?php if (get_previous_comments_link()) { ?>
+                    <li class="previous"><?php previous_comments_link('&larr; Older comments'); ?></li>
+                    <?php
+                }
+                if (get_next_comments_link()) {
+                    ?>
+                    <li class="next"><?php next_comments_link('Newer comments &rarr;'); ?></li>
+                    <?php
+                }
                 ?>
-                <li class="next"><?php next_comments_link('Newer comments &rarr;'); ?></li>
-                <?php
-            }
-            ?>
-        </ul>
-    </nav>
-    <?php
-}
-if ( ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
+            </ul>
+        </nav>
+        <?php
+    }
+    if ( ! comments_open() && ! is_page() && post_type_supports(get_post_type(), 'comments')) {
+        ?>
+        <div class="alert alert-block fade in">
+            <a class="close" data-dismiss="alert">&times;</a>
+            <p><?php echo 'Comments are closed.'; ?></p>
+        </div>
+        <?php
+    }
     ?>
-    <div class="alert alert-block fade in">
-        <a class="close" data-dismiss="alert">&times;</a>
-        <p><?php echo 'Comments are closed.'; ?></p>
-    </div>
-    <?php
-}
-?>
 </div>
 </section>
 <?php
@@ -72,7 +72,7 @@ if (comments_open()) {
             <?php
         } else {
             $comments_args = array(
-            // Redefine your own textarea (the comment body)
+// Redefine your own textarea (the comment body)
                 'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>'
                 );
             comment_form($comments_args);

@@ -1,7 +1,7 @@
 <?php
 /*
- * Template Name Posts: Full width blank template
- */
+* Template Name Posts: Full width blank template
+*/
 
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -28,7 +28,9 @@ if (have_posts()) {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
-?></div><?php
+?>
+</div>
+<?php
 get_sidebar();
 require(locate_template('navigation.php'));
 wp_footer();

@@ -17,11 +17,11 @@ class MultiloquentBase {
         add_action('after_setup_theme', array(
             $this,
             'multiloquent_register'
-        ));
+            ));
         add_action('wp_head', array(
             $this,
             'multiloquent_customize_css'
-        ));
+            ));
     }
 
     /**
@@ -48,44 +48,44 @@ class MultiloquentBase {
             'height' => 600,
             'default-image' => get_template_directory_uri() . '/images/default-slider.png',
             'uploads' => true
-        );
+            );
         add_theme_support('custom-header', $args);
         // actions
         add_action('wp_enqueue_scripts', array(
             $this,
             'multiloquent_scripts_method'
-        ));
+            ));
         add_action('wp_enqueue_scripts', array(
             $this,
             'multiloquent_stylesheet_method'
-        ));
+            ));
         add_action('customize_register', array(
             $this,
             'multiloquent_customize_register'
-        ));
+            ));
         // add_action('wp_tag_cloud', array( $this, 'multiloquent_add_tag_class'));
         // filters
         add_filter('the_content', array(
             $this,
             'multiloquent_featured_image_in_feed'
-        ));
+            ));
         add_filter('post_class', array(
             $this,
             'multiloquent_remove_hentry_function'
-        ), 20);
+            ), 20);
         // add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
         add_filter('widget_tag_cloud_args', array(
             $this,
             'multiloquent_widget_tag_cloud_args'
-        ));
+            ));
         add_filter('wp_tag_cloud', array(
             $this,
             'multiloquent_tag_cloud_filter'
-        ), 10, 2);
+            ), 10, 2);
         add_filter('get_avatar', array(
             $this,
             'multiloquent_get_avatar'
-        ));
+            ));
         add_filter('widget_text', 'do_shortcode');
         // misc
         if (is_admin()) {
@@ -101,7 +101,7 @@ class MultiloquentBase {
         add_action('widgets_init', array(
             $this,
             'multiloquent_generate_sidebars'
-        ));
+            ));
     }
 
     /**
@@ -116,7 +116,7 @@ class MultiloquentBase {
             if (has_post_thumbnail($post->ID)) {
                 $output = get_the_post_thumbnail($post->ID, 'medium', array(
                     'style' => 'float:right; margin:0 0 10px 10px;'
-                ));
+                    ));
                 $content = $output . $content;
             }
         }
@@ -148,7 +148,7 @@ class MultiloquentBase {
         $wp_customize->add_section('multiloquent_settings', array(
             'title' => __('Multiloquent Settings', 'multiloquent'),
             'priority' => 30
-        ));
+            ));
         $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
         $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
         $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
@@ -176,13 +176,13 @@ class MultiloquentBase {
             'default' => $default,
             'transport' => 'refresh',
             'sanitize_callback' => 'esc_attr'
-        ));
+            ));
         if ($setting_type == 'colour') {
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
                 'label' => $label,
                 'section' => $section,
                 'settings' => $setting_name
-            )));
+                )));
         }
         if ($setting_type == 'bootswatch') {
             $wp_customize->add_control($setting_name, array(
@@ -208,22 +208,22 @@ class MultiloquentBase {
                     'superhero' => 'superhero',
                     'united' => 'united',
                     'yeti' => 'yeti'
-                )
-            ));
-        }
-        if ($setting_type == 'paralax_featured') {
-            $wp_customize->add_control($setting_name, array(
-                'label' => 'Select Featured posts style:',
-                'section' => $section,
-                'type' => 'select',
-                'choices' => array(
-                    'empty' => 'empty',
-                    'default' => 'tags',
-                    'excerpt' => 'excerpt'
-                )
-            ));
-        }
-    }
+                    )
+                ));
+}
+if ($setting_type == 'paralax_featured') {
+    $wp_customize->add_control($setting_name, array(
+        'label' => 'Select Featured posts style:',
+        'section' => $section,
+        'type' => 'select',
+        'choices' => array(
+            'empty' => 'empty',
+            'default' => 'tags',
+            'excerpt' => 'excerpt'
+            )
+        ));
+}
+}
 
     /**
      * return true if there is a bootswatch other than the default one and a value is set against the checked item,
@@ -313,10 +313,10 @@ class MultiloquentBase {
     function multiloquent_scripts_method() {
         wp_enqueue_script('menu', get_template_directory_uri() . '/menu.js', array(
             'jquery'
-        ), '', true);
+            ), '', true);
         wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
             'jquery'
-        ), '', true);
+            ), '', true);
     }
 
     /**
@@ -366,7 +366,7 @@ class MultiloquentBase {
             '8' => 'social media',
             '9' => 'footer bottom left',
             '10' => 'footer bottom right'
-        );
+            );
         foreach ($sidebars as $name) {
             $args = array(
                 'name' => $name . ' sidebar',
@@ -376,7 +376,7 @@ class MultiloquentBase {
                 'before_title' => '<p class="nav-header">',
                 'after_title' => '</p>',
                 'class' => ''
-            );
+                );
             register_sidebar($args);
         }
     }
@@ -508,7 +508,7 @@ class MultiloquentBase {
                 'label-info',
                 'label-danger',
                 'label-default'
-            );
+                );
         } else {
             $input = array(
                 'swatch-red',
@@ -521,7 +521,7 @@ class MultiloquentBase {
                 'swatch-pink',
                 'swatch-mid-gray',
                 'swatch-gray'
-            );
+                );
         }
         $apps = array(
             'phone',
@@ -544,7 +544,7 @@ class MultiloquentBase {
             'finder',
             'safari',
             'firefox'
-        );
+            );
         if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -569,7 +569,7 @@ class MultiloquentBase {
                 'label-info',
                 'label-danger',
                 'label-default'
-            );
+                );
         } else {
             $input = array(
                 'swatch-blue1',
@@ -580,7 +580,7 @@ class MultiloquentBase {
                 'swatch-blue',
                 'swatch-gray',
                 'swatch-violet'
-            );
+                );
         }
         $apps = array(
             'phone',
@@ -603,7 +603,7 @@ class MultiloquentBase {
             'finder',
             'safari',
             'firefox'
-        );
+            );
         if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -629,7 +629,7 @@ class MultiloquentBase {
                 'label-info',
                 'label-danger',
                 'label-default'
-            );
+                );
         } else {
             $input = array(
                 'gradient-red',
@@ -642,7 +642,7 @@ class MultiloquentBase {
                 'gradient-magenta',
                 'gradient-black',
                 'gradient-silver'
-            );
+                );
         }
         $apps = array(
             'phone',
@@ -665,7 +665,7 @@ class MultiloquentBase {
             'finder',
             'safari',
             'firefox'
-        );
+            );
         if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -753,7 +753,7 @@ class MultiloquentBase {
                 'echo' => false,
                 'strict_limit' => $total_posts,
                 'posts_only' => true
-            );
+                );
             // todo - this needs to be an array of objects..
             $top_ten_post_array = tptn_pop_posts($args);
             $posts_to_get = '';
@@ -762,7 +762,7 @@ class MultiloquentBase {
             }
             $args = array(
                 'post__in' => $posts_to_get
-            );
+                );
             $recent_posts = get_posts($args);
         } else {
             $args = array(
@@ -775,7 +775,7 @@ class MultiloquentBase {
                 'exclude' => '',
                 'post_type' => 'post',
                 'post_status' => 'publish'
-            );
+                );
             $recent_posts = get_posts($args);
         }
         $count = 1;
@@ -842,7 +842,7 @@ class MultiloquentBase {
                 'echo' => false,
                 'strict_limit' => $total_posts,
                 'posts_only' => true
-            );
+                );
             // todo - this needs to be an array of objects..
             $top_ten_post_array = tptn_pop_posts($args);
             foreach ($top_ten_post_array as $post => $val) {
@@ -852,7 +852,7 @@ class MultiloquentBase {
             $posts_to_get = array_slice($posts_to_get, 0, 4);
             $args = array(
                 'post__in' => $posts_to_get
-            );
+                );
             $recent_posts = get_posts($args);
         } else {
             $args = array(
@@ -865,7 +865,7 @@ class MultiloquentBase {
                 'exclude' => '',
                 'post_type' => 'post',
                 'post_status' => 'publish'
-            );
+                );
             $recent_posts = get_posts($args);
         }
         $count = 1;
@@ -936,17 +936,17 @@ class MultiloquentBase {
                 <span class="h1">
                     <a href="<?php the_permalink()?>">
                         <?php
-                            echo $this->multiloquent_post_title();
+                        echo $this->multiloquent_post_title();
                         ?>
                     </a>
                 </span>
                 <p>
                   <?php echo $this->multiloquent_render_tags($post); ?>
-                </p>
-            </div>
-        </div>
-    <?php
-    }
+              </p>
+          </div>
+      </div>
+      <?php
+  }
 
     /**
      * renders the tags or the excerpt for the supplied post id, depending on the setting in the wp_customize setting

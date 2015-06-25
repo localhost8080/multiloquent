@@ -14,7 +14,6 @@
     <div class="container">
         <div class="col-xs-4 col-sm-7 col-md-6 col-lg-6">
             <?php
-
 // in here goes the jetpack plugin thing
             if (function_exists('sharing_display')) {
                 echo sharing_display();

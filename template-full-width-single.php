@@ -1,7 +1,7 @@
 <?php
 /*
- * Template Name Posts: Full width
- */
+* Template Name Posts: Full width
+*/
 
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -58,11 +58,11 @@ if (have_posts()) {
                     $posttags = get_the_tags();
                     if ($posttags) {
                         foreach ($posttags as $tag) {
-                // if($tag->count > 5){
+// if($tag->count > 5){
                             echo '<a class="label ';
                             echo $multiloquent->multiloquent_get_random_solid_class($tag->slug);
                             echo '" href="' . get_tag_link($tag->term_id) . '"><span class="icon-tag icon-white"></span> ' . $tag->name . '</a>';
-                // }
+// }
                         }
                     }
                     ?>

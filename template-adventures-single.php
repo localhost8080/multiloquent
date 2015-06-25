@@ -1,7 +1,7 @@
 <?php
 /*
- * Template Name Posts: Adventures
- */
+* Template Name Posts: Adventures
+*/
 
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -34,24 +34,25 @@ if (have_posts()) {
                     echo $values[0];
                     echo '" frameborder="0" allowfullscreen></iframe>';
                 }
-                ?></div>
+                ?>
             </div>
-            <div class="container">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                   <?php
-                   remove_filter('the_content', 'sharing_display', 19);
-                   remove_filter('the_excerpt', 'sharing_display', 19);
-                   the_content('<p class="serif">Read the rest of this page &raquo;</p>');
-                   wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-                   ?>
-               </div>
-           </div>
-           <?php
-           next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
-           previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
-           echo '</div>';
-       }
-   } else {
+        </div>
+        <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <?php
+                remove_filter('the_content', 'sharing_display', 19);
+                remove_filter('the_excerpt', 'sharing_display', 19);
+                the_content('<p class="serif">Read the rest of this page &raquo;</p>');
+                wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
+                ?>
+            </div>
+        </div>
+        <?php
+        next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
+        previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
+        echo '</div>';
+    }
+} else {
     echo '<p>Sorry, no posts matched your criteria.<p>';
 }
 echo '<!-- google_ad_section_end-->';
