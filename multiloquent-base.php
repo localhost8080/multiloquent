@@ -367,8 +367,9 @@ if ($setting_type == 'paralax_featured') {
             '9' => 'footer bottom left',
             '10' => 'footer bottom right'
             );
-        foreach ($sidebars as $name) {
+        foreach ($sidebars as $key => $name) {
             $args = array(
+                'id' => 'sidebar-'.$key,
                 'name' => $name . ' sidebar',
                 'description' => $name . ' sidebar',
                 'before_widget' => '',
