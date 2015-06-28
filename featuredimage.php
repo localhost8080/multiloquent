@@ -4,6 +4,7 @@
  *
  * @package multiloquent\template_parts
  */
+
 /**
  * output the featured image, or a default image if none set
  */
