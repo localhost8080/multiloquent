@@ -68,8 +68,11 @@ if (have_posts()) {
         <?php
         echo '</div>';
     }
-} else {
-    echo '<p>Sorry, no posts matched your criteria.<p>';
+} else { ?>
+    <div class="container post">
+        <?php require(locate_template('error-snippet.php'));?>
+    </div>
+<?php
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();

@@ -18,13 +18,21 @@ if (have_posts()) {
             <header>
                 <h1 class="article_title">
                     <?php
-                    echo 'Posts Tagged';
-                    echo ' &#8216;';
-                    single_tag_title();
-                    echo '&#8217;';
+                    printf(
+                        __('Posts Tagged $s', 'multiloquent'),
+                        single_tag_title()
+                    );
                     ?>
                 </h1>
-                <p><?php echo 'There are '. $wp_query->found_posts.' posts tagged '. single_tag_title('', false);?></p>
+                <p>
+                <?php
+                printf(
+                    __( 'There are %1$s posts tagged %2$s', 'multiloqent' ),
+                    $wp_query->found_posts,
+                    single_cat_title('', false)
+                );
+                ?>
+                </p>
             </header>
         </div>
     </div>
@@ -43,8 +51,8 @@ if (have_posts()) {
     <div class="container post">
         <nav class="navitems text-center">
             <ul class="pagination">
-                <li><?php previous_posts_link('Previous Entries') ?></li>
-                <li><?php next_posts_link('Next Entries') ?></li>
+                <li><?php previous_posts_link(__('Previous Entries', 'multiloquent')) ?></li>
+                <li><?php next_posts_link(__('Next Entries', 'multiloquent')) ?></li>
             </ul>
         </nav>
     </div>

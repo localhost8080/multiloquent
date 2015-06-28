@@ -19,7 +19,15 @@ if (have_posts()) {
                 <h1 class="article_title">
                     <?php printf('%s', single_cat_title('', false)); ?>
                 </h1>
-                <p><?php echo 'There are '.$wp_query->found_posts.' posts in the '. single_cat_title('', false).' category';?></p>
+                <p>
+                <?php
+                printf(
+                    __( 'There are %1$s posts in the %2$s category', 'multiloqent' ),
+                    $wp_query->found_posts,
+                    single_cat_title('', false)
+                );
+                ?>
+                </p>
             </header>
         </div>
     </div>
@@ -38,8 +46,8 @@ if (have_posts()) {
     <div class="container post">
         <nav class="navitems text-center">
             <ul class="pagination">
-                <li><?php previous_posts_link('Previous Entries') ?></li>
-                <li><?php next_posts_link('Next Entries') ?></li>
+                <li><?php previous_posts_link(__('Previous Entries', 'multiloquent')) ?></li>
+                <li><?php next_posts_link(__('Next Entries', 'multiloquent')) ?></li>
             </ul>
         </nav>
     </div>

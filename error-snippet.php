@@ -15,8 +15,19 @@
     <!-- google_ad_section_start-->
 </div>
 <article class="container">
-	<h1>I dont have anything that matches (or nearly matches) that</h1>
-	<?php echo '<p>you might want to use the search or go to the <a title="'. bloginfo('name').'" href="'. home_url().'/">homepage</a></p>';?>
+	<h1>
+	<?php 
+	__('I dont have anything that matches (or nearly matches) that', 'multiloquent')
+	?>
+	</h1>
+	<p>
+	<?php 
+	__('you might want to use the search or go to the', 'multiloquent');
+	echo ' <a title="'. bloginfo('name').'" href="'. home_url().'/">';
+	__('homepage', 'multiloquent');
+	echo '</a></p>';
+	?>
+    </p>
 </article>
 <div class="container">
 	<!-- google_ad_section_end-->

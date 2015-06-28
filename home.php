@@ -39,8 +39,8 @@ if (have_posts()) {
     <div class="container post">
         <nav class="navitems text-center">
             <ul class="pagination">
-                <li><?php previous_posts_link('Previous Entries') ?></li>
-                <li><?php next_posts_link('Next Entries') ?></li>
+                <li><?php previous_posts_link('Previous Entries', 'multiloquent') ?></li>
+                <li><?php next_posts_link('Next Entries', 'multiloquent') ?></li>
             </ul>
         </nav>
     </div>
