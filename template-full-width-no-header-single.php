@@ -1,7 +1,7 @@
 <?php
 /*
-* Template Name Posts: Full width blank template
-*/
+ * Template Name Posts: Full width blank template
+ */
 
 get_header();
 echo '<!-- google_ad_section_start-->';
@@ -25,7 +25,11 @@ if (have_posts()) {
         echo '</div>';
     }
 } else {
-    echo '<p>Sorry, no posts matched your criteria.<p>';
+    ?>
+    <div class="container post">
+        <?php require(locate_template('error-snippet.php'));?>
+    </div>
+    <?php
 }
 echo '<!-- google_ad_section_end-->';
 ?>

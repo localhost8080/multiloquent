@@ -1,13 +1,13 @@
 <?php
 /**
-* sidebar template part
-*
-* @package multiloquent\template_parts
-*/
+ * sidebar template part
+ *
+ * @package multiloquent\template_parts
+ */
 
 /**
-* the sidebar for multiloquent
-*/
+ * the sidebar for multiloquent
+ */
 
 ?>
 <aside class="sidebar breadcrumb">

@@ -1,22 +1,22 @@
 <?php
 /**
-* The template for displaying Archive pages
-*
-* Used to display archive-type pages if nothing more specific matches a query.
-* For example, puts together date-based pages if no date.php file exists.
-*
-* If you'd like to further customize these archive views, you may create a
-* new template file for each specific one. For example,  multiloquent
-* already has tag.php for Tag archives, category.php for Category archives,
-* and author.php for Author archives.
-*
-* @link http://codex.wordpress.org/Template_Hierarchy
-* @package multiloquent
-*/
+ * The template for displaying Archive pages
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each specific one. For example,  multiloquent
+ * already has tag.php for Tag archives, category.php for Category archives,
+ * and author.php for Author archives.
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ * @package multiloquent
+ */
 
 /**
-* The template for displaying Archive pages
-*/
+ * The template for displaying Archive pages
+ */
 
 get_header();
 if (have_posts()) {
@@ -32,38 +32,38 @@ if (have_posts()) {
                         printf(
                             __('Posts Tagged $s', 'multiloquent'),
                             single_tag_title()
-                        );
+                            );
                     } elseif (is_day()) {
                         printf(
-                            __('Archive for %s', 'multiloquent'), 
+                            __('Archive for %s', 'multiloquent'),
                             get_the_time('F jS, Y')
-                        );
+                            );
                     } elseif (is_month()) {
                         printf(
                             __('Archive for %s', 'multiloquent')
                             , get_the_time('F Y')
-                        );
+                            );
                     } elseif (is_year()) {
                         printf(
                             __('Archive for %s', 'multiloquent'),
                             get_the_time('Y')
-                        );
+                            );
                     } elseif (is_search()) {
                         printf(
                             __('Search Results', 'multiloquent')
-                        );
+                            );
                     } elseif (is_author()) {
                         printf(
                             __('All entries by this author', 'multiloquent')
-                        );
+                            );
                     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
                         printf(
                             __('Blog Archives', 'multiloquent')
-                        );
+                            );
                     } elseif (is_home()) {
                         printf(
                             __('Recent Posts', 'multiloquent')
-                        );
+                            );
                     }
                     ?>
                 </h1>

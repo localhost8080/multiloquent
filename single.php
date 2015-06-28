@@ -42,7 +42,14 @@ if (have_posts()) {
             <section class="row">
                 <div class="tagcloud clearfix mb">
                     <div class="tag-cloud">
-                        <h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+                        <h3>
+                        <?php
+                        printf(
+                            __('Tags for $s','multiloquent'),
+                            $multiloquent->multiloquent_post_title()
+                            );
+                        ?>
+                        </h3>
                         <div>
                             <?php echo $multiloquent->multiloquent_render_tags($post, 1);?>
                         </div>
@@ -70,7 +77,11 @@ if (have_posts()) {
         echo '</article>';
     }
 } else {
-    echo '<p>Sorry, no posts matched your criteria.<p>';
+    ?>
+    <div class="container post">
+        <?php require(locate_template('error-snippet.php'));?>
+    </div>
+    <?php
 }
 echo '<!-- google_ad_section_end-->';
 require(locate_template('social.php'));

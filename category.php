@@ -20,13 +20,13 @@ if (have_posts()) {
                     <?php printf('%s', single_cat_title('', false)); ?>
                 </h1>
                 <p>
-                <?php
-                printf(
-                    __( 'There are %1$s posts in the %2$s category', 'multiloqent' ),
-                    $wp_query->found_posts,
-                    single_cat_title('', false)
-                );
-                ?>
+                    <?php
+                    printf(
+                        __( 'There are %1$s posts in the %2$s category', 'multiloqent' ),
+                        $wp_query->found_posts,
+                        single_cat_title('', false)
+                        );
+                        ?>
                 </p>
             </header>
         </div>

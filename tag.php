@@ -1,14 +1,14 @@
 <?php
 /**
-* tag archive template part
-*
-* @link http://codex.wordpress.org/Template_Hierarchy
-* @package multiloquent\template_parts
-*/
+ * tag archive template part
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ * @package multiloquent\template_parts
+ */
 
 /**
-* template for tag archives
-*/
+ * template for tag archives
+ */
 
 get_header();
 if (have_posts()) {

@@ -10,7 +10,15 @@ global $multiloquent;
 <section class="container post">
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <h3>Other Posts related to <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+            <h3>
+            <?php
+            printf(
+                __('Other Posts related to $s', 'multiloquent'),
+                $multiloquent->multiloquent_post_title()
+                );
+            ?>
+
+            </h3>
             <div>
                 <?php
                 if (have_posts()) {
@@ -20,7 +28,11 @@ global $multiloquent;
                         $multiloquent->multiloquent_render_the_archive($colour);
                     }
                 } else {
-                    echo '<p>No related posts.</p>';
+                    echo'<p>';
+                    printf(
+                        __('No related posts.', 'multiloquent')
+                        );
+                    echo '</p>';
                 }
                 ?>
             </div>

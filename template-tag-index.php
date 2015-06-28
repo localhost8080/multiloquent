@@ -6,7 +6,13 @@ get_header();
 ?>
 <div class="jumbotron">
     <div class="container">
-        <h1>Tag list</h1>
+        <h1>
+        <?php
+        printf(
+            __('Tags List', 'multiloquent')
+            );
+        ?>
+        </h1>
     </div>
 </div>
 <div class="container">

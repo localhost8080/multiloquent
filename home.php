@@ -1,14 +1,14 @@
 <?php
 /**
-* this is the template for the home page when its set to display blog posts
-*
-* @link http://codex.wordpress.org/Template_Hierarchy
-* @package multiloquent\template_parts
-*/
+ * this is the template for the home page when its set to display blog posts
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ * @package multiloquent\template_parts
+ */
 
 /**
-* homepage when set to display blog posts on homepage
-*/
+ * homepage when set to display blog posts on homepage
+ */
 
 get_header();
 if (have_posts()) {

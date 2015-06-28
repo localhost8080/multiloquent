@@ -1,13 +1,13 @@
 <?php
 /**
-* fallback page if no other index page found
-* @link http://codex.wordpress.org/Template_Hierarchy
-* @package multiloquent\template_parts
-*/
+ * fallback page if no other index page found
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ * @package multiloquent\template_parts
+ */
 
 /**
-* fallback if no other archive pages are found
-*/
+ * fallback if no other archive pages are found
+ */
 get_header();
 if (have_posts()) {
     ?>
@@ -19,24 +19,41 @@ if (have_posts()) {
                     if (is_category()) {
                         printf('%s', single_cat_title('', false));
                     } elseif (is_tag()) {
-                        echo 'Posts Tagged';
-                        echo '&#8216; ';
-                        single_tag_title();
-                        echo '&#8217;';
+                        printf(
+                            __('Posts Tagged $s', 'multiloquent'),
+                            single_tag_title()
+                            );
                     } elseif (is_day()) {
-                        printf('Archive for %s', get_the_time('F jS, Y'));
+                        printf(
+                            __('Archive for %s', 'multiloquent'),
+                            get_the_time('F jS, Y')
+                            );
                     } elseif (is_month()) {
-                        printf('Archive for %s', get_the_time('F Y'));
+                        printf(
+                            __('Archive for %s', 'multiloquent')
+                            , get_the_time('F Y')
+                            );
                     } elseif (is_year()) {
-                        printf('Archive for %s', get_the_time('Y'));
+                        printf(
+                            __('Archive for %s', 'multiloquent'),
+                            get_the_time('Y')
+                            );
                     } elseif (is_search()) {
-                        echo 'Search Results';
+                        printf(
+                            __('Search Results', 'multiloquent')
+                            );
                     } elseif (is_author()) {
-                        echo 'All entries by this author';
+                        printf(
+                            __('All entries by this author', 'multiloquent')
+                            );
                     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
-                        echo 'Blog Archives';
+                        printf(
+                            __('Blog Archives', 'multiloquent')
+                            );
                     } elseif (is_home()) {
-                        echo 'Recent Posts';
+                        printf(
+                            __('Recent Posts', 'multiloquent')
+                            );
                     }
                     ?>
                 </h1>
