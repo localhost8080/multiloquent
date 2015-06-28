@@ -20,7 +20,7 @@ if (have_posts()) {
                     <?php
                     printf(
                         __('Posts Tagged %s', 'multiloquent'),
-                        single_tag_title()
+                        single_cat_title('', false)
                     );
                     ?>
                 </h1>

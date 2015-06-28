@@ -31,7 +31,7 @@ if (have_posts()) {
                     } elseif (is_tag()) {
                         printf(
                             __('Posts Tagged %s', 'multiloquent'),
-                            single_tag_title()
+                            single_cat_title('', false)
                             );
                     } elseif (is_day()) {
                         printf(

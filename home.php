@@ -16,7 +16,13 @@ if (have_posts()) {
     <div class="jumbotron">
         <div class="container">
             <header>
-                <h1 class="article_title">Featured Posts</h1>
+                <h1 class="article_title">
+                <?php 
+                printf(
+                    __('Featured Posts','multiloquent')
+                    );
+                ?>
+                </h1>
             </header>
         </div>
     </div>
