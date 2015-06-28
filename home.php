@@ -17,11 +17,11 @@ if (have_posts()) {
         <div class="container">
             <header>
                 <h1 class="article_title">
-                <?php 
-                printf(
-                    __('Featured Posts','multiloquent')
+                    <?php
+                    printf(
+                        __('Featured Posts', 'multiloquent')
                     );
-                ?>
+                    ?>
                 </h1>
             </header>
         </div>
@@ -40,7 +40,7 @@ if (have_posts()) {
         ?>
     </section>
     <section class="container post">
-        <?php require(locate_template('advert.php'));?>
+        <?php require(locate_template('advert.php')); ?>
     </section>
     <div class="container post">
         <nav class="navitems text-center">
@@ -50,10 +50,10 @@ if (have_posts()) {
             </ul>
         </nav>
     </div>
-    <?php } else { ?>
+<?php } else { ?>
     <div class="container post">
-        <?php  require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 get_footer();

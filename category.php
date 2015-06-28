@@ -19,14 +19,15 @@ if (have_posts()) {
                 <h1 class="article_title">
                     <?php printf('%s', single_cat_title('', false)); ?>
                 </h1>
+
                 <p>
                     <?php
                     printf(
-                        __( 'There are %1$s posts in the %2$s category', 'multiloqent' ),
+                        __('There are %1$s posts in the %2$s category', 'multiloqent'),
                         $wp_query->found_posts,
                         single_cat_title('', false)
-                        );
-                        ?>
+                    );
+                    ?>
                 </p>
             </header>
         </div>
@@ -41,7 +42,7 @@ if (have_posts()) {
         ?>
     </section>
     <section class="container post">
-        <?php require(locate_template('advert.php'));?>
+        <?php require(locate_template('advert.php')); ?>
     </section>
     <div class="container post">
         <nav class="navitems text-center">
@@ -51,10 +52,10 @@ if (have_posts()) {
             </ul>
         </nav>
     </div>
-    <?php } else { ?>
+<?php } else { ?>
     <div class="container post">
-        <?php  require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 get_footer();

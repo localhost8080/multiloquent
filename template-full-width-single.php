@@ -47,7 +47,7 @@ if (have_posts()) {
                     ?>
                 </div>
             </section>
-            <?php
+        <?php
         }
         ?>
         <section class="container">
@@ -87,9 +87,9 @@ if (have_posts()) {
 } else {
     ?>
     <div class="container post">
-        <?php require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();

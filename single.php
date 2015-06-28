@@ -43,15 +43,16 @@ if (have_posts()) {
                 <div class="tagcloud clearfix mb">
                     <div class="tag-cloud">
                         <h3>
-                        <?php
-                        printf(
-                            __('Tags for %s','multiloquent'),
-                            $multiloquent->multiloquent_post_title()
+                            <?php
+                            printf(
+                                __('Tags for %s', 'multiloquent'),
+                                $multiloquent->multiloquent_post_title()
                             );
-                        ?>
+                            ?>
                         </h3>
+
                         <div>
-                            <?php echo $multiloquent->multiloquent_render_tags($post, 1);?>
+                            <?php echo $multiloquent->multiloquent_render_tags($post, 1); ?>
                         </div>
                     </div>
                 </div>
@@ -79,9 +80,9 @@ if (have_posts()) {
 } else {
     ?>
     <div class="container post">
-        <?php require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 echo '<!-- google_ad_section_end-->';
 require(locate_template('social.php'));

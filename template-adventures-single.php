@@ -19,15 +19,16 @@ if (have_posts()) {
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
 
-        $map_url  = 'https://www.google.com/maps/embed/v1/directions';
+        $map_url = 'https://www.google.com/maps/embed/v1/directions';
         $map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
-        $map_url .= '&origin='.urlencode(trim($locations[0]));
-        $map_url .= '&destination='.urlencode(trim($locations[1]));
+        $map_url .= '&origin=' . urlencode(trim($locations[0]));
+        $map_url .= '&destination=' . urlencode(trim($locations[1]));
         $map_url .= '&mode=walking';
         ?>
         <div class="container">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url?>"></iframe>
+                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="<?php echo $map_url ?>"></iframe>
                 <?php
                 if ($values = get_post_custom_values('leadvideo')) {
                     echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
@@ -55,9 +56,9 @@ if (have_posts()) {
 } else {
     ?>
     <div class="container post">
-        <?php require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 echo '<!-- google_ad_section_end-->';
 get_footer();

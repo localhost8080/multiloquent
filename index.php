@@ -22,38 +22,38 @@ if (have_posts()) {
                         printf(
                             __('Posts Tagged %s', 'multiloquent'),
                             single_tag_title()
-                            );
+                        );
                     } elseif (is_day()) {
                         printf(
                             __('Archive for %s', 'multiloquent'),
                             get_the_time('F jS, Y')
-                            );
+                        );
                     } elseif (is_month()) {
                         printf(
                             __('Archive for %s', 'multiloquent')
                             , get_the_time('F Y')
-                            );
+                        );
                     } elseif (is_year()) {
                         printf(
                             __('Archive for %s', 'multiloquent'),
                             get_the_time('Y')
-                            );
+                        );
                     } elseif (is_search()) {
                         printf(
                             __('Search Results', 'multiloquent')
-                            );
+                        );
                     } elseif (is_author()) {
                         printf(
                             __('All entries by this author', 'multiloquent')
-                            );
-                    } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
+                        );
+                    } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
                         printf(
                             __('Blog Archives', 'multiloquent')
-                            );
+                        );
                     } elseif (is_home()) {
                         printf(
                             __('Recent Posts', 'multiloquent')
-                            );
+                        );
                     }
                     ?>
                 </h1>
@@ -70,7 +70,7 @@ if (have_posts()) {
         ?>
     </section>
     <section class="container post">
-        <?php require(locate_template('advert.php'));?>
+        <?php require(locate_template('advert.php')); ?>
     </section>
     <div class="container post">
         <nav class="navitems text-center">
@@ -80,10 +80,10 @@ if (have_posts()) {
             </ul>
         </nav>
     </div>
-    <?php } else { ?>
+<?php } else { ?>
     <div class="container post">
-        <?php require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
-    <?php
+<?php
 }
 get_footer();

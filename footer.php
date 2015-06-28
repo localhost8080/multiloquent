@@ -59,7 +59,7 @@ if (empty($hide_the_footer_links)) {
             </aside>
         </div>
     </footer>
-    <?php
+<?php
 }
 wp_footer();
 ?>

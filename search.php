@@ -10,7 +10,7 @@
  * search results page
  */
 
-if (empty( $_REQUEST['search'])  || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['search'])), 'search' )) {
+if (empty($_REQUEST['search']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_REQUEST['search'])), 'search')) {
     // 404 ?
     get_header();
     echo '<div class="container post"> ';
@@ -19,6 +19,6 @@ if (empty( $_REQUEST['search'])  || ! wp_verify_nonce(sanitize_text_field(wp_uns
     get_footer();
     exit;
 } else {
-   // process form data
+    // process form data
     require(locate_template('archive.php'));
 }

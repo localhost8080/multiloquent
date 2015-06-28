@@ -18,7 +18,7 @@
  * For more information on hooks, actions, and filters,
  * @link http://codex.wordpress.org/Plugin_API
  *
- *  @package multiloquent\functions
+ * @package multiloquent\functions
  */
 
 /**

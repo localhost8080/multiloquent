@@ -47,12 +47,12 @@ if (have_posts()) {
             <section class="container">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h3 class="hidden-lg">
-                    <?php
-                    printf(
-                        __('Comments for %s','multiloquent'),
-                        $multiloquent->multiloquent_post_title()
+                        <?php
+                        printf(
+                            __('Comments for %s', 'multiloquent'),
+                            $multiloquent->multiloquent_post_title()
                         );
-                    ?>
+                        ?>
                     </h3>
                     <?php
                     comments_template();
@@ -60,7 +60,7 @@ if (have_posts()) {
                     ?>
                 </div>
             </section>
-            <?php
+        <?php
         }
 
         if (function_exists('related_posts')) {
@@ -77,7 +77,7 @@ if (have_posts()) {
     }
 } else { ?>
     <div class="container post">
-        <?php require(locate_template('error-snippet.php'));?>
+        <?php require(locate_template('error-snippet.php')); ?>
     </div>
 <?php
 }

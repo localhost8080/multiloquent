@@ -11,7 +11,7 @@
 
 ?>
 <div class="container">
-    <?php require(locate_template('advert.php'));?>
+    <?php require(locate_template('advert.php')); ?>
     <!-- google_ad_section_start-->
 </div>
 <article class="container">
@@ -19,20 +19,21 @@
         <?php
         printf(
             __('I dont have anything that matches (or nearly matches) that', 'multiloquent')
-            );
-            ?>
+        );
+        ?>
     </h1>
+
     <p>
         <?php
         printf(
             __('you might want to use the search or go to the <a title="%1$s" href="%2$s">homepage</a>', 'multiloquent'),
             get_bloginfo('name'),
             home_url()
-            );
-            ?>
+        );
+        ?>
     </p>
 </article>
 <div class="container">
     <!-- google_ad_section_end-->
-    <?php require(locate_template('advert.php'));?>
+    <?php require(locate_template('advert.php')); ?>
 </div>
