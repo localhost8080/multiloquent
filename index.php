@@ -20,7 +20,7 @@ if (have_posts()) {
                         printf('%s', single_cat_title('', false));
                     } elseif (is_tag()) {
                         printf(
-                            __('Posts Tagged $s', 'multiloquent'),
+                            __('Posts Tagged %s', 'multiloquent'),
                             single_tag_title()
                             );
                     } elseif (is_day()) {

@@ -19,7 +19,7 @@ if (have_posts()) {
                 <h1 class="article_title">
                     <?php
                     printf(
-                        __('Posts Tagged $s', 'multiloquent'),
+                        __('Posts Tagged %s', 'multiloquent'),
                         single_tag_title()
                     );
                     ?>

@@ -45,7 +45,7 @@ if (have_posts()) {
                         <h3>
                         <?php
                         printf(
-                            __('Tags for $s','multiloquent'),
+                            __('Tags for %s','multiloquent'),
                             $multiloquent->multiloquent_post_title()
                             );
                         ?>

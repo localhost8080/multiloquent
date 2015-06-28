@@ -49,7 +49,7 @@ if (have_posts()) {
                     <h3 class="hidden-lg">
                     <?php
                     printf(
-                        __('Comments for $s','multiloquent'),
+                        __('Comments for %s','multiloquent'),
                         $multiloquent->multiloquent_post_title()
                         );
                     ?>

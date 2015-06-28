@@ -1,4 +1,4 @@
-#This is the readme.txt for multiloquent theme v7
+#This is the readme.txt for multiloquent theme v9
 
 [![Build Status](https://travis-ci.org/localhost8080/multiloquent.svg?branch=master)](https://travis-ci.org/localhost8080/multiloquent)
 
@@ -12,6 +12,7 @@
  - Version 6.4.0 adds support for custom header images
  - Version 7.0.0 adds support for bootswatch themes via the customisation panel
  - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
+ - version 9.1.0 adds internationalisation
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
@@ -101,6 +102,6 @@ if you use [custom post template](http://wordpress.org/extend/plugins/custom-pos
 
 
 - Multiloquent is licenced under the GPLv3 - please see the included LICENCE file
-- Multiloquent uses [bootstrap](http://getbootstrap.com) v3.0.4 - [Apache-20 Licence](http://www.apache.org/licenses/LICENSE-2.0)
+- Multiloquent uses [bootstrap](http://getbootstrap.com) v3.3.4 - [Apache-20 Licence](http://www.apache.org/licenses/LICENSE-2.0)
 - Multiloquent uses [font-awesome](http://fontawesome.io) - [SiL Open Font Licence](http://scripts.sil.org/OFL)
 - Multiloquent uses styles from [bootswatch](http://bootswatch.com) - [MIT Licence](https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE)

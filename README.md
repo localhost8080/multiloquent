@@ -1,4 +1,4 @@
-#This is the readme.txt for multiloquent theme v7
+#This is the readme.txt for multiloquent theme v9
 
 [![Build Status](https://travis-ci.org/localhost8080/multiloquent.svg?branch=master)](https://travis-ci.org/localhost8080/multiloquent)
 
@@ -12,6 +12,7 @@
  - Version 6.4.0 adds support for custom header images
  - Version 7.0.0 adds support for bootswatch themes via the customisation panel
  - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
+ - version 9.1.0 adds internationalisation
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 

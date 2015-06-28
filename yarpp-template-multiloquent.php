@@ -13,7 +13,7 @@ global $multiloquent;
             <h3>
             <?php
             printf(
-                __('Other Posts related to $s', 'multiloquent'),
+                __('Other Posts related to %s', 'multiloquent'),
                 $multiloquent->multiloquent_post_title()
                 );
             ?>
