@@ -156,15 +156,15 @@ class MultiloquentBase
             'title' => __('Multiloquent Settings', 'multiloquent'),
             'priority' => 30
         ));
-        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', 'Excerpt or tags in featured posts', $wp_customize, 'multiloquent_settings');
-        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', 'bootswatch', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', 'Main Elements Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', 'Main Elements Text Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', 'Main Elements Link Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', 'Body Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', 'Body Text Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', 'Slide Menu Background Color', $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', 'Slide Menu Text Color', $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', __('Excerpt or tags in featured posts', 'multiloquent'), $wp_customize, 'multiloquent_settings');
+        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', __('bootswatch', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', __('Main Elements Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', __('Main Elements Text Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', __('Main Elements Link Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', __('Body Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', __('Body Text Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', __('Slide Menu Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', __('Slide Menu Text Color', 'multiloquent'), $wp_customize, 'colors');
     }
 
     /**
@@ -194,7 +194,7 @@ class MultiloquentBase
         }
         if ($setting_type == 'bootswatch') {
             $wp_customize->add_control($setting_name, array(
-                'label' => 'Select Bootswatch style:',
+                'label' => __('Select Bootswatch style:', 'multiloquent'),
                 'section' => $section,
                 'type' => 'select',
                 'choices' => array(
@@ -221,7 +221,7 @@ class MultiloquentBase
         }
         if ($setting_type == 'paralax_featured') {
             $wp_customize->add_control($setting_name, array(
-                'label' => 'Select Featured posts style:',
+                'label' => __('Select Featured posts style:', 'multiloquent'),
                 'section' => $section,
                 'type' => 'select',
                 'choices' => array(
@@ -453,7 +453,7 @@ class MultiloquentBase
             $the_title = get_the_title();
         }
         if (empty($the_title)) {
-            return 'Untitled Post';
+            return __('Untitled Post', 'multiloquent');
         }
         return $the_title;
     }
@@ -483,7 +483,7 @@ class MultiloquentBase
             $return .= '<li><a href="';
             $return .= home_url();
             $return .= '">';
-            $return .= 'Home';
+            $return .= __('Home', 'multiloquent');
             $return .= '</a></li><li>';
         }
         if (is_category() || (is_single() && !is_attachment())) {
@@ -498,10 +498,10 @@ class MultiloquentBase
             $return .= $this->multiloquent_post_title() . '</li>';
         }
         if (is_tag()) {
-            $return .= 'Tag: ' . single_tag_title('', false) . '</li>';
+            $return .= __('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
         }
         if (is_404()) {
-            $return .= '404 - Page not Found<li>';
+            $return .= __('404 - Page not Found', 'multiloquent') . '<li>';
         }
         if (is_search()) {
             $return .= 'Search</li>';

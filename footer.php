@@ -40,7 +40,9 @@ if (empty($hide_the_footer_links)) {
                     <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
                         <p class="nav-header">
                           <?php
-                          __('Useful Stuff', 'multiloquent');
+                          printf(
+                            __('Useful Stuff', 'multiloquent')
+                          );
                           ?>
                           </p>
                         <?php
@@ -53,7 +55,9 @@ if (empty($hide_the_footer_links)) {
                     <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
                         <p class="nav-header">
                           <?php
-                          __('More Useful Stuff', 'multiloquent');
+                          printf(
+                            __('More Useful Stuff', 'multiloquent');
+                          );
                           ?>
                           </p>
                         <?php

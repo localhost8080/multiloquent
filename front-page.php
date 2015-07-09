@@ -22,13 +22,19 @@ if ('posts' == get_option('show_on_front')) {
             <?php
             while (have_posts()) {
                 the_post();
-                the_content('<p class="serif">Read the rest of this page &raquo;</p>');
+                the_content(__('<p class="serif">Read the rest of this page &raquo;</p>', 'multiloquent'));
             }
             ?>
         </div>
     </div>
     <!-- google_ad_section_end-->
-    <p class="lead text-center">Featured Posts</p>
+    <p class="lead text-center">
+      <?php
+      printf(
+        __('Featured Posts', 'multiloquent');
+      );
+      ?>
+    </p>
     <?php echo $multiloquent->multiloquent_paralax_slider(); ?>
     <div class="container">
         <?php require(locate_template('advert.php')); ?>
@@ -36,4 +42,3 @@ if ('posts' == get_option('show_on_front')) {
     <?php
     get_footer();
 }
-

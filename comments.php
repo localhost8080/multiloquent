@@ -46,7 +46,7 @@ if (have_comments()) {
 
                     <p>
                         <?php
-                        print_f(
+                        printf(
                             __('Comments are closed.', 'multiloquent')
                         );
                         ?>
@@ -67,7 +67,7 @@ if (!have_comments() && !comments_open() && !is_page() && post_type_supports(get
 
             <p>
                 <?php
-                print_f(
+                printf(
                     __('Comments are closed.', 'multiloquent')
                 );
                 ?>

@@ -21,13 +21,25 @@ if (have_posts()) {
                     <div class="col-xs-12 col-sm-8">
                         <h2><?php the_author_meta('display_name'); ?></h2>
 
-                        <p><strong>Website: </strong> <?php the_author_link(); ?> </p>
+                        <p>
+                          <strong>
+                            <?php __('Website: ', 'multiloquent');?>
+                          </strong>
+                          <?php the_author_link(); ?>
+                        </p>
                     </div>
                     <div class="col-xs-12 col-sm-4 text-center">
                         <figure>
                             <?php echo get_avatar(get_the_author_meta('ID')); ?>
                             <figcaption class="ratings">
-                                <p>Post count: <?php echo $wp_query->found_posts; ?></p>
+                                <p>
+                                  <?php
+                                  printf(
+                                    __('Post count: %s', 'multiloquent'),
+                                    $wp_query->found_posts
+                                  );
+                                  ?>
+                                </p>
                             </figcaption>
                         </figure>
                     </div>
