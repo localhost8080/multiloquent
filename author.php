@@ -23,7 +23,11 @@ if (have_posts()) {
 
                         <p>
                           <strong>
-                            <?php __('Website: ', 'multiloquent');?>
+                            <?php
+                            printf(
+                              __('Website: ', 'multiloquent')
+                            );
+                            ?>
                           </strong>
                           <?php the_author_link(); ?>
                         </p>

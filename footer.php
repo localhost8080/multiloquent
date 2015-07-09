@@ -56,7 +56,7 @@ if (empty($hide_the_footer_links)) {
                         <p class="nav-header">
                           <?php
                           printf(
-                            __('More Useful Stuff', 'multiloquent');
+                            __('More Useful Stuff', 'multiloquent')
                           );
                           ?>
                           </p>
