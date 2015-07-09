@@ -38,7 +38,11 @@ if (empty($hide_the_footer_links)) {
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-                        <p class="nav-header">Useful Stuff</p>
+                        <p class="nav-header">
+                          <?php
+                          __('Useful Stuff', 'multiloquent');
+                          ?>
+                          </p>
                         <?php
                         // sidebar 10 for some things in footer
                         if (is_active_sidebar(9)) {
@@ -47,7 +51,11 @@ if (empty($hide_the_footer_links)) {
                         ?>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-                        <p class="nav-header">More Useful Stuff</p>
+                        <p class="nav-header">
+                          <?php
+                          __('More Useful Stuff', 'multiloquent');
+                          ?>
+                          </p>
                         <?php
                         // sidebar 10 for some things in footer
                         if (is_active_sidebar(10)) {

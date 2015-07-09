@@ -26,12 +26,12 @@ if (have_comments()) {
                 <nav>
                     <ul class="pager">
                         <?php if (get_previous_comments_link()) { ?>
-                            <li class="previous"><?php previous_comments_link('&larr; Older comments'); ?></li>
+                            <li class="previous"><?php previous_comments_link(__('&larr; Older comments', 'multiloquent')); ?></li>
                         <?php
                         }
                         if (get_next_comments_link()) {
                             ?>
-                            <li class="next"><?php next_comments_link('Newer comments &rarr;'); ?></li>
+                            <li class="next"><?php next_comments_link(__('Newer comments &rarr;', 'multiloquent')); ?></li>
                         <?php
                         }
                         ?>
