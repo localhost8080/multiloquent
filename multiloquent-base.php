@@ -44,6 +44,7 @@ class MultiloquentBase
     function multiloquent_register()
     {
         // theme support
+        load_theme_textdomain('multiloquent');
         add_theme_support('automatic-feed-links');
         add_theme_support('html5');
         add_theme_support('post-thumbnails');
