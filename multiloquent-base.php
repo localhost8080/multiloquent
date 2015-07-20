@@ -8,22 +8,14 @@
 /**
  * multiloquent class file to organise functions
  */
-class MultiloquentBase
-{
+class MultiloquentBase {
 
     /**
      * constructor - add some actions to WordPress startup
      */
-    function __construct()
-    {
-        add_action('after_setup_theme', array(
-            $this,
-            'multiloquent_register'
-        ));
-        add_action('wp_head', array(
-            $this,
-            'multiloquent_customize_css'
-        ));
+    function __construct() {
+        add_action('after_setup_theme', array($this, 'multiloquent_register'));
+        add_action('wp_head', array($this, 'multiloquent_customize_css'));
     }
 
     /**
@@ -31,8 +23,7 @@ class MultiloquentBase
      * @internal internal
      * @return string
      */
-    function multiloquent_version()
-    {
+    function multiloquent_version() {
         $version = '9.1.01';
         return $version;
     }
@@ -41,56 +32,26 @@ class MultiloquentBase
      * various register actions
      * @internal internal
      */
-    function multiloquent_register()
-    {
+    function multiloquent_register() {
         // theme support
         load_theme_textdomain('multiloquent');
         add_theme_support('automatic-feed-links');
         add_theme_support('html5');
         add_theme_support('post-thumbnails');
-        $args = array(
-            'width' => 1800,
-            'height' => 600,
-            'default-image' => get_template_directory_uri() . '/images/default-slider.png',
-            'uploads' => true
-        );
+        $args = array('width' => 1800, 'height' => 600, 'default-image' => get_template_directory_uri() . '/images/default-slider.png', 'uploads' => true);
         add_theme_support('custom-header', $args);
         // actions
-        add_action('wp_enqueue_scripts', array(
-            $this,
-            'multiloquent_scripts_method'
-        ));
-        add_action('wp_enqueue_scripts', array(
-            $this,
-            'multiloquent_stylesheet_method'
-        ));
-        add_action('customize_register', array(
-            $this,
-            'multiloquent_customize_register'
-        ));
+        add_action('wp_enqueue_scripts', array($this, 'multiloquent_scripts_method'));
+        add_action('wp_enqueue_scripts', array($this, 'multiloquent_stylesheet_method'));
+        add_action('customize_register', array($this, 'multiloquent_customize_register'));
         // add_action('wp_tag_cloud', array( $this, 'multiloquent_add_tag_class'));
         // filters
-        add_filter('the_content', array(
-            $this,
-            'multiloquent_featured_image_in_feed'
-        ));
-        add_filter('post_class', array(
-            $this,
-            'multiloquent_remove_hentry_function'
-        ), 20);
+        add_filter('the_content', array($this, 'multiloquent_featured_image_in_feed'));
+        add_filter('post_class', array($this, 'multiloquent_remove_hentry_function'), 20);
         // add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
-        add_filter('widget_tag_cloud_args', array(
-            $this,
-            'multiloquent_widget_tag_cloud_args'
-        ));
-        add_filter('wp_tag_cloud', array(
-            $this,
-            'multiloquent_tag_cloud_filter'
-        ), 10, 2);
-        add_filter('get_avatar', array(
-            $this,
-            'multiloquent_get_avatar'
-        ));
+        add_filter('widget_tag_cloud_args', array($this, 'multiloquent_widget_tag_cloud_args'));
+        add_filter('wp_tag_cloud', array($this, 'multiloquent_tag_cloud_filter'), 10, 2);
+        add_filter('get_avatar', array($this, 'multiloquent_get_avatar'));
         add_filter('widget_text', 'do_shortcode');
         // misc
         if (is_admin()) {
@@ -103,10 +64,7 @@ class MultiloquentBase
             $content_width = 900;
         }
         // sidebars
-        add_action('widgets_init', array(
-            $this,
-            'multiloquent_generate_sidebars'
-        ));
+        add_action('widgets_init', array($this, 'multiloquent_generate_sidebars'));
     }
 
     /**
@@ -115,14 +73,11 @@ class MultiloquentBase
      * @param string $content
      * @return string
      */
-    function multiloquent_featured_image_in_feed($content)
-    {
+    function multiloquent_featured_image_in_feed($content) {
         global $post;
         if (is_feed()) {
             if (has_post_thumbnail($post->ID)) {
-                $output = get_the_post_thumbnail($post->ID, 'medium', array(
-                    'style' => 'float:right; margin:0 0 10px 10px;'
-                ));
+                $output = get_the_post_thumbnail($post->ID, 'medium', array('style' => 'float:right; margin:0 0 10px 10px;'));
                 $content = $output . $content;
             }
         }
@@ -139,8 +94,7 @@ class MultiloquentBase
      *            name of file to include, excluding .php extension
      * @global object $post the wordpress post object
      */
-    function multiloquent_get_template_part($file)
-    {
+    function multiloquent_get_template_part($file) {
         // needed for the included files...
         global $post;
         require_once(trailingslashit(get_template_directory()) . $file . '.php');
@@ -151,12 +105,8 @@ class MultiloquentBase
      * @api
      * @param object $wp_customize
      */
-    function multiloquent_customize_register($wp_customize)
-    {
-        $wp_customize->add_section('multiloquent_settings', array(
-            'title' => __('Multiloquent Settings', 'multiloquent'),
-            'priority' => 30
-        ));
+    function multiloquent_customize_register($wp_customize) {
+        $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30));
         $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', __('Excerpt or tags in featured posts', 'multiloquent'), $wp_customize, 'multiloquent_settings');
         $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', __('bootswatch', 'multiloquent'), $wp_customize, 'colors');
         $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', __('Main Elements Background Color', 'multiloquent'), $wp_customize, 'colors');
@@ -179,58 +129,16 @@ class MultiloquentBase
      * @param object $wp_customize
      * @param string $section
      */
-    function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section)
-    {
-        $wp_customize->add_setting($setting_name, array(
-            'default' => $default,
-            'transport' => 'refresh',
-            'sanitize_callback' => 'esc_attr'
-        ));
+    function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
+        $wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr'));
         if ($setting_type == 'colour') {
-            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array(
-                'label' => $label,
-                'section' => $section,
-                'settings' => $setting_name
-            )));
+            $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name)));
         }
         if ($setting_type == 'bootswatch') {
-            $wp_customize->add_control($setting_name, array(
-                'label' => __('Select Bootswatch style:', 'multiloquent'),
-                'section' => $section,
-                'type' => 'select',
-                'choices' => array(
-                    'default' => 'multiloquent',
-                    'bootstrap' => 'bootstrap',
-                    'cerulean' => 'cerulean',
-                    'cosmo' => 'cosmo',
-                    'cyborg' => 'cyborg',
-                    'darkly' => 'darkly',
-                    'flatly' => 'flatly',
-                    'journal' => 'journal',
-                    'lumen' => 'lumen',
-                    'paper' => 'paper',
-                    'readable' => 'readable',
-                    'sandstone' => 'sandstone',
-                    'simplex' => 'simplex',
-                    'slate' => 'slate',
-                    'spacelab' => 'spacelab',
-                    'superhero' => 'superhero',
-                    'united' => 'united',
-                    'yeti' => 'yeti'
-                )
-            ));
+            $wp_customize->add_control($setting_name, array('label' => __('Select Bootswatch style:', 'multiloquent'), 'section' => $section, 'type' => 'select', 'choices' => array('default' => 'multiloquent', 'bootstrap' => 'bootstrap', 'cerulean' => 'cerulean', 'cosmo' => 'cosmo', 'cyborg' => 'cyborg', 'darkly' => 'darkly', 'flatly' => 'flatly', 'journal' => 'journal', 'lumen' => 'lumen', 'paper' => 'paper', 'readable' => 'readable', 'sandstone' => 'sandstone', 'simplex' => 'simplex', 'slate' => 'slate', 'spacelab' => 'spacelab', 'superhero' => 'superhero', 'united' => 'united', 'yeti' => 'yeti')));
         }
         if ($setting_type == 'paralax_featured') {
-            $wp_customize->add_control($setting_name, array(
-                'label' => __('Select Featured posts style:', 'multiloquent'),
-                'section' => $section,
-                'type' => 'select',
-                'choices' => array(
-                    'empty' => 'empty',
-                    'default' => 'tags',
-                    'excerpt' => 'excerpt'
-                )
-            ));
+            $wp_customize->add_control($setting_name, array('label' => __('Select Featured posts style:', 'multiloquent'), 'section' => $section, 'type' => 'select', 'choices' => array('empty' => 'empty', 'default' => 'tags', 'excerpt' => 'excerpt')));
         }
     }
 
@@ -246,8 +154,7 @@ class MultiloquentBase
      * @param array $mods
      * @return boolean
      */
-    function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
-    {
+    function multiloquent_check_theme_mod_colour($item, $default_value, $mods) {
         if ((!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods[$item])) || (!empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
@@ -260,8 +167,7 @@ class MultiloquentBase
      * @internal internal
      * @todo make this return, rather than echo
      */
-    function multiloquent_customize_css()
-    {
+    function multiloquent_customize_css() {
         $output = '';
         $mods = get_theme_mods();
         if ($this->multiloquent_check_theme_mod_colour('mulitloquent_navbar', '#F8F8F8', $mods)) {
@@ -321,14 +227,9 @@ class MultiloquentBase
      * - bootstrap javascript library
      * @internal internal
      */
-    function multiloquent_scripts_method()
-    {
-        wp_enqueue_script('menu', get_template_directory_uri() . '/menu.js', array(
-            'jquery'
-        ), '', true);
-        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(
-            'jquery'
-        ), '', true);
+    function multiloquent_scripts_method() {
+        wp_enqueue_script('menu', get_template_directory_uri() . '/menu.js', array('jquery'), '', true);
+        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true);
     }
 
     /**
@@ -339,8 +240,7 @@ class MultiloquentBase
      * - print css [custom overrides for printing]
      * @internal internal
      */
-    function multiloquent_stylesheet_method()
-    {
+    function multiloquent_stylesheet_method() {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
         if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
@@ -360,39 +260,17 @@ class MultiloquentBase
      * registers the WordPress menu location
      * @internal internal
      */
-    function multiloquent_menu()
-    {
+    function multiloquent_menu() {
         register_nav_menu('primary-menu', 'Primary Menu');
     }
 
     /**
      * generates the sidebars
      */
-    function multiloquent_generate_sidebars()
-    {
-        $sidebars = array(
-            '1' => 'sidebar top',
-            '2' => 'mobile specific advert',
-            '3' => 'non-mobile specific advert',
-            '4' => 'sidebar middle',
-            '5' => 'sidebar bottom',
-            '6' => 'footer top left',
-            '7' => 'footer top right',
-            '8' => 'social media',
-            '9' => 'footer bottom left',
-            '10' => 'footer bottom right'
-        );
+    function multiloquent_generate_sidebars() {
+        $sidebars = array('1' => 'sidebar top', '2' => 'mobile specific advert', '3' => 'non-mobile specific advert', '4' => 'sidebar middle', '5' => 'sidebar bottom', '6' => 'footer top left', '7' => 'footer top right', '8' => 'social media', '9' => 'footer bottom left', '10' => 'footer bottom right');
         foreach ($sidebars as $key => $name) {
-            $args = array(
-                'id' => 'sidebar-' . $key,
-                'name' => $name . ' sidebar',
-                'description' => $name . ' sidebar',
-                'before_widget' => '',
-                'after_widget' => '',
-                'before_title' => '<p class="nav-header">',
-                'after_title' => '</p>',
-                'class' => ''
-            );
+            $args = array('id' => 'sidebar-' . $key, 'name' => $name . ' sidebar', 'description' => $name . ' sidebar', 'before_widget' => '', 'after_widget' => '', 'before_title' => '<p class="nav-header">', 'after_title' => '</p>', 'class' => '');
             register_sidebar($args);
         }
     }
@@ -403,8 +281,7 @@ class MultiloquentBase
      * @param array $classes
      * @return array
      */
-    function multiloquent_remove_hentry_function($classes)
-    {
+    function multiloquent_remove_hentry_function($classes) {
         if (($key = array_search('hentry', $classes)) !== false) {
             unset($classes[$key]);
         }
@@ -417,8 +294,7 @@ class MultiloquentBase
      * @param string $html
      * @return string
      */
-    function multiloquent_add_class_the_tags($html)
-    {
+    function multiloquent_add_class_the_tags($html) {
         $html = str_replace('<a', '<a class="label"', $html);
         return $html;
     }
@@ -429,8 +305,7 @@ class MultiloquentBase
      * @return array
      * @internal internal
      */
-    function multiloquent_widget_tag_cloud_args($args)
-    {
+    function multiloquent_widget_tag_cloud_args($args) {
         $args['number'] = 20;
         // show less tags
         $args['largest'] = 20;
@@ -446,8 +321,7 @@ class MultiloquentBase
      * @return string
      * @example multiloquent_post_title(12);
      */
-    function multiloquent_post_title($post_id = 0)
-    {
+    function multiloquent_post_title($post_id = 0) {
         if (!empty($post_id)) {
             $the_title = get_the_title($post_id);
         } else {
@@ -465,8 +339,7 @@ class MultiloquentBase
      * @param string $tag_cloud
      * @return string
      */
-    function multiloquent_tag_cloud_filter($tag_cloud)
-    {
+    function multiloquent_tag_cloud_filter($tag_cloud) {
         return '<div id="tag-cloud">' . $tag_cloud . '</div>';
     }
 
@@ -475,8 +348,7 @@ class MultiloquentBase
      * @api
      * @return string
      */
-    function multiloquent_breadcrumbs()
-    {
+    function multiloquent_breadcrumbs() {
         global $post;
         $return = '';
         // $image_url = get_template_directory_uri() ;
@@ -519,55 +391,15 @@ class MultiloquentBase
      * @param string $class
      * @return string <string>
      */
-    function multiloquent_get_random_solid_class($class = '')
-    {
+    function multiloquent_get_random_solid_class($class = '') {
         $mods = get_theme_mods();
         if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
-            $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
-            );
+            $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
-            $input = array(
-                'swatch-red',
-                'swatch-orange',
-                'swatch-yellow',
-                'swatch-green',
-                'swatch-teal',
-                'swatch-blue',
-                'swatch-violet',
-                'swatch-pink',
-                'swatch-mid-gray',
-                'swatch-gray'
-            );
+            $input = array('swatch-red', 'swatch-orange', 'swatch-yellow', 'swatch-green', 'swatch-teal', 'swatch-blue', 'swatch-violet', 'swatch-pink', 'swatch-mid-gray', 'swatch-gray');
         }
-        $apps = array(
-            'phone',
-            'appstore',
-            'calculator',
-            'compass',
-            'itunes',
-            'mail',
-            'music',
-            'weather',
-            'maps',
-            'videos',
-            'notes',
-            'reminders',
-            'calendar',
-            'facebook',
-            'google',
-            'twitter',
-            'linkedin',
-            'finder',
-            'safari',
-            'firefox'
-        );
+        $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
         if (!empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -581,53 +413,15 @@ class MultiloquentBase
      * @api
      * @return string
      */
-    function multiloquent_get_random_blue_class()
-    {
+    function multiloquent_get_random_blue_class() {
         $mods = get_theme_mods();
         if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
-            $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
-            );
+            $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
-            $input = array(
-                'swatch-blue1',
-                'swatch-blue2',
-                'swatch-blue3',
-                'swatch-blue4',
-                'swatch-blue5',
-                'swatch-blue',
-                'swatch-gray',
-                'swatch-violet'
-            );
+            $input = array('swatch-blue1', 'swatch-blue2', 'swatch-blue3', 'swatch-blue4', 'swatch-blue5', 'swatch-blue', 'swatch-gray', 'swatch-violet');
         }
-        $apps = array(
-            'phone',
-            'appstore',
-            'calculator',
-            'compass',
-            'itunes',
-            'mail',
-            'music',
-            'weather',
-            'maps',
-            'videos',
-            'notes',
-            'reminders',
-            'calendar',
-            'facebook',
-            'google',
-            'twitter',
-            'linkedin',
-            'finder',
-            'safari',
-            'firefox'
-        );
+        $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
         if (!empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -642,55 +436,15 @@ class MultiloquentBase
      * @param string $class
      * @return string Ambigous
      */
-    function multiloquent_get_random_colour_class($class = '')
-    {
+    function multiloquent_get_random_colour_class($class = '') {
         $mods = get_theme_mods();
         if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
-            $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
-            );
+            $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
-            $input = array(
-                'gradient-red',
-                'gradient-orange',
-                'gradient-yellow',
-                'gradient-green',
-                'gradient-teal',
-                'gradient-blue',
-                'gradient-violet',
-                'gradient-magenta',
-                'gradient-black',
-                'gradient-silver'
-            );
+            $input = array('gradient-red', 'gradient-orange', 'gradient-yellow', 'gradient-green', 'gradient-teal', 'gradient-blue', 'gradient-violet', 'gradient-magenta', 'gradient-black', 'gradient-silver');
         }
-        $apps = array(
-            'phone',
-            'appstore',
-            'calculator',
-            'compass',
-            'itunes',
-            'mail',
-            'music',
-            'weather',
-            'maps',
-            'videos',
-            'notes',
-            'reminders',
-            'calendar',
-            'facebook',
-            'google',
-            'twitter',
-            'linkedin',
-            'finder',
-            'safari',
-            'firefox'
-        );
+        $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
         if (!empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
@@ -705,8 +459,7 @@ class MultiloquentBase
      * @param string $cat
      * @return string
      */
-    function multiloquent_category_list_as_hierarchy($cat = '0')
-    {
+    function multiloquent_category_list_as_hierarchy($cat = '0') {
         $tags = get_categories('hide_empty=true&orderby=name&order=ASC&parent=' . $cat);
         // Output a wrapper so that our arrays will be contained in 4 columns.
         $html = '';
@@ -769,40 +522,21 @@ class MultiloquentBase
      * @api
      * @return string
      */
-    function multiloquent_paralax_slider()
-    {
+    function multiloquent_paralax_slider() {
         global $wpdb;
         $total_posts = '5';
         if (function_exists('tptn_pop_posts')) {
-            $args = array(
-                'is_widget' => false,
-                'daily' => false,
-                'echo' => false,
-                'strict_limit' => $total_posts,
-                'posts_only' => true
-            );
+            $args = array('is_widget' => false, 'daily' => false, 'echo' => false, 'strict_limit' => $total_posts, 'posts_only' => true);
             // todo - this needs to be an array of objects..
             $top_ten_post_array = tptn_pop_posts($args);
             $posts_to_get = '';
             foreach ($top_ten_post_array as $post => $val) {
                 $posts_to_get[] = $val['ID'];
             }
-            $args = array(
-                'post__in' => $posts_to_get
-            );
+            $args = array('post__in' => $posts_to_get);
             $recent_posts = get_posts($args);
         } else {
-            $args = array(
-                'numberposts' => $total_posts,
-                'offset' => 0,
-                'category' => '',
-                'orderby' => 'post_date',
-                'order' => 'DESC',
-                'include' => '',
-                'exclude' => '',
-                'post_type' => 'post',
-                'post_status' => 'publish'
-            );
+            $args = array('numberposts' => $total_posts, 'offset' => 0, 'category' => '', 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'post_type' => 'post', 'post_status' => 'publish');
             $recent_posts = get_posts($args);
         }
         $count = 1;
@@ -858,19 +592,12 @@ class MultiloquentBase
      * @api
      * @return string
      */
-    function multiloquent_paralax_featured_sliders()
-    {
+    function multiloquent_paralax_featured_sliders() {
         global $wpdb;
         $total_posts = '4';
         $posts_to_get = '';
         if (function_exists('tptn_pop_posts')) {
-            $args = array(
-                'is_widget' => false,
-                'daily' => false,
-                'echo' => false,
-                'strict_limit' => $total_posts,
-                'posts_only' => true
-            );
+            $args = array('is_widget' => false, 'daily' => false, 'echo' => false, 'strict_limit' => $total_posts, 'posts_only' => true);
             // todo - this needs to be an array of objects..
             $top_ten_post_array = tptn_pop_posts($args);
             foreach ($top_ten_post_array as $post => $val) {
@@ -878,22 +605,10 @@ class MultiloquentBase
             }
             // set to 4 items as the strict_limit doesn't appear to work correctly..
             $posts_to_get = array_slice($posts_to_get, 0, 4);
-            $args = array(
-                'post__in' => $posts_to_get
-            );
+            $args = array('post__in' => $posts_to_get);
             $recent_posts = get_posts($args);
         } else {
-            $args = array(
-                'numberposts' => $total_posts,
-                'offset' => 0,
-                'category' => '',
-                'orderby' => 'post_date',
-                'order' => 'DESC',
-                'include' => '',
-                'exclude' => '',
-                'post_type' => 'post',
-                'post_status' => 'publish'
-            );
+            $args = array('numberposts' => $total_posts, 'offset' => 0, 'category' => '', 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'post_type' => 'post', 'post_status' => 'publish');
             $recent_posts = get_posts($args);
         }
         $count = 1;
@@ -928,8 +643,7 @@ class MultiloquentBase
      * @param string $avatar
      * @return mixed
      */
-    function multiloquent_get_avatar($avatar)
-    {
+    function multiloquent_get_avatar($avatar) {
         $avatar = str_replace("class='avatar", "class='avatar img-responsive center-block", $avatar);
         return $avatar;
     }
@@ -944,8 +658,7 @@ class MultiloquentBase
      * @see multiloquent_get_random_solid_class()
      * @see multiloquent_get_random_blue_class()
      */
-    function multiloquent_render_the_archive($colour)
-    {
+    function multiloquent_render_the_archive($colour) {
         // set it to blank so that it doesnt get the previous one..
         global $post;
         $thumbnail_id = get_the_ID();
@@ -977,7 +690,7 @@ class MultiloquentBase
                 </p>
             </div>
         </div>
-    <?php
+        <?php
     }
 
     /**
@@ -988,8 +701,7 @@ class MultiloquentBase
      *            (set to true to force tag output)
      * @return string
      */
-    function multiloquent_render_tags($val, $force_tags = false)
-    {
+    function multiloquent_render_tags($val, $force_tags = false) {
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
