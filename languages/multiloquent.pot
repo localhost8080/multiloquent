@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 19:54+0100\n"
+"POT-Creation-Date: 2015-07-09 19:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,12 +54,12 @@ msgid "There are %1$s posts tagged %2$s"
 msgstr ""
 
 #: tag.php:55 archive.php:90 category.php:50 author.php:75 tag.php:55
-#: archive.php:90 category.php:50 author.php:75
+#: archive.php:90 category.php:50 author.php:79
 msgid "Previous Entries"
 msgstr ""
 
 #: tag.php:56 archive.php:91 category.php:51 author.php:76 tag.php:56
-#: archive.php:91 category.php:51 author.php:76
+#: archive.php:91 category.php:51 author.php:80
 msgid "Next Entries"
 msgstr ""
 
@@ -206,11 +206,11 @@ msgstr ""
 msgid "More Useful Stuff"
 msgstr ""
 
-#: author.php:26 author.php:26
+#: author.php:26 author.php:28
 msgid "Website: "
 msgstr ""
 
-#: author.php:38 author.php:38
+#: author.php:38 author.php:42
 #, php-format
 msgid "Post count: %s"
 msgstr ""
