@@ -47,7 +47,7 @@ class MultiloquentBase {
         // add_action('wp_tag_cloud', array( $this, 'multiloquent_add_tag_class'));
         // filters
         add_filter('the_content', array($this, 'multiloquent_featured_image_in_feed'));
-        add_filter('post_class', array($this, 'multiloquent_remove_hentry_function'), 20);
+        // add_filter('post_class', array($this, 'multiloquent_remove_hentry_function'), 20);
         // add_filter('the_tags', 'multiloquent_add_class_the_tags', 10, 1);
         add_filter('widget_tag_cloud_args', array($this, 'multiloquent_widget_tag_cloud_args'));
         add_filter('wp_tag_cloud', array($this, 'multiloquent_tag_cloud_filter'), 10, 2);
@@ -282,9 +282,9 @@ class MultiloquentBase {
      * @return array
      */
     function multiloquent_remove_hentry_function($classes) {
-        if (($key = array_search('hentry', $classes)) !== false) {
-            unset($classes[$key]);
-        }
+//         if (($key = array_search('hentry', $classes)) !== false) {
+//             unset($classes[$key]);
+//         }
         return $classes;
     }
 
@@ -353,34 +353,52 @@ class MultiloquentBase {
         $return = '';
         // $image_url = get_template_directory_uri() ;
         if (!is_home()) {
-            $return .= '<li><a href="';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
+            $return .= '<a itemprop="item" href="';
             $return .= home_url();
             $return .= '">';
+            $return .= '<span itemprop="name">';
             $return .= __('Home', 'multiloquent');
-            $return .= '</a></li><li>';
+            $return .= '</span>';
+            $return .= '</a>';
+            $return .= '</li>';
         }
+        
         if (is_category() || (is_single() && !is_attachment())) {
             $category = get_the_category();
             $catID = $category[0]->cat_ID;
-            $return .= get_category_parents($catID, true, '</li><li>', false);
+            $category_parents = get_category_parents($catID, false, ':::', false);
+            
+            $category_slug = explode(':::', $category_parents);
+            foreach ($category_slug as $category => $slug) {
+                $current_category = '';
+                $current_category = get_category_by_slug($slug);
+                if (!empty($slug)) {
+                    $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
+                    $return .= '<a itemprop="item" href="/'. $current_category->slug.'">';
+                    $return .= '<span itemprop="name">'.$current_category->name.'</span>';
+                    $return .= '</a>';
+                    $return .= '</li>';
+                }
+            }
         }
         if (is_single()) {
-            $return .= $this->multiloquent_post_title() . '</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'. $this->multiloquent_post_title() . '</li>';
         }
         if (is_page()) {
-            $return .= $this->multiloquent_post_title() . '</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'. $this->multiloquent_post_title() . '</li>';
         }
         if (is_tag()) {
-            $return .= __('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'. __('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
         }
         if (is_404()) {
-            $return .= __('404 - Page not Found', 'multiloquent') . '<li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'. __('404 - Page not Found', 'multiloquent') . '<li>';
         }
         if (is_search()) {
-            $return .= 'Search</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">Search</li>';
         }
         if (is_year()) {
-            $return .= get_the_time('Y') . '</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'. get_the_time('Y') . '</li>';
         }
         return $return;
     }
