@@ -15,7 +15,7 @@ if (post_password_required()) {
 }
 if (have_comments()) {
     ?>
-    <section id="comments">
+    <section itemprop="comment" id="comments">
         <div>
             <h3><?php printf(_n('One comment', '%1$s comments', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number())); ?></h3>
             <ol class="comment-list">
