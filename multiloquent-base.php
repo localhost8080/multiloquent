@@ -60,7 +60,7 @@ class MultiloquentBase {
         $this->multiloquent_menu();
         set_post_thumbnail_size(605, 100);
         add_image_size('featured-post-thumbnail', 605, 100);
-        if (!isset($content_width)) {
+        if ( ! isset($content_width)) {
             $content_width = 900;
         }
         // sidebars
@@ -73,7 +73,7 @@ class MultiloquentBase {
      * @param string $content
      * @return string
      */
-    function multiloquent_featured_image_in_feed($content) {
+    function multiloquent_featured_image_in_feed( $content ) {
         global $post;
         if (is_feed()) {
             if (has_post_thumbnail($post->ID)) {
@@ -94,7 +94,7 @@ class MultiloquentBase {
      *            name of file to include, excluding .php extension
      * @global object $post the wordpress post object
      */
-    function multiloquent_get_template_part($file) {
+    function multiloquent_get_template_part( $file ) {
         // needed for the included files...
         global $post;
         require_once(trailingslashit(get_template_directory()) . $file . '.php');
@@ -105,7 +105,7 @@ class MultiloquentBase {
      * @api
      * @param object $wp_customize
      */
-    function multiloquent_customize_register($wp_customize) {
+    function multiloquent_customize_register( $wp_customize ) {
         $wp_customize->add_section('multiloquent_settings', array('title' => __('Multiloquent Settings', 'multiloquent'), 'priority' => 30));
         $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', __('Excerpt or tags in featured posts', 'multiloquent'), $wp_customize, 'multiloquent_settings');
         $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', __('bootswatch', 'multiloquent'), $wp_customize, 'colors');
@@ -129,7 +129,7 @@ class MultiloquentBase {
      * @param object $wp_customize
      * @param string $section
      */
-    function multiloquent_register_and_generate_custom_control($setting_type, $setting_name, $default, $label, $wp_customize, $section) {
+    function multiloquent_register_and_generate_custom_control( $setting_type, $setting_name, $default, $label, $wp_customize, $section ) {
         $wp_customize->add_setting($setting_name, array('default' => $default, 'transport' => 'refresh', 'sanitize_callback' => 'esc_attr'));
         if ($setting_type == 'colour') {
             $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, $setting_name, array('label' => $label, 'section' => $section, 'settings' => $setting_name)));
@@ -154,8 +154,8 @@ class MultiloquentBase {
      * @param array $mods
      * @return boolean
      */
-    function multiloquent_check_theme_mod_colour($item, $default_value, $mods) {
-        if ((!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods[$item])) || (!empty($mods[$item]) && $mods[$item] != $default_value)) {
+    function multiloquent_check_theme_mod_colour( $item, $default_value, $mods ) {
+        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
             return false;
@@ -216,7 +216,7 @@ class MultiloquentBase {
             $output .= '}' . "\r\n";
         }
         // if there is any output, render it
-        if (!empty($output)) {
+        if ( ! empty($output)) {
             echo '<style type="text/css">' . $output . '</style>';
         }
     }
@@ -243,7 +243,7 @@ class MultiloquentBase {
     function multiloquent_stylesheet_method() {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
         } else {
@@ -281,7 +281,7 @@ class MultiloquentBase {
      * @param array $classes
      * @return array
      */
-    function multiloquent_remove_hentry_function($classes) {
+    function multiloquent_remove_hentry_function( $classes ) {
 //         if (($key = array_search('hentry', $classes)) !== false) {
 //             unset($classes[$key]);
 //         }
@@ -294,7 +294,7 @@ class MultiloquentBase {
      * @param string $html
      * @return string
      */
-    function multiloquent_add_class_the_tags($html) {
+    function multiloquent_add_class_the_tags( $html ) {
         $html = str_replace('<a', '<a class="label"', $html);
         return $html;
     }
@@ -305,7 +305,7 @@ class MultiloquentBase {
      * @return array
      * @internal internal
      */
-    function multiloquent_widget_tag_cloud_args($args) {
+    function multiloquent_widget_tag_cloud_args( $args ) {
         $args['number'] = 20;
         // show less tags
         $args['largest'] = 20;
@@ -321,8 +321,8 @@ class MultiloquentBase {
      * @return string
      * @example multiloquent_post_title(12);
      */
-    function multiloquent_post_title($post_id = 0) {
-        if (!empty($post_id)) {
+    function multiloquent_post_title( $post_id = 0 ) {
+        if ( ! empty($post_id)) {
             $the_title = get_the_title($post_id);
         } else {
             $the_title = get_the_title();
@@ -339,7 +339,7 @@ class MultiloquentBase {
      * @param string $tag_cloud
      * @return string
      */
-    function multiloquent_tag_cloud_filter($tag_cloud) {
+    function multiloquent_tag_cloud_filter( $tag_cloud ) {
         return '<div id="tag-cloud">' . $tag_cloud . '</div>';
     }
 
@@ -352,7 +352,7 @@ class MultiloquentBase {
         global $post;
         $return = '';
         // $image_url = get_template_directory_uri() ;
-        if (!is_home()) {
+        if ( ! is_home()) {
             $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
             $return .= '<a itemprop="item" href="';
             $return .= home_url();
@@ -364,7 +364,7 @@ class MultiloquentBase {
             $return .= '</li>';
         }
         
-        if (is_category() || (is_single() && !is_attachment())) {
+        if (is_category() || (is_single() && ! is_attachment())) {
             $category = get_the_category();
             $catID = $category[0]->cat_ID;
             $category_parents = get_category_parents($catID, false, ':::', false);
@@ -373,7 +373,7 @@ class MultiloquentBase {
             foreach ($category_slug as $category => $slug) {
                 $current_category = '';
                 $current_category = get_category_by_slug($slug);
-                if (!empty($slug)) {
+                if ( ! empty($slug)) {
                     $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
                     $return .= '<a itemprop="item" href="/'. $current_category->slug.'">';
                     $return .= '<span itemprop="name">'.$current_category->name.'</span>';
@@ -409,16 +409,16 @@ class MultiloquentBase {
      * @param string $class
      * @return string <string>
      */
-    function multiloquent_get_random_solid_class($class = '') {
+    function multiloquent_get_random_solid_class( $class = '' ) {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
             $input = array('swatch-red', 'swatch-orange', 'swatch-yellow', 'swatch-green', 'swatch-teal', 'swatch-blue', 'swatch-violet', 'swatch-pink', 'swatch-mid-gray', 'swatch-gray');
         }
         $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -433,14 +433,14 @@ class MultiloquentBase {
      */
     function multiloquent_get_random_blue_class() {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
             $input = array('swatch-blue1', 'swatch-blue2', 'swatch-blue3', 'swatch-blue4', 'swatch-blue5', 'swatch-blue', 'swatch-gray', 'swatch-violet');
         }
         $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -454,16 +454,16 @@ class MultiloquentBase {
      * @param string $class
      * @return string Ambigous
      */
-    function multiloquent_get_random_colour_class($class = '') {
+    function multiloquent_get_random_colour_class( $class = '' ) {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array('label-primary', 'label-success', 'label-warning', 'label-info', 'label-danger', 'label-default');
         } else {
             $input = array('gradient-red', 'gradient-orange', 'gradient-yellow', 'gradient-green', 'gradient-teal', 'gradient-blue', 'gradient-violet', 'gradient-magenta', 'gradient-black', 'gradient-silver');
         }
         $apps = array('phone', 'appstore', 'calculator', 'compass', 'itunes', 'mail', 'music', 'weather', 'maps', 'videos', 'notes', 'reminders', 'calendar', 'facebook', 'google', 'twitter', 'linkedin', 'finder', 'safari', 'firefox');
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -477,7 +477,7 @@ class MultiloquentBase {
      * @param string $cat
      * @return string
      */
-    function multiloquent_category_list_as_hierarchy($cat = '0') {
+    function multiloquent_category_list_as_hierarchy( $cat = '0' ) {
         $tags = get_categories('hide_empty=true&orderby=name&order=ASC&parent=' . $cat);
         // Output a wrapper so that our arrays will be contained in 4 columns.
         $html = '';
@@ -661,7 +661,7 @@ class MultiloquentBase {
      * @param string $avatar
      * @return mixed
      */
-    function multiloquent_get_avatar($avatar) {
+    function multiloquent_get_avatar( $avatar ) {
         $avatar = str_replace("class='avatar", "class='avatar img-responsive center-block", $avatar);
         return $avatar;
     }
@@ -676,7 +676,7 @@ class MultiloquentBase {
      * @see multiloquent_get_random_solid_class()
      * @see multiloquent_get_random_blue_class()
      */
-    function multiloquent_render_the_archive($colour) {
+    function multiloquent_render_the_archive( $colour ) {
         // set it to blank so that it doesnt get the previous one..
         global $post;
         $thumbnail_id = get_the_ID();
@@ -719,11 +719,11 @@ class MultiloquentBase {
      *            (set to true to force tag output)
      * @return string
      */
-    function multiloquent_render_tags($val, $force_tags = false) {
+    function multiloquent_render_tags( $val, $force_tags = false ) {
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
-        if (!empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
+        if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
             // they have selected 'excerpt'
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
@@ -731,7 +731,7 @@ class MultiloquentBase {
                 $excerpt = wp_trim_words($val->post_content);
             }
             $output .= $excerpt;
-        } elseif (!empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+        } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
             // dont output anything, leave the tags thing empty, append nothing to the output to fool the wordpress
             // coding standards
             $output .= '';

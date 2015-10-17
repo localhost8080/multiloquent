@@ -56,7 +56,7 @@ if (have_posts()) {
                         printf(
                             __('All entries by this author', 'multiloquent')
                         );
-                    } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+                    } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
                         printf(
                             __('Blog Archives', 'multiloquent')
                         );
