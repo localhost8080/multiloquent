@@ -24,7 +24,7 @@ class MultiloquentBase {
      * @return string
      */
     function multiloquent_version() {
-        $version = '9.2.0';
+        $version = '9.2.01';
         return $version;
     }
 
@@ -701,8 +701,7 @@ class MultiloquentBase {
                         echo $this->multiloquent_post_title();
                         ?>
                     </a>
-                </span>¬
-
+                </span>
                 <p>
                     <?php echo $this->multiloquent_render_tags($post); ?>
                 </p>

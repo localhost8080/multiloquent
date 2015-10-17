@@ -23,7 +23,7 @@ if (have_posts()) {
                 <p>
                     <?php
                     printf(
-                        __('There are %1$s posts in the %2$s category', 'multiloqent'),
+                        __('There are %1$s posts in the %2$s category', 'multiloquent'),
                         $wp_query->found_posts,
                         single_cat_title('', false)
                     );

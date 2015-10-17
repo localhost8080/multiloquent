@@ -28,7 +28,7 @@ they are used as the post header image unless a featured image has been set agai
 
 ##Multiloquent now has a theme selector - as of v7.0.0
 Using the wordpress customisation panel you can select between all of the themes from [bootswatch.com](bootswatch.com) 
-and they will be applied to your site (aswell as the multiloqent theme and berebones bootstrap too)
+and they will be applied to your site (aswell as the multiloquent theme and berebones bootstrap too)
 
 
 ##This theme has 10 widget areas:

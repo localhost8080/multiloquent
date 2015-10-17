@@ -28,7 +28,7 @@ if (have_posts()) {
                 <p>
                     <?php
                     printf(
-                        __('There are %1$s posts tagged %2$s', 'multiloqent'),
+                        __('There are %1$s posts tagged %2$s', 'multiloquent'),
                         $wp_query->found_posts,
                         single_cat_title('', false)
                     );
