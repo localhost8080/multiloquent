@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 19:58+0100\n"
+"POT-Creation-Date: 2015-10-17 14:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,13 +53,13 @@ msgstr ""
 msgid "There are %1$s posts tagged %2$s"
 msgstr ""
 
-#: tag.php:55 archive.php:90 category.php:50 author.php:75 tag.php:55
-#: archive.php:90 category.php:50 author.php:79
+#: tag.php:55 archive.php:90 category.php:50 author.php:75 author.php:79
+#: tag.php:55 archive.php:90 category.php:50 author.php:79
 msgid "Previous Entries"
 msgstr ""
 
-#: tag.php:56 archive.php:91 category.php:51 author.php:76 tag.php:56
-#: archive.php:91 category.php:51 author.php:80
+#: tag.php:56 archive.php:91 category.php:51 author.php:76 author.php:80
+#: tag.php:56 archive.php:91 category.php:51 author.php:80
 msgid "Next Entries"
 msgstr ""
 
@@ -134,67 +134,67 @@ msgstr ""
 msgid "There are %1$s posts in the %2$s category"
 msgstr ""
 
-#: multiloquent-base.php:157 multiloquent-base.php:157
+#: multiloquent-base.php:157 multiloquent-base.php:109
 msgid "Multiloquent Settings"
 msgstr ""
 
-#: multiloquent-base.php:160 multiloquent-base.php:160
+#: multiloquent-base.php:160 multiloquent-base.php:110
 msgid "Excerpt or tags in featured posts"
 msgstr ""
 
-#: multiloquent-base.php:161 multiloquent-base.php:161
+#: multiloquent-base.php:161 multiloquent-base.php:111
 msgid "bootswatch"
 msgstr ""
 
-#: multiloquent-base.php:162 multiloquent-base.php:162
+#: multiloquent-base.php:162 multiloquent-base.php:112
 msgid "Main Elements Background Color"
 msgstr ""
 
-#: multiloquent-base.php:163 multiloquent-base.php:163
+#: multiloquent-base.php:163 multiloquent-base.php:113
 msgid "Main Elements Text Color"
 msgstr ""
 
-#: multiloquent-base.php:164 multiloquent-base.php:164
+#: multiloquent-base.php:164 multiloquent-base.php:114
 msgid "Main Elements Link Color"
 msgstr ""
 
-#: multiloquent-base.php:165 multiloquent-base.php:165
+#: multiloquent-base.php:165 multiloquent-base.php:115
 msgid "Body Background Color"
 msgstr ""
 
-#: multiloquent-base.php:166 multiloquent-base.php:166
+#: multiloquent-base.php:166 multiloquent-base.php:116
 msgid "Body Text Color"
 msgstr ""
 
-#: multiloquent-base.php:167 multiloquent-base.php:167
+#: multiloquent-base.php:167 multiloquent-base.php:117
 msgid "Slide Menu Background Color"
 msgstr ""
 
-#: multiloquent-base.php:168 multiloquent-base.php:168
+#: multiloquent-base.php:168 multiloquent-base.php:118
 msgid "Slide Menu Text Color"
 msgstr ""
 
-#: multiloquent-base.php:198 multiloquent-base.php:198
+#: multiloquent-base.php:198 multiloquent-base.php:138
 msgid "Select Bootswatch style:"
 msgstr ""
 
-#: multiloquent-base.php:225 multiloquent-base.php:225
+#: multiloquent-base.php:225 multiloquent-base.php:141
 msgid "Select Featured posts style:"
 msgstr ""
 
-#: multiloquent-base.php:457 multiloquent-base.php:457
+#: multiloquent-base.php:457 multiloquent-base.php:331
 msgid "Untitled Post"
 msgstr ""
 
-#: multiloquent-base.php:487 multiloquent-base.php:487
+#: multiloquent-base.php:487 multiloquent-base.php:361
 msgid "Home"
 msgstr ""
 
-#: multiloquent-base.php:502 multiloquent-base.php:502
+#: multiloquent-base.php:502 multiloquent-base.php:392
 msgid "Tag: "
 msgstr ""
 
-#: multiloquent-base.php:505 multiloquent-base.php:505
+#: multiloquent-base.php:505 multiloquent-base.php:395
 msgid "404 - Page not Found"
 msgstr ""
 
@@ -206,11 +206,11 @@ msgstr ""
 msgid "More Useful Stuff"
 msgstr ""
 
-#: author.php:26 author.php:28
+#: author.php:26 author.php:28 author.php:28
 msgid "Website: "
 msgstr ""
 
-#: author.php:38 author.php:42
+#: author.php:38 author.php:42 author.php:42
 #, php-format
 msgid "Post count: %s"
 msgstr ""
