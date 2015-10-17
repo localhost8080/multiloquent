@@ -2,7 +2,9 @@
 // Bootswatch
 // -----------------------------------------------------
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+$web-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,700" !default;
+
+@import url($web-font-path);
 
 // Navbar =====================================================================
 
@@ -33,6 +35,13 @@
 .text-info,
 .text-info:hover {
   color: $brand-info;
+}
+
+.bg-success,
+.bg-info,
+.bg-warning,
+.bg-danger {
+  color: #fff;
 }
 
 // Tables =====================================================================
