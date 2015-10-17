@@ -485,7 +485,7 @@ class MultiloquentBase {
             // Output the markup for each tag found for each character.
             // in here I need to recurse down
             $old_tile_colour = $this->multiloquent_get_random_blue_class();
-            foreach ((array)$tags as $tag) {
+            foreach ((array) $tags as $tag) {
                 // set the old colour so I can re-set it at the bottom
                 $new_tile_colour = $this->multiloquent_get_random_solid_class($tag->slug);
                 // fetch the new colour, if the returned string matches the slug, then set the tile_colour to it,
@@ -681,7 +681,7 @@ class MultiloquentBase {
         global $post;
         $thumbnail_id = get_the_ID();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($thumbnail_id), 'single-post-thumbnail');
-        if (!empty($slider_image)) {
+        if ( ! empty($slider_image)) {
             $the_image = $slider_image[0];
             // $width = $slider_image[1];
             // $height = $slider_image[2];
@@ -701,7 +701,7 @@ class MultiloquentBase {
                         echo $this->multiloquent_post_title();
                         ?>
                     </a>
-                </span>
+                </span>¬
 
                 <p>
                     <?php echo $this->multiloquent_render_tags($post); ?>
