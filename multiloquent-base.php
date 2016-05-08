@@ -373,7 +373,7 @@ class MultiloquentBase {
             foreach ($category_slug as $category => $slug) {
                 $current_category = '';
                 $current_category = get_category_by_slug($slug);
-                if ( ! empty($slug)) {
+                if ( ! empty($slug) && !empty($current_category)) {
                     $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
                     $return .= '<a itemprop="item" href="/'. $current_category->slug.'">';
                     $return .= '<span itemprop="name">'.$current_category->name.'</span>';
