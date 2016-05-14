@@ -892,7 +892,7 @@ class MultiloquentBase {
                 'post__in' => $posts_to_get
             );
             $recent_posts = get_posts($args);
-        }  else {
+        } else {
             $args = array(
                 'numberposts' => $total_posts,
                 'offset' => 0,
