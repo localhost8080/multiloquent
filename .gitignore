@@ -7,3 +7,4 @@ sftp-config.json
 *.prefs
 scopes
 .idea
+.vscode
