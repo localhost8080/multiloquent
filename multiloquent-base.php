@@ -783,16 +783,21 @@ class MultiloquentBase {
     function multiloquent_paralax_slider() {
         global $wpdb;
         $total_posts = '5';
-        if (function_exists('tptn_pop_posts')) {
+        
+        
+        
+        
+        
+        if (function_exists('get_tptn_pop_posts')) {
             $args = array(
-                'is_widget' => false,
                 'daily' => false,
-                'echo' => false,
-                'strict_limit' => $total_posts,
+                'strict_limit' => true,
+                'posts_only' => false,
+                'limit' => 5,
                 'posts_only' => true
             );
             // todo - this needs to be an array of objects..
-            $top_ten_post_array = tptn_pop_posts($args);
+            $top_ten_post_array = get_tptn_pop_posts($args);
             $posts_to_get = '';
             foreach ($top_ten_post_array as $post => $val) {
                 $posts_to_get[] = $val['ID'];
