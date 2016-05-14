@@ -874,26 +874,25 @@ class MultiloquentBase {
         global $wpdb;
         $total_posts = '4';
         $posts_to_get = '';
-        if (function_exists('tptn_pop_posts')) {
+    if (function_exists('get_tptn_pop_posts')) {
             $args = array(
-                'is_widget' => false,
                 'daily' => false,
-                'echo' => false,
-                'strict_limit' => $total_posts,
+                'strict_limit' => true,
+                'posts_only' => false,
+                'limit' => 4,
                 'posts_only' => true
             );
             // todo - this needs to be an array of objects..
-            $top_ten_post_array = tptn_pop_posts($args);
+            $top_ten_post_array = get_tptn_pop_posts($args);
+            $posts_to_get = '';
             foreach ($top_ten_post_array as $post => $val) {
                 $posts_to_get[] = $val['ID'];
             }
-            // set to 4 items as the strict_limit doesn't appear to work correctly..
-            $posts_to_get = array_slice($posts_to_get, 0, 4);
             $args = array(
                 'post__in' => $posts_to_get
             );
             $recent_posts = get_posts($args);
-        } else {
+        }  else {
             $args = array(
                 'numberposts' => $total_posts,
                 'offset' => 0,
