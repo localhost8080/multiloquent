@@ -1101,8 +1101,9 @@ h3.nowrap {
   content: "\f078";
   display: inline-block;
   font-family: FontAwesome;
-  position: relative;
-  padding: 0 0 0 10px;
+  position: absolute;
+  padding: 0 10px 0 10px;
+  right: 0;
 }
 .prev_link {
   border-radius: 10px 0 0 10px;
