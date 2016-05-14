@@ -6,18 +6,13 @@
         <exclude name="Generic.WhiteSpace.ScopeIndent"/>
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
         <exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
-        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis"/>
-        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis"/>
-        <exclude name="WordPress.Arrays.ArrayDeclaration"/>
-        <exclude name="WordPress.PHP.YodaConditions"/>
-        <exclude name="WordPress.XSS.EscapeOutput"/>
-        <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions"/>
-        <exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
-        <exclude name="WordPress.VIP.RestrictedFunctions.get_tag_link"/>
+        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/>
+        <exclude name="Generic.Commenting.DocComment.ShortNotCapital"/>
+        
         <exclude name="PEAR.Functions.FunctionCallSignature.Indent"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
-        <exclude name="Generic.Commenting.DocComment.ShortNotCapital"/>
+        
         <exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
         <exclude name="Squiz.Commenting.FileComment.WrongStyle"/>
         <exclude name="Squiz.Commenting.BlockComment.NoEmptyLineBefore"/>
@@ -26,13 +21,23 @@
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
-        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/>
-        <exclude name="WordPress.VIP.RestrictedFunctions.get_category_by_slug"/>
-        <exclude name="WordPress.VIP.RestrictedFunctions.wp_is_mobile"/>
-        <exclude name="WordPress.VIP.RestrictedFunctions.get_term_link"/>
         <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen"/>
         <exclude name="Squiz.Commenting.FileComment.SpacingAfterComment"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
+        
+        <exclude name="WordPress.Arrays.ArrayDeclaration"/>
+        <exclude name="WordPress.PHP.YodaConditions"/>
+        <exclude name="WordPress.XSS.EscapeOutput"/>
+        <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions"/>
+        <exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
+        <exclude name="WordPress.WhiteSpace.OperatorSpacing.SpacingBefore"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.get_tag_link"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.get_category_by_slug"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.wp_is_mobile"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.get_term_link"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.wp_get_post_terms"/>
     </rule>
 </ruleset>
