@@ -366,8 +366,8 @@ class MultiloquentBase {
         
         if (is_category() || (is_single() && ! is_attachment())) {
             $category = get_the_category();
-            $catID = $category[0]->cat_ID;
-            $category_parents = get_category_parents($catID, false, ':::', false);
+            $cat_id = $category[0]->cat_ID;
+            $category_parents = get_category_parents($cat_id, false, ':::', false);
             
             $category_slug = explode(':::', $category_parents);
             foreach ($category_slug as $category => $slug) {
