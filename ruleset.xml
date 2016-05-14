@@ -28,5 +28,7 @@
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
         <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/>
         <exclude name="WordPress.VIP.RestrictedFunctions.get_category_by_slug"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.wp_is_mobile"/>
+        <exclude name="WordPress.VIP.RestrictedFunctions.get_term_link"/>
     </rule>
 </ruleset>
