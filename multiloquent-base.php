@@ -784,10 +784,6 @@ class MultiloquentBase {
         global $wpdb;
         $total_posts = '5';
         
-        
-        
-        
-        
         if (function_exists('get_tptn_pop_posts')) {
             $args = array(
                 'daily' => false,
