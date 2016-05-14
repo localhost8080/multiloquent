@@ -30,5 +30,9 @@
         <exclude name="WordPress.VIP.RestrictedFunctions.get_category_by_slug"/>
         <exclude name="WordPress.VIP.RestrictedFunctions.wp_is_mobile"/>
         <exclude name="WordPress.VIP.RestrictedFunctions.get_term_link"/>
+        <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen"/>
+        <exclude name="Squiz.Commenting.FileComment.SpacingAfterComment"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
     </rule>
 </ruleset>
