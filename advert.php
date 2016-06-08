@@ -9,7 +9,7 @@
  */
 ?>
 
-<div class="ads">
+<div class="ads text-center">
     <?php
     if (wp_is_mobile()) {
         if (is_active_sidebar(2)) {

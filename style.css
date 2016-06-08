@@ -719,26 +719,26 @@ div.thumbnail .featured-image {
   height: 100px;
 }
 .ads {
-  margin-bottom: 20px;
-  overflow: hidden;
-  width: 100%;
-  margin-top: 20px;
-}
-.ads ins {
-  display: block !important;
-  margin: 0 auto !important;
+  /*margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+    ins {
+        display: block !important;
+        margin: 0 auto !important;
+    }*/
 }
 @media screen and (max-width: 480px) {
-  .ads {
-    margin-bottom: 20px;
-    margin-left: -20px;
-  }
+  /*.ads {
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }*/
 }
 @media screen and (max-width: 320px) {
-  .ads {
-    margin-bottom: 20px;
-    margin-left: -20px;
-  }
+  /*.ads {
+        margin-bottom: 20px;
+        margin-left: -20px;
+    }*/
 }
 .carousel-caption a {
   color: #fff;
