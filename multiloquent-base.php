@@ -344,11 +344,11 @@ class MultiloquentBase {
         } else {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
-            // use my custom bootstrap overrides
-            wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/multiloquent/style.css');
+            // use my custom bootstrap overrides - this isnt actually needed as the main stylesheet has all the content now
+            // wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/multiloquent/style.css');
         }
         wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
-        wp_enqueue_style('print', get_template_directory_uri() . '/print.css');
+        wp_enqueue_style('print', get_template_directory_uri() . '/print.min.css');
     }
 
     /**
