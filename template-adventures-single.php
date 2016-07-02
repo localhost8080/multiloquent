@@ -15,6 +15,10 @@ if (have_posts()) {
         echo '>';
         $title_string = $multiloquent->multiloquent_post_title();
         $title_string = preg_replace('(\d+)', '', $title_string);
+        $title_string = preg_replace('/Day/', '', $title_string);
+        $title_string = preg_replace('/day/', '', $title_string);
+        $title_string = preg_replace('/Part/', '', $title_string);
+        $title_string = preg_replace('/part/', '', $title_string);
         $title_string = preg_replace('/[^A-Za-z0-9 ]/', '', $title_string);
         $title_string = trim($title_string);
         $locations = explode(' to ', $title_string);
@@ -24,6 +28,8 @@ if (have_posts()) {
         $map_url .= '&origin=' . urlencode(trim($locations[0]));
         if (!empty($locations[1])) {
             $map_url .= '&destination=' . urlencode(trim($locations[1]));
+        } else {
+            $map_url .= '&destination=' . urlencode(trim($locations[0]));
         }
         $map_url .= '&mode=walking';
         ?>
