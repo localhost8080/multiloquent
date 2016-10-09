@@ -26,7 +26,7 @@ if (have_posts()) {
         $map_url = 'https://www.google.com/maps/embed/v1/directions';
         $map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
         $map_url .= '&origin=' . urlencode(trim($locations[0]));
-        if (!empty($locations[1])) {
+        if ( ! empty($locations[1])) {
             $map_url .= '&destination=' . urlencode(trim($locations[1]));
         } else {
             $map_url .= '&destination=' . urlencode(trim($locations[0]));
