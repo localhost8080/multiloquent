@@ -25,6 +25,7 @@
         <exclude name="Squiz.Commenting.FileComment.SpacingAfterComment"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
+        <exclude name="Squiz.Commenting.LongConditionClosingComment.Missing" />
         
         <exclude name="WordPress.Arrays.ArrayDeclaration"/>
         <exclude name="WordPress.PHP.YodaConditions"/>
