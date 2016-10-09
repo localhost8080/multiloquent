@@ -17,7 +17,14 @@ if (have_comments()) {
     ?>
     <section itemprop="comment" id="comments">
         <div>
-            <h3><?php printf(_n('One comment', '%1$s comments', get_comments_number(), 'multiloquent'), number_format_i18n(get_comments_number())); ?></h3>
+            <h3>
+            <?php 
+            printf(
+                __('%1$s comments', 'multiloquent'),
+                number_format_i18n(get_comments_number())
+                );
+            ?>
+            </h3>
             <ol class="comment-list">
                 <?php wp_list_comments(); ?>
             </ol>
