@@ -29,6 +29,7 @@ if (have_posts()) {
                     );
                     ?>
                 </p>
+                <div><?php echo category_description(); ?></div>
             </header>
         </div>
     </div>
