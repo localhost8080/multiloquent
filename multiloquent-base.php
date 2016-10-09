@@ -31,7 +31,7 @@ class MultiloquentBase {
      * @return string
      */
     function multiloquent_version() {
-        $version = '9.3.0';
+        $version = '9.3.01';
         return $version;
     }
 
@@ -53,6 +53,7 @@ class MultiloquentBase {
             'uploads' => true
         );
         add_theme_support('custom-header', $args);
+        add_theme_support( 'title-tag' );
         // actions
         add_action('wp_enqueue_scripts', array(
             $this,
