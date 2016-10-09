@@ -45,6 +45,8 @@ class MultiloquentBase {
         load_theme_textdomain('multiloquent');
         add_theme_support('automatic-feed-links');
         add_theme_support('html5');
+        
+        add_theme_support( 'title-tag' );
         add_theme_support('post-thumbnails');
         $args = array(
             'width' => 1800,
@@ -53,7 +55,7 @@ class MultiloquentBase {
             'uploads' => true
         );
         add_theme_support('custom-header', $args);
-        add_theme_support( 'title-tag' );
+
         // actions
         add_action('wp_enqueue_scripts', array(
             $this,
