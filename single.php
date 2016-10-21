@@ -63,8 +63,8 @@ if (have_posts()) {
             echo '</div>';
             if (comments_open()) {
                 echo '<div class="col-sm-12 col-md-6 col-lg-5 comments breadcrumb">';
-                comments_template();
                 require(locate_template('advert.php'));
+                comments_template();
                 echo '</div>';
             }
             require(locate_template('advert.php'));
