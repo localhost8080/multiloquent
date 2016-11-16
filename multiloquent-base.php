@@ -31,7 +31,7 @@ class MultiloquentBase {
      * @return string
      */
     function multiloquent_version() {
-        $version = '9.3.01';
+        $version = '9.3.02';
         return $version;
     }
 
@@ -498,7 +498,7 @@ class MultiloquentBase {
                 $current_category = get_category_by_slug($slug);
                 if ( ! empty($slug) &&  ! empty($current_category)) {
                     $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
-                    $return .= '<a itemprop="item" href="/' . $current_category->slug . '">';
+                    $return .= '<a itemprop="item" href="' . get_category_link($current_category->term_id) . '">';
                     $return .= '<span itemprop="name">' . $current_category->name . '</span>';
                     $return .= '</a>';
                     $return .= '</li>';
