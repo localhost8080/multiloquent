@@ -42,8 +42,7 @@ if (have_posts()) {
             require(locate_template('advert.php'));
             ?>
             <section class="row">
-                <div class="tagcloud clearfix mb">
-                    <div class="tag-cloud">
+                    <div class="tag-cloud mb">
                         <h3>
                             <?php
                             printf(
@@ -52,12 +51,8 @@ if (have_posts()) {
                             );
                             ?>
                         </h3>
-
-                        <div>
                             <?php echo $multiloquent->multiloquent_render_tags($post, 1); ?>
-                        </div>
                     </div>
-                </div>
             </section>
             <?php
             echo '</div>';
