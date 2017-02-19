@@ -22,7 +22,8 @@ if (have_posts()) {
 <div class="container">
             <?php
         echo '<div class="col-sm-12 col-md-12 col-lg-12">';
-        if ($values = get_post_custom_values('leadvideo')) {
+        // if we are using the old leadvideo method, and not the new video format
+        if ($values = get_post_custom_values('leadvideo') && ! has_post_format('video')) {
             echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];
