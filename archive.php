@@ -81,7 +81,7 @@ if (have_posts()) {
     </section>
     <section class="container post">
         <?php
-        require(locate_template('advert.php'));
+        get_template_part('advert');
         ?>
     </section>
     <div class="container post">

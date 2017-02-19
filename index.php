@@ -70,7 +70,9 @@ if (have_posts()) {
         ?>
     </section>
     <section class="container post">
-        <?php require(locate_template('advert.php')); ?>
+        <?php 
+        get_template_part('advert');
+        ?>
     </section>
     <div class="container post">
         <nav class="navitems text-center">

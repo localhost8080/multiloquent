@@ -11,7 +11,9 @@
 
 ?>
 <div class="container">
-    <?php require(locate_template('advert.php')); ?>
+    <?php 
+    get_template_part('advert');
+    ?>
     <!-- google_ad_section_start-->
 </div>
 <article class="container">
@@ -35,5 +37,7 @@
 </article>
 <div class="container">
     <!-- google_ad_section_end-->
-    <?php require(locate_template('advert.php')); ?>
+    <?php 
+    get_template_part('advert');
+    ?>
 </div>

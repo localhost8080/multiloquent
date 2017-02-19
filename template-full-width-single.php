@@ -33,7 +33,7 @@ if (have_posts()) {
                 ?>
             </div>
             <?php
-            require(locate_template('advert.php'));
+            get_template_part('advert');
             ?>
         </div>
         <?php
@@ -45,7 +45,7 @@ if (have_posts()) {
                     <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
                     <?php
                     comments_template();
-                    require(locate_template('advert.php'));
+                    get_template_part('advert');
                     ?>
                 </div>
             </section>
@@ -78,7 +78,7 @@ if (have_posts()) {
         ?>
         <section class="container">
             <?php
-            require(locate_template('advert.php'));
+            get_template_part('advert');
             ?>
         </section>
         <?php

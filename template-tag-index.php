@@ -90,6 +90,8 @@ get_header();
             ?>
         </article>
         <!-- google_ad_section_end-->
-        <?php require(locate_template('advert.php')); ?>
+        <?php 
+        get_template_part('advert');
+        ?>
     </div>
 <?php get_footer();

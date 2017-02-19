@@ -34,7 +34,7 @@ if (have_posts()) {
         remove_filter('the_excerpt', 'sharing_display', 19);
         the_content('<p class="serif">Read the rest of this page &raquo;</p>');
         wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-        require (locate_template('advert.php'));
+        get_template_part('advert');
         ?>
     <section class="row">
         <div class="tag-cloud mb">
@@ -44,11 +44,11 @@ if (have_posts()) {
             <?php
         echo '</div>';
         if (comments_open()) {
-            require (locate_template('advert.php'));
+            get_template_part('advert');
             comments_template();
             echo '</div>';
         }
-        require (locate_template('advert.php'));
+        get_template_part('advert');
         ?>
         </div>
 <?php
