@@ -31,7 +31,7 @@ class MultiloquentBase {
      * @return string
      */
     function multiloquent_version() {
-        $version = '9.3.03';
+        $version = '9.4.00';
         return $version;
     }
 
