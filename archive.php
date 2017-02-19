@@ -97,7 +97,7 @@ if (have_posts()) {
     ?>
     <div class="container post">
         <?php
-        require(locate_template('error-snippet.php'));
+        get_template_part('error-snippet');
         ?>
     </div>
 <?php

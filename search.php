@@ -14,7 +14,7 @@ if (empty($_REQUEST['search']) || ! wp_verify_nonce(sanitize_text_field(wp_unsla
     // 404 ?
     get_header();
     echo '<div class="container post"> ';
-    require(locate_template('error-snippet.php'));
+    get_template_part('error-snippet');
     echo '</div>';
     get_footer();
     exit;

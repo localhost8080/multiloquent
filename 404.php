@@ -11,5 +11,5 @@
  */
 
 get_header();
-require(locate_template('error-snippet.php'));
+get_template_part('error-snippet');
 get_footer();
