@@ -45,16 +45,20 @@ class MultiloquentBase {
         load_theme_textdomain('multiloquent');
         add_theme_support('automatic-feed-links');
         add_theme_support('html5');
-        
+        add_theme_support( 'post-formats', array( 
+            'image',   
+            'gallery',
+            'video',
+            'audio'
+        ));
         add_theme_support( 'title-tag' );
         add_theme_support('post-thumbnails');
-        $args = array(
+        add_theme_support('custom-header', array(
             'width' => 1800,
             'height' => 600,
             'default-image' => get_template_directory_uri() . '/images/default-slider.png',
             'uploads' => true
-        );
-        add_theme_support('custom-header', $args);
+        ));
 
         // actions
         add_action('wp_enqueue_scripts', array(

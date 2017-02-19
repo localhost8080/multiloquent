@@ -4,11 +4,9 @@
  *
  * @package multiloquent\template_parts
  */
-
 /**
  * template for blog posts
  */
-
 get_header();
 echo '<!-- google_ad_section_start-->';
 if (have_posts()) {
@@ -18,54 +16,41 @@ if (have_posts()) {
         echo '<article id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
-        require(locate_template('featuredimage.php'));
-        require(locate_template('breadcrumb.php'));
+        require (locate_template('featuredimage.php'));
+        require (locate_template('breadcrumb.php'));
         ?>
-        <div class="container">
+<div class="container">
             <?php
-            if (comments_open()) {
-                echo '<div class="col-sm-12 col-md-6 col-lg-7">';
-            } else {
-                echo '<div class="col-sm-12 col-md-12 col-lg-12">';
-            }
-            if ($values = get_post_custom_values('leadvideo')) {
-                echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
-                echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
-                echo $values[0];
-                echo '" frameborder="0" allowfullscreen></iframe>';
-                echo '</div>';
-            }
-            remove_filter('the_content', 'sharing_display', 19);
-            remove_filter('the_excerpt', 'sharing_display', 19);
-            the_content('<p class="serif">Read the rest of this page &raquo;</p>');
-            wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-            require(locate_template('advert.php'));
-            ?>
-            <section class="row">
-                    <div class="tag-cloud mb">
-                        <h3>
-                            <?php
-                            printf(
-                                __('Tags for %s', 'multiloquent'),
-                                $multiloquent->multiloquent_post_title()
-                            );
-                            ?>
-                        </h3>
-                            <?php echo $multiloquent->multiloquent_render_tags($post, 1); ?>
-                    </div>
-            </section>
-            <?php
+        echo '<div class="col-sm-12 col-md-12 col-lg-12">';
+        if ($values = get_post_custom_values('leadvideo')) {
+            echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
+            echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
+            echo $values[0];
+            echo '" frameborder="0" allowfullscreen></iframe>';
             echo '</div>';
-            if (comments_open()) {
-                echo '<div class="col-sm-12 col-md-6 col-lg-5 comments breadcrumb">';
-                require(locate_template('advert.php'));
-                comments_template();
-                echo '</div>';
-            }
-            require(locate_template('advert.php'));
-            ?>
+        }
+        remove_filter('the_content', 'sharing_display', 19);
+        remove_filter('the_excerpt', 'sharing_display', 19);
+        the_content('<p class="serif">Read the rest of this page &raquo;</p>');
+        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
+        require (locate_template('advert.php'));
+        ?>
+    <section class="row">
+        <div class="tag-cloud mb">
+            <?php echo $multiloquent->multiloquent_render_tags($post, 1); ?>
+         </div>
+    </section>
+            <?php
+        echo '</div>';
+        if (comments_open()) {
+            require (locate_template('advert.php'));
+            comments_template();
+            echo '</div>';
+        }
+        require (locate_template('advert.php'));
+        ?>
         </div>
-        <?php
+<?php
         // get_template_part('social');
         if (function_exists('related_posts')) {
             related_posts();
@@ -76,11 +61,11 @@ if (have_posts()) {
     }
 } else {
     ?>
-    <div class="container post">
+<div class="container post">
         <?php require(locate_template('error-snippet.php')); ?>
     </div>
 <?php
 }
 echo '<!-- google_ad_section_end-->';
-require(locate_template('social.php'));
+require (locate_template('social.php'));
 get_footer();
