@@ -132,23 +132,6 @@ class MultiloquentBase {
     }
 
     /**
-     * includes the name of the php file passed.
-     * - includes the name of the php file passed. Uses require_once().
-     * - limitations: cant pass the file extension, only includes php files.
-     * - eg: multiloquent_get_template_part('somefile'); to include somefile.php
-     * @api
-     *
-     * @param string $file
-     *            name of file to include, excluding .php extension
-     * @global object $post the wordpress post object
-     */
-    function multiloquent_get_template_part($file) {
-        // needed for the included files...
-        global $post;
-        require_once trailingslashit(get_template_directory()) . $file . '.php';
-    }
-
-    /**
      * adds the multiloquent custom controls for wp customise api
      * @api
      *
