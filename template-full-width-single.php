@@ -37,7 +37,7 @@ if (have_posts()) {
             ?>
         </div>
         <?php
-        require(locate_template('social.php'));
+        get_template_part('social');
         if (comments_open()) {
             ?>
             <section class="container">

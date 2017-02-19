@@ -68,5 +68,5 @@ if (have_posts()) {
 <?php
 }
 echo '<!-- google_ad_section_end-->';
-require (locate_template('social.php'));
+get_template_part('social');
 get_footer();
