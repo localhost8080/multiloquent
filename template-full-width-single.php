@@ -89,7 +89,7 @@ if (have_posts()) {
     }
 } else {
     ?>
-    <div class="container-fluid post">
+    <div class="container-fluid post clearfix">
         <?php 
         get_template_part('error-snippet');
         ?>

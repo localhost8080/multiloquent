@@ -78,7 +78,7 @@ if (have_posts()) {
         echo '</div>';
     }
 } else { ?>
-    <div class="container-fluid post">
+    <div class="container-fluid post clearfix">
         <?php 
         get_template_part('error-snippet');
         ?>

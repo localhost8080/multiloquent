@@ -60,7 +60,7 @@ if (have_posts()) {
             </header>
         </div>
     </div>
-    <section class="container-fluid post">
+    <section class="container-fluid post clearfix">
         <?php
         $colour = $multiloquent->multiloquent_get_random_blue_class();
         while (have_posts()) {
@@ -69,12 +69,12 @@ if (have_posts()) {
         }
         ?>
     </section>
-    <section class="container-fluid post">
+    <section class="container-fluid post clearfix">
         <?php 
         get_template_part('advert');
         ?>
     </section>
-    <div class="container-fluid post">
+    <div class="container-fluid post clearfix">
         <nav class="navitems text-center">
             <ul class="pagination">
                 <li><?php previous_posts_link('Previous Entries', 'multiloquent') ?></li>
@@ -83,7 +83,7 @@ if (have_posts()) {
         </nav>
     </div>
 <?php } else { ?>
-    <div class="container-fluid post">
+    <div class="container-fluid post clearfix">
         <?php 
         get_template_part('error-snippet');
         ?>
