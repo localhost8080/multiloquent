@@ -193,8 +193,6 @@ class MultiloquentBase {
                     'flatly' => 'flatly',
                     'journal' => 'journal',
                     'lumen' => 'lumen',
-                    'paper' => 'paper',
-                    'readable' => 'readable',
                     'sandstone' => 'sandstone',
                     'simplex' => 'simplex',
                     'slate' => 'slate',
