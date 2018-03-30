@@ -99,10 +99,11 @@ if (comments_open()) {
             <?php
             } else {
                 $comments_args = array(
-                    'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>'
+                    'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>',
+                    'class_form' => '',
+                    'class_submit' => 'btn btn-success'
                 );
                 comment_form($comments_args);
-                comment_form();
             }
             ?>
         </div>
