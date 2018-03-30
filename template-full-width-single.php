@@ -16,7 +16,7 @@ if (have_posts()) {
 
         require(locate_template('breadcrumb.php'));
         ?>
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <?php
                 $values = !empty(get_post_custom_values('leadvideo'))?get_post_custom_values('leadvideo'):'';
@@ -41,7 +41,7 @@ if (have_posts()) {
         get_template_part('social');
         if (comments_open()) {
             ?>
-            <section class="container-fluid">
+            <section class="container-fluid clearfix">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
                     <?php
@@ -53,7 +53,7 @@ if (have_posts()) {
         <?php
         }
         ?>
-        <section class="container-fluid">
+        <section class="container-fluid clearfix">
             <div class="tagcloud">
                 <div class="tag-cloud">
                     <h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
@@ -77,7 +77,7 @@ if (have_posts()) {
             related_posts();
         }
         ?>
-        <section class="container-fluid">
+        <section class="container-fluid clearfix">
             <?php
             get_template_part('advert');
             ?>

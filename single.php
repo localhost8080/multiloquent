@@ -19,7 +19,7 @@ if (have_posts()) {
         require locate_template('featuredimage.php');
         require locate_template('breadcrumb.php');
         ?>
-<div class="container-fluid">
+<div class="container-fluid clearfix">
             <?php
         echo '<div class="col-sm-12 col-md-12 col-lg-12">';
         // if we are using the old leadvideo method, and not the new video format

@@ -33,7 +33,7 @@ if (have_posts()) {
         }
         $map_url .= '&mode=walking';
         ?>
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                         src="<?php echo $map_url ?>"></iframe>
@@ -49,7 +49,7 @@ if (have_posts()) {
                 ?>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <?php
                 remove_filter('the_content', 'sharing_display', 19);

@@ -18,7 +18,7 @@ if ('posts' == get_option('show_on_front')) {
     ?>
     <!-- google_ad_section_start-->
     <div class="jumbotron">
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <?php
             while (have_posts()) {
                 the_post();
@@ -36,7 +36,7 @@ if ('posts' == get_option('show_on_front')) {
       ?>
     </p>
     <?php echo $multiloquent->multiloquent_paralax_slider(); ?>
-    <div class="container-fluid">
+    <div class="container-fluid clearfix">
         <?php
         get_template_part('advert');
         ?>
