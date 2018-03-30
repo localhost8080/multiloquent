@@ -928,7 +928,7 @@ class MultiloquentBase {
      * @return mixed
      */
     function multiloquent_get_avatar($avatar) {
-        $avatar = str_replace("class='avatar", "class='avatar img-responsive center-block", $avatar);
+        $avatar = str_replace("class='avatar", "class='avatar img-fluid center-block", $avatar);
         return $avatar;
     }
 
