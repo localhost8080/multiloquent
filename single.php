@@ -19,7 +19,7 @@ if (have_posts()) {
         require locate_template('featuredimage.php');
         require locate_template('breadcrumb.php');
         ?>
-<div class="container">
+<div class="container-fluid">
             <?php
         echo '<div class="col-sm-12 col-md-12 col-lg-12">';
         // if we are using the old leadvideo method, and not the new video format
@@ -63,7 +63,7 @@ if (have_posts()) {
     }
 } else {
     ?>
-<div class="container post">
+<div class="container-fluid post">
         <?php 
         get_template_part('error-snippet');
         ?>

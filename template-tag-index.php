@@ -5,7 +5,7 @@
 get_header();
 ?>
     <div class="jumbotron">
-        <div class="container">
+        <div class="container-fluid">
             <h1>
                 <?php
                 printf(
@@ -15,7 +15,7 @@ get_header();
             </h1>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <!-- google_ad_section_start-->
         <article>
             <?php

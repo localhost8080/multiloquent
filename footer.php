@@ -17,7 +17,7 @@ require locate_template('navigation.php');
 if (empty($hide_the_footer_links)) {
     ?>
 <footer class="well">
-    <div class="container">
+    <div class="container-fluid">
         <aside>
             
             <?php

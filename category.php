@@ -14,7 +14,7 @@ get_header();
 if (have_posts()) {
     ?>
     <div class="jumbotron">
-        <div class="container">
+        <div class="container-fluid">
             <header>
                 <h1 class="article_title">
                     <?php printf('%s', single_cat_title('', false)); ?>
@@ -33,7 +33,7 @@ if (have_posts()) {
             </header>
         </div>
     </div>
-    <section class="container post">
+    <section class="container-fluid post">
         <?php
         $colour = $multiloquent->multiloquent_get_random_blue_class();
         while (have_posts()) {
@@ -42,12 +42,12 @@ if (have_posts()) {
         }
         ?>
     </section>
-    <section class="container post">
+    <section class="container-fluid post">
         <?php
         get_template_part('advert');
         ?>
     </section>
-    <div class="container post">
+    <div class="container-fluid post">
         <nav class="navitems text-center">
             <ul class="pagination">
                 <li><?php previous_posts_link(__('Previous Entries', 'multiloquent')) ?></li>
@@ -56,7 +56,7 @@ if (have_posts()) {
         </nav>
     </div>
 <?php } else { ?>
-    <div class="container post">
+    <div class="container-fluid post">
         <?php
         get_template_part('error-snippet');
         ?>

@@ -26,7 +26,7 @@ if (have_posts()) {
     }
 } else {
     ?>
-    <div class="container post">
+    <div class="container-fluid post">
         <?php 
         get_template_part('error-snippet');
         ?>
