@@ -22,7 +22,7 @@ get_header();
 if (have_posts()) {
     ?>
     <div class="jumbotron">
-        <div class="container-fluid">
+        <div class="container-fluid clearfix">
             <header>
                 <h1 class="article_title">
                     <?php

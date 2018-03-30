@@ -10,13 +10,13 @@
  */
 
 ?>
-<div class="container-fluid">
+<div class="container-fluid clearfix">
     <?php 
     get_template_part('advert');
     ?>
     <!-- google_ad_section_start-->
 </div>
-<article class="container-fluid">
+<article class="container-fluid clearfix">
     <h1>
         <?php
         printf(
@@ -35,7 +35,7 @@
         ?>
     </p>
 </article>
-<div class="container-fluid">
+<div class="container-fluid clearfix">
     <!-- google_ad_section_end-->
     <?php 
     get_template_part('advert');
