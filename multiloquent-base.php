@@ -905,9 +905,9 @@ class MultiloquentBase {
                 $theimg = get_header_image();
             }
             if ($count == '1' || $count == '2') {
-                $output .= '<div class="paralax_image_holder halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
+                $output .= '<div class="paralax_image_holder float-left halfheight col-sm-6 col-md-3 col-lg-3 alpha omega">';
             } else {
-                $output .= '<div class="paralax_image_holder halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
+                $output .= '<div class="paralax_image_holder float-left halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
             }
             $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
             $output .= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
@@ -957,7 +957,7 @@ class MultiloquentBase {
             $the_image = get_header_image();
         }
         ?>
-<div class="paralax_image_holder col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
+<div class="paralax_image_holder float-left col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
     <span style="background-image:url('<?php echo $the_image ?>');" class="grayscale"></span>
     <div class="paralax_image_bg <?php echo $colour ?>"></div>
     <div class="paralax_image_text">
