@@ -15,8 +15,8 @@
 	<div class="input-group">
 		<input type="text" id="s" name="s" autocomplete="off" placeholder="Search" class="form-control">
 		<input type="hidden" value="the_search_text" name="action">
-		<span class="input-group-addon">
-			<label title="search" for="s" class="" style="margin:0">
+		<span class="input-group-append">
+			<label title="search" for="s" class="btn btn-primary" style="margin:0">
 				<span class="fa fa-search fafw"></span>
 			</label>
 		</span>
