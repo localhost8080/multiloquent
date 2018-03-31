@@ -523,12 +523,12 @@ class MultiloquentBase {
         if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
+                'bg-primary',
+                'bg-success',
+                'bg-warning',
+                'bg-info',
+                'bg-danger',
+                'bg-default'
             );
         } else {
             $input = array(
@@ -585,12 +585,12 @@ class MultiloquentBase {
         if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
+                'bg-primary',
+                'bg-success',
+                'bg-warning',
+                'bg-info',
+                'bg-danger',
+                'bg-default'
             );
         } else {
             $input = array(
@@ -646,12 +646,12 @@ class MultiloquentBase {
         if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
-                'label-primary',
-                'label-success',
-                'label-warning',
-                'label-info',
-                'label-danger',
-                'label-default'
+                'bg-primary',
+                'bg-success',
+                'bg-warning',
+                'bg-info',
+                'bg-danger',
+                'bg-default'
             );
         } else {
             $input = array(
