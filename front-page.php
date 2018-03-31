@@ -22,7 +22,7 @@ if ('posts' == get_option('show_on_front')) {
             <?php
             while (have_posts()) {
                 the_post();
-                the_content(__('<p class="serif">Read the rest of this page &raquo;</p>', 'multiloquent'));
+                the_content(esc_html_e('<p class="serif">Read the rest of this page &raquo;</p>', 'multiloquent'));
             }
             ?>
         </div>
@@ -31,7 +31,7 @@ if ('posts' == get_option('show_on_front')) {
     <p class="lead text-center">
       <?php
       printf(
-        __('Featured Posts', 'multiloquent')
+        esc_html_e('Featured Posts', 'multiloquent')
       );
       ?>
     </p>

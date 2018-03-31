@@ -23,7 +23,7 @@ if (have_posts()) {
                 <p>
                     <?php
                     printf(
-                        __('There are %1$s posts in the %2$s category', 'multiloquent'),
+                        esc_html_e('There are %1$s posts in the %2$s category', 'multiloquent'),
                         $wp_query->found_posts,
                         single_cat_title('', false)
                     );
@@ -50,8 +50,8 @@ if (have_posts()) {
     <div class="container-fluid post clearfix">
         <nav class="navitems text-center">
             <ul class="pagination">
-                <li><?php previous_posts_link(__('Previous Entries', 'multiloquent')) ?></li>
-                <li><?php next_posts_link(__('Next Entries', 'multiloquent')) ?></li>
+                <li><?php previous_posts_link(esc_html_e('Previous Entries', 'multiloquent')) ?></li>
+                <li><?php next_posts_link(esc_html_e('Next Entries', 'multiloquent')) ?></li>
             </ul>
         </nav>
     </div>

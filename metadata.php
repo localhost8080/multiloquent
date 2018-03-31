@@ -17,13 +17,13 @@ $user_url = get_the_author_meta('user_url');
 if ( ! empty($user_url)) {
     echo '<a href="' . $user_url . '" rel="author">';
     printf(
-        __('by %s', 'multiloquent'),
+        esc_html_e('by %s', 'multiloquent'),
         get_the_author()
     );
     echo '</a>';
 } else {
     printf(
-        __('by %s', 'multiloquent'),
+        esc_html_e('by %s', 'multiloquent'),
         the_author_posts_link()
     );
 }

@@ -139,18 +139,18 @@ class MultiloquentBase {
      */
     function multiloquent_customize_register($wp_customize) {
         $wp_customize->add_section('multiloquent_settings', array(
-            'title' => __('Multiloquent Settings', 'multiloquent'),
+            'title' => esc_html_e('Multiloquent Settings', 'multiloquent'),
             'priority' => 30
         ));
-        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', __('Excerpt or tags in featured posts', 'multiloquent'), $wp_customize, 'multiloquent_settings');
-        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', __('bootswatch', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', __('Main Elements Background Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', __('Main Elements Text Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', __('Main Elements Link Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', __('Body Background Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', __('Body Text Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', __('Slide Menu Background Color', 'multiloquent'), $wp_customize, 'colors');
-        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', __('Slide Menu Text Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('paralax_featured', 'paralax_featured', 'default', esc_html_e('Excerpt or tags in featured posts', 'multiloquent'), $wp_customize, 'multiloquent_settings');
+        $this->multiloquent_register_and_generate_custom_control('bootswatch', 'bootswatch', 'default', esc_html_e('bootswatch', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar', '#F8F8F8', esc_html_e('Main Elements Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_text', '#777777', esc_html_e('Main Elements Text Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_navbar_link', '#777777', esc_html_e('Main Elements Link Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_colour', '#FFFFFF', esc_html_e('Body Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_background_text_colour', '#333333', esc_html_e('Body Text Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_menu_colour', '#333333', esc_html_e('Slide Menu Background Color', 'multiloquent'), $wp_customize, 'colors');
+        $this->multiloquent_register_and_generate_custom_control('colour', 'mulitloquent_slideout_text_colour', '#FFFFFF', esc_html_e('Slide Menu Text Color', 'multiloquent'), $wp_customize, 'colors');
     }
 
     /**
@@ -180,7 +180,7 @@ class MultiloquentBase {
         }
         if ($setting_type == 'bootswatch') {
             $wp_customize->add_control($setting_name, array(
-                'label' => __('Select Bootswatch style:', 'multiloquent'),
+                'label' => esc_html_e('Select Bootswatch style:', 'multiloquent'),
                 'section' => $section,
                 'type' => 'select',
                 'choices' => array(
@@ -205,7 +205,7 @@ class MultiloquentBase {
         }
         if ($setting_type == 'paralax_featured') {
             $wp_customize->add_control($setting_name, array(
-                'label' => __('Select Featured posts style:', 'multiloquent'),
+                'label' => esc_html_e('Select Featured posts style:', 'multiloquent'),
                 'section' => $section,
                 'type' => 'select',
                 'choices' => array(
@@ -436,7 +436,7 @@ class MultiloquentBase {
             $the_title = get_the_title();
         }
         if (empty($the_title)) {
-            return __('Untitled Post', 'multiloquent');
+            return esc_html_e('Untitled Post', 'multiloquent');
         }
         return $the_title;
     }
@@ -468,7 +468,7 @@ class MultiloquentBase {
             $return .= home_url();
             $return .= '">';
             $return .= '<span itemprop="name">';
-            $return .= __('Home', 'multiloquent');
+            $return .= esc_html_e('Home', 'multiloquent');
             $return .= '</span>';
             $return .= '</a>';
             $return .= '</li>';
@@ -497,10 +497,10 @@ class MultiloquentBase {
             $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . $this->multiloquent_post_title() . '</li>';
         }
         if (is_tag()) {
-            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . __('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . esc_html_e('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
         }
         if (is_404()) {
-            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . __('404 - Page not Found', 'multiloquent') . '<li>';
+            $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . esc_html_e('404 - Page not Found', 'multiloquent') . '<li>';
         }
         if (is_search()) {
             $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">Search</li>';

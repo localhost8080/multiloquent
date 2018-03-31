@@ -10,7 +10,7 @@ get_header();
             <h1>
                 <?php
                 printf(
-                    __('Category List', 'multiloquent')
+                    esc_html_e('Category List', 'multiloquent')
                 );
                 ?>
             </h1>

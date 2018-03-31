@@ -30,39 +30,39 @@ if (have_posts()) {
                         printf('%s', single_cat_title('', false));
                     } elseif (is_tag()) {
                         printf(
-                            __('Posts Tagged %s', 'multiloquent'),
+                            esc_html_e('Posts Tagged %s', 'multiloquent'),
                             single_cat_title('', false)
                         );
                     } elseif (is_day()) {
                         printf(
-                            __('Archive for %s', 'multiloquent'),
+                            esc_html_e('Archive for %s', 'multiloquent'),
                             get_the_time('F jS, Y')
                         );
                     } elseif (is_month()) {
                         printf(
-                            __('Archive for %s', 'multiloquent')
+                            esc_html_e('Archive for %s', 'multiloquent')
                             , get_the_time('F Y')
                         );
                     } elseif (is_year()) {
                         printf(
-                            __('Archive for %s', 'multiloquent'),
+                            esc_html_e('Archive for %s', 'multiloquent'),
                             get_the_time('Y')
                         );
                     } elseif (is_search()) {
                         printf(
-                            __('Search Results', 'multiloquent')
+                            esc_html_e('Search Results', 'multiloquent')
                         );
                     } elseif (is_author()) {
                         printf(
-                            __('All entries by this author', 'multiloquent')
+                            esc_html_e('All entries by this author', 'multiloquent')
                         );
                     } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
                         printf(
-                            __('Blog Archives', 'multiloquent')
+                            esc_html_e('Blog Archives', 'multiloquent')
                         );
                     } elseif (is_home()) {
                         printf(
-                            __('Recent Posts', 'multiloquent')
+                            esc_html_e('Recent Posts', 'multiloquent')
                         );
                     }
                     ?>
@@ -87,8 +87,8 @@ if (have_posts()) {
     <div class="container-fluid post clearfix">
         <nav class="navitems text-center">
             <ul class="pagination">
-                <li><?php previous_posts_link(__('Previous Entries', 'multiloquent')); ?></li>
-                <li><?php next_posts_link(__('Next Entries', 'multiloquent')); ?></li>
+                <li><?php previous_posts_link(esc_html_e('Previous Entries', 'multiloquent')); ?></li>
+                <li><?php next_posts_link(esc_html_e('Next Entries', 'multiloquent')); ?></li>
             </ul>
         </nav>
     </div>
