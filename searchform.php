@@ -10,7 +10,6 @@
  * the search form
  */
 
-
 ?>
 <form action="<?php echo esc_url(home_url('/')); ?>" id="search_form" class="mb" method="get">
     <div class="input-group">
@@ -21,6 +20,6 @@
                 <span class="fa fa-search fafw"></span>
             </label>
 		</span>
-        <?php wp_nonce_field('search', 'search'); ?>
+        <?php wp_nonce_field('search', 'search');?>
     </div>
 </form>

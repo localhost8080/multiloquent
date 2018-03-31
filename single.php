@@ -21,10 +21,10 @@ if (have_posts()) {
         ?>
 <div class="container-fluid clearfix">
             <?php
-        echo '<div class="col-sm-12 col-md-12 col-lg-12">';
+echo '<div class="col-sm-12 col-md-12 col-lg-12">';
         // if we are using the old leadvideo method, and not the new video format
-        $values = !empty(get_post_custom_values('leadvideo'))?get_post_custom_values('leadvideo'):'';
-        if (!empty($values) && ! has_post_format('video')) {
+        $values = !empty(get_post_custom_values('leadvideo')) ? get_post_custom_values('leadvideo') : '';
+        if (!empty($values) && !has_post_format('video')) {
             echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];
@@ -43,7 +43,7 @@ if (have_posts()) {
          </div>
     </section>
             <?php
-        echo '</div>';
+echo '</div>';
         if (comments_open()) {
             get_template_part('advert');
             comments_template();
@@ -53,7 +53,7 @@ if (have_posts()) {
         ?>
         </div>
 <?php
-        // get_template_part('social');
+// get_template_part('social');
         if (function_exists('related_posts')) {
             related_posts();
         }
@@ -64,9 +64,9 @@ if (have_posts()) {
 } else {
     ?>
 <div class="container-fluid post clearfix">
-        <?php 
-        get_template_part('error-snippet');
-        ?>
+        <?php
+get_template_part('error-snippet');
+    ?>
     </div>
 <?php
 }

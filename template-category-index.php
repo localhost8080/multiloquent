@@ -1,7 +1,7 @@
 <?php
 /*
-* Template Name: Category Index
-*/
+ * Template Name: Category Index
+ */
 
 get_header();
 ?>
@@ -9,10 +9,10 @@ get_header();
         <div class="container-fluid clearfix">
             <h1>
                 <?php
-                printf(
-                    esc_html_e('Category List', 'multiloquent')
-                );
-                ?>
+printf(
+    esc_html_e('Category List', 'multiloquent')
+);
+?>
             </h1>
         </div>
     </div>
@@ -22,8 +22,9 @@ get_header();
             <?php echo $multiloquent->multiloquent_category_list_as_hierarchy('0'); ?>
         </article>
         <!-- google_ad_section_end-->
-        <?php 
-        get_template_part('advert');
-        ?>
+        <?php
+get_template_part('advert');
+?>
     </div>
-<?php get_footer();
+<?php
+get_footer();

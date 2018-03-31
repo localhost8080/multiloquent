@@ -14,22 +14,22 @@ if (have_posts()) {
         ?>
         <div>
             <?php
-            remove_filter('the_content', 'sharing_display', 19);
-            remove_filter('the_excerpt', 'sharing_display', 19);
-            the_content('<p class="serif">Read the rest of this page &raquo;</p>');
-            wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-            ?>
+remove_filter('the_content', 'sharing_display', 19);
+        remove_filter('the_excerpt', 'sharing_display', 19);
+        the_content('<p class="serif">Read the rest of this page &raquo;</p>');
+        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
+        ?>
 
         </div>
         <?php
-        echo '</div>';
+echo '</div>';
     }
 } else {
     ?>
     <div class="container-fluid post clearfix">
-        <?php 
-        get_template_part('error-snippet');
-        ?>
+        <?php
+get_template_part('error-snippet');
+    ?>
     </div>
 <?php
 }
@@ -38,7 +38,7 @@ echo '<!-- google_ad_section_end-->';
 </div>
 <?php
 get_sidebar();
-require(locate_template('navigation.php'));
+require locate_template('navigation.php');
 wp_footer();
 ?>
 </body>

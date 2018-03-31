@@ -9,7 +9,7 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         echo $multiloquent->multiloquent_paralax_featured_sliders();
-        require(locate_template('featuredimage.php'));
+        require locate_template('featuredimage.php');
         echo '<div id="post-' . get_the_ID() . '" ';
         echo post_class('post');
         echo '>';
@@ -26,7 +26,7 @@ if (have_posts()) {
         $map_url = 'https://www.google.com/maps/embed/v1/directions';
         $map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
         $map_url .= '&origin=' . urlencode(trim($locations[0]));
-        if ( ! empty($locations[1])) {
+        if (!empty($locations[1])) {
             $map_url .= '&destination=' . urlencode(trim($locations[1]));
         } else {
             $map_url .= '&destination=' . urlencode(trim($locations[0]));
@@ -38,38 +38,38 @@ if (have_posts()) {
                 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                         src="<?php echo $map_url ?>"></iframe>
                 <?php
-                $values = !empty(get_post_custom_values('leadvideo'))?get_post_custom_values('leadvideo'):'';
-                if (!empty($values) && ! has_post_format('video')) {
-                    echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
-                    echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
-                    echo $values[0];
-                    echo '" frameborder="0" allowfullscreen></iframe>';
-                    echo '</div>';
-                }
-                ?>
+$values = !empty(get_post_custom_values('leadvideo')) ? get_post_custom_values('leadvideo') : '';
+        if (!empty($values) && !has_post_format('video')) {
+            echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
+            echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
+            echo $values[0];
+            echo '" frameborder="0" allowfullscreen></iframe>';
+            echo '</div>';
+        }
+        ?>
             </div>
         </div>
         <div class="container-fluid clearfix">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <?php
-                remove_filter('the_content', 'sharing_display', 19);
-                remove_filter('the_excerpt', 'sharing_display', 19);
-                the_content('<p class="serif">Read the rest of this page &raquo;</p>');
-                wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
-                ?>
+remove_filter('the_content', 'sharing_display', 19);
+        remove_filter('the_excerpt', 'sharing_display', 19);
+        the_content('<p class="serif">Read the rest of this page &raquo;</p>');
+        wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
+        ?>
             </div>
         </div>
         <?php
-        next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
+next_post_link('%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true);
         previous_post_link('%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true);
         echo '</div>';
     }
 } else {
     ?>
     <div class="container-fluid post clearfix">
-        <?php 
-        get_template_part('error-snippet');
-        ?>
+        <?php
+get_template_part('error-snippet');
+    ?>
     </div>
 <?php
 }
