@@ -19,7 +19,7 @@ if ( have_posts() ) {
 				<h1 class="article_title">
 					<?php
 					printf(
-						esc_html_e( 'Featured Posts', 'multiloquent' )
+						esc_html__( 'Featured Posts', 'multiloquent' )
 					);
 	?>
 				</h1>

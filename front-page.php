@@ -31,7 +31,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 	<p class="lead text-center">
 		<?php
 		printf(
-			esc_html_e( 'Featured Posts', 'multiloquent' )
+			esc_html__( 'Featured Posts', 'multiloquent' )
 		);
 	?>
 	</p>

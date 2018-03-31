@@ -21,7 +21,7 @@
 	<h1>
 		<?php
 		printf(
-			esc_html_e( 'I dont have anything that matches (or nearly matches) that', 'multiloquent' )
+			esc_html__( 'I dont have anything that matches (or nearly matches) that', 'multiloquent' )
 		);
 ?>
 	</h1>
@@ -29,7 +29,7 @@
 	<p>
 		<?php
 		printf(
-			esc_html_e( 'you might want to use the search or go to the <a title="%1$s" href="%2$s">homepage</a>', 'multiloquent' ),
+			esc_html__( 'you might want to use the search or go to the <a title="%1$s" href="%2$s">homepage</a>', 'multiloquent' ),
 			get_bloginfo( 'name' ),
 			home_url()
 		);

@@ -12,11 +12,11 @@ global $multiloquent;
 			* <h3>
 			* <?php
 			* // printf(
-			* // esc_html_e('Other Posts related to %s', 'multiloquent'),
+			* // esc_html__('Other Posts related to %s', 'multiloquent'),
 			* // $multiloquent->multiloquent_post_title()
 			* // );
 			*
-			* esc_html_e('Related Posts', 'multiloquent');
+			* esc_html__('Related Posts', 'multiloquent');
 			* ?>
 			*
 			* </h3>
@@ -33,7 +33,7 @@ global $multiloquent;
 					}
 				} else {
 					echo '<p>';
-					printf( esc_html_e( 'No related posts.', 'multiloquent' ) );
+					printf( esc_html__( 'No related posts.', 'multiloquent' ) );
 					echo '</p>';
 				}
 ?>

@@ -25,7 +25,7 @@ if ( have_posts() ) {
 						  <strong>
 							<?php
 							printf(
-								esc_html_e( 'Website: ', 'multiloquent' )
+								esc_html__( 'Website: ', 'multiloquent' )
 							);
 	?>
 						  </strong>
@@ -39,7 +39,7 @@ if ( have_posts() ) {
 								<p>
 									<?php
 									printf(
-										esc_html_e( 'Post count: %s', 'multiloquent' ),
+										esc_html__( 'Post count: %s', 'multiloquent' ),
 										$wp_query->found_posts
 									);
 	?>
@@ -78,8 +78,8 @@ if ( have_posts() ) {
 	<div class="container-fluid post clearfix">
 		<nav class="navitems text-center">
 			<ul class="pagination">
-				<li><?php previous_posts_link( esc_html_e( 'Previous Entries', 'multiloquent' ) ); ?></li>
-				<li><?php next_posts_link( esc_html_e( 'Next Entries', 'multiloquent' ) ); ?></li>
+				<li><?php previous_posts_link( esc_html__( 'Previous Entries', 'multiloquent' ) ); ?></li>
+				<li><?php next_posts_link( esc_html__( 'Next Entries', 'multiloquent' ) ); ?></li>
 			</ul>
 		</nav>
 	</div>

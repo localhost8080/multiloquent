@@ -9,7 +9,7 @@ get_header();
 			<h1>
 				<?php
 				printf(
-					esc_html_e( 'Tags List', 'multiloquent' )
+					esc_html__( 'Tags List', 'multiloquent' )
 				);
 ?>
 			</h1>
