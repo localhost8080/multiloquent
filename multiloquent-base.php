@@ -832,11 +832,11 @@ class MultiloquentBase {
 
 		if ( function_exists( 'get_tptn_pop_posts' ) ) {
 			$args = array(
-				'daily' => false,
+				'daily'        => false,
 				'strict_limit' => true,
-				'posts_only' => false,
-				'limit' => 5,
-				'posts_only' => true,
+				'posts_only'   => false,
+				'limit'        => 5,
+				'posts_only'   => true,
 			);
 			// todo - this needs to be an array of objects..
 			$top_ten_post_array = get_tptn_pop_posts( $args );
@@ -923,11 +923,11 @@ class MultiloquentBase {
 		$posts_to_get = '';
 		if ( function_exists( 'get_tptn_pop_posts' ) ) {
 			$args = array(
-				'daily' => false,
+				'daily'        => false,
 				'strict_limit' => true,
-				'posts_only' => false,
-				'limit' => 4,
-				'posts_only' => true,
+				'posts_only'   => false,
+				'limit'        => 4,
+				'posts_only'   => true,
 			);
 			// todo - this needs to be an array of objects..
 			$top_ten_post_array = get_tptn_pop_posts( $args );
