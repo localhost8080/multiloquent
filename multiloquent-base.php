@@ -1023,7 +1023,7 @@ class MultiloquentBase {
 	<div class="paralax_image_text">
 		<span class="h1"> 
 			<a href="<?php the_permalink(); ?>">
-				<?php echo $this->multiloquent_post_title();?>
+				<?php echo $this->multiloquent_post_title(); ?>
 			</a>
 		</span>
 		<p>
