@@ -22,7 +22,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 			<?php
 			while ( have_posts() ) {
 				the_post();
-				the_content( esc_html_e( 'Read the rest of this page &raquo;', 'multiloquent' ) );
+				the_content();
 			}
 	?>
 		</div>
