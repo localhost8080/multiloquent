@@ -16,7 +16,7 @@ if ( have_posts() ) {
 			<?php
 			remove_filter( 'the_content', 'sharing_display', 19 );
 			remove_filter( 'the_excerpt', 'sharing_display', 19 );
-			the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
+			the_content( 'Read the rest of this page &raquo;' );
 			wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>
 
