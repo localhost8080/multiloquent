@@ -22,7 +22,7 @@ if ( have_posts() ) {
 		echo '>';
 		require locate_template( 'breadcrumb.php' );
 		?>
-		<div class="container-fluid clearfix">
+		<div class="container clearfix">
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<?php
 				$values = get_post_custom_values( 'leadvideo' );
@@ -47,7 +47,7 @@ if ( have_posts() ) {
 		get_template_part( 'social' );
 		if ( comments_open() ) {
 			?>
-			<section class="container-fluid clearfix">
+			<section class="container clearfix">
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<h3 class="hidden-lg">
 						<?php
@@ -80,7 +80,7 @@ if ( have_posts() ) {
 	}
 } else {
 ?>
-	<div class="container-fluid post clearfix">
+	<div class="container post clearfix">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>

@@ -49,7 +49,7 @@ if ( have_posts() ) {
 		?>
 			</div>
 		</div>
-		<div class="container-fluid clearfix">
+		<div class="container clearfix">
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<?php
 				remove_filter( 'the_content', 'sharing_display', 19 );
@@ -66,7 +66,7 @@ if ( have_posts() ) {
 	}
 } else {
 	?>
-	<div class="container-fluid post clearfix">
+	<div class="container post clearfix">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>
