@@ -685,7 +685,7 @@ class MultiloquentBase {
 			$rand_keys = array_rand( $input );
 			$tile_colour = $input[ $rand_keys ];  
 		}
-        return $title_colour;
+        return $tile_colour;
 	}
 
 	/**
@@ -750,7 +750,7 @@ class MultiloquentBase {
 			$rand_keys = array_rand( $input );
 			$tile_colour = $input[ $rand_keys ];
 		}
-        return $title_colour;
+        return $tile_colour;
 	}
 
 	/**
