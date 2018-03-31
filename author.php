@@ -52,7 +52,7 @@ printf(
                     <div class="col-xs-12">
                         <?php
 $description = get_the_author_meta('description');
-    if (!empty($description)) {
+    if ( ! empty($description)) {
         echo '<p>' . $description . '</p>';
     }
     ?>

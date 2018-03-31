@@ -26,7 +26,7 @@ if (have_posts()) {
         $map_url = 'https://www.google.com/maps/embed/v1/directions';
         $map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
         $map_url .= '&origin=' . urlencode(trim($locations[0]));
-        if (!empty($locations[1])) {
+        if ( ! empty($locations[1])) {
             $map_url .= '&destination=' . urlencode(trim($locations[1]));
         } else {
             $map_url .= '&destination=' . urlencode(trim($locations[0]));
@@ -38,8 +38,8 @@ if (have_posts()) {
                 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                         src="<?php echo $map_url ?>"></iframe>
                 <?php
-$values = !empty(get_post_custom_values('leadvideo')) ? get_post_custom_values('leadvideo') : '';
-        if (!empty($values) && !has_post_format('video')) {
+$values = ! empty(get_post_custom_values('leadvideo')) ? get_post_custom_values('leadvideo') : '';
+        if ( ! empty($values) && ! has_post_format('video')) {
             echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
             echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
             echo $values[0];

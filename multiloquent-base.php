@@ -105,7 +105,7 @@ class MultiloquentBase
         $this->multiloquent_menu();
         set_post_thumbnail_size(605, 100);
         add_image_size('featured-post-thumbnail', 605, 100);
-        if (!isset($content_width)) {
+        if ( ! isset($content_width)) {
             $content_width = 900;
         }
         // sidebars
@@ -239,7 +239,7 @@ class MultiloquentBase
      */
     public function multiloquent_check_theme_mod_colour($item, $default_value, $mods)
     {
-        if ((!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && !empty($mods[$item])) || (!empty($mods[$item]) && $mods[$item] != $default_value)) {
+        if (( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && ! empty($mods[$item])) || ( ! empty($mods[$item]) && $mods[$item] != $default_value)) {
             return true;
         } else {
             return false;
@@ -302,7 +302,7 @@ class MultiloquentBase
             $output .= '}' . "\r\n";
         }
         // if there is any output, render it
-        if (!empty($output)) {
+        if ( ! empty($output)) {
             echo '<style type="text/css">' . $output . '</style>';
         }
     }
@@ -337,7 +337,7 @@ class MultiloquentBase
     {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
         } else {
@@ -447,7 +447,7 @@ class MultiloquentBase
      */
     public function multiloquent_post_title($post_id = 0)
     {
-        if (!empty($post_id)) {
+        if ( ! empty($post_id)) {
             $the_title = get_the_title($post_id);
         } else {
             $the_title = get_the_title();
@@ -481,7 +481,7 @@ class MultiloquentBase
         global $post;
         $return = '';
         // $image_url = get_template_directory_uri() ;
-        if (!is_home()) {
+        if ( ! is_home()) {
             $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
             $return .= '<a itemprop="item" href="';
             $return .= home_url();
@@ -492,7 +492,7 @@ class MultiloquentBase
             $return .= '</a>';
             $return .= '</li>';
         }
-        if (is_category() || (is_single() && !is_attachment())) {
+        if (is_category() || (is_single() && ! is_attachment())) {
             $category = get_the_category();
             $cat_id = $category[0]->cat_ID;
             $category_parents = get_category_parents($cat_id, false, ':::', false);
@@ -500,7 +500,7 @@ class MultiloquentBase
             foreach ($category_slug as $category => $slug) {
                 $current_category = '';
                 $current_category = get_category_by_slug($slug);
-                if (!empty($slug) && !empty($current_category)) {
+                if ( ! empty($slug) && ! empty($current_category)) {
                     $return .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
                     $return .= '<a itemprop="item" href="' . get_category_link($current_category->term_id) . '">';
                     $return .= '<span itemprop="name">' . $current_category->name . '</span>';
@@ -540,7 +540,7 @@ class MultiloquentBase
     public function multiloquent_get_random_solid_class($class = '')
     {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'bg-primary',
@@ -586,7 +586,7 @@ class MultiloquentBase
             'safari',
             'firefox',
         );
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -603,7 +603,7 @@ class MultiloquentBase
     public function multiloquent_get_random_blue_class()
     {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'bg-primary',
@@ -647,7 +647,7 @@ class MultiloquentBase
             'safari',
             'firefox',
         );
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -665,7 +665,7 @@ class MultiloquentBase
     public function multiloquent_get_random_colour_class($class = '')
     {
         $mods = get_theme_mods();
-        if (!empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if ( ! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
             // if it uses one of the bootswatch themes, use the bootstrap colours
             $input = array(
                 'bg-primary',
@@ -711,7 +711,7 @@ class MultiloquentBase
             'safari',
             'firefox',
         );
-        if (!empty($class) && in_array($class, $apps)) {
+        if ( ! empty($class) && in_array($class, $apps)) {
             return $tile_colour = $class;
         } else {
             $rand_keys = array_rand($input);
@@ -975,7 +975,7 @@ class MultiloquentBase
         global $post;
         $thumbnail_id = get_the_ID();
         $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($thumbnail_id), 'single-post-thumbnail');
-        if (!empty($slider_image)) {
+        if ( ! empty($slider_image)) {
             $the_image = $slider_image[0];
             // $width = $slider_image[1];
             // $height = $slider_image[2];
@@ -1016,7 +1016,7 @@ echo $this->multiloquent_post_title();
         $output = '';
         // check if they have selected tags or excerpt
         $mods = get_theme_mods();
-        if (!empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
+        if ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'excerpt' && empty($force_tags)) {
             // they have selected 'excerpt'
             // $excerpt = apply_filters( 'get_the_excerpt', $val->post_excerpt );
             $excerpt = wp_trim_words(apply_filters('the_excerpt', $val->post_excerpt));
@@ -1024,7 +1024,7 @@ echo $this->multiloquent_post_title();
                 $excerpt = wp_trim_words($val->post_content);
             }
             $output .= $excerpt;
-        } elseif (!empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
+        } elseif ( ! empty($mods['paralax_featured']) && $mods['paralax_featured'] == 'empty' && empty($force_tags)) {
             // dont output anything, leave the tags thing empty, append nothing to the output to fool the wordpress
             // coding standards
             $output .= '';

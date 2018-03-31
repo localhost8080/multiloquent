@@ -56,7 +56,7 @@ if (is_category()) {
         printf(
             esc_html_e('All entries by this author', 'multiloquent')
         );
-    } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+    } elseif (isset($_GET['paged']) && ! empty($_GET['paged'])) {
         printf(
             esc_html_e('Blog Archives', 'multiloquent')
         );
