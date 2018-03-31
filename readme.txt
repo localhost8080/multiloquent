@@ -13,6 +13,7 @@
  - Version 7.0.0 adds support for bootswatch themes via the customisation panel
  - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
  - version 9.1.0 adds internationalisation
+ - version 10.0.0 adds bootstrap4
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
