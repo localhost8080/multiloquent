@@ -1,6 +1,7 @@
 <?php
 /**
  * multiloquent theme footer
+ *
  * @package multiloquent\template_parts
  */
 /**
@@ -14,38 +15,38 @@ get_sidebar();
 </div>
 <?php
 require locate_template( 'navigation.php' );
-if ( empty($hide_the_footer_links) ) {
+if ( empty( $hide_the_footer_links ) ) {
 	?>
 <footer class="well">
-    <div class="container-fluid clearfix">
-        <aside>
+	<div class="container-fluid clearfix">
+		<aside>
 
-            <?php
+			<?php
 			if ( is_active_sidebar( 6 ) || is_active_sidebar( 7 ) ) {
 		?>
 							<div class="row">
 							<div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
-                        <?php
+						<?php
 						if ( is_active_sidebar( 6 ) ) {
 							dynamic_sidebar( 6 );
 						}
 		?>
-                    </div>
+					</div>
 							<div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
-                        <?php
+						<?php
 						if ( is_active_sidebar( 7 ) ) {
 							dynamic_sidebar( 7 );
 						}
 		?>
-                    </div>
+					</div>
 						</div>
 
 							<?php
 			}
 	?>
-                <div class="row">
+				<div class="row">
 
-                <?php
+				<?php
 				if ( is_active_sidebar( 9 ) ) {
 		?>
 
@@ -54,8 +55,8 @@ if ( empty($hide_the_footer_links) ) {
 							<?php
 							printf( esc_html_e( 'Useful Stuff', 'multiloquent' ) );
 		?>
-                          </p>
-                        <?php
+						  </p>
+						<?php
 						// sidebar 10 for some things in Îfooter
 						dynamic_sidebar( 9 );
 		?>
@@ -66,24 +67,24 @@ if ( empty($hide_the_footer_links) ) {
 				if ( is_active_sidebar( 10 ) ) {
 					?>
 
-                    <div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-                    <p class="nav-header">
+					<div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
+					<p class="nav-header">
 							<?php
 							printf( esc_html_e( 'More Useful Stuff', 'multiloquent' ) );
 					?>
-                          </p>
-                        <?php
+						  </p>
+						<?php
 						// sidebar 10 for some things in footer
 						dynamic_sidebar( 10 );
 					?>
-                    </div>
-                    <?php
+					</div>
+					<?php
 				}
 	?>
 
-                </div>
-        </aside>
-    </div>
+				</div>
+		</aside>
+	</div>
 </footer>
 <?php
 }

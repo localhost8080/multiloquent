@@ -20,11 +20,11 @@ if ( have_posts() ) {
 		require locate_template( 'breadcrumb.php' );
 		?>
 <div class="container-fluid clearfix">
-            <?php
+			<?php
 			echo '<div class="col-sm-12 col-md-12 col-lg-12">';
 			// if we are using the old leadvideo method, and not the new video format
-			$values = ! empty(get_post_custom_values( 'leadvideo' )) ? get_post_custom_values( 'leadvideo' ) : '';
-			if ( ! empty($values) && ! has_post_format( 'video' ) ) {
+			$values = ! empty( get_post_custom_values( 'leadvideo' ) ) ? get_post_custom_values( 'leadvideo' ) : '';
+			if ( ! empty( $values ) && ! has_post_format( 'video' ) ) {
 				echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
 				echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
 				echo $values[0];
@@ -37,12 +37,12 @@ if ( have_posts() ) {
 			wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 			get_template_part( 'advert' );
 		?>
-    <section class="row">
-        <div class="tag-cloud mb">
-            <?php echo $multiloquent->multiloquent_render_tags( $post, 1 ); ?>
-         </div>
-    </section>
-            <?php
+	<section class="row">
+		<div class="tag-cloud mb">
+			<?php echo $multiloquent->multiloquent_render_tags( $post, 1 ); ?>
+		 </div>
+	</section>
+			<?php
 			echo '</div>';
 			if ( comments_open() ) {
 				get_template_part( 'advert' );
@@ -51,7 +51,7 @@ if ( have_posts() ) {
 			}
 			get_template_part( 'advert' );
 		?>
-        </div>
+		</div>
 <?php
 // get_template_part('social');
 if ( function_exists( 'related_posts' ) ) {
@@ -64,10 +64,10 @@ if ( function_exists( 'related_posts' ) ) {
 } else {
 	?>
 <div class="container-fluid post clearfix">
-        <?php
+		<?php
 		get_template_part( 'error-snippet' );
 	?>
-    </div>
+	</div>
 <?php
 }
 echo '<!-- google_ad_section_end-->';

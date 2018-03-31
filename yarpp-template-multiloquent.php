@@ -5,9 +5,9 @@
 global $multiloquent;
 ?>
 <section class="container-fluid post clearfix">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <?php
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<?php
 			/*
 			* <h3>
 			* <?php
@@ -23,8 +23,8 @@ global $multiloquent;
 			*/
 ?>
 
-            <div>
-                <?php
+			<div>
+				<?php
 				if ( have_posts() ) {
 					$colour = $multiloquent->multiloquent_get_random_blue_class();
 					while ( have_posts() ) {
@@ -37,7 +37,7 @@ global $multiloquent;
 					echo '</p>';
 				}
 ?>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </section>

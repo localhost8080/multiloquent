@@ -4,30 +4,32 @@
  */
 get_header();
 ?>
-    <div class="jumbotron">
-        <div class="container-fluid clearfix">
-            <h1>
-                <?php
+	<div class="jumbotron">
+		<div class="container-fluid clearfix">
+			<h1>
+				<?php
 				printf(
 					esc_html_e( 'Tags List', 'multiloquent' )
 				);
 ?>
-            </h1>
-        </div>
-    </div>
-    <div class="container-fluid clearfix">
-        <!-- google_ad_section_start-->
-        <article>
-            <?php
+			</h1>
+		</div>
+	</div>
+	<div class="container-fluid clearfix">
+		<!-- google_ad_section_start-->
+		<article>
+			<?php
 			// Make an array from A to Z.
 			// $characters = range('a', 'z');
 			// Check if $characters exists and ensure that it is an array.
-			//  if ($characters && is_array($characters)) {
-			//  foreach ($characters as $index => $character) {
+			// if ($characters && is_array($characters)) {
+			// foreach ($characters as $index => $character) {
 			// Get the tag information for each characters in the array.
-			$tags = get_tags(array(
-				'order' => 'ASC',
-			));
+			$tags = get_tags(
+				array(
+					'order' => 'ASC',
+				)
+			);
 			// print_r($tags);
 			if ( $index != 0 && $index % 4 == 0 ) {
 				$html = "<div class='post-tags clearfix' style='clear:left;'>";
@@ -88,10 +90,11 @@ get_header();
 			// }
 			// }
 ?>
-        </article>
-        <!-- google_ad_section_end-->
-        <?php
+		</article>
+		<!-- google_ad_section_end-->
+		<?php
 		get_template_part( 'advert' );
 ?>
-    </div>
-<?php get_footer();
+	</div>
+<?php
+get_footer();

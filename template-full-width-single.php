@@ -16,11 +16,11 @@ if ( have_posts() ) {
 
 		require locate_template( 'breadcrumb.php' );
 		?>
-        <div class="container-fluid clearfix">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <?php
-				$values = ! empty(get_post_custom_values( 'leadvideo' )) ? get_post_custom_values( 'leadvideo' ) : '';
-				if ( ! empty($values) && ! has_post_format( 'video' ) ) {
+		<div class="container-fluid clearfix">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<?php
+				$values = ! empty( get_post_custom_values( 'leadvideo' ) ) ? get_post_custom_values( 'leadvideo' ) : '';
+				if ( ! empty( $values ) && ! has_post_format( 'video' ) ) {
 					echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
 					echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
 					echo $values[0];
@@ -32,32 +32,32 @@ if ( have_posts() ) {
 				the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
 				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>
-            </div>
-            <?php
+			</div>
+			<?php
 			get_template_part( 'advert' );
 		?>
-        </div>
-        <?php
+		</div>
+		<?php
 		get_template_part( 'social' );
 		if ( comments_open() ) {
 			?>
-            <section class="container-fluid clearfix">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
-                    <?php
+			<section class="container-fluid clearfix">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+					<?php
 					comments_template();
 					get_template_part( 'advert' );
 			?>
-                </div>
-            </section>
-        <?php
+				</div>
+			</section>
+		<?php
 		}
 		?>
-        <section class="container-fluid clearfix">
-            <div class="tagcloud">
-                <div class="tag-cloud">
-                    <h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
-                    <?php
+		<section class="container-fluid clearfix">
+			<div class="tagcloud">
+				<div class="tag-cloud">
+					<h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
+					<?php
 					$posttags = get_the_tags();
 					if ( $posttags ) {
 						foreach ( $posttags as $tag ) {
@@ -69,31 +69,31 @@ if ( have_posts() ) {
 						}
 					}
 		?>
-                </div>
-            </div>
-        </section>
-        <?php
+				</div>
+			</div>
+		</section>
+		<?php
 		if ( function_exists( 'related_posts' ) ) {
 			related_posts();
 		}
 		?>
-        <section class="container-fluid clearfix">
-            <?php
+		<section class="container-fluid clearfix">
+			<?php
 			get_template_part( 'advert' );
 		?>
-        </section>
-        <?php
+		</section>
+		<?php
 		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true );
 		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true );
 		echo '</div>';
 	}
 } else {
 	?>
-    <div class="container-fluid post clearfix">
-        <?php
+	<div class="container-fluid post clearfix">
+		<?php
 		get_template_part( 'error-snippet' );
 	?>
-    </div>
+	</div>
 <?php
 }
 echo '<!-- google_ad_section_end-->';

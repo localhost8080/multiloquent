@@ -18,11 +18,11 @@ if ( has_post_thumbnail() ) {
 }
 ?>
 <h1 itemprop="name" class="multiloquent_h1_tag" style="background-image:url('<?php echo $theimg; ?>');">
-    <?php echo $multiloquent->multiloquent_post_title(); ?>
+	<?php echo $multiloquent->multiloquent_post_title(); ?>
 </h1>
 <figure class="thumbnail main_image">
-    <figcaption>
-        <span class="fa fa-comment-o fa-fw"></span>
-        <?php echo $multiloquent->multiloquent_post_title(); ?>
-    </figcaption>
+	<figcaption>
+		<span class="fa fa-comment-o fa-fw"></span>
+		<?php echo $multiloquent->multiloquent_post_title(); ?>
+	</figcaption>
 </figure>

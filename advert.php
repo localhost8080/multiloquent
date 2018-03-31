@@ -1,6 +1,7 @@
 <?php
 /**
  * Snippet to display adverts
+ *
  * @package multiloquent\template_parts
  */
 
@@ -10,7 +11,7 @@
 ?>
 
 <div class="ads text-center">
-    <?php
+	<?php
 	if ( wp_is_mobile() ) {
 		if ( is_active_sidebar( 2 ) ) {
 			dynamic_sidebar( 2 );

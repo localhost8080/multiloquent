@@ -12,25 +12,25 @@ if ( have_posts() ) {
 		echo post_class( 'post' );
 		echo '>';
 		?>
-        <div>
-            <?php
+		<div>
+			<?php
 			remove_filter( 'the_content', 'sharing_display', 19 );
 			remove_filter( 'the_excerpt', 'sharing_display', 19 );
 			the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
 			wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>
 
-        </div>
-        <?php
+		</div>
+		<?php
 		echo '</div>';
 	}
 } else {
 	?>
-    <div class="container-fluid post clearfix">
-        <?php
+	<div class="container-fluid post clearfix">
+		<?php
 		get_template_part( 'error-snippet' );
 	?>
-    </div>
+	</div>
 <?php
 }
 echo '<!-- google_ad_section_end-->';

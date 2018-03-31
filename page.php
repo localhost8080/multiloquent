@@ -22,9 +22,9 @@ if ( have_posts() ) {
 		echo '>';
 		require locate_template( 'breadcrumb.php' );
 		?>
-        <div class="container-fluid clearfix">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <?php
+		<div class="container-fluid clearfix">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<?php
 				if ( $values = get_post_custom_values( 'leadvideo' ) ) {
 					echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
 					echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
@@ -37,52 +37,53 @@ if ( have_posts() ) {
 				the_content( '<p class="serif">Read the rest of this page &raquo;</p>' );
 				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>
-            </div>
-            <?php
+			</div>
+			<?php
 			get_template_part( 'advert' );
 		?>
-        </div>
-        <?php
+		</div>
+		<?php
 		get_template_part( 'social' );
 		if ( comments_open() ) {
 			?>
-            <section class="container-fluid clearfix">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h3 class="hidden-lg">
-                        <?php
+			<section class="container-fluid clearfix">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<h3 class="hidden-lg">
+						<?php
 						printf(
 							esc_html_e( 'Comments for %s', 'multiloquent' ),
 							$multiloquent->multiloquent_post_title()
 						);
 			?>
-                    </h3>
-                    <?php
+					</h3>
+					<?php
 					comments_template();
 					get_template_part( 'advert' );
 			?>
-                </div>
-            </section>
-        <?php
+				</div>
+			</section>
+		<?php
 		}
 
 		if ( function_exists( 'related_posts' ) ) {
 			related_posts();
 		}
 		?>
-        <section class="container-fluid clearfix">
-            <?php
+		<section class="container-fluid clearfix">
+			<?php
 			get_template_part( 'advert' );
 		?>
-        </section>
-        <?php
+		</section>
+		<?php
 		echo '</div>';
 	}
-} else { ?>
-    <div class="container-fluid post clearfix">
-        <?php
+} else {
+?>
+	<div class="container-fluid post clearfix">
+		<?php
 		get_template_part( 'error-snippet' );
 	?>
-    </div>
+	</div>
 <?php
 }
 echo '<!-- google_ad_section_end-->';

@@ -13,51 +13,51 @@
 get_header();
 if ( have_posts() ) {
 	?>
-    <div class="jumbotron">
-        <div class="container-fluid clearfix">
-            <header>
-                <h1 class="article_title">
-                    <?php
+	<div class="jumbotron">
+		<div class="container-fluid clearfix">
+			<header>
+				<h1 class="article_title">
+					<?php
 					printf(
 						esc_html_e( 'Featured Posts', 'multiloquent' )
 					);
 	?>
-                </h1>
-            </header>
-        </div>
-    </div>
-    <?php
+				</h1>
+			</header>
+		</div>
+	</div>
+	<?php
 	echo $multiloquent->multiloquent_paralax_slider();
 	?>
-    <p class="lead text-center">Recent Posts</p>
-    <section class="container-fluid post clearfix">
-        <?php
+	<p class="lead text-center">Recent Posts</p>
+	<section class="container-fluid post clearfix">
+		<?php
 		$colour = $multiloquent->multiloquent_get_random_blue_class();
 		while ( have_posts() ) {
 			the_post();
 			$multiloquent->multiloquent_render_the_archive( $colour );
 		}
 	?>
-    </section>
-    <section class="container-fluid post clearfix">
-        <?php
+	</section>
+	<section class="container-fluid post clearfix">
+		<?php
 		get_template_part( 'advert' );
 	?>
-    </section>
-    <div class="container-fluid post clearfix">
-        <nav class="navitems text-center">
-            <ul class="pagination">
-                <li><?php previous_posts_link( 'Previous Entries', 'multiloquent' )?></li>
-                <li><?php next_posts_link( 'Next Entries', 'multiloquent' )?></li>
-            </ul>
-        </nav>
-    </div>
+	</section>
+	<div class="container-fluid post clearfix">
+		<nav class="navitems text-center">
+			<ul class="pagination">
+				<li><?php previous_posts_link( 'Previous Entries', 'multiloquent' ); ?></li>
+				<li><?php next_posts_link( 'Next Entries', 'multiloquent' ); ?></li>
+			</ul>
+		</nav>
+	</div>
 <?php } else { ?>
-    <div class="container-fluid post clearfix">
-        <?php
+	<div class="container-fluid post clearfix">
+		<?php
 		get_template_part( 'error-snippet' );
 	?>
-    </div>
+	</div>
 <?php
 }
 get_footer();
