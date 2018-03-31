@@ -36,7 +36,7 @@ class MultiloquentBase {
 	 * @return string
 	 */
 	public function multiloquent_version() {
-		$version = '10.0.02';
+		$version = '10.0.03';
 		return $version;
 	}
 
@@ -1021,15 +1021,14 @@ class MultiloquentBase {
 	<span style="background-image:url('<?php echo $the_image; ?>');" class="grayscale"></span>
 	<div class="paralax_image_bg <?php echo $colour; ?>"></div>
 	<div class="paralax_image_text">
-		<span class="h1"> <a href="<?php the_permalink(); ?>">
-						<?php
-						echo $this->multiloquent_post_title();
-		?>
-					</a>
+		<span class="h1"> 
+			<a href="<?php the_permalink(); ?>">
+				<?php echo $this->multiloquent_post_title();?>
+			</a>
 		</span>
 		<p>
-					<?php echo $this->multiloquent_render_tags( $post ); ?>
-				</p>
+			<?php echo $this->multiloquent_render_tags( $post ); ?>
+		</p>
 	</div>
 </div>
 <?php
