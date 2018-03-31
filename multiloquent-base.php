@@ -633,7 +633,7 @@ class MultiloquentBase {
 	 *
 	 * @return string
 	 */
-	public function multiloquent_get_random_blue_class() {
+	public function multiloquent_get_random_blue_class( $class = '' ) {
 		$mods = get_theme_mods();
 		if ( ! empty( $mods['bootswatch'] ) && $mods['bootswatch'] != 'default' ) {
 			// if it uses one of the bootswatch themes, use the bootstrap colours
