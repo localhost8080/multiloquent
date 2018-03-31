@@ -11,7 +11,7 @@
 
 ?>
 <aside class="sidebar breadcrumb">
-	<div class="">
+	<div class="text-capitalize">
 		<?php
 		get_search_form();
 		wp_nav_menu(
