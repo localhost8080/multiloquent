@@ -24,4 +24,4 @@
 /**
  * multiloquent functions file.
  */
-require_once trailingslashit(get_template_directory()) . 'multiloquent-base.php';
+require_once trailingslashit( get_template_directory() ) . 'multiloquent-base.php';
