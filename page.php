@@ -59,7 +59,7 @@ if ( have_posts() ) {
 					</h3>
 					<?php
 					comments_template();
-					get_template_part( 'advert' );
+					get_template_part( 'advert-secondary' );
 			?>
 				</div>
 			</section>

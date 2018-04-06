@@ -398,8 +398,8 @@ class MultiloquentBase {
 	public function multiloquent_generate_sidebars() {
 		$sidebars = array(
 			'1' => 'sidebar top',
-			'2' => 'mobile specific advert',
-			'3' => 'non-mobile specific advert',
+			'2' => 'primary advert mobile',
+			'3' => 'primary advert desktop',
 			'4' => 'sidebar middle',
 			'5' => 'sidebar bottom',
 			'6' => 'footer top left',
@@ -407,6 +407,8 @@ class MultiloquentBase {
 			'8' => 'social media',
 			'9' => 'footer bottom left',
 			'10' => 'footer bottom right',
+			'11' => 'secondary advery mobile',
+			'11' => 'secondary advery desktop'
 		);
 		foreach ( $sidebars as $key => $name ) {
 			$args = array(

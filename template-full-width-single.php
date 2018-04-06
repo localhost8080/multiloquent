@@ -46,7 +46,7 @@ if ( have_posts() ) {
 					<h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
 					<?php
 					comments_template();
-					get_template_part( 'advert' );
+					get_template_part( 'advert-secondary' );
 			?>
 				</div>
 			</section>

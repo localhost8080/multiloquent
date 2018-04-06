@@ -49,7 +49,7 @@ if ( have_posts() ) {
 				comments_template();
 				echo '</div>';
 			}
-			get_template_part( 'advert' );
+			get_template_part( 'advert-secondary' );
 		?>
 		</div>
 <?php
