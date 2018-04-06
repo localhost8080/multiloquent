@@ -623,7 +623,7 @@ class MultiloquentBase {
 			$tile_colour = $input[$rand_keys];
 
 		}
-        return $title_colour;
+        return $tile_colour;
 	}
 
 	/**
