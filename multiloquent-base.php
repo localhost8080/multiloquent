@@ -407,8 +407,8 @@ class MultiloquentBase {
 			'8' => 'social media',
 			'9' => 'footer bottom left',
 			'10' => 'footer bottom right',
-			'11' => 'secondary advery mobile',
-			'12' => 'secondary advery desktop'
+			'11' => 'secondary advert mobile',
+			'12' => 'secondary advert desktop'
 		);
 		foreach ( $sidebars as $key => $name ) {
 			$args = array(
