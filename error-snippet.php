@@ -29,7 +29,7 @@
 	<p>
 		<?php
 		printf(
-			esc_html__( 'you might want to use the search or go to the ', 'multiloquent' )
+			esc_html__( 'you might want to use the search or go to ', 'multiloquent' )
 		);
 		
 		printf(
