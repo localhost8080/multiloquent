@@ -29,7 +29,11 @@
 	<p>
 		<?php
 		printf(
-			__( 'you might want to use the search or go to the <a title="%1$s" href="%2$s">homepage</a>', 'multiloquent' ),
+			esc_html__( 'you might want to use the search or go to the ', 'multiloquent' )
+		);
+		
+		printf(
+			'<a title="%1$s" href="%2$s">homepage</a>',
 			get_bloginfo( 'name' ),
 			home_url()
 		);
