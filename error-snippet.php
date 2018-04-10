@@ -33,7 +33,7 @@
 		);
 		
 		printf(
-			'<a title="%1$s" href="%2$s">homepage</a>',
+			'<a title="%1$s" href="%2$s">%1$s</a>',
 			get_bloginfo( 'name' ),
 			home_url()
 		);
