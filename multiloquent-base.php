@@ -898,14 +898,14 @@ class MultiloquentBase
     public function multiloquent_paralax_slider()
     {
         global $wpdb;
-        $total_posts = '5';
+        $total_posts = '10';
 
         if (function_exists('get_tptn_pop_posts')) {
             $args = array(
                 'daily'        => false,
                 'strict_limit' => true,
                 'posts_only'   => false,
-                'limit'        => 5,
+                'limit'        => $total_posts,
                 'posts_only'   => true,
             );
             // todo - this needs to be an array of objects..
@@ -921,6 +921,15 @@ class MultiloquentBase
         } elseif (defined('WPSEO_VERSION')) {
             $posts_to_get = $this->multiloqient_get_post_id_by_meta_key_and_value('_yoast_wpseo_is_cornerstone', '1');
             $args = array(
+				'numberposts' => $total_posts,
+                'offset' => 0,
+                'category' => '',
+                'orderby' => 'post_date',
+                'order' => 'DESC',
+                'include' => '',
+                'exclude' => '',
+                'post_type' => 'post',
+                'post_status' => 'publish',
                 'post__in' => $posts_to_get,
             );
             $recent_posts = get_posts($args);
@@ -938,7 +947,7 @@ class MultiloquentBase
             );
             $recent_posts = get_posts($args);
         }
-        $count = 1;
+		$count = 1;
         $output = '<div class="container-fluid mb">';
         foreach ($recent_posts as $val) {
             $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
