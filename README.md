@@ -1,11 +1,11 @@
-#This is the readme.txt for multiloquent theme v9
+#This is the readme.txt for multiloquent theme v10
 
 [![Build Status](https://travis-ci.org/localhost8080/multiloquent.svg?branch=master)](https://travis-ci.org/localhost8080/multiloquent)
 
 ##Multiloquent html5 / bootstrap theme - 
  - a wordpress theme with 10 dynamic sidebars in various locations
  - using twitter bootstrap complete with yaarp related posts theme, 
- - dynamic top10 front page featured posts, fontawesome icons, 
+ - dynamic top10 / yoast cornerstone front page featured posts, fontawesome icons, 
  - category index page template, 
  - tag index page template and 4 post templates. 
  - Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
@@ -14,6 +14,7 @@
  - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
  - version 9.1.0 adds internationalisation
  - version 10.0.0 adds bootstrap4
+ - version 10.1.0 adds a feature to use yoast seo cornerstone content for the homepage featured items, and increases the number from 5 to 10 posts
 
 Multiloquent is responsive and uses bootstrap for interface elements.
 
