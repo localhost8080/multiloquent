@@ -919,11 +919,7 @@ class MultiloquentBase
             );
             $recent_posts = get_posts($args);
         } elseif (defined('WPSEO_VERSION')) {
-            $top_ten_post_array = $this->multiloqient_get_post_id_by_meta_key_and_value('_yoast_wpseo_is_cornerstone', '1');
-            $posts_to_get = '';
-            foreach ($top_ten_post_array as $post => $val) {
-                $posts_to_get[] = $val['ID'];
-            }
+            $posts_to_get = $this->multiloqient_get_post_id_by_meta_key_and_value('_yoast_wpseo_is_cornerstone', '1');
             $args = array(
                 'post__in' => $posts_to_get,
             );
