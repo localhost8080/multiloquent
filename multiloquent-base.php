@@ -948,31 +948,30 @@ class MultiloquentBase
                 $theimg = get_header_image();
             }
             $colour = $this->multiloquent_get_random_blue_class();
-            if ($count == '1') {
-                $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-                $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-                $output .= '<div class="paralax_image_bg doubleheight ' . $colour . '"></div>';
-            }
-            if ($count == '2') {
-                $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-                $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-                $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-            }
-            if ($count == '3') {
-                $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-                $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-                $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-            }
-            if ($count == '4') {
-                $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-                $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-                $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-            }
-            if ($count == '5') {
-                $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-                $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-                $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-            }
+            switch ($count) { 
+				case "1":
+				case "6":
+					$output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
+					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+					$output .= '<div class="paralax_image_bg doubleheight ' . $colour . '"></div>';
+					break;
+				case "2":
+				case "3":
+				case "4":
+				case "7":
+				case "8":
+				case "10":
+					$output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
+					break;
+				case "5":
+				case "9":
+					$output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
+					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
+					break;
+        }
             $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes($this->multiloquent_post_title($val->ID))) . '</a></span>';
             $output .= '<p>';
             // get tags function call in here
