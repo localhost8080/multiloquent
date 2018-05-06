@@ -479,7 +479,7 @@ class MultiloquentBase
     {
         global $wpdb;
  
-        $return = $wpdb->get_col($wpdb->prepare("SELECT post_id FROM $wpdb->postmeta WHERE meta_key = %s AND meta_value = %s", $meta_key, $meta_value));
+        $return = $wpdb->get_col($wpdb->prepare("SELECT post_id as ID FROM $wpdb->postmeta WHERE meta_key = %s AND meta_value = %s", $meta_key, $meta_value));
         return $return;
     }
 
