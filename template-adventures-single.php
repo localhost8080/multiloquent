@@ -24,7 +24,7 @@ if ( have_posts() ) {
 		$locations = explode( ' to ', $title_string );
 
 		$map_url = 'https://www.google.com/maps/embed/v1/directions';
-		$map_url .= '?key=AIzaSyCqrE65OBtskUyqwILNZlRQ3ikTOseYCuw';
+		$map_url .= '?key='.GOOGLE_MAPS_API_KEY;
 		$map_url .= '&origin=' . urlencode( trim( $locations[0] ) );
 		if ( ! empty( $locations[1] ) ) {
 			$map_url .= '&destination=' . urlencode( trim( $locations[1] ) );
