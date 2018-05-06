@@ -971,7 +971,7 @@ class MultiloquentBase
 					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
 					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
 					break;
-        }
+        	}
             $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes($this->multiloquent_post_title($val->ID))) . '</a></span>';
             $output .= '<p>';
             // get tags function call in here
