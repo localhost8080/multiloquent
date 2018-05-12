@@ -11,6 +11,7 @@ get_header();
 echo '<!-- google_ad_section_start-->';
 if ( have_posts() ) {
 	while ( have_posts() ) {
+		$format = get_post_format() ? : 'standard';
 		the_post();
 		echo $multiloquent->multiloquent_paralax_featured_sliders();
 		echo '<article id="post-' . get_the_ID() . '" ';
