@@ -1005,7 +1005,7 @@ public function multiloquent_get_featured_posts($total_posts){
         );
        
     }
-    $recent_posts = get_posts($args)
+    $recent_posts = get_posts($args);
     return $recent_posts;
 }
 
