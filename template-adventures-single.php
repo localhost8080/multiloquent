@@ -35,18 +35,7 @@ if ( have_posts() ) {
 		?>
 		<div class="container-fluid clearfix">
 			<div class="col-sm-12 col-md-12 col-lg-12">
-				<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-						src="<?php echo $map_url; ?>"></iframe>
-				<?php
-				$values = ! empty( get_post_custom_values( 'leadvideo' ) ) ? get_post_custom_values( 'leadvideo' ) : '';
-				if ( ! empty( $values ) && ! has_post_format( 'video' ) ) {
-					echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
-					echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
-					echo $values[0];
-					echo '" frameborder="0" allowfullscreen></iframe>';
-					echo '</div>';
-				}
-		?>
+				<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url; ?>"></iframe>
 			</div>
 		</div>
 		<div class="container clearfix">

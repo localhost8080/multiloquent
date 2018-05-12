@@ -19,14 +19,6 @@ if ( have_posts() ) {
 		<div class="container clearfix">
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<?php
-				$values = ! empty( get_post_custom_values( 'leadvideo' ) ) ? get_post_custom_values( 'leadvideo' ) : '';
-				if ( ! empty( $values ) && ! has_post_format( 'video' ) ) {
-					echo '<div align="center" class="embed-responsive embed-responsive-16by9">';
-					echo '<iframe width="100%" height="400" src="//www.youtube.com/embed/';
-					echo $values[0];
-					echo '" frameborder="0" allowfullscreen></iframe>';
-					echo '</div>';
-				}
 				remove_filter( 'the_content', 'sharing_display', 19 );
 				remove_filter( 'the_excerpt', 'sharing_display', 19 );
 				the_content();
