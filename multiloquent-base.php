@@ -475,7 +475,7 @@ class MultiloquentBase
      * @param [type] $meta_value
      * @return array
      */
-    public function multiloqient_get_post_id_by_meta_key_and_value($meta_key, $meta_value)
+    public function multiloquent_get_post_id_by_meta_key_and_value($meta_key, $meta_value)
     {
         global $wpdb;
  
@@ -898,56 +898,8 @@ class MultiloquentBase
     public function multiloquent_paralax_slider()
     {
         global $wpdb;
-        $total_posts = '10';
-
-        if (function_exists('get_tptn_pop_posts')) {
-            $args = array(
-                'daily'        => false,
-                'strict_limit' => true,
-                'posts_only'   => false,
-                'limit'        => $total_posts,
-                'posts_only'   => true,
-            );
-            // todo - this needs to be an array of objects..
-            $top_ten_post_array = get_tptn_pop_posts($args);
-            $posts_to_get = '';
-            foreach ($top_ten_post_array as $post => $val) {
-                $posts_to_get[] = $val['ID'];
-            }
-            $args = array(
-                'post__in' => $posts_to_get,
-            );
-            $recent_posts = get_posts($args);
-        } elseif (defined('WPSEO_VERSION')) {
-            $posts_to_get = $this->multiloqient_get_post_id_by_meta_key_and_value('_yoast_wpseo_is_cornerstone', '1');
-            $args = array(
-				'numberposts' => $total_posts,
-                'offset' => 0,
-                'category' => '',
-                'orderby' => 'post_date',
-                'order' => 'DESC',
-                'include' => '',
-                'exclude' => '',
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'post__in' => $posts_to_get,
-            );
-            $recent_posts = get_posts($args);
-        } else {
-            $args = array(
-                'numberposts' => $total_posts,
-                'offset' => 0,
-                'category' => '',
-                'orderby' => 'post_date',
-                'order' => 'DESC',
-                'include' => '',
-                'exclude' => '',
-                'post_type' => 'post',
-                'post_status' => 'publish',
-            );
-            $recent_posts = get_posts($args);
-        }
-		$count = 1;
+        $recent_posts = $this->multiloquent_get_featured_posts(10);
+        $count = 1;
         $output = '<div class="container-fluid mb">';
         foreach ($recent_posts as $val) {
             $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
@@ -957,35 +909,35 @@ class MultiloquentBase
                 $theimg = get_header_image();
             }
             $colour = $this->multiloquent_get_random_blue_class();
-            switch ($count) { 
-				case "1":
-				case "6":
-					$output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-					$output .= '<div class="paralax_image_bg doubleheight ' . $colour . '"></div>';
-					break;
-				case "2":
-				case "3":
-				case "4":
-				case "7":
-				case "8":
-				case "10":
-					$output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-					break;
-				case "5":
-				case "9":
-					$output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-					break;
-				default:
-					$output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-					$output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
-					$output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
-					break;
-        	}
+            switch ($count) {
+                case "1":
+                case "6":
+                    $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
+                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<div class="paralax_image_bg doubleheight ' . $colour . '"></div>';
+                    break;
+                case "2":
+                case "3":
+                case "4":
+                case "7":
+                case "8":
+                case "10":
+                    $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
+                    break;
+                case "5":
+                case "9":
+                    $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
+                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
+                    break;
+                default:
+                    $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
+                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
+                    break;
+            }
             $output .= '<div class="paralax_image_text"><span class="h1"><a href="' . get_permalink($val->ID) . '">' . trim(stripslashes($this->multiloquent_post_title($val->ID))) . '</a></span>';
             $output .= '<p>';
             // get tags function call in here
@@ -999,6 +951,64 @@ class MultiloquentBase
         return $output;
     }
 
+/**
+ * helper function to get top posts, ether top_ten, yoast cornerstone, or latest
+ *
+ * @param [type] $total_posts
+ * @return void
+ */
+public function multiloquent_get_featured_posts($total_posts){
+    if (function_exists('get_tptn_pop_posts')) {
+        $args = array(
+            'daily'        => false,
+            'strict_limit' => true,
+            'posts_only'   => false,
+            'limit'        => $total_posts,
+            'posts_only'   => true,
+        );
+        // todo - this needs to be an array of objects..
+        $top_ten_post_array = get_tptn_pop_posts($args);
+        $posts_to_get = array();
+        foreach ($top_ten_post_array as $post => $val) {
+            $posts_to_get[] = $val['ID'];
+        }
+        $args = array(
+            'post__in' => $posts_to_get,
+        );
+        
+    } elseif (defined('WPSEO_VERSION')) {
+        $posts_to_get = $this->multiloquent_get_post_id_by_meta_key_and_value('_yoast_wpseo_is_cornerstone', '1');
+        $args = array(
+            'numberposts' => $total_posts,
+            'offset' => 0,
+            'category' => '',
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'include' => '',
+            'exclude' => '',
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'post__in' => $posts_to_get,
+        );
+        
+    } else {
+        $args = array(
+            'numberposts' => $total_posts,
+            'offset' => 0,
+            'category' => '',
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'include' => '',
+            'exclude' => '',
+            'post_type' => 'post',
+            'post_status' => 'publish',
+        );
+       
+    }
+    $recent_posts = get_posts($args)
+    return $recent_posts;
+}
+
     /**
      * generates the featured posts mini-boxes
      *
@@ -1009,40 +1019,7 @@ class MultiloquentBase
     public function multiloquent_paralax_featured_sliders()
     {
         global $wpdb;
-        $total_posts = '4';
-        $posts_to_get = '';
-        if (function_exists('get_tptn_pop_posts')) {
-            $args = array(
-                'daily'        => false,
-                'strict_limit' => true,
-                'posts_only'   => false,
-                'limit'        => 4,
-                'posts_only'   => true,
-            );
-            // todo - this needs to be an array of objects..
-            $top_ten_post_array = get_tptn_pop_posts($args);
-            $posts_to_get = '';
-            foreach ($top_ten_post_array as $post => $val) {
-                $posts_to_get[] = $val['ID'];
-            }
-            $args = array(
-                'post__in' => $posts_to_get,
-            );
-            $recent_posts = get_posts($args);
-        } else {
-            $args = array(
-                'numberposts' => $total_posts,
-                'offset'      => 0,
-                'category'    => '',
-                'orderby'     => 'post_date',
-                'order'       => 'DESC',
-                'include'     => '',
-                'exclude'     => '',
-                'post_type'   => 'post',
-                'post_status' => 'publish',
-            );
-            $recent_posts = get_posts($args);
-        }
+        $recent_posts = $this->multiloquent_get_featured_posts(4);
         $count = 1;
         $output = '<div class="featured-posts">';
         $colour = $this->multiloquent_get_random_blue_class();
