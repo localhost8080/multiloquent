@@ -902,7 +902,7 @@ class MultiloquentBase
         $count = 1;
         $output = '<div class="container-fluid mb">';
         foreach ($recent_posts as $val) {
-            $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
+            $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'large');
             if ($slider_image) {
                 $theimg = $slider_image[0];
             } else {
@@ -1024,7 +1024,7 @@ public function multiloquent_get_featured_posts($total_posts){
         $output = '<div class="featured-posts">';
         $colour = $this->multiloquent_get_random_blue_class();
         foreach ($recent_posts as $val) {
-            $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'single-post-thumbnail');
+            $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($val->ID), 'thumbnail');
             if ($slider_image) {
                 $theimg = $slider_image[0];
             } else {
