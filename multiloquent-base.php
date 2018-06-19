@@ -1076,7 +1076,7 @@ public function multiloquent_get_featured_posts($total_posts){
         // set it to blank so that it doesnt get the previous one..
         global $post;
         $thumbnail_id = get_the_ID();
-        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($thumbnail_id), 'single-post-thumbnail');
+        $slider_image = wp_get_attachment_image_src(get_post_thumbnail_id($thumbnail_id), 'thumbnail');
         if (! empty($slider_image)) {
             $the_image = $slider_image[0];
         // $width = $slider_image[1];
