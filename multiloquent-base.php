@@ -391,6 +391,7 @@ class MultiloquentBase
             '',
             true
         );
+    
         if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
             wp_enqueue_script(
                 'bootstrap',
