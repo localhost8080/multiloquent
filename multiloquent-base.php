@@ -445,12 +445,12 @@ class MultiloquentBase
     {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && $mods['bootswatch'] != 'mdb') {
-            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
-        } elseif (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
+        if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/bootstrap.min.css');
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/mdb.min.css');
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');    
+        } elseif (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && $mods['bootswatch'] != 'mdb') {
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
         } else {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/bootstrap.min.css');
             // use my custom bootstrap overrides - this isnt actually needed as the main stylesheet has all the content now
