@@ -26,8 +26,8 @@ if ( have_posts() ) {
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<?php
 				
-				remove_filter( 'the_content', 'sharing_display', 19 );
-				remove_filter( 'the_excerpt', 'sharing_display', 19 );
+				// remove_filter( 'the_content', 'sharing_display', 19 );
+				// remove_filter( 'the_excerpt', 'sharing_display', 19 );
 				the_content();
 				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>

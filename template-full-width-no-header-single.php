@@ -14,8 +14,8 @@ if ( have_posts() ) {
 		?>
 		<div>
 			<?php
-			remove_filter( 'the_content', 'sharing_display', 19 );
-			remove_filter( 'the_excerpt', 'sharing_display', 19 );
+			// remove_filter( 'the_content', 'sharing_display', 19 );
+			// remove_filter( 'the_excerpt', 'sharing_display', 19 );
 			the_content();
 			wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
 		?>
