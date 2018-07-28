@@ -447,8 +447,8 @@ class MultiloquentBase
         $mods = get_theme_mods();
         if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/bootstrap.min.css');
-            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/mdb.min.css');
-            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');    
+            wp_enqueue_style('mdb', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/mdb.min.css');
+            wp_enqueue_style('mdb-style', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');    
         } elseif (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && $mods['bootswatch'] != 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
         } else {
