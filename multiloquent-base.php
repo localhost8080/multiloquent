@@ -447,18 +447,16 @@ class MultiloquentBase
         $mods = get_theme_mods();
         if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && $mods['bootswatch'] != 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
-            wp_enqueue_style('style', get_stylesheet_uri());
         } elseif (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/bootstrap.min.css');
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/mdb.min.css');
-            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');
-            // wp_enqueue_style('style', get_stylesheet_uri());
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');    
         } else {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/bootstrap.min.css');
-            wp_enqueue_style('style', get_stylesheet_uri());
             // use my custom bootstrap overrides - this isnt actually needed as the main stylesheet has all the content now
             // wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/multiloquent/style.css');
         }
+        wp_enqueue_style('style', get_stylesheet_uri());
         wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
         wp_enqueue_style('print', get_template_directory_uri() . '/print.min.css');
     }
