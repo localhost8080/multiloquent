@@ -9,7 +9,7 @@
  * the social media things
  */
 
-
+/*
 $mods = get_theme_mods();
 if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
     ?>
@@ -58,4 +58,5 @@ if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
 
 <?php
 }
+*/
 ?>
