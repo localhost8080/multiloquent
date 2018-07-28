@@ -75,8 +75,8 @@ if ( have_posts() ) {
 		?>
 		</section>
 		<?php
-		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-default"><span class="fa fa-chevron-left"></span></span>', true );
-		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-default"><span class="fa fa-chevron-right"></span></span>', true );
+		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-primary"><span class="fa fa-chevron-left"></span></span>', true );
+		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-primary"><span class="fa fa-chevron-right"></span></span>', true );
 		echo '</div>';
 	}
 } else {
