@@ -10,7 +10,7 @@
  */
 
 ?>
-<nav role="navigation" class="navbar fixed-top navbar-light bg-light">
+<nav role="navigation" class="navbar fixed-top navbar-dark bg-primary">
 	<div class="">
 		<a title="navigation menu" href="javascript:void(0);" class="navbar-brand sidebar-toggle">
 			<span class="fa fa-bars"></span>

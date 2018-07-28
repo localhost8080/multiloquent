@@ -10,7 +10,7 @@
  */
 
 ?>
-<aside class="sidebar breadcrumb">
+<aside class="sidebar">
 	<div class="text-capitalize">
 		<?php
 		get_search_form();
