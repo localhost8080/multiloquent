@@ -258,6 +258,7 @@ class MultiloquentBase
                         'flatly' => 'flatly',
                         'journal' => 'journal',
                         'lumen' => 'lumen',
+                        'mdb' => 'mdb',
                         'sandstone' => 'sandstone',
                         'simplex' => 'simplex',
                         'slate' => 'slate',
@@ -265,6 +266,7 @@ class MultiloquentBase
                         'superhero' => 'superhero',
                         'united' => 'united',
                         'yeti' => 'yeti',
+                        
                     ),
                 )
             );
@@ -378,6 +380,8 @@ class MultiloquentBase
      */
     public function multiloquent_scripts_method()
     {
+
+        $mods = get_theme_mods();
         wp_enqueue_script(
             'menu',
             get_template_directory_uri() . '/menu.js',
@@ -387,15 +391,45 @@ class MultiloquentBase
             '',
             true
         );
-        wp_enqueue_script(
-            'bootstrap',
-            get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js',
-            array(
-                'jquery',
-            ),
-            '',
-            true
-        );
+        if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
+            wp_enqueue_script(
+                'bootstrap',
+                get_template_directory_uri() . '/bootstrap/mdb/js/bootstrap.min.js',
+                array(
+                    'jquery',
+                ),
+                '',
+                true
+            );
+            wp_enqueue_script(
+                'mdb',
+                get_template_directory_uri() . '/bootstrap/mdb/js/mdb.min.js',
+                array(
+                    'jquery',
+                ),
+                '',
+                true
+            );
+            wp_enqueue_script(
+                'popper',
+                get_template_directory_uri() . '/bootstrap/mdb/js/mdb.min.js',
+                array(
+                    'jquery',
+                ),
+                '',
+                true
+            );
+        } else {
+            wp_enqueue_script(
+                'bootstrap',
+                get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js',
+                array(
+                    'jquery',
+                ),
+                '',
+                true
+            );
+        }
     }
 
     /**
@@ -411,9 +445,14 @@ class MultiloquentBase
     {
         // todo - make is use the default one if none are set
         $mods = get_theme_mods();
-        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default') {
+        if (! empty($mods['bootswatch']) && $mods['bootswatch'] != 'default' && $mods['bootswatch'] != 'mdb') {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
+        } elseif (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/bootstrap.min.css');
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/mdb.min.css');
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/css/style.min.css');
+            // wp_enqueue_style('style', get_stylesheet_uri());
         } else {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/bootstrap.min.css');
             wp_enqueue_style('style', get_stylesheet_uri());
