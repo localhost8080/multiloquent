@@ -801,7 +801,7 @@ h3.nowrap {
 }
 .sidebar .menu li {
   list-style: none;
-  line-height: 40px;
+  line-height: 35px;
 }
 .sidebar .menu li:last-child {
   border-bottom: none;
