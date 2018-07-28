@@ -394,7 +394,7 @@ class MultiloquentBase
         if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
             wp_enqueue_script(
                 'bootstrap',
-                get_template_directory_uri() . '/bootstrap/mdb/js/bootstrap.min.js',
+                get_template_directory_uri() . '/bootstrap/css/mdb/js/bootstrap.min.js',
                 array(
                     'jquery',
                 ),
@@ -403,7 +403,7 @@ class MultiloquentBase
             );
             wp_enqueue_script(
                 'mdb',
-                get_template_directory_uri() . '/bootstrap/mdb/js/mdb.min.js',
+                get_template_directory_uri() . '/bootstrap/css/mdb/js/mdb.min.js',
                 array(
                     'jquery',
                 ),
@@ -412,7 +412,7 @@ class MultiloquentBase
             );
             wp_enqueue_script(
                 'popper',
-                get_template_directory_uri() . '/bootstrap/mdb/js/mdb.min.js',
+                get_template_directory_uri() . '/bootstrap/css/mdb/js/mdb.min.js',
                 array(
                     'jquery',
                 ),
