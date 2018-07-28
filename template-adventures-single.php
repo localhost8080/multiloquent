@@ -49,8 +49,8 @@ if ( have_posts() ) {
 			</div>
 		</div>
 		<?php
-		next_post_link( '%link', '<span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true );
-		previous_post_link( '%link', '<span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true );
+		next_post_link( '%link', '<span class="next_link btn btn-default"><span class="fa fa-chevron-left"></span></span>', true );
+		previous_post_link( '%link', '<span class="prev_link btn btn-default"><span class="fa fa-chevron-right"></span></span>', true );
 		echo '</div>';
 	}
 } else {

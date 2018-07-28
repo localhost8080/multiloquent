@@ -49,8 +49,8 @@ if ( have_posts() ) {
 if ( function_exists( 'related_posts' ) ) {
 	related_posts();
 }
-		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-default btn-lg"><span class="fa fa-chevron-left"></span></span>', true );
-		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-default btn-lg"><span class="fa fa-chevron-right"></span></span>', true );
+		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-default"><span class="fa fa-chevron-left"></span></span>', true );
+		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-default"><span class="fa fa-chevron-right"></span></span>', true );
 		echo '</article>';
 	}
 } else {
