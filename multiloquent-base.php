@@ -454,6 +454,8 @@ class MultiloquentBase
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/' . esc_attr(get_theme_mod('bootswatch')) . '/bootstrap.min.css');
         } else {
             wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/bootstrap.min.css');
+            wp_enqueue_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/multiloquent/style.css');
+            
             // use my custom bootstrap overrides - this isnt actually needed as the main stylesheet has all the content now
             // wp_enqueue_style('multiloquent', get_template_directory_uri() . '/bootstrap/css/multiloquent/style.css');
         }
