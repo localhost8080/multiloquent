@@ -793,6 +793,9 @@ h3.nowrap {
 .sidebar .nav-header {
   color: #FFFFFF;
 }
+.sidebar .menu {
+  font-size: 0.8em;
+}
 .sidebar .menu ul {
   margin: 0;
 }
@@ -808,9 +811,6 @@ h3.nowrap {
 }
 .sidebar .menu .menu-item-has-children {
   position: relative;
-}
-.sidebar .menu ul > li > a {
-  font-size: 0.8em;
 }
 .sidebar .sub-menu li {
   padding-left: 15px;
