@@ -24,15 +24,16 @@ jQuery('.sidebar-toggle').click(function () {
         // its not visible
         jQuery('.prev_link').hide();
         jQuery('.next_link').hide();
-        jQuery('.wrapper').css("overflow", "hidden");
-        jQuery('.wrapper').css("margin-left", "300px");
-        jQuery('.wrapper').css("margin-right", "-300px");
-        jQuery('.sidebar').css("margin-left", "0px");
+        jQuery('.wrapper').addClass('open');
+        jQuery('.overlay').addClass('open');
+        jQuery('.sidebar').addClass('open');
+
     } else {
         // its already on the screen
-        jQuery('.wrapper').css("margin-left", "0px");
-        jQuery('.sidebar').css("margin-left", "-300px");
-        jQuery('.wrapper').css("margin-right", "0px");
+        jQuery('.wrapper').removeClass('open');
+        jQuery('.sidebar').removeClass('open');
+        jQuery('.overlay').removeClass('open');
+        
         jQuery('.prev_link').show();
         jQuery('.next_link').show();
     }

@@ -25,4 +25,5 @@
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <div class="holder">
 	<div class="wrapper">
+	<div class="overlay"></div>
 

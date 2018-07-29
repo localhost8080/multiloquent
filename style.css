@@ -1080,4 +1080,21 @@ pre[class*="language-"] {
   padding: 1em 0;
   background: #f8f8f8;
 }
+.overlay.open {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  z-index: 100;
+  opacity: 0.6;
+}
+.wrapper.open {
+  overflow: hidden;
+  margin-left: 300px;
+  margin-right: -300px;
+}
+.sidebar.open {
+  margin-left: 0px;
+}
 /*# sourceMappingURL=style.css.map */
