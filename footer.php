@@ -17,7 +17,7 @@ get_sidebar();
 require locate_template( 'navigation.php' );
 if ( empty( $hide_the_footer_links ) ) {
 	?>
-<footer class="well">
+<footer class="page-footer special-color p-4">
 	<div class="container-fluid clearfix">
 		<aside>
 
@@ -51,7 +51,7 @@ if ( empty( $hide_the_footer_links ) ) {
 		?>
 
 									<div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-									<p class="nav-header">
+									<p class="nav-header h5">
 							<?php
 							printf( esc_html__( 'Useful Stuff', 'multiloquent' ) );
 		?>
@@ -68,7 +68,7 @@ if ( empty( $hide_the_footer_links ) ) {
 					?>
 
 					<div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-					<p class="nav-header">
+					<p class="nav-header h5">
 							<?php
 							printf( esc_html__( 'More Useful Stuff', 'multiloquent' ) );
 					?>
