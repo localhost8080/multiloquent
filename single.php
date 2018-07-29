@@ -20,7 +20,7 @@ if ( have_posts() ) {
 		require locate_template( 'featuredimage.php' );
 		require locate_template( 'breadcrumb.php' );
 		?>
-<div class="container clearfix">
+<div class="container clearfix mt-5">
 			<?php
 			echo '<div class="col-sm-12 col-md-12 col-lg-12">';
 			// remove_filter( 'the_content', 'sharing_display', 19 );
