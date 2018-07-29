@@ -10,7 +10,7 @@
  */
 
 ?>
-<nav class="container-fluid clearfix hidden-xs">
+<nav class="container-fluid clearfix hidden-xs p-0">
 	<ul class="breadcrumb clearfix pull-left col-sm-12 col-md-6 col-lg-7" itemscope itemtype="http://schema.org/BreadcrumbList">
 		<?php echo $multiloquent->multiloquent_breadcrumbs(); ?>
 	</ul>
