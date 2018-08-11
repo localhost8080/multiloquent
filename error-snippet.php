@@ -17,7 +17,7 @@
 ?>
 	<!-- google_ad_section_start-->
 </div>
-<article class="container-fluid clearfix">
+<article class="container-fluid clearfix mt-5 text-center">
 	<h1>
 		<?php
 		printf(
