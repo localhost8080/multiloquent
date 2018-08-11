@@ -12,7 +12,7 @@
 
 
 //echo $multiloquent->multiloquent_paralax_featured_sliders();
-require locate_template( 'featuredimage.php' );
+//require locate_template( 'featuredimage.php' );
 
  ?>
 
