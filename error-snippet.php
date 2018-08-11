@@ -11,8 +11,8 @@
  */
 
 
-echo $multiloquent->multiloquent_paralax_featured_sliders();
-//require locate_template( 'featuredimage.php' );
+//echo $multiloquent->multiloquent_paralax_featured_sliders();
+require locate_template( 'featuredimage.php' );
 
  ?>
 
