@@ -10,7 +10,13 @@
  * wordpress template part
  */
 
-?>
+echo $multiloquent->multiloquent_paralax_featured_sliders();
+require locate_template( 'featuredimage.php' );
+
+ ?>
+
+
+
 <div class="container-fluid clearfix">
 	<?php
 	get_template_part( 'advert' );
