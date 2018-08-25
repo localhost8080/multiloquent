@@ -210,7 +210,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 
 				printLog "Start mysql server";	
 				sudo systemctl start mariadb
-				mysql -u root -e  "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('nokia8210') "
+				mysql -u root -e  "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('wordpress') "
 		}
 
 		installWordpress () {
@@ -218,9 +218,9 @@ pid-file=/var/run/mariadb/mariadb.pid
 			chmod +x wp-cli.phar
 			sudo mv wp-cli.phar /usr/local/bin/wp
 			cd /var/www/vhosts/development
-			sudo -u vagrant -i -- wp core download
-			sudo -u vagrant -i -- wp core config  --path=/var/www/vhosts/development --dbname=wordpress --dbuser=root --dbpass=wordpress
-			sudo -u vagrant -i -- wp core install --allow-root \
+			sudo -u vagrant -i -- /usr/local/bin/wp core download
+			sudo -u vagrant -i -- /usr/local/bin/wp core config --dbname=wordpress --dbuser=root --dbpass=wordpress
+			sudo -u vagrant -i -- /usr/local/bin/wp core install --allow-root \
                 --path=/var/www/vhosts/development \
 				--url=development.test \
 				--admin_user=wordpress \
@@ -228,7 +228,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 				--admin_email=wordpress@localhost \
 				--title="wordpress" \
 				--skip-email
-			sudo -u vagrant -i -- wp theme activate mytheme
+			sudo -u vagrant -i -- /usr/local/bin/wp theme activate mytheme
 
 		}
 	
