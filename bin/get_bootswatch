@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# script to get the bootswatch files and folder structure and put it into the multiloquent styles folder
+cd ~/git/bootswatch
+git pull
+themes=(cerulean cosmo cyborg darkly flatly journal lumen sandstone simplex slate spacelab superhero united yeti)
+for theme in "${themes[@]}"
+do
+    cd ~/git/multiloquent/bootstrap/css
+    rm -rf $theme
+    cp -r ~/git/bootswatch/dist/$theme $theme
+    cd $theme 
+    rm -f index.html bootswatch.less variables.less thumbnail.png bootstrap.css
+    cd ..
+    echo $theme
+done
+
+# default ones - into multiloquent folder and bootstrap folder
+cd ~/git/bootstrap 
+git pull
+cp ~/git/bootstrap/dist/css/bootstrap.min.css ~/git/multiloquent/bootstrap/css/bootstrap/
+cp ~/git/bootstrap/dist/css/bootstrap.min.css ~/git/multiloquent/bootstrap/css/multiloquent/
+cp ~/git/bootstrap/dist/js/bootstrap.min.js ~/git/multiloquent/bootstrap/js/
+
+cd ~/git/multiloquent
+rm -rf documentation
+rm -f multiloquent.zip
+git add --all .
+git commit -m "update to all bootstrap and bootswatch themes"
+git push origin master

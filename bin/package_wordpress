@@ -1,0 +1,15 @@
+#!/bin/sh
+/usr/local/bin/deploy_wordpress
+/usr/local/bin/get_bootswatch
+/usr/local/bin/get_mdb
+cd /var/www/vhosts/development/multiloquent
+zip -r multiloquent *
+zip -d multiloquent.zip phpci.yml
+zip -d multiloquent.zip .travis.yml
+zip -d multiloquent.zip ruleset.xml
+zip -d multiloquent.zip .git
+zip -d multiloquent.zip documentation
+#mutt -s 'successful multiloquent build' -a multiloquent.zip -- development@jonathansblog.co.uk < /dev/null
+#rm -f multiloquent.zip
+mv multiloquent.zip ~/Desktop
+generate_changelogs

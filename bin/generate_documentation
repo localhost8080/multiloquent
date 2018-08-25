@@ -1,0 +1,8 @@
+#/bin/sh
+cd /var/www/vhosts/development/wp-content/themes/multiloquent
+rm -rf documentation/
+git pull
+mkdir documentation
+#phpdoc --template="zend" -d . -t ./documentation/
+#phpuml . -o documentation -i .git -f htmlnew
+apigen generate -s . -d documentation

@@ -42,7 +42,7 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  config.vm.synced_folder ".", "/var/www/vhosts/development/wp-content/themes/mytheme", 
+  config.vm.synced_folder ".", "/var/www/vhosts/development/wp-content/themes/multiloquent", 
     create: true, 
     type: 'nfs', 
     mount_options: ['actimeo=2', 'vers=3', 'tcp'],  
@@ -230,7 +230,7 @@ pid-file=/var/run/mariadb/mariadb.pid
 				--title="wordpress" \
 				--skip-email \
 				--allow-root
-			sudo /usr/local/bin/wp theme activate mytheme  --allow-root
+			sudo /usr/local/bin/wp theme activate multiloquent  --allow-root
 
 		}
 	

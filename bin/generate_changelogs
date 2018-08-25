@@ -1,0 +1,18 @@
+#!/bin/sh
+# script to generate a change log since the last date multiloquent was published
+# and mail it to me -- to be called in the success part of the phpci tests
+# and in html format with phploc summary
+cd /var/www/vhosts/development/wp-content/themes/multiloquent
+echo "<h2>Changelog</h2>" > ~/changelog.txt
+git log --pretty=format:'<p><a href="https://github.com/localhost8080/multiloquent/commit/%h">%h</a> - %s %N %n</p>' --after={2014-06-14} >> ~/changelog.txt
+phploc /var/www/vhosts/development/multiloquent > ~/tmp.txt
+
+echo "<h2>Build Stats</h2><ul>" >> ~/changelog.txt
+while read line
+do
+    echo "<li>$line </li>" >> ~/changelog.txt
+done < ~/tmp.txt
+echo "</ul>" >> ~/changelog.txt
+
+# mutt -s 'multiloquent changelog' -a ~/changelog.txt -- development@jonathansblog.co.uk < /dev/null
+mv ~/changelog.txt ~/Desktop

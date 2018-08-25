@@ -1,0 +1,13 @@
+#!/bin/sh
+cd /var/www/vhosts/development/wp-content/themes/multiloquent
+git pull
+find . -iname "*.php" > /tmp/multiloquent_file_list.txt
+
+# new template
+#xgettext --from-code=utf-8 -d multiloquent  -f /tmp/multiloquent_file_list.txt --keyword=__ -o languages/multiloquent.pot
+
+# update template
+xgettext --from-code=utf-8 -d multiloquent -j -f /tmp/multiloquent_file_list.txt --keyword=__ -o languages/multiloquent.pot
+git add --all .
+git commit -m "updating translation pot file"
+git push origin master
