@@ -4,7 +4,7 @@
 # and in html format with phploc summary
 cd /var/www/vhosts/development/wp-content/themes/multiloquent
 echo "<h2>Changelog</h2>" > ~/changelog.txt
-git log --pretty=format:'<p><a href="https://github.com/localhost8080/multiloquent/commit/%h">%h</a> - %s %N %n</p>' --after={2014-06-14} >> ~/changelog.txt
+git log --pretty=format:'<p><a href="https://github.com/localhost8080/multiloquent/commit/%h">%h</a> - %s %N %n</p>' --after={2018-01-01} >> ~/changelog.txt
 phploc /var/www/vhosts/development/multiloquent > ~/tmp.txt
 
 echo "<h2>Build Stats</h2><ul>" >> ~/changelog.txt
