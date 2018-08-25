@@ -2,7 +2,7 @@
 /usr/local/bin/deploy_wordpress
 /usr/local/bin/get_bootswatch
 /usr/local/bin/get_mdb
-cd /var/www/vhosts/development/multiloquent
+cd /var/www/vhosts/development/wp-content/themes/multiloquent
 zip -r multiloquent *
 zip -d multiloquent.zip phpci.yml
 zip -d multiloquent.zip .travis.yml

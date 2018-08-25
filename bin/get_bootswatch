@@ -1,4 +1,6 @@
 #!/bin/sh
+mkdir ~/git
+git clone https://github.com/thomaspark/bootswatch ~/git/bootswatch
 
 # script to get the bootswatch files and folder structure and put it into the multiloquent styles folder
 cd ~/git/bootswatch
@@ -16,8 +18,6 @@ do
 done
 
 # default ones - into multiloquent folder and bootstrap folder
-cd ~/git/bootstrap 
-git pull
 cp ~/git/bootstrap/dist/css/bootstrap.min.css ~/git/multiloquent/bootstrap/css/bootstrap/
 cp ~/git/bootstrap/dist/css/bootstrap.min.css ~/git/multiloquent/bootstrap/css/multiloquent/
 cp ~/git/bootstrap/dist/js/bootstrap.min.js ~/git/multiloquent/bootstrap/js/
