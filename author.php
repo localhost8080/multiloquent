@@ -14,7 +14,7 @@
 get_header();
 if ( have_posts() ) {
 	?>
-	<div class="jumbotron">
+	<div class="jumbotron category-banner">
 		<div class="container-fluid clearfix">
 			<header class="profile">
 				<div class="col-sm-12">
