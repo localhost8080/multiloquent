@@ -1099,4 +1099,8 @@ pre[class*="language-"] {
 .sidebar.open {
   margin-left: 0px;
 }
+.category-banner {
+  background: url(/wp-content/themes/multiloquent/images/default-slider.png) center center / cover;
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */
