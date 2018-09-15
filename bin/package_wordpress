@@ -9,6 +9,8 @@ zip -d multiloquent.zip .travis.yml
 zip -d multiloquent.zip ruleset.xml
 zip -d multiloquent.zip .git
 zip -d multiloquent.zip documentation
+zip -d multiloquent.zip bin
+zip -d multiloquent.zip Vagrantfile
 #mutt -s 'successful multiloquent build' -a multiloquent.zip -- development@jonathansblog.co.uk < /dev/null
 #rm -f multiloquent.zip
 mv multiloquent.zip ~/Desktop
