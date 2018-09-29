@@ -33,7 +33,7 @@ if ( have_posts() ) {
 		get_template_part( 'social' );
 		if ( comments_open() ) {
 			?>
-			<section class="container clearfix">
+			<section class="container clearfix mt-5">
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
 					<?php
@@ -45,7 +45,7 @@ if ( have_posts() ) {
 		<?php
 		}
 		?>
-		<section class="container-fluid clearfix">
+		<section class="container clearfix mt-5">
 			<div class="tagcloud">
 				<div class="tag-cloud">
 					<h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
