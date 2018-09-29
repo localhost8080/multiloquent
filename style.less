@@ -1322,8 +1322,22 @@ http://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike
 
 
 .material-search {
+    background: #5a95f5;
+    .form-control {
+        color: white;
+        background: transparent;
+        border: 0;
+    }
+    .form-control:focus {
+        box-shadow: none;
+    }
     .form-control::placeholder {
         color: white;
     }
+    .btn {
+        box-shadow: none;
+        background: transparent !important;
+    }
+
 }
 
