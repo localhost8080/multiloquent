@@ -10,10 +10,14 @@
  */
 
 ?>
-<aside class="sidebar">
+<aside class="sidebar mt-3">
 	<div class="text-capitalize">
 		<?php
-		get_search_form();
+		$mods = get_theme_mods();
+        if (empty($mods['bootswatch']) || !empty($mods['bootswatch']) && $mods['bootswatch'] != 'mdb') {
+            get_search_form();
+        }
+
 		wp_nav_menu(
 			array(
 				'theme_location' => 'primary-menu',
