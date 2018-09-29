@@ -19,7 +19,7 @@ if (! empty($mods['bootswatch']) && $mods['bootswatch'] == 'mdb') {
 		</a>
 		<?php echo '<h2 class="navbar-brand"><a class="navbar-brand" title="' . get_bloginfo('name') . '" href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a></h2>'; ?>
 	</div>
-	<div class="">
+	<div class="material-search">
 	<?php get_search_form();?>
 	</div>
 </nav>
