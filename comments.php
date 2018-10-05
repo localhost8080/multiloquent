@@ -24,7 +24,7 @@ if ( have_comments() ) {
 				esc_html__( '%1$s comments', 'multiloquent' ),
 				number_format_i18n( get_comments_number() )
 			);
-	?>
+			?>
 			</h3>
 			<ol class="comment-list">
 				<?php wp_list_comments(); ?>
@@ -36,19 +36,19 @@ if ( have_comments() ) {
 						<?php if ( get_previous_comments_link() ) { ?>
 							<li class="previous"><?php previous_comments_link( esc_html__( '&larr; Older comments', 'multiloquent' ) ); ?></li>
 						<?php
-}
-if ( get_next_comments_link() ) {
-	?>
+						}
+						if ( get_next_comments_link() ) {
+							?>
 					<li class="next"><?php next_comments_link( esc_html__( 'Newer comments &rarr;', 'multiloquent' ) ); ?></li>
 				<?php
-}
-		?>
+				}
+						?>
 					</ul>
 				</nav>
 			<?php
-}
-if ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) {
-	?>
+		}
+		if ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) {
+			?>
 			<div class="alert alert-block fade in">
 				<a class="close" data-dismiss="alert">&times;</a>
 
@@ -57,12 +57,12 @@ if ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'c
 					printf(
 						esc_html__( 'Comments are closed.', 'multiloquent' )
 					);
-		?>
+					?>
 				</p>
 			</div>
 		<?php
-}
-	?>
+		}
+		?>
 		</div>
 	</section>
 <?php
@@ -78,7 +78,7 @@ if ( ! have_comments() && ! comments_open() && ! is_page() && post_type_supports
 				printf(
 					esc_html__( 'Comments are closed.', 'multiloquent' )
 				);
-	?>
+				?>
 			</p>
 		</div>
 	</section>
@@ -96,18 +96,18 @@ if ( comments_open() ) {
 						esc_html__( 'You must be <a href="%s">logged in</a> to post a comment.', 'multiloquent' ),
 						wp_login_url( get_permalink() )
 					);
-		?>
+					?>
 				</p>
 			<?php
-} else {
-		$comments_args = array(
-			'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>',
-			'class_form' => '',
-			'class_submit' => 'btn btn-success',
-		);
-		comment_form( $comments_args );
-}
-	?>
+			} else {
+					$comments_args = array(
+						'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>',
+						'class_form' => '',
+						'class_submit' => 'btn btn-success',
+					);
+					comment_form( $comments_args );
+			}
+			?>
 		</div>
 	</section>
 <?php

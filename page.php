@@ -30,11 +30,11 @@ if ( have_posts() ) {
 				// remove_filter( 'the_excerpt', 'sharing_display', 19 );
 				the_content();
 				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
-		?>
+				?>
 			</div>
 			<?php
 			get_template_part( 'advert' );
-		?>
+			?>
 		</div>
 		<?php
 		get_template_part( 'social' );
@@ -48,12 +48,12 @@ if ( have_posts() ) {
 							esc_html__( 'Comments for %s', 'multiloquent' ),
 							$multiloquent->multiloquent_post_title()
 						);
-			?>
+						?>
 					</h3>
 					<?php
 					comments_template();
 					get_template_part( 'advert-secondary' );
-			?>
+					?>
 				</div>
 			</section>
 		<?php
@@ -66,7 +66,7 @@ if ( have_posts() ) {
 		<section class="container-fluid clearfix">
 			<?php
 			get_template_part( 'advert' );
-		?>
+			?>
 		</section>
 		<?php
 		echo '</div>';
@@ -76,7 +76,7 @@ if ( have_posts() ) {
 	<div class="container post clearfix">
 		<?php
 		get_template_part( 'error-snippet' );
-	?>
+		?>
 	</div>
 <?php
 }
