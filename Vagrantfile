@@ -9,17 +9,13 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder ".", "/var/www/vhosts/development/wp-content/themes/multiloquent", 
     create: true, 
-    type: 'nfs', 
-    mount_options: ['actimeo=2', 'vers=3', 'tcp'],  
-    linux__nfs_options: ['rw','no_subtree_check','all_squash','async'],
-    bsd__nfs_options: ['rw','no_subtree_check','all_squash','async']
+    type: 'sshfs', 
+    
     
   config.vm.synced_folder "../devops", "/var/www/vhosts/devops",
     create: true, 
-    type: 'nfs', 
-    mount_options: ['actimeo=2', 'vers=3', 'tcp'],  
-    linux__nfs_options: ['rw','no_subtree_check','all_squash','async'],
-    bsd__nfs_options: ['rw','no_subtree_check','all_squash','async']
+    type: 'sshfs', 
+   
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
