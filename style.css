@@ -1121,4 +1121,9 @@ pre[class*="language-"] {
   box-shadow: none;
   background: transparent !important;
 }
+@media (max-width: 376px) {
+  #search_form .input-group {
+    max-width: 275px !important;
+  }
+}
 /*# sourceMappingURL=style.css.map */
