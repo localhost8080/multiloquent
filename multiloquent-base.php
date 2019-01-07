@@ -609,11 +609,11 @@ class MultiloquentBase
         $return = '';
         // $image_url = get_template_directory_uri() ;
         if (! is_home()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
-            $return .= '<a itemprop="item" href="';
+            $return .= '<li class="breadcrumb-item">';
+            $return .= '<a href="';
             $return .= home_url();
             $return .= '">';
-            $return .= '<span itemprop="name">';
+            $return .= '<span>';
             $return .= esc_html__('Home', 'multiloquent');
             $return .= '</span>';
             $return .= '</a>';
@@ -628,31 +628,31 @@ class MultiloquentBase
                 $current_category = '';
                 $current_category = get_category_by_slug($slug);
                 if (! empty($slug) && ! empty($current_category)) {
-                    $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
-                    $return .= '<a itemprop="item" href="' . get_category_link($current_category->term_id) . '">';
-                    $return .= '<span itemprop="name">' . $current_category->name . '</span>';
+                    $return .= '<li class="breadcrumb-item">';
+                    $return .= '<a href="' . get_category_link($current_category->term_id) . '">';
+                    $return .= '<span>' . $current_category->name . '</span>';
                     $return .= '</a>';
                     $return .= '</li>';
                 }
             }
         }
         if (is_single()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . $this->multiloquent_post_title() . '</li>';
+            $return .= '<li class="breadcrumb-item">' . $this->multiloquent_post_title() . '</li>';
         }
         if (is_page()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . $this->multiloquent_post_title() . '</li>';
+            $return .= '<li class="breadcrumb-item">' . $this->multiloquent_post_title() . '</li>';
         }
         if (is_tag()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . esc_html__('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
+            $return .= '<li class="breadcrumb-item">' . esc_html__('Tag: ', 'multiloquent') . single_tag_title('', false) . '</li>';
         }
         if (is_404()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . esc_html__('404 - Page not Found', 'multiloquent') . '<li>';
+            $return .= '<li class="breadcrumb-item">' . esc_html__('404 - Page not Found', 'multiloquent') . '<li>';
         }
         if (is_search()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">Search</li>';
+            $return .= '<li class="breadcrumb-item">Search</li>';
         }
         if (is_year()) {
-            $return .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . get_the_time('Y') . '</li>';
+            $return .= '<li class="breadcrumb-item">' . get_the_time('Y') . '</li>';
         }
         return $return;
     }

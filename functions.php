@@ -25,11 +25,3 @@
  * multiloquent functions file.
  */
 require_once trailingslashit( get_template_directory() ) . 'multiloquent-base.php';
-
-
-
-function disable_yoast_schema_data($data){
-	$data = array();
-	return $data;
-}
-add_filter('wpseo_json_ld_output', 'disable_yoast_schema_data', 10, 1);
