@@ -1,40 +1,26 @@
 Material Design for Bootstrap
 
-Version: MDB Free 4.5.7
+Version: MDB Free 4.7.7
 
 Documentation:
 https://mdbootstrap.com/
 
 Getting started:
-https://mdbootstrap.com/getting-started/
-
-FAQ
-https://mdbootstrap.com/faq/
-
-Support:
-https://mdbootstrap.com/forums/forum/support/
+https://mdbootstrap.com/docs/jquery/getting-started/download/
 
 Tutorials:
-MDB-Bootstrap: https://mdbootstrap.com/bootstrap-tutorial/
-MDB-Wordpress: https://mdbootstrap.com/wordpress-tutorial/
-
-ChangeLog
-https://mdbootstrap.com/changelog/
+MDB-Bootstrap: https://mdbootstrap.com/education/bootstrap/
+MDB-Wordpress: https://mdbootstrap.com/education/wordpress/
 
 Templates:
 https://mdbootstrap.com/templates/
 
-Freebies
-https://mdbootstrap.com/freebies/
-
 License:
-https://mdbootstrap.com/license/
+https://mdbootstrap.com/general/license/
 
-Facebook: https://facebook.com/mdbootstrap
-Twitter: https://twitter.com/MDBootstrap
-Google+: https://plus.google.com/u/0/+Mdbootstrap/posts
-Dribbble: https://dribbble.com/mdbootstrap
-
+Support:
+https://mdbootstrap.com/forums/forum/support/
 
 Contact:
 office@mdbootstrap.com
+

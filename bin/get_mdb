@@ -6,7 +6,7 @@ git clone https://github.com/mdbootstrap/bootstrap-material-design ~/git/bootstr
 cd ~/git/bootstrap-material-design
 git pull
 
-cd /var/www/vhosts/development/wp-content/themes/multiloquent/bootstrap/css
+cd ~/git/multiloquent/bootstrap/css
 rm -rf mdb
 cp -r ~/git/bootstrap-material-design mdb
 cd mdb
@@ -14,7 +14,7 @@ rm -rf .git
 rm .gitignore
 
 
-cd /var/www/vhosts/development/wp-content/themes/multiloquent/
+cd ~/git/multiloquent/
 rm -rf documentation
 rm -f multiloquent.zip
 git add --all .
