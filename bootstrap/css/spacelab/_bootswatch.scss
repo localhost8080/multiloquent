@@ -1,4 +1,4 @@
-// Spacelab 4.0.0
+// Spacelab 4.3.1
 // Bootswatch
 
 
@@ -24,15 +24,15 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,700
   }
 
   &.bg-primary {
-    @include btn-shadow($primary);
+    @include btn-shadow(map-get($theme-colors, "primary"));
   }
 
   &.bg-dark {
-    @include btn-shadow($secondary);
+    @include btn-shadow(map-get($theme-colors, "secondary"));
   }
 
   &.bg-light {
-    @include btn-shadow($gray-200);
+    @include btn-shadow(map-get($theme-colors, "light"));
 
     .nav-link,
     .navbar-brand {
@@ -54,79 +54,18 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400italic,700
 .btn {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
 
-  &-primary {
-    @include btn-shadow($primary);
-
-    &:hover {
-      @include btn-shadow(darken($primary, 4%));
-    }
-  }
-
-  &-secondary {
-    @include btn-shadow($secondary);
-    color: $white;
-
-    &:hover {
-      @include btn-shadow(darken($secondary, 4%));
-    }
-  }
-
-  &-success {
-    @include btn-shadow($success);
-
-    &:hover {
-      @include btn-shadow(darken($success, 4%));
-    }
-  }
-
-  &-info {
-    @include btn-shadow($info);
-
-    &:hover {
-      @include btn-shadow(darken($info, 4%));
-    }
-  }
-
-  &-warning {
-    @include btn-shadow($warning);
-
-    &:hover {
-      @include btn-shadow(darken($warning, 4%));
-    }
-  }
-
-  &-danger {
-    @include btn-shadow($danger);
-
-    &:hover {
-      @include btn-shadow(darken($danger, 4%));
-    }
-  }
-
-  &-dark {
-    @include btn-shadow($danger);
-
-    &:hover {
-      @include btn-shadow(darken($danger, 4%));
-    }
-  }
-
-  &-light {
-    @include btn-shadow($danger);
-
-    &:hover {
-      @include btn-shadow(darken($danger, 4%));
-    }
-  }
-
   &-link {
     text-shadow: none;
   }
+}
 
-  &:active,
-  &.active {
-    background-image: none;
-    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include btn-shadow($value);
+  }
+
+  .btn-#{$color}:not(.disabled):hover {
+    @include btn-shadow(darken($value, 4%));
   }
 }
 

@@ -1,4 +1,4 @@
-// Cerulean 4.0.0
+// Cerulean 4.3.1
 // Bootswatch
 
 
@@ -58,7 +58,20 @@ $text-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !default;
   @include btn-shadow($danger);
 }
 
+.btn-light {
+  @include btn-shadow($light);
+}
+
+.btn-dark {
+  @include btn-shadow($dark);
+}
+
+
 // Typography ==================================================================
+
+.text-secondary {
+  color: $gray-500 !important;
+}
 
 .bg-primary,
 .bg-success,
