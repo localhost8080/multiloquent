@@ -35,7 +35,7 @@ if ( have_posts() ) {
 		?>
 		<div class="container-fluid clearfix">
 			<div class="col-sm-12 col-md-12 col-lg-12">
-				<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url; ?>"></iframe>
+				<iframe loading="lazy" width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url; ?>"></iframe>
 			</div>
 		</div>
 		<div class="container clearfix">
