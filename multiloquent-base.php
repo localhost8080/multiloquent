@@ -944,7 +944,7 @@ class MultiloquentBase
                 case "1":
                 case "6":
                     $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega doubleheight"> ';
-                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<img src="' . $theimg . '" class="object-fit">';
                     $output .= '<div class="paralax_image_bg doubleheight ' . $colour . '"></div>';
                     break;
                 case "2":
@@ -954,18 +954,18 @@ class MultiloquentBase
                 case "8":
                 case "10":
                     $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<img src="' . $theimg . '" class="object-fit">';
                     $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
                     break;
                 case "5":
                 case "9":
                     $output .= '<div class="paralax_image_holder float-left col-sm-8 col-md-8 col-lg-8 alpha omega"> ';
-                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<img src="' . $theimg . '" class="object-fit">';
                     $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
                     break;
                 default:
                     $output .= '<div class="paralax_image_holder float-left col-sm-4 col-md-4 col-lg-4 alpha omega"> ';
-                    $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+                    $output .= '<img src="' . $theimg . '" class="object-fit">';
                     $output .= '<div class="paralax_image_bg ' . $colour . '"></div>';
                     break;
             }
@@ -1066,7 +1066,7 @@ public function multiloquent_get_featured_posts($total_posts){
             } else {
                 $output .= '<div class="paralax_image_holder float-left halfheight hidden-xs hidden-sm col-md-3 col-lg-3 alpha omega">';
             }
-            $output .= '<span style="background-image:url(' . $theimg . ');" class="grayscale"></span>';
+            $output .= '<img src="' . $theimg . '" class="object-fit">';
             $output .= '<div class="paralax_image_bg halfheight ' . $colour . '"></div>';
             $output .= '<div class="paralax_image_text halfheight">';
             $output .= '<span class="h1"><a href="' . get_permalink($val->ID) . '">' . $this->multiloquent_post_title($val->ID) . '</a></span>';
@@ -1117,7 +1117,7 @@ public function multiloquent_get_featured_posts($total_posts){
             $the_image = get_header_image();
         } ?>
 <div class="paralax_image_holder float-left col-sm-6 col-md-4 col-lg-4" style="margin-bottom: 30px;">
-	<span style="background-image:url('<?php echo $the_image; ?>');" class="grayscale"></span>
+    <img src="<?php echo $the_image; ?>" class="object-fit">
 	<div class="paralax_image_bg <?php echo $colour; ?>"></div>
 	<div class="paralax_image_text">
 		<span class="h1"> 
