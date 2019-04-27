@@ -1127,6 +1127,8 @@ pre[class*="language-"] {
   }
 }
 /*# sourceMappingURL=style.css.map */
-.object-fit{
-  object-fit:cover;
+.object-fit {
+    object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
 }
