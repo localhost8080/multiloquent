@@ -1,108 +1,133 @@
-#This is the readme.txt for multiloquent theme v9
+=== Multiloquent ===
+Contributors: localhost8080
+Tags: block-editor-support, custom-colors, custom-menu, custom-header, featured-images, wide-blocks, post-formats, right-sidebar, two-columns, responsive-layout, accessibility-ready
+Requires at least: 6.4
+Tested up to: 6.7
+Requires PHP: 8.1
+Stable tag: 11.0.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-[![Build Status](https://travis-ci.org/localhost8080/multiloquent.svg?branch=master)](https://travis-ci.org/localhost8080/multiloquent)
+A modern, block-editor-ready WordPress theme built with Tailwind CSS v4 and theme.json.
 
-##Multiloquent html5 / bootstrap theme - 
- - a wordpress theme with 10 dynamic sidebars in various locations
- - using twitter bootstrap complete with yaarp related posts theme, 
- - dynamic top10 front page featured posts, fontawesome icons, 
- - category index page template, 
- - tag index page template and 4 post templates. 
- - Version 6.1.0 adds wordpress theme customisation API for theme colours and text colours. 
- - Version 6.4.0 adds support for custom header images
- - Version 7.0.0 adds support for bootswatch themes via the customisation panel
- - Version 7.1.0 adds a selector to switch between tags and excerpts in archives and the featured posts display
- - version 9.1.0 adds internationalisation
- - version 10.0.0 adds bootstrap4
+== Description ==
 
-Multiloquent is responsive and uses bootstrap for interface elements.
+Multiloquent is a classic WordPress theme built for the modern block editor. It replaces Bootstrap and LESS with Tailwind CSS v4 and a comprehensive theme.json configuration that controls colours, typography and spacing in both the editor and the frontend.
 
- - Multiloquent is available [here](http://wordpress.org/themes/multiloquent)
- - Multiloquent has a [github repo](https://github.com/localhost8080/multiloquent)
- - Support questions should be submitted in the wordpress [multiloquent theme support site](http://wordpress.org/support/theme/multiloquent)
+Key features:
 
-For the latest news / information on multiloquent theme, please check the [multiloquent blog](http://jonathansblog.co.uk/multiloquent-wordpress-theme)
+* Full Gutenberg block editor support (align-wide, wp-block-styles, responsive-embeds, appearance-tools)
+* theme.json v3 — fluid typography, spacing scale, colour palette, element styles, shadow presets
+* Five colour schemes selectable in the Styles panel (Default, Ocean, Forest, Ember, Midnight, Rose)
+* Slide-in sidebar navigation — accessible, keyboard-friendly, works on all viewport sizes
+* Tailwind CSS v4 — zero framework lock-in, compiled from source
+* Zero JavaScript dependencies — no jQuery, no Bootstrap JS
+* Eight widget areas (sidebar top/primary/bottom, three footer columns, two advert areas)
+* Featured posts grid on the homepage (integrates with Top 10 plugin)
+* Compatible with YARPP, Top 10, and Jetpack
 
+== Installation ==
 
-##Multiloquent has support for custom header image
-they are used as the post header image unless a featured image has been set against that post, in which case, the featured image is used
+1. Upload the `multiloquent` directory to `/wp-content/themes/`
+2. Activate the theme in Appearance → Themes
+3. The theme includes a pre-built `assets/css/main.css` — no build step required for basic use
 
-##Multiloquent now has a theme selector - as of v7.0.0
-Using the wordpress customisation panel you can select between all of the themes from [bootswatch.com](bootswatch.com) 
-and they will be applied to your site (aswell as the multiloquent theme and berebones bootstrap too)
+To build from source (recommended for customisation):
 
+  npm install
+  npm run build
 
-##This theme has 10 widget areas:
+== Colour Schemes ==
 
-1. sidebar top
-2. mobile specific advert
-3. non-mobile specific advert
-4. sidebar middle
-5. sidebar bottom
-6. footer top left
-7. footer top right
-8. social media
-9. footer bottom left
-10. footer bottom right
+Six colour schemes are available in Appearance → Editor → Styles:
 
-##Wordpress menu:
-Multiloquent has a slide-out sidebar with a built in search form and a wordpress menu 
-(assigned in admin > appearance > menu) there are also 3 widget areas in this sidebar.
+* Default — Classic blue primary, green secondary
+* Ocean   — Cyan and teal, amber accent
+* Forest  — Deep green primary, sky blue secondary
+* Ember   — Warm orange-red, pink secondary
+* Midnight — Indigo/violet palette, dark mode-ready
+* Rose    — Pink primary, violet secondary
 
-##Post tags:
-These are bootstrap 'label' style buttons and will have different colours based on the total number 
-of times the tag has been used across all posts / pages on your site.
+Each scheme overrides the full 12-colour semantic palette, gradients, and duotone presets.
 
-##Customisation:
-- Version 6.1.0 adds support for wordpress theme customisation API.
-- Currently supports changing background, text and border colours of the main theme elements.
-- Version 6.2 adds support for the main background colours and the slide-out sidebar menu.
+== Widget Areas ==
 
-##Featured Posts on homepage
-The main slider on the homepage will use your top five posts (by views) if you have the [top10 plugin](http://wordpress.org/extend/plugins/top-10/) installed
-otherwise it will use your 5 most recent as a fallback.
+* Sidebar Top — above the navigation in the slide-in sidebar
+* Primary Sidebar — main sidebar widget area
+* Sidebar Bottom — below the main sidebar area
+* Footer Column 1 — first footer column
+* Footer Column 2 — second footer column
+* Footer Column 3 — third footer column
+* Advert Primary — in-content advertisement area
+* Advert Secondary — secondary in-content advertisement area
 
-Multiloqient gets the image from the 'featured image' against the post if it exists, if it doesnt then it uses a default image.
+== Navigation Menus ==
 
-##Category index page
-category-index.php is a page template incase someone wants to make a page that displays 'all available categories in hierarchical order' 
-- sort of a 'top level category page' - it only contains links to category archives.
-to activate, simply make a page in your system and assign the category or tag template.
+* Primary Menu — appears in the slide-in sidebar
+* Footer Menu — inline links in the site footer
 
-##Tag index page
-tag-index.php is a page template incase someone wants to make a page that displays 'all available tags in alphabetical order' 
-- sort of a 'top level tag page' - it only displays links to tag archives
-to activate, simply make a page in your system and assign the category or tag template.
+== Customiser Options ==
 
-##Featured Images
-Posts with a featured image display the featured image in the header of the site.
+Under Appearance → Customize → Multiloquent Settings:
 
-##Posts pages
-Version 6.2 adds a 'featured posts' area under the main header that is shown on the posts.  
-This shows 4 posts from the same data as the homepage slider.
+* Featured posts display style — Tags, Excerpt, or None
+* Sidebar position — Left or Right (desktop)
 
-##YARRP
-Multiloquent has a theme for TW Recent Posts Widget '[yarpp](http://wordpress.org/extend/plugins/yet-another-related-posts-plugin/)' - yet another related posts plugin.
-It will auto include the related posts in the post page if its installed.
-[I suggest that you pick multiples of 3 for the number of related posts to show - 3 will be one row, 6 will be two rows]
+== Featured Posts ==
 
+The homepage displays a featured posts grid sourced from:
+1. Top 10 plugin (most-viewed posts, monthly) — if installed
+2. Sticky posts — if any are set
+3. Latest posts — fallback
 
-##Jetpack sharing
-Multiloquent has support for [jetpack](http://wordpress.org/extend/plugins/jetpack/) sharing plugins. 
-[and puts them in the correct position in your post if you have it installed].
+== Plugin Compatibility ==
 
-##There are 4 post template files included 
-if you use [custom post template](http://wordpress.org/extend/plugins/custom-post-template/)
+* YARPP (Yet Another Related Posts Plugin) — related posts auto-injected below single posts
+* Top 10 — used as the data source for the homepage featured posts grid
+* Jetpack — social sharing positioned correctly in posts
 
-1. Default with comments at the right hand side in desktop (under the post in mobile)
-2. Full width post with comments underneath
-3. Adventures: this auto inserts a google map if your post is titled 'placeA to placeB'
-  - eg 'Glasgow to London' will insert a google map with a route pre-selected - comments are disabled on this post template.
-4. Full width post with no header image or footer
-  - useful for creating these one-page full-width layouts
+== Custom Page Templates ==
 
+* Full Width — full-width post or page (no sidebar)
+* Full Width No Header — full-width, no hero image or site footer
+* Category Index — lists all categories in hierarchical order
+* Tag Index — lists all tags alphabetically
 
-- Multiloquent is licenced under the GPLv3 - please see the included LICENCE file
-- Multiloquent uses [bootstrap](http://getbootstrap.com) v3.3.4 - [Apache-20 Licence](http://www.apache.org/licenses/LICENSE-2.0)
-- Multiloquent uses [font-awesome](http://fontawesome.io) - [SiL Open Font Licence](http://scripts.sil.org/OFL)
-- Multiloquent uses styles from [bootswatch](http://bootswatch.com) - [MIT Licence](https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE)
+== Development ==
+
+Source: src/tailwind.css
+Output: assets/css/main.css
+
+Build commands:
+  npm run build   — production build (minified)
+  npm run dev     — watch mode
+
+Colour schemes are defined in the styles/ directory.
+To add a new scheme, copy an existing file and update the palette, gradients, and duotone arrays.
+
+== Changelog ==
+
+= 11.0.0 =
+* Complete overhaul — Bootstrap/LESS replaced with Tailwind CSS v4
+* Added theme.json v3 with full block editor configuration
+* Added five colour scheme style variations (Ocean, Forest, Ember, Midnight, Rose)
+* Added slide-in sidebar with full ARIA accessibility
+* Added vanilla JS (zero dependencies) replacing jQuery/Bootstrap JS
+* Added eight named widget areas
+* Added two navigation menus (primary, footer)
+* Added Customiser settings: featured style, sidebar position
+* Removed Bootswatch theme switcher
+* Removed Font Awesome (inline SVGs used instead)
+* Requires WordPress 6.4+ and PHP 8.1+
+
+= 10.2.0 =
+* Bootstrap 4, MDB v4.7.7, and all Bootswatch themes
+* 12 widget areas
+* WordPress Customizer colour and Bootswatch theme controls
+
+== Upgrade Notice ==
+
+= 11.0.0 =
+Major rewrite. Bootstrap, Font Awesome, and all LESS files have been removed.
+Run `npm install && npm run build` after updating to generate full frontend CSS.
+Widget area IDs have changed — reassign widgets in Appearance → Widgets.

@@ -22,6 +22,12 @@
  */
 
 /**
- * multiloquent functions file.
+ * Multiloquent theme bootstrap.
+ *
+ * Loads the core class and instantiates it as $multiloquent (global), so that
+ * template files can call $multiloquent->multiloquent_*() helpers directly.
  */
 require_once trailingslashit( get_template_directory() ) . 'multiloquent-base.php';
+
+global $multiloquent;
+$multiloquent = new MultiloquentBase();

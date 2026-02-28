@@ -1,84 +1,66 @@
 <?php
 /**
- * static page template part
+ * Static page template
  *
- * @link http://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @package multiloquent\template_parts
  */
 
-/**
- * static page template
- */
-
 get_header();
-echo '<!-- google_ad_section_start-->';
-if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
-		echo $multiloquent->multiloquent_paralax_featured_sliders();
-		require locate_template( 'featuredimage.php' );
-		echo '<div id="post-' . get_the_ID() . '" ';
-		echo post_class( 'post' );
-		echo '>';
-		require locate_template( 'breadcrumb.php' );
-		?>
-		<div class="container clearfix">
-			<div class="col-sm-12 col-md-12 col-lg-12">
-				<?php
-				
-				// remove_filter( 'the_content', 'sharing_display', 19 );
-				// remove_filter( 'the_excerpt', 'sharing_display', 19 );
-				the_content();
-				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
-				?>
-			</div>
-			<?php
-			get_template_part( 'advert' );
-			?>
-		</div>
-		<?php
-		get_template_part( 'social' );
-		if ( comments_open() ) {
-			?>
-			<section class="container clearfix">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<h3 class="hidden-lg">
-						<?php
-						printf(
-							esc_html__( 'Comments for %s', 'multiloquent' ),
-							$multiloquent->multiloquent_post_title()
-						);
-						?>
-					</h3>
-					<?php
-					comments_template();
-					get_template_part( 'advert-secondary' );
-					?>
-				</div>
-			</section>
-		<?php
-		}
-
-		if ( function_exists( 'related_posts' ) ) {
-			related_posts();
-		}
-		?>
-		<section class="container-fluid clearfix">
-			<?php
-			get_template_part( 'advert' );
-			?>
-		</section>
-		<?php
-		echo '</div>';
-	}
-} else {
+global $multiloquent;
 ?>
-	<div class="container post clearfix">
-		<?php
-		get_template_part( 'error-snippet' );
-		?>
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+	<!-- Featured image hero -->
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-hero">
+			<?php the_post_thumbnail( 'multiloquent-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
+		</div>
+	<?php endif; ?>
+
+	<div id="post-<?php the_ID(); ?>" <?php post_class( 'max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8' ); ?>>
+
+		<!-- Breadcrumb -->
+		<?php $multiloquent->multiloquent_breadcrumbs(); ?>
+
+		<!-- Page header -->
+		<header class="mb-6">
+			<h1 class="text-4xl font-bold leading-tight"><?php the_title(); ?></h1>
+		</header>
+
+		<!-- Page content -->
+		<div class="entry-content">
+			<?php the_content(); ?>
+			<?php wp_link_pages( [
+				'before' => '<p class="mt-6 font-semibold">' . esc_html__( 'Pages:', 'multiloquent' ) . '</p>',
+				'after'  => '</p>',
+			] ); ?>
+		</div>
+
+		<!-- Advert -->
+		<?php if ( is_active_sidebar( 'advert-primary' ) ) : ?>
+			<div class="my-8"><?php dynamic_sidebar( 'advert-primary' ); ?></div>
+		<?php endif; ?>
+
+		<!-- Comments -->
+		<?php if ( comments_open() || get_comments_number() ) : ?>
+			<div class="mt-12">
+				<?php comments_template(); ?>
+			</div>
+		<?php endif; ?>
+
+		<!-- Related posts (YARPP) -->
+		<?php if ( function_exists( 'related_posts' ) ) related_posts(); ?>
+
 	</div>
-<?php
-}
-echo '<!-- google_ad_section_end-->';
-get_footer();
+
+<?php endwhile; else : ?>
+
+	<div class="max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8">
+		<?php get_template_part( 'error-snippet' ); ?>
+	</div>
+
+<?php endif; ?>
+
+<?php get_footer(); ?>
