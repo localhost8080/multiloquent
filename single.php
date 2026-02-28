@@ -1,96 +1,99 @@
 <?php
 /**
- * single post template part
+ * Single post template
  *
  * @package multiloquent\template_parts
  */
-/**
- * template for blog posts
- */
-get_header();
-echo '<!-- google_ad_section_start-->';
-if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
-		echo $multiloquent->multiloquent_paralax_featured_sliders();
-		require locate_template( 'featuredimage.php' );
-		echo '<div id="post-' . get_the_ID() . '" ';
-		echo post_class( 'post' );
-		echo '>';
 
-		require locate_template( 'breadcrumb.php' );
-		?>
-		<div class="container clearfix mt-5">
-			<div class="col-sm-12 col-md-12 col-lg-12">
-				<?php
-				// remove_filter( 'the_content', 'sharing_display', 19 );
-				// remove_filter( 'the_excerpt', 'sharing_display', 19 );
-				the_content();
-				wp_link_pages( '<p><strong>Pages:</strong>', '</p>', 'number' );
-				?>
-			</div>
-			<?php
-			get_template_part( 'advert' );
-			?>
+get_header();
+global $multiloquent;
+?>
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+	<!-- Featured image hero -->
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="entry-hero">
+			<?php the_post_thumbnail( 'multiloquent-hero', [ 'loading' => 'eager', 'fetchpriority' => 'high' ] ); ?>
 		</div>
-		<?php
-		get_template_part( 'social' );
-		if ( comments_open() ) {
-			?>
-			<section class="container clearfix mt-5">
-				<div class="col-sm-12 col-md-12 col-lg-12">
-					<h3 class="hidden-lg">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
-					<?php
-					comments_template();
-					get_template_part( 'advert-secondary' );
-					?>
-				</div>
-			</section>
-		<?php
-		}
-		?>
-		<section class="container clearfix mt-5">
-			<div class="tagcloud">
-				<div class="tag-cloud">
-					<h3>Tags for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
-					<?php
-					$posttags = get_the_tags();
-					if ( $posttags ) {
-						foreach ( $posttags as $tag ) {
-							// if($tag->count > 5){
-							echo '<a class="label ';
-							echo $multiloquent->multiloquent_get_random_solid_class( $tag->slug );
-							echo '" href="' . get_tag_link( $tag->term_id ) . '"><span class="icon-tag icon-white"></span> ' . $tag->name . '</a>';
-							// }
-						}
-					}
-					?>
+	<?php endif; ?>
+
+	<div id="post-<?php the_ID(); ?>" <?php post_class( 'max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8' ); ?>>
+
+		<!-- Breadcrumb -->
+		<?php $multiloquent->multiloquent_breadcrumbs(); ?>
+
+		<!-- Post header -->
+		<header class="mb-6">
+			<h1 class="text-4xl font-bold leading-tight mb-3"><?php the_title(); ?></h1>
+			<p class="text-[var(--color-muted)] text-sm flex flex-wrap gap-x-3 gap-y-1">
+				<span><?php echo esc_html( get_the_date() ); ?></span>
+				<span>&mdash;</span>
+				<?php the_author_posts_link(); ?>
+				<?php $cats = get_the_category_list( ', ' ); if ( $cats ) : ?>
+					<span>&mdash;</span>
+					<?php echo $cats; ?>
+				<?php endif; ?>
+			</p>
+		</header>
+
+		<!-- Post content -->
+		<div class="entry-content">
+			<?php the_content(); ?>
+			<?php wp_link_pages( [
+				'before' => '<p class="mt-6 font-semibold">' . esc_html__( 'Pages:', 'multiloquent' ) . '</p>',
+				'after'  => '</p>',
+			] ); ?>
+		</div>
+
+		<!-- Advert -->
+		<?php if ( is_active_sidebar( 'advert-primary' ) ) : ?>
+			<div class="my-8"><?php dynamic_sidebar( 'advert-primary' ); ?></div>
+		<?php endif; ?>
+
+		<!-- Tags -->
+		<?php $tags = get_the_tags(); if ( $tags ) : ?>
+			<div class="mt-8">
+				<h3 class="text-base font-semibold mb-3"><?php esc_html_e( 'Tags', 'multiloquent' ); ?></h3>
+				<div class="flex flex-wrap gap-2">
+					<?php foreach ( $tags as $tag ) : ?>
+						<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" class="tag-label">
+							<?php echo esc_html( $tag->name ); ?>
+						</a>
+					<?php endforeach; ?>
 				</div>
 			</div>
-		</section>
-		<?php
-		if ( function_exists( 'related_posts' ) ) {
-			related_posts();
-		}
-		?>
-		<section class="container-fluid clearfix">
-			<?php
-			get_template_part( 'advert' );
-			?>
-		</section>
-		<?php
-		next_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link btn btn-primary"><span class="fa fa-chevron-left"></span></span>', true );
-		previous_post_link( '%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link btn btn-primary"><span class="fa fa-chevron-right"></span></span>', true );
-		echo '</div>';
-	}
-} else {
-	?>
-	<div class="container post clearfix">
-		<?php
-		get_template_part( 'error-snippet' );
-		?>
+		<?php endif; ?>
+
+		<!-- Post navigation (prev / next) -->
+		<nav class="mt-10 flex justify-between gap-4 text-sm" aria-label="<?php esc_attr_e( 'Post navigation', 'multiloquent' ); ?>">
+			<?php previous_post_link( '<span class="pagination-link">&larr; %link</span>', '%title' ); ?>
+			<?php next_post_link(     '<span class="pagination-link">%link &rarr;</span>',  '%title' ); ?>
+		</nav>
+
+		<!-- Comments -->
+		<?php if ( comments_open() || get_comments_number() ) : ?>
+			<div class="mt-12">
+				<?php comments_template(); ?>
+			</div>
+		<?php endif; ?>
+
+		<!-- Secondary advert -->
+		<?php if ( is_active_sidebar( 'advert-secondary' ) ) : ?>
+			<div class="my-8"><?php dynamic_sidebar( 'advert-secondary' ); ?></div>
+		<?php endif; ?>
+
+		<!-- Related posts (YARPP) -->
+		<?php if ( function_exists( 'related_posts' ) ) related_posts(); ?>
+
 	</div>
-<?php
-}
-echo '<!-- google_ad_section_end-->';
-get_footer();
+
+<?php endwhile; else : ?>
+
+	<div class="max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8">
+		<?php get_template_part( 'error-snippet' ); ?>
+	</div>
+
+<?php endif; ?>
+
+<?php get_footer(); ?>

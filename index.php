@@ -1,93 +1,70 @@
 <?php
 /**
- * fallback page if no other index page found
+ * Fallback archive template
  *
- * @link http://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @package multiloquent\template_parts
  */
 
-/**
- * fallback if no other archive pages are found
- */
 get_header();
-if ( have_posts() ) {
-	?>
-	<div class="jumbotron">
-		<div class="container-fluid clearfix">
-			<header>
-				<h1 class="article_title">
-					<?php
-					if ( is_category() ) {
-						printf( '%s', single_cat_title( '', false ) );
-					} elseif ( is_tag() ) {
-						printf(
-							esc_html__( 'Posts Tagged %s', 'multiloquent' ),
-							single_tag_title()
-						);
-					} elseif ( is_day() ) {
-						printf(
-							esc_html__( 'Archive for %s', 'multiloquent' ),
-							get_the_time( 'F jS, Y' )
-						);
-					} elseif ( is_month() ) {
-						printf(
-							esc_html__( 'Archive for %s', 'multiloquent' ), get_the_time( 'F Y' )
-						);
-					} elseif ( is_year() ) {
-						printf(
-							esc_html__( 'Archive for %s', 'multiloquent' ),
-							get_the_time( 'Y' )
-						);
-					} elseif ( is_search() ) {
-						printf(
-							esc_html__( 'Search Results', 'multiloquent' )
-						);
-					} elseif ( is_author() ) {
-						printf(
-							esc_html__( 'All entries by this author', 'multiloquent' )
-						);
-					} elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) {
-						printf(
-							esc_html__( 'Blog Archives', 'multiloquent' )
-						);
-					} elseif ( is_home() ) {
-						printf(
-							esc_html__( 'Recent Posts', 'multiloquent' )
-						);
-					}
-	?>
-				</h1>
-			</header>
+?>
+
+<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6 py-8">
+
+	<?php if ( have_posts() ) : ?>
+
+		<!-- Archive heading -->
+		<header class="mb-8">
+			<h1 class="text-3xl font-bold">
+				<?php
+				if ( is_category() ) {
+					single_cat_title();
+				} elseif ( is_tag() ) {
+					printf( esc_html__( 'Posts tagged: %s', 'multiloquent' ), single_tag_title( '', false ) );
+				} elseif ( is_day() ) {
+					printf( esc_html__( 'Archive: %s', 'multiloquent' ), get_the_time( 'F jS, Y' ) );
+				} elseif ( is_month() ) {
+					printf( esc_html__( 'Archive: %s', 'multiloquent' ), get_the_time( 'F Y' ) );
+				} elseif ( is_year() ) {
+					printf( esc_html__( 'Archive: %s', 'multiloquent' ), get_the_time( 'Y' ) );
+				} elseif ( is_search() ) {
+					esc_html_e( 'Search results', 'multiloquent' );
+				} elseif ( is_author() ) {
+					esc_html_e( 'Posts by this author', 'multiloquent' );
+				} else {
+					esc_html_e( 'Recent Posts', 'multiloquent' );
+				}
+				?>
+			</h1>
+			<?php if ( is_category() && category_description() ) : ?>
+				<p class="mt-2 text-[var(--color-muted)]"><?php echo category_description(); ?></p>
+			<?php endif; ?>
+		</header>
+
+		<!-- Post grid -->
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php global $multiloquent; $multiloquent->multiloquent_render_the_archive(); ?>
+			<?php endwhile; ?>
 		</div>
-	</div>
-	<section class="container-fluid post clearfix">
-		<?php
-		$colour = $multiloquent->multiloquent_get_random_blue_class();
-		while ( have_posts() ) {
-			the_post();
-			$multiloquent->multiloquent_render_the_archive( $colour );
-		}
-	?>
-	</section>
-	<section class="container-fluid post clearfix">
-		<?php
-		get_template_part( 'advert' );
-	?>
-	</section>
-	<div class="container-fluid post clearfix">
-		<nav class="navitems text-center">
-			<ul class="pagination">
-				<li><?php previous_posts_link( 'Previous Entries', 'multiloquent' ); ?></li>
-				<li><?php next_posts_link( 'Next Entries', 'multiloquent' ); ?></li>
-			</ul>
+
+		<!-- Advert area -->
+		<?php if ( is_active_sidebar( 'advert-primary' ) ) : ?>
+			<div class="my-8"><?php dynamic_sidebar( 'advert-primary' ); ?></div>
+		<?php endif; ?>
+
+		<!-- Pagination -->
+		<nav class="mt-10 flex justify-between gap-4" aria-label="<?php esc_attr_e( 'Posts navigation', 'multiloquent' ); ?>">
+			<?php previous_posts_link( '<span class="pagination-link">&larr; ' . esc_html__( 'Newer posts', 'multiloquent' ) . '</span>' ); ?>
+			<?php next_posts_link( '<span class="pagination-link">' . esc_html__( 'Older posts', 'multiloquent' ) . ' &rarr;</span>' ); ?>
 		</nav>
-	</div>
-<?php } else { ?>
-	<div class="container-fluid post clearfix">
-		<?php
-		get_template_part( 'error-snippet' );
-	?>
-	</div>
-<?php
-}
-get_footer();
+
+	<?php else : ?>
+
+		<?php get_template_part( 'error-snippet' ); ?>
+
+	<?php endif; ?>
+
+</div>
+
+<?php get_footer(); ?>

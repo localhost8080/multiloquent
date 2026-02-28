@@ -1,25 +1,11 @@
 <?php
 /**
- * Snippet to display adverts
+ * Secondary advert widget area
  *
  * @package multiloquent\template_parts
  */
-
-/**
- * Advert template part
- */
-?>
-
-<div class="ads text-center">
-	<?php
-	if ( wp_is_mobile() ) {
-		if ( is_active_sidebar( 11 ) ) {
-			dynamic_sidebar( 11 );
-		}
-	} else {
-		if ( is_active_sidebar( 12 ) ) {
-			dynamic_sidebar( 12 );
-		}
-	}
-?>
-</div>
+if ( is_active_sidebar( 'advert-secondary' ) ) {
+	echo '<div class="advert-secondary my-4">';
+	dynamic_sidebar( 'advert-secondary' );
+	echo '</div>';
+}

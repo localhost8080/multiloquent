@@ -9,3 +9,16 @@ scopes
 .idea
 .vscode
 .vagrant
+
+# Node / Tailwind build
+node_modules/
+npm-debug.log*
+
+# Built CSS is committed so the theme works without a build step
+# Uncomment the next line if you prefer to exclude it:
+# assets/css/main.css
+
+# LESS (no longer used — replaced by Tailwind)
+style.css.map
+style.less
+print.min.css

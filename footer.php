@@ -1,94 +1,65 @@
 <?php
 /**
- * multiloquent theme footer
+ * Site footer
  *
  * @package multiloquent\template_parts
  */
-/**
- * footer template part
- */
 ?>
-</div>
-<?php
-get_sidebar();
-?>
-</div>
-<?php
-require locate_template( 'navigation.php' );
-if ( empty( $hide_the_footer_links ) ) {
-	?>
-<footer class="page-footer special-color p-4">
-	<div class="container-fluid clearfix">
-		<aside>
+	</main><!-- #main-content -->
 
-			<?php
-			if ( is_active_sidebar( 6 ) || is_active_sidebar( 7 ) ) {
-		?>
-							<div class="row">
-							<div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
-						<?php
-						if ( is_active_sidebar( 6 ) ) {
-							dynamic_sidebar( 6 );
-						}
-		?>
-					</div>
-							<div class="col-sm-6 col-md-6 col-lg-6 no-bullets mb">
-						<?php
-						if ( is_active_sidebar( 7 ) ) {
-							dynamic_sidebar( 7 );
-						}
-		?>
-					</div>
-						</div>
+	<!-- ===== Site footer ===== -->
+	<footer class="site-footer mt-auto" role="contentinfo">
+		<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6 py-10">
 
-							<?php
-			}
-	?>
-				<div class="row">
+			<?php if ( is_active_sidebar( 'footer-col-1' ) || is_active_sidebar( 'footer-col-2' ) || is_active_sidebar( 'footer-col-3' ) ) : ?>
+				<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+					<?php if ( is_active_sidebar( 'footer-col-1' ) ) : ?>
+						<div><?php dynamic_sidebar( 'footer-col-1' ); ?></div>
+					<?php endif; ?>
 
-				<?php
-				if ( is_active_sidebar( 9 ) ) {
-		?>
+					<?php if ( is_active_sidebar( 'footer-col-2' ) ) : ?>
+						<div><?php dynamic_sidebar( 'footer-col-2' ); ?></div>
+					<?php endif; ?>
 
-									<div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-									<p class="nav-header h5">
-							<?php
-							printf( esc_html__( 'Useful Stuff', 'multiloquent' ) );
-		?>
-						  </p>
-						<?php
-						// sidebar 10 for some things in Îfooter
-						dynamic_sidebar( 9 );
-		?>
-									</div>
-
-									<?php
-				}
-				if ( is_active_sidebar( 10 ) ) {
-					?>
-
-					<div class="col-sm-6 col-md-6 col-lg-6 no-bullets">
-					<p class="nav-header h5">
-							<?php
-							printf( esc_html__( 'More Useful Stuff', 'multiloquent' ) );
-					?>
-						  </p>
-						<?php
-						// sidebar 10 for some things in footer
-						dynamic_sidebar( 10 );
-					?>
-					</div>
-					<?php
-				}
-	?>
-
+					<?php if ( is_active_sidebar( 'footer-col-3' ) ) : ?>
+						<div><?php dynamic_sidebar( 'footer-col-3' ); ?></div>
+					<?php endif; ?>
 				</div>
-		</aside>
-	</div>
-</footer>
-<?php
-}
-wp_footer();
-?>
+			<?php endif; ?>
+
+			<div class="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-[oklch(70%_0_0)]">
+				<p>
+					&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+					   class="hover:text-white transition-colors">
+						<?php bloginfo( 'name' ); ?>
+					</a>
+				</p>
+
+				<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
+					<nav aria-label="<?php esc_attr_e( 'Footer Navigation', 'multiloquent' ); ?>">
+						<?php wp_nav_menu( [
+							'theme_location' => 'footer-menu',
+							'depth'          => 1,
+							'container'      => false,
+							'menu_class'     => 'flex flex-wrap gap-4',
+						] ); ?>
+					</nav>
+				<?php endif; ?>
+
+				<p>
+					<?php printf(
+						/* translators: %s: WordPress link */
+						esc_html__( 'Powered by %s', 'multiloquent' ),
+						'<a href="https://wordpress.org" class="hover:text-white transition-colors">WordPress</a>'
+					); ?>
+				</p>
+			</div>
+		</div>
+	</footer>
+
+</div><!-- #page-wrapper -->
+
+<?php wp_footer(); ?>
 </body>
 </html>
