@@ -4,8 +4,8 @@
  */
 get_header();
 ?>
-	<div class="jumbotron">
-		<div class="container-fluid clearfix">
+	<div class="bg-[var(--color-surface)] py-10">
+		<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 			<h1>
 				<?php
 				printf(
@@ -15,32 +15,23 @@ get_header();
 			</h1>
 		</div>
 	</div>
-	<div class="container-fluid clearfix">
+	<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<!-- google_ad_section_start-->
 		<article>
 			<?php
-			// Make an array from A to Z.
-			// $characters = range('a', 'z');
-			// Check if $characters exists and ensure that it is an array.
-			// if ($characters && is_array($characters)) {
-			// foreach ($characters as $index => $character) {
-			// Get the tag information for each characters in the array.
 			$tags = get_tags(
 				array(
 					'order' => 'ASC',
 				)
 			);
-			// print_r($tags);
 			if ( $index != 0 && $index % 4 == 0 ) {
-				$html = "<div class='post-tags clearfix' style='clear:left;'>";
+				$html = "<div class='post-tags' style='clear:left;'>";
 			} else {
-				$html = "<div class='post-tags clearfix'>";
+				$html = "<div class='post-tags'>";
 			}
-			// Output the character and use it as the title.
 			$html .= "<h3 class='title'>{$character}</h3>";
-			// Output the markup for each tag found for each character.
 			if ( $tags ) {
-				$html .= '<ul class="thumbnails row">';
+				$html .= '<ul class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 list-none p-0">';
 				$first_colour = $multiloquent->multiloquent_get_random_solid_class( $tag->slug );
 				foreach ( (array) $tags as $tag ) {
 					$tag_link = get_tag_link( $tag->term_id );
@@ -51,19 +42,19 @@ get_header();
 						$tile_colour = $first_colour;
 					}
 					if ( strlen( $tag->name ) > '30' ) {
-						$html .= '<li class="tag-item tile tile-double double-height col-sm-6 col-md-4 col-lg-3 ' . $tile_colour . '" onclick="javascript:window.location.href=';
+						$html .= '<li class="tag-item tile tile-double double-height ' . $tile_colour . '" onclick="javascript:window.location.href=';
 						$html .= "'" . $tag_link . "'";
 						$html .= '" >';
 					} elseif ( strlen( $tag->name ) > '10' ) {
-						$html .= '<li class="tag-item tile tile-double col-sm-6 col-md-4 col-lg-3 ' . $tile_colour . '" onclick="javascript:window.location.href=';
+						$html .= '<li class="tag-item tile tile-double ' . $tile_colour . '" onclick="javascript:window.location.href=';
 						$html .= "'" . $tag_link . "'";
 						$html .= '" >';
 					} elseif ( strlen( $tag->name ) > '5' ) {
-						$html .= '<li class="tag-item tile tile-double col-sm-6 col-md-4 col-lg-3 ' . $tile_colour . '" onclick="javascript:window.location.href=';
+						$html .= '<li class="tag-item tile tile-double ' . $tile_colour . '" onclick="javascript:window.location.href=';
 						$html .= "'" . $tag_link . "'";
 						$html .= '" >';
 					} else {
-						$html .= '<li class="tag-item tile col-sm-6 col-md-4 col-lg-3 ' . $tile_colour . '" onclick="javascript:window.location.href=';
+						$html .= '<li class="tag-item tile ' . $tile_colour . '" onclick="javascript:window.location.href=';
 						$html .= "'" . $tag_link . "'";
 						$html .= '" >';
 					}
@@ -77,18 +68,14 @@ get_header();
 						$html .= '<h2><a href="' . $tag_link . '" title="View all ' . $tag->count . ' articles with the tag of ' . $tag->name . '" >';
 						$html .= "{$tag->name}</a></h2>";
 					}
-					$html .= '<span class="badge">' . $tag->count . '</span>';
+					$html .= '<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[var(--color-primary)] text-white">' . $tag->count . '</span>';
 					$html .= '</li>';
 				}
 				$html .= '</ul>';
 			}
 			$html .= '</div>';
-			// Output the markup for the current character.
 			echo $html;
-			// Increment the index by 1.
 			$index++;
-			// }
-			// }
 ?>
 		</article>
 		<!-- google_ad_section_end-->

@@ -32,7 +32,7 @@ if ( have_comments() ) {
 
 			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
 				<nav>
-					<ul class="pager">
+					<ul class="flex gap-4 list-none p-0">
 						<?php if ( get_previous_comments_link() ) { ?>
 							<li class="previous"><?php previous_comments_link( esc_html__( '&larr; Older comments', 'multiloquent' ) ); ?></li>
 						<?php
@@ -49,9 +49,7 @@ if ( have_comments() ) {
 		}
 		if ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) {
 			?>
-			<div class="alert alert-block fade in">
-				<a class="close" data-dismiss="alert">&times;</a>
-
+			<div class="rounded-md border px-4 py-3 text-sm bg-amber-50 border-amber-200 text-amber-800">
 				<p>
 					<?php
 					printf(
@@ -70,9 +68,7 @@ if ( have_comments() ) {
 if ( ! have_comments() && ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) {
 	?>
 	<section id="comments">
-		<div class="alert alert-block fade in">
-			<a class="close" data-dismiss="alert">&times;</a>
-
+		<div class="rounded-md border px-4 py-3 text-sm bg-amber-50 border-amber-200 text-amber-800">
 			<p>
 				<?php
 				printf(
@@ -101,9 +97,9 @@ if ( comments_open() ) {
 			<?php
 			} else {
 					$comments_args = array(
-						'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="form-control" id="comment" name="comment" aria-required="true"></textarea></p>',
+						'comment_field' => '<p class="comment-form-comment"><label for="comment">Comment</label><br /><textarea class="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-base)] px-3 py-2 text-sm" id="comment" name="comment" aria-required="true"></textarea></p>',
 						'class_form' => '',
-						'class_submit' => 'btn btn-success',
+						'class_submit' => 'px-4 py-2 bg-[var(--color-secondary)] text-white rounded-md hover:opacity-90 transition-colors cursor-pointer',
 					);
 					comment_form( $comments_args );
 			}

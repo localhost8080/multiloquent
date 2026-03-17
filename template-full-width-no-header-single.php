@@ -26,7 +26,7 @@ if ( have_posts() ) {
 	}
 } else {
 	?>
-	<div class="container post clearfix">
+	<div class="max-w-[var(--width-content)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>

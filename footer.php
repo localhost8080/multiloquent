@@ -11,18 +11,14 @@
 	<footer class="site-footer mt-auto" role="contentinfo">
 		<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6 py-10">
 
-			<?php if ( is_active_sidebar( 'footer-col-1' ) || is_active_sidebar( 'footer-col-2' ) || is_active_sidebar( 'footer-col-3' ) ) : ?>
-				<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+			<?php if ( is_active_sidebar( 'footer-col-1' ) || is_active_sidebar( 'footer-col-2' ) ) : ?>
+				<div class="grid gap-8 sm:grid-cols-2 mb-8">
 					<?php if ( is_active_sidebar( 'footer-col-1' ) ) : ?>
 						<div><?php dynamic_sidebar( 'footer-col-1' ); ?></div>
 					<?php endif; ?>
 
 					<?php if ( is_active_sidebar( 'footer-col-2' ) ) : ?>
 						<div><?php dynamic_sidebar( 'footer-col-2' ); ?></div>
-					<?php endif; ?>
-
-					<?php if ( is_active_sidebar( 'footer-col-3' ) ) : ?>
-						<div><?php dynamic_sidebar( 'footer-col-3' ); ?></div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>

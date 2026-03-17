@@ -17,8 +17,8 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 	get_header();
 	?>
 	<!-- google_ad_section_start-->
-	<div class="jumbotron">
-		<div class="container-fluid clearfix">
+	<div class="bg-[var(--color-surface)] py-10">
+		<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 			<?php
 			while ( have_posts() ) {
 				the_post();
@@ -28,7 +28,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 		</div>
 	</div>
 	<!-- google_ad_section_end-->
-	<p class="lead text-center">
+	<p class="text-lg text-center">
 		<?php
 		printf(
 			esc_html__( 'Featured Posts', 'multiloquent' )
@@ -36,7 +36,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 	?>
 	</p>
 	<?php echo $multiloquent->multiloquent_paralax_slider(); ?>
-	<div class="container-fluid clearfix">
+	<div class="max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'advert' );
 	?>

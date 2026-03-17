@@ -4,40 +4,20 @@
  */
 global $multiloquent;
 ?>
-<section class="container-fluid post clearfix">
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<?php
-			/*
-			* <h3>
-			* <?php
-			* // printf(
-			* // esc_html__('Other Posts related to %s', 'multiloquent'),
-			* // $multiloquent->multiloquent_post_title()
-			* // );
-			*
-			* esc_html__('Related Posts', 'multiloquent');
-			* ?>
-			*
-			* </h3>
-			*/
+<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
+	<div>
+		<?php
+		if ( have_posts() ) {
+			$colour = $multiloquent->multiloquent_get_random_blue_class();
+			while ( have_posts() ) {
+				the_post();
+				$multiloquent->multiloquent_render_the_archive( $colour );
+			}
+		} else {
+			echo '<p>';
+			printf( esc_html__( 'No related posts.', 'multiloquent' ) );
+			echo '</p>';
+		}
 ?>
-
-			<div>
-				<?php
-				if ( have_posts() ) {
-					$colour = $multiloquent->multiloquent_get_random_blue_class();
-					while ( have_posts() ) {
-						the_post();
-						$multiloquent->multiloquent_render_the_archive( $colour );
-					}
-				} else {
-					echo '<p>';
-					printf( esc_html__( 'No related posts.', 'multiloquent' ) );
-					echo '</p>';
-				}
-?>
-			</div>
-		</div>
 	</div>
 </section>

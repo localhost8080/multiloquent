@@ -33,13 +33,13 @@ if ( have_posts() ) {
 		}
 		$map_url .= '&mode=walking';
 		?>
-		<div class="container-fluid clearfix">
-			<div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="w-full px-4 md:px-6">
+			<div class="w-full">
 				<iframe loading="lazy" width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $map_url; ?>"></iframe>
 			</div>
 		</div>
-		<div class="container clearfix">
-			<div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="max-w-[var(--width-content)] mx-auto px-4 md:px-6">
+			<div class="w-full">
 				<?php
 				// remove_filter( 'the_content', 'sharing_display', 19 );
 				// remove_filter( 'the_excerpt', 'sharing_display', 19 );
@@ -49,13 +49,13 @@ if ( have_posts() ) {
 			</div>
 		</div>
 		<?php
-		next_post_link( '%link', '<span class="next_link btn btn-primary"><span class="fa fa-chevron-left"></span></span>', true );
-		previous_post_link( '%link', '<span class="prev_link btn btn-primary"><span class="fa fa-chevron-right"></span></span>', true );
+		next_post_link( '%link', '<span class="next_link inline-flex items-center justify-center px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"><span class="fa fa-chevron-left"></span></span>', true );
+		previous_post_link( '%link', '<span class="prev_link inline-flex items-center justify-center px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"><span class="fa fa-chevron-right"></span></span>', true );
 		echo '</div>';
 	}
 } else {
 	?>
-	<div class="container post clearfix">
+	<div class="max-w-[var(--width-content)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>

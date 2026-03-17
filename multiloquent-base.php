@@ -177,12 +177,6 @@ class MultiloquentBase {
 		] ) );
 
 		register_sidebar( array_merge( $defaults, [
-			'id'          => 'footer-col-3',
-			'name'        => esc_html__( 'Footer Column 3', 'multiloquent' ),
-			'description' => esc_html__( 'Third footer column.', 'multiloquent' ),
-		] ) );
-
-		register_sidebar( array_merge( $defaults, [
 			'id'          => 'advert-primary',
 			'name'        => esc_html__( 'Advert — Primary', 'multiloquent' ),
 			'description' => esc_html__( 'In-content advert area.', 'multiloquent' ),

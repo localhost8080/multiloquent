@@ -13,8 +13,8 @@
 get_header();
 if ( have_posts() ) {
 	?>
-	<div class="jumbotron category-banner">
-		<div class="container-fluid clearfix">
+	<div class="bg-[var(--color-surface)] py-10 px-4 md:px-6 category-banner">
+		<div class="max-w-[var(--width-wide)] mx-auto">
 			<header>
 				<h1 class="article_title">
 					<?php
@@ -37,7 +37,7 @@ if ( have_posts() ) {
 			</header>
 		</div>
 	</div>
-	<section class="container-fluid post clearfix">
+	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		$colour = $multiloquent->multiloquent_get_random_blue_class();
 		while ( have_posts() ) {
@@ -46,21 +46,21 @@ if ( have_posts() ) {
 		}
 	?>
 	</section>
-	<section class="container-fluid post clearfix">
+	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'advert' );
 	?>
 	</section>
-	<div class="container-fluid post clearfix">
-		<nav class="navitems text-center">
-			<ul class="pagination">
+	<div class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
+		<nav class="text-center">
+			<ul class="flex gap-2 justify-center list-none p-0">
 				<li><?php previous_posts_link( esc_html__( 'Previous Entries', 'multiloquent' ) ); ?></li>
 				<li><?php next_posts_link( esc_html__( 'Next Entries', 'multiloquent' ) ); ?></li>
 			</ul>
 		</nav>
 	</div>
 <?php } else { ?>
-	<div class="container-fluid post clearfix">
+	<div class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>

@@ -14,11 +14,11 @@
 get_header();
 if ( have_posts() ) {
 	?>
-	<div class="jumbotron category-banner">
-		<div class="container-fluid clearfix">
+	<div class="bg-[var(--color-surface)] py-10 px-4 md:px-6 category-banner">
+		<div class="max-w-[var(--width-wide)] mx-auto">
 			<header class="profile">
-				<div class="col-sm-12">
-					<div class="col-xs-12 col-sm-8">
+				<div class="w-full flex flex-wrap">
+					<div class="w-full sm:w-2/3 px-4">
 						<h2><?php the_author_meta( 'display_name' ); ?></h2>
 
 						<p>
@@ -32,7 +32,7 @@ if ( have_posts() ) {
 							<?php the_author_link(); ?>
 						</p>
 					</div>
-					<div class="col-xs-12 col-sm-4 text-center">
+					<div class="w-full sm:w-1/3 text-center px-4">
 						<figure>
 							<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
 							<figcaption class="ratings">
@@ -48,8 +48,8 @@ if ( have_posts() ) {
 						</figure>
 					</div>
 				</div>
-				<div class="col-xs-12 divider">
-					<div class="col-xs-12">
+				<div class="w-full divider mt-4">
+					<div class="w-full">
 						<?php
 						$description = get_the_author_meta( 'description' );
 						if ( ! empty( $description ) ) {
@@ -61,7 +61,7 @@ if ( have_posts() ) {
 			</header>
 		</div>
 	</div>
-	<section class="container-fluid post clearfix">
+	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		$colour = $multiloquent->multiloquent_get_random_blue_class();
 		while ( have_posts() ) {
@@ -70,21 +70,21 @@ if ( have_posts() ) {
 		}
 	?>
 	</section>
-	<section class="container-fluid post clearfix">
+	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'advert' );
 	?>
 	</section>
-	<div class="container-fluid post clearfix">
-		<nav class="navitems text-center">
-			<ul class="pagination">
+	<div class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
+		<nav class="text-center">
+			<ul class="flex gap-2 justify-center list-none p-0">
 				<li><?php previous_posts_link( esc_html__( 'Previous Entries', 'multiloquent' ) ); ?></li>
 				<li><?php next_posts_link( esc_html__( 'Next Entries', 'multiloquent' ) ); ?></li>
 			</ul>
 		</nav>
 	</div>
 <?php } else { ?>
-	<div class="container-fluid post clearfix">
+	<div class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
 		get_template_part( 'error-snippet' );
 	?>
