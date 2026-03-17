@@ -48,10 +48,7 @@ global $multiloquent;
 				]); ?>
 			</div>
 
-			<!-- Advert -->
-			<?php if (is_active_sidebar('advert-primary')) : ?>
-				<div class="my-8"><?php dynamic_sidebar('advert-primary'); ?></div>
-			<?php endif; ?>
+
 
 			<!-- Tags -->
 			<?php $tags = get_the_tags();

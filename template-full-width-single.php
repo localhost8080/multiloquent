@@ -25,9 +25,7 @@ if (have_posts()) {
 				wp_link_pages('<p><strong>Pages:</strong>', '</p>', 'number');
 				?>
 			</div>
-			<?php
-			get_template_part('advert');
-			?>
+
 		</div>
 		<?php
 		get_template_part('social');
@@ -38,7 +36,6 @@ if (have_posts()) {
 					<h3 class="lg:hidden">Comments for <?php echo $multiloquent->multiloquent_post_title(); ?></h3>
 					<?php
 					comments_template();
-
 					?>
 				</div>
 			</section>
@@ -62,17 +59,11 @@ if (have_posts()) {
 				</div>
 			</div>
 		</section>
-		<?php
+	<?php
 		if (function_exists('related_posts')) {
 			related_posts();
 		}
-		?>
-		<section class="w-full px-4 md:px-6">
-			<?php
-			get_template_part('advert');
-			?>
-		</section>
-	<?php
+
 		next_post_link('%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="next_link inline-flex items-center justify-center px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"><span class="fa fa-chevron-left"></span></span>', true);
 		previous_post_link('%link', '<span style="text-indent:-9000px; position:absolute;">%title</span><span class="prev_link inline-flex items-center justify-center px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"><span class="fa fa-chevron-right"></span></span>', true);
 		echo '</div>';
