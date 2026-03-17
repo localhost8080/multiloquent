@@ -39,7 +39,7 @@ if (have_posts()) {
 		</div>
 	</div>
 	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
-		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:[grid-auto-rows:14rem]">
+		<div class="archive-grid">
 			<?php while (have_posts()) : the_post(); ?>
 				<?php $multiloquent->multiloquent_render_the_archive(); ?>
 			<?php endwhile; ?>

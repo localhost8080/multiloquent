@@ -282,27 +282,22 @@ class MultiloquentBase
 		global $wp_query;
 		$is_hero        = (0 === $wp_query->current_post);
 		$featured_style = get_theme_mod('multiloquent_featured_style', 'tags');
-		$extra_classes  = $is_hero
-			? 'h-64 lg:h-auto lg:col-span-2 lg:row-span-2'
-			: 'h-48 lg:h-auto';
+		$card_class     = $is_hero ? 'archive-card archive-card-hero' : 'archive-card';
 ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class('relative overflow-hidden rounded-lg border border-[var(--color-border)] hover:shadow-md transition-shadow ' . $extra_classes); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class($card_class); ?>>
 			<?php if (has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail('multiloquent-card', [
-					'class'   => 'absolute inset-0 w-full h-full object-cover',
 					'loading' => $is_hero ? 'eager' : 'lazy',
 				]); ?>
 			<?php else : ?>
-				<div class="absolute inset-0 bg-[var(--color-surface-alt)]"></div>
+				<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
 			<?php endif; ?>
-			<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-4">
+			<div class="archive-card-overlay">
 				<header>
-					<h2 class="leading-snug text-white <?php echo $is_hero ? 'font-bold text-xl lg:text-2xl' : 'font-semibold text-sm'; ?>">
-						<a href="<?php the_permalink(); ?>" class="text-white hover:text-white/80 no-underline">
-							<?php the_title(); ?>
-						</a>
+					<h2 style="margin:0;line-height:1.3;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</h2>
-					<p class="text-xs text-white/70 mt-1">
+					<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.7;">
 						<?php echo esc_html(get_the_date()); ?>
 						<?php if (get_the_author()) : ?>
 							&mdash; <?php echo esc_html(get_the_author()); ?>
@@ -310,17 +305,17 @@ class MultiloquentBase
 					</p>
 				</header>
 				<?php if ('excerpt' === $featured_style && $is_hero) : ?>
-					<p class="text-xs text-white/80 mt-1 line-clamp-2">
+					<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.8;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
 						<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?>
 					</p>
 				<?php elseif ('tags' === $featured_style) : ?>
-					<div class="flex flex-wrap gap-1 mt-1">
+					<div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.25rem;">
 						<?php
 						$tags = get_the_tags();
 						if ($tags) {
 							foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
 								printf(
-									'<a href="%s" class="tag-label text-xs opacity-90">%s</a>',
+									'<a href="%s" class="tag-label" style="font-size:0.75rem;opacity:0.9;">%s</a>',
 									esc_url(get_tag_link($tag->term_id)),
 									esc_html($tag->name)
 								);
@@ -405,48 +400,40 @@ class MultiloquentBase
 	?>
 		<section class="featured-slider bg-[var(--color-surface)] py-6 px-4 md:px-6"
 			aria-label="<?php esc_attr_e('Featured posts', 'multiloquent'); ?>">
-			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:[grid-auto-rows:14rem] max-w-[var(--width-wide)] mx-auto">
+			<div class="archive-grid max-w-[var(--width-wide)] mx-auto">
 				<?php foreach ($featured_posts as $i => $fp) :
 					$thumb   = get_the_post_thumbnail_url($fp->ID, 'multiloquent-card');
 					$is_hero = ($i === 0);
-					$card_classes = 'relative block rounded-lg overflow-hidden border border-[var(--color-border)] hover:shadow-md transition-shadow';
-					if ($is_hero) {
-						$card_classes .= ' lg:col-span-2 lg:row-span-2';
-					}
-					$img_classes = 'absolute inset-0 w-full h-full object-cover';
+					$card_class = $is_hero ? 'archive-card archive-card-hero' : 'archive-card';
 				?>
-					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>"
-						class="<?php echo $card_classes; ?>">
-						<div class="<?php echo $is_hero ? 'h-64 lg:h-full' : 'h-48 lg:h-full'; ?> relative">
-							<?php if ($thumb) : ?>
-								<img src="<?php echo esc_url($thumb); ?>"
-									alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
-									class="<?php echo $img_classes; ?>"
-									loading="<?php echo $i === 0 ? 'eager' : 'lazy'; ?>">
-							<?php else : ?>
-								<div class="absolute inset-0 bg-[var(--color-surface-alt)]"></div>
-							<?php endif; ?>
-							<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-3">
-								<h3 class="leading-snug text-white <?php echo $is_hero ? 'font-bold text-xl lg:text-2xl' : 'font-semibold text-sm'; ?>">
-									<?php echo esc_html(get_the_title($fp->ID)); ?>
-								</h3>
-								<?php if ('excerpt' === $featured_style && $is_hero) : ?>
-									<p class="text-xs text-white/80 mt-1 line-clamp-2">
-										<?php echo esc_html(wp_trim_words(get_the_excerpt($fp->ID), 20)); ?>
-									</p>
-								<?php elseif ('tags' === $featured_style) : ?>
-									<div class="flex flex-wrap gap-1 mt-1">
-										<?php
-										$tags = get_the_tags($fp->ID);
-										if ($tags) {
-											foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
-												printf('<span class="tag-label text-xs opacity-90">%s</span>', esc_html($tag->name));
-											}
+					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>" class="<?php echo $card_class; ?>">
+						<?php if ($thumb) : ?>
+							<img src="<?php echo esc_url($thumb); ?>"
+								alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
+								loading="<?php echo $i === 0 ? 'eager' : 'lazy'; ?>">
+						<?php else : ?>
+							<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
+						<?php endif; ?>
+						<div class="archive-card-overlay">
+							<h3 style="margin:0;line-height:1.3;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
+								<?php echo esc_html(get_the_title($fp->ID)); ?>
+							</h3>
+							<?php if ('excerpt' === $featured_style && $is_hero) : ?>
+								<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.8;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
+									<?php echo esc_html(wp_trim_words(get_the_excerpt($fp->ID), 20)); ?>
+								</p>
+							<?php elseif ('tags' === $featured_style) : ?>
+								<div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.25rem;">
+									<?php
+									$tags = get_the_tags($fp->ID);
+									if ($tags) {
+										foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
+											printf('<span class="tag-label" style="font-size:0.75rem;opacity:0.9;">%s</span>', esc_html($tag->name));
 										}
-										?>
-									</div>
-								<?php endif; ?>
-							</div>
+									}
+									?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</a>
 				<?php endforeach; ?>

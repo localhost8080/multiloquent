@@ -5,7 +5,7 @@
 global $multiloquent;
 ?>
 <section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
-	<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:[grid-auto-rows:14rem]">
+	<div class="archive-grid">
 		<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
