@@ -1,14 +1,14 @@
 {
-  "name": "multiloquent",
-  "version": "11.0.0",
-  "description": "Multiloquent WordPress theme - modern block-editor ready theme with Tailwind CSS v4",
-  "scripts": {
-    "build": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --minify",
-    "dev": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --watch"
-  },
-  "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.0.0"
-  },
-  "license": "GPL-2.0-or-later"
+    "name": "multiloquent",
+    "version": "26.0.0",
+    "description": "Multiloquent WordPress theme - modern block-editor ready theme with Tailwind CSS v4",
+    "scripts": {
+        "build": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --minify",
+        "dev": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --watch"
+    },
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.0.0",
+        "tailwindcss": "^4.0.0"
+    },
+    "license": "GPL-2.0-or-later"
 }
