@@ -33,6 +33,28 @@
 }
 
 /* =========================================================
+   Bridge: WP preset color tokens → Tailwind color tokens
+   WordPress generates --wp--preset--color--* from theme.json
+   (and updates them when a style variation is active).
+   Overriding --color-* here makes every Tailwind utility that
+   references var(--color-*) react to Site Editor colour changes.
+   ========================================================= */
+:root {
+  --color-primary:       var(--wp--preset--color--primary);
+  --color-primary-dark:  var(--wp--preset--color--primary-dark);
+  --color-primary-light: var(--wp--preset--color--primary-light);
+  --color-secondary:     var(--wp--preset--color--secondary);
+  --color-accent:        var(--wp--preset--color--accent);
+  --color-danger:        var(--wp--preset--color--danger);
+  --color-base:          var(--wp--preset--color--base);
+  --color-contrast:      var(--wp--preset--color--contrast);
+  --color-muted:         var(--wp--preset--color--muted);
+  --color-surface:       var(--wp--preset--color--surface);
+  --color-surface-alt:   var(--wp--preset--color--surface-alt);
+  --color-border:        var(--wp--preset--color--border);
+}
+
+/* =========================================================
    WordPress required alignment helpers
    ========================================================= */
 .aligncenter  { margin-inline: auto; display: block; }
