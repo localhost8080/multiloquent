@@ -13,31 +13,30 @@ global $multiloquent;
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<!-- Featured image hero -->
-		<?php if (has_post_thumbnail()) : ?>
-			<div class="entry-hero">
+
+		<div class="entry-hero">
+			<?php if (has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail('multiloquent-hero', ['loading' => 'eager', 'fetchpriority' => 'high']); ?>
+			<?php endif; ?>
+			<div class="entry-hero-overlay">
+				<?php $multiloquent->multiloquent_breadcrumbs(); ?>
+				<header>
+					<h1 style="margin:0 0 0.5rem;font-size:2.25rem;font-weight:700;line-height:1.2;"><?php the_title(); ?></h1>
+					<p style="font-size:0.875rem;opacity:0.8;display:flex;flex-wrap:wrap;gap:0.25rem 0.75rem;margin:0;">
+						<span><?php echo esc_html(get_the_date()); ?></span>
+						<span>&mdash;</span>
+						<?php the_author_posts_link(); ?>
+						<?php $cats = get_the_category_list(', ');
+						if ($cats) : ?>
+							<span>&mdash;</span>
+							<?php echo $cats; ?>
+						<?php endif; ?>
+					</p>
+				</header>
 			</div>
-		<?php endif; ?>
+		</div>
 
 		<div id="post-<?php the_ID(); ?>" <?php post_class('max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8'); ?>>
-
-			<!-- Breadcrumb -->
-			<?php $multiloquent->multiloquent_breadcrumbs(); ?>
-
-			<!-- Post header -->
-			<header class="mb-6">
-				<h1 class="text-4xl font-bold leading-tight mb-3"><?php the_title(); ?></h1>
-				<p class="text-[var(--color-muted)] text-sm flex flex-wrap gap-x-3 gap-y-1">
-					<span><?php echo esc_html(get_the_date()); ?></span>
-					<span>&mdash;</span>
-					<?php the_author_posts_link(); ?>
-					<?php $cats = get_the_category_list(', ');
-					if ($cats) : ?>
-						<span>&mdash;</span>
-						<?php echo $cats; ?>
-					<?php endif; ?>
-				</p>
-			</header>
 
 			<!-- Post content -->
 			<div class="entry-content">
@@ -47,8 +46,6 @@ global $multiloquent;
 					'after'  => '</p>',
 				]); ?>
 			</div>
-
-
 
 			<!-- Tags -->
 			<?php $tags = get_the_tags();

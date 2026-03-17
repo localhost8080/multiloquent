@@ -14,21 +14,20 @@ global $multiloquent;
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<!-- Featured image hero -->
-		<?php if (has_post_thumbnail()) : ?>
-			<div class="entry-hero">
+
+		<div class="entry-hero">
+			<?php if (has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail('multiloquent-hero', ['loading' => 'eager', 'fetchpriority' => 'high']); ?>
+			<?php endif; ?>
+			<div class="entry-hero-overlay">
+				<?php $multiloquent->multiloquent_breadcrumbs(); ?>
+				<header>
+					<h1 style="margin:0;font-size:2.25rem;font-weight:700;line-height:1.2;"><?php the_title(); ?></h1>
+				</header>
 			</div>
-		<?php endif; ?>
+		</div>
 
 		<div id="post-<?php the_ID(); ?>" <?php post_class('max-w-[var(--width-content)] mx-auto px-4 md:px-6 py-8'); ?>>
-
-			<!-- Breadcrumb -->
-			<?php $multiloquent->multiloquent_breadcrumbs(); ?>
-
-			<!-- Page header -->
-			<header class="mb-6">
-				<h1 class="text-4xl font-bold leading-tight"><?php the_title(); ?></h1>
-			</header>
 
 			<!-- Page content -->
 			<div class="entry-content">
