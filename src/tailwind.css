@@ -4,32 +4,31 @@
    Multiloquent Theme — Tailwind v4 design tokens
    ========================================================= */
 @theme {
-  /* Brand colours */
-  --color-primary:       oklch(52% 0.22 264);   /* blue */
-  --color-primary-dark:  oklch(40% 0.22 264);
-  --color-primary-light: oklch(68% 0.18 264);
-  --color-secondary:     oklch(62% 0.16 150);   /* green */
-  --color-accent:        oklch(76% 0.18  70);   /* amber */
-  --color-danger:        oklch(58% 0.22  29);   /* red */
+	/* Brand colours */
+	--color-primary: oklch(52% 0.22 264); /* blue */
+	--color-primary-dark: oklch(40% 0.22 264);
+	--color-primary-light: oklch(68% 0.18 264);
+	--color-secondary: oklch(62% 0.16 150); /* green */
+	--color-accent: oklch(76% 0.18 70); /* amber */
+	--color-danger: oklch(58% 0.22 29); /* red */
 
-  /* Neutral surface tokens */
-  --color-base:          oklch(100% 0     0);   /* white */
-  --color-contrast:      oklch(17%  0     0);   /* near-black */
-  --color-muted:         oklch(55%  0     0);   /* mid-gray */
-  --color-surface:       oklch(97%  0     0);   /* off-white */
-  --color-surface-alt:   oklch(93%  0     0);   /* slightly darker */
-  --color-border:        oklch(88%  0     0);
+	/* Neutral surface tokens */
+	--color-base: oklch(100% 0 0); /* white */
+	--color-contrast: oklch(17% 0 0); /* near-black */
+	--color-muted: oklch(55% 0 0); /* mid-gray */
+	--color-surface: oklch(97% 0 0); /* off-white */
+	--color-surface-alt: oklch(93% 0 0); /* slightly darker */
+	--color-border: oklch(88% 0 0);
 
-  /* Typography */
-  --font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                        Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-family-serif:  Georgia, 'Times New Roman', serif;
-  --font-family-mono:   'Fira Code', 'Fira Mono', 'Cascadia Code', Consolas, monospace;
+	/* Typography */
+	--font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-family-serif: Georgia, "Times New Roman", serif;
+	--font-family-mono: "Fira Code", "Fira Mono", "Cascadia Code", Consolas, monospace;
 
-  /* Layout */
-  --width-sidebar: 18rem;   /* 288px */
-  --width-content: 1000px;
-  --width-wide:    1600px;
+	/* Layout */
+	--width-sidebar: 18rem; /* 288px */
+	--width-content: 1000px;
+	--width-wide: 1600px;
 }
 
 /* =========================================================
@@ -40,202 +39,312 @@
    references var(--color-*) react to Site Editor colour changes.
    ========================================================= */
 :root {
-  --color-primary:       var(--wp--preset--color--primary);
-  --color-primary-dark:  var(--wp--preset--color--primary-dark);
-  --color-primary-light: var(--wp--preset--color--primary-light);
-  --color-secondary:     var(--wp--preset--color--secondary);
-  --color-accent:        var(--wp--preset--color--accent);
-  --color-danger:        var(--wp--preset--color--danger);
-  --color-base:          var(--wp--preset--color--base);
-  --color-contrast:      var(--wp--preset--color--contrast);
-  --color-muted:         var(--wp--preset--color--muted);
-  --color-surface:       var(--wp--preset--color--surface);
-  --color-surface-alt:   var(--wp--preset--color--surface-alt);
-  --color-border:        var(--wp--preset--color--border);
+	--color-primary: var(--wp--preset--color--primary);
+	--color-primary-dark: var(--wp--preset--color--primary-dark);
+	--color-primary-light: var(--wp--preset--color--primary-light);
+	--color-secondary: var(--wp--preset--color--secondary);
+	--color-accent: var(--wp--preset--color--accent);
+	--color-danger: var(--wp--preset--color--danger);
+	--color-base: var(--wp--preset--color--base);
+	--color-contrast: var(--wp--preset--color--contrast);
+	--color-muted: var(--wp--preset--color--muted);
+	--color-surface: var(--wp--preset--color--surface);
+	--color-surface-alt: var(--wp--preset--color--surface-alt);
+	--color-border: var(--wp--preset--color--border);
 }
 
 /* =========================================================
    WordPress required alignment helpers
    ========================================================= */
-.aligncenter  { margin-inline: auto; display: block; }
-.alignleft    { float: left;  margin-block: 0.625rem; margin-inline-end: 1.25rem; }
-.alignright   { float: right; margin-block: 0.625rem; margin-inline-start: 1.25rem; }
-.alignwide    { max-width: var(--width-wide); margin-inline: auto; }
-.alignfull    { width: 100vw; margin-inline: calc(50% - 50vw); }
+.aligncenter {
+	margin-inline: auto;
+	display: block;
+}
+.alignleft {
+	float: left;
+	margin-block: 0.625rem;
+	margin-inline-end: 1.25rem;
+}
+.alignright {
+	float: right;
+	margin-block: 0.625rem;
+	margin-inline-start: 1.25rem;
+}
+.alignwide {
+	max-width: var(--width-wide);
+	margin-inline: auto;
+}
+.alignfull {
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
+}
 
 /* =========================================================
    WordPress block editor base styles (editor-style.css)
    ========================================================= */
-.wp-block-image img { height: auto; max-width: 100%; }
+.wp-block-image img {
+	height: auto;
+	max-width: 100%;
+}
 
 /* =========================================================
    Sidebar layout
    ========================================================= */
 #sidebar {
-  width: var(--width-sidebar);
-  will-change: transform;
+	width: var(--width-sidebar);
+	will-change: transform;
 }
 
 /* =========================================================
    Site header (FSE block template part)
    ========================================================= */
 .site-header {
-  background: var(--color-base);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
-  z-index: 50;
+	background: var(--color-base);
+	border-bottom: 1px solid var(--color-border);
+	box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+	z-index: 50;
 }
 
 /* =========================================================
    Navigation
    ========================================================= */
-.navbar-brand { font-weight: 700; font-size: 1.125rem; }
+.navbar-brand {
+	font-weight: 700;
+	font-size: 1.125rem;
+}
 
 /* =========================================================
    Post / archive card styles
    ========================================================= */
 .entry-card {
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background: var(--color-base);
-  transition: box-shadow 0.2s ease;
+	border: 1px solid var(--color-border);
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background: var(--color-base);
+	transition: box-shadow 0.2s ease;
 }
-.entry-card:hover { box-shadow: 0 4px 12px rgb(0 0 0 / 0.08); }
+.entry-card:hover {
+	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+}
 
-.entry-card img { width: 100%; height: 100%; object-fit: cover; }
+.entry-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
 /* =========================================================
    Tag labels
    ========================================================= */
 .tag-label {
-  display: inline-block;
-  padding: 0.2em 0.7em;
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1.4;
-  text-decoration: none;
-  background: var(--color-primary);
-  color: var(--color-base);
-  transition: background 0.15s;
+	display: inline-block;
+	padding: 0.2em 0.7em;
+	border-radius: 9999px;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.4;
+	text-decoration: none;
+	background: var(--color-primary);
+	color: var(--color-base);
+	transition: background 0.15s;
 }
-.tag-label:hover { background: var(--color-primary-dark); }
+.tag-label:hover {
+	background: var(--color-primary-dark);
+}
 
 /* =========================================================
    Pagination
    ========================================================= */
 .pagination-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  background: var(--color-base);
-  color: var(--color-primary);
-  font-size: 0.9375rem;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.4rem 0.9rem;
+	border: 1px solid var(--color-border);
+	border-radius: 0.375rem;
+	background: var(--color-base);
+	color: var(--color-primary);
+	font-size: 0.9375rem;
+	text-decoration: none;
+	transition:
+		background 0.15s,
+		color 0.15s;
 }
 .pagination-link:hover {
-  background: var(--color-primary);
-  color: var(--color-base);
-  border-color: var(--color-primary);
+	background: var(--color-primary);
+	color: var(--color-base);
+	border-color: var(--color-primary);
 }
 
 /* =========================================================
    Prose / single post content
    ========================================================= */
 .entry-content {
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: var(--color-contrast);
+	font-size: 1.0625rem;
+	line-height: 1.75;
+	color: var(--color-contrast);
 }
-.entry-content a  { color: var(--color-primary); text-decoration: underline; }
+.entry-content a {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
-.entry-content h4 { margin-block: 1.5em 0.5em; font-weight: 700; line-height: 1.3; }
-.entry-content p  { margin-block: 0 1em; }
+.entry-content h4 {
+	margin-block: 1.5em 0.5em;
+	font-weight: 700;
+	line-height: 1.3;
+}
+.entry-content p {
+	margin-block: 0 1em;
+}
 .entry-content ul,
-.entry-content ol { margin-block: 0 1em; padding-inline-start: 1.5em; }
-.entry-content ul li { list-style: disc; }
-.entry-content ol li { list-style: decimal; }
+.entry-content ol {
+	margin-block: 0 1em;
+	padding-inline-start: 1.5em;
+}
+.entry-content ul li {
+	list-style: disc;
+}
+.entry-content ol li {
+	list-style: decimal;
+}
 .entry-content pre,
 .entry-content code {
-  font-family: var(--font-family-mono);
-  background: var(--color-surface-alt);
-  border-radius: 0.25rem;
+	font-family: var(--font-family-mono);
+	background: var(--color-surface-alt);
+	border-radius: 0.25rem;
 }
 .entry-content pre {
-  padding: 1em;
-  overflow-x: auto;
-  margin-block: 0 1em;
+	padding: 1em;
+	overflow-x: auto;
+	margin-block: 0 1em;
 }
-.entry-content code { padding: 0.15em 0.35em; font-size: 0.9em; }
+.entry-content code {
+	padding: 0.15em 0.35em;
+	font-size: 0.9em;
+}
 .entry-content blockquote {
-  border-inline-start: 4px solid var(--color-primary);
-  padding-inline-start: 1rem;
-  margin-inline: 0;
-  color: var(--color-muted);
-  font-style: italic;
+	border-inline-start: 4px solid var(--color-primary);
+	padding-inline-start: 1rem;
+	margin-inline: 0;
+	color: var(--color-muted);
+	font-style: italic;
 }
-.entry-content img { max-width: 100%; height: auto; border-radius: 0.25rem; }
+.entry-content img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 0.25rem;
+}
 
 /* =========================================================
    Comments
    ========================================================= */
-.comment-list { list-style: none; padding: 0; }
-.comment-list .comment { padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+.comment-list {
+	list-style: none;
+	padding: 0;
+}
+.comment-list .comment {
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--color-border);
+}
 
 /* =========================================================
    Breadcrumb
    ========================================================= */
 .breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  color: var(--color-muted);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+	font-size: 0.875rem;
+	color: var(--color-muted);
 }
-.breadcrumb a { color: var(--color-primary); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.breadcrumb-sep::after { content: "/"; margin-inline-start: 0.25rem; }
+.breadcrumb a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+.breadcrumb a:hover {
+	text-decoration: underline;
+}
+.breadcrumb-sep::after {
+	content: "/";
+	margin-inline-start: 0.25rem;
+}
 
 /* =========================================================
    Footer
    ========================================================= */
 .site-footer {
-  background: var(--color-contrast);
-  color: oklch(85% 0 0);
+	background: var(--color-contrast);
+	color: oklch(85% 0 0);
 }
-.site-footer a { color: oklch(75% 0 0); text-decoration: none; }
-.site-footer a:hover { color: var(--color-base); text-decoration: underline; }
-.site-footer .widget-title { color: var(--color-base); font-weight: 700; margin-bottom: 0.75rem; }
+.site-footer a {
+	color: oklch(75% 0 0);
+	text-decoration: none;
+}
+.site-footer a:hover {
+	color: var(--color-base);
+	text-decoration: underline;
+}
+.site-footer .widget-title {
+	color: var(--color-base);
+	font-weight: 700;
+	margin-bottom: 0.75rem;
+}
 
 /* =========================================================
    Featured image hero
    ========================================================= */
 .entry-hero {
-  width: 100%;
-  max-height: 22rem;
-  overflow: hidden;
+	width: 100%;
+	max-height: 22rem;
+	overflow: hidden;
 }
-.entry-hero img { width: 100%; height: 100%; object-fit: cover; }
+.entry-hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
 /* =========================================================
    Utility overrides for WP core blocks
    ========================================================= */
-.wp-block-separator { border: none; border-top: 1px solid var(--color-border); margin-block: 2rem; }
-.wp-block-quote { border-inline-start: 4px solid var(--color-primary); padding-inline-start: 1rem; font-style: italic; }
-.wp-block-code  { background: var(--color-surface-alt); border-radius: 0.375rem; padding: 1rem; overflow-x: auto; }
+.wp-block-separator {
+	border: none;
+	border-top: 1px solid var(--color-border);
+	margin-block: 2rem;
+}
+.wp-block-quote {
+	border-inline-start: 4px solid var(--color-primary);
+	padding-inline-start: 1rem;
+	font-style: italic;
+}
+.wp-block-code {
+	background: var(--color-surface-alt);
+	border-radius: 0.375rem;
+	padding: 1rem;
+	overflow-x: auto;
+}
 
 /* =========================================================
    Responsive helpers
    ========================================================= */
 @media print {
-  #sidebar, nav[role="navigation"], .site-footer { display: none; }
-  main { margin-inline-start: 0 !important; }
-  a { color: inherit; text-decoration: none; }
+	#sidebar,
+	nav[role="navigation"],
+	.site-footer {
+		display: none;
+	}
+	main {
+		margin-inline-start: 0 !important;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+.relative {
+	position: relative;
 }
