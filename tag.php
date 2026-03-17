@@ -39,12 +39,11 @@ if (have_posts()) {
 		</div>
 	</div>
 	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
-		<?php
-		while (have_posts()) {
-			the_post();
-			$multiloquent->multiloquent_render_the_archive();
-		}
-		?>
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<?php while (have_posts()) : the_post(); ?>
+				<?php $multiloquent->multiloquent_render_the_archive(); ?>
+			<?php endwhile; ?>
+		</div>
 	</section>
 
 	<div class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
