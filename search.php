@@ -17,7 +17,7 @@ global $multiloquent;
 	</header>
 
 	<?php if ( have_posts() ) : ?>
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:[grid-auto-rows:14rem]">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php $multiloquent->multiloquent_render_the_archive(); ?>
 			<?php endwhile; ?>

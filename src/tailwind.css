@@ -103,7 +103,7 @@
 }
 .entry-card:hover { box-shadow: 0 4px 12px rgb(0 0 0 / 0.08); }
 
-.entry-card img { width: 100%; height: 12rem; object-fit: cover; }
+.entry-card img { width: 100%; height: 100%; object-fit: cover; }
 
 /* =========================================================
    Tag labels

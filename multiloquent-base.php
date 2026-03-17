@@ -279,40 +279,48 @@ class MultiloquentBase
 
 	public function multiloquent_render_the_archive(): void
 	{
+		global $wp_query;
+		$is_hero        = (0 === $wp_query->current_post);
 		$featured_style = get_theme_mod('multiloquent_featured_style', 'tags');
+		$extra_classes  = $is_hero
+			? 'h-64 lg:h-auto lg:col-span-2 lg:row-span-2'
+			: 'h-48 lg:h-auto';
 ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class('entry-card'); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class('relative overflow-hidden rounded-lg border border-[var(--color-border)] hover:shadow-md transition-shadow ' . $extra_classes); ?>>
 			<?php if (has_post_thumbnail()) : ?>
-				<a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-					<?php the_post_thumbnail('multiloquent-card', ['class' => 'w-full h-48 object-cover', 'loading' => 'lazy']); ?>
-				</a>
+				<?php the_post_thumbnail('multiloquent-card', [
+					'class'   => 'absolute inset-0 w-full h-full object-cover',
+					'loading' => $is_hero ? 'eager' : 'lazy',
+				]); ?>
+			<?php else : ?>
+				<div class="absolute inset-0 bg-[var(--color-surface-alt)]"></div>
 			<?php endif; ?>
-			<div class="p-4">
-				<header class="mb-2">
-					<h2 class="text-xl font-bold leading-snug">
-						<a href="<?php the_permalink(); ?>" class="text-[var(--color-contrast)] hover:text-[var(--color-primary)] no-underline">
+			<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-4">
+				<header>
+					<h2 class="leading-snug text-white <?php echo $is_hero ? 'font-bold text-xl lg:text-2xl' : 'font-semibold text-sm'; ?>">
+						<a href="<?php the_permalink(); ?>" class="text-white hover:text-white/80 no-underline">
 							<?php the_title(); ?>
 						</a>
 					</h2>
-					<p class="text-sm text-[var(--color-muted)] mt-1">
+					<p class="text-xs text-white/70 mt-1">
 						<?php echo esc_html(get_the_date()); ?>
 						<?php if (get_the_author()) : ?>
-							&mdash; <?php the_author_posts_link(); ?>
+							&mdash; <?php echo esc_html(get_the_author()); ?>
 						<?php endif; ?>
 					</p>
 				</header>
-				<?php if ('excerpt' === $featured_style) : ?>
-					<div class="text-sm leading-relaxed text-[var(--color-muted)] mb-3">
-						<?php the_excerpt(); ?>
-					</div>
+				<?php if ('excerpt' === $featured_style && $is_hero) : ?>
+					<p class="text-xs text-white/80 mt-1 line-clamp-2">
+						<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?>
+					</p>
 				<?php elseif ('tags' === $featured_style) : ?>
-					<div class="flex flex-wrap gap-1 mb-3">
+					<div class="flex flex-wrap gap-1 mt-1">
 						<?php
 						$tags = get_the_tags();
 						if ($tags) {
-							foreach ($tags as $tag) {
+							foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
 								printf(
-									'<a href="%s" class="tag-label">%s</a>',
+									'<a href="%s" class="tag-label text-xs opacity-90">%s</a>',
 									esc_url(get_tag_link($tag->term_id)),
 									esc_html($tag->name)
 								);
@@ -321,9 +329,6 @@ class MultiloquentBase
 						?>
 					</div>
 				<?php endif; ?>
-				<a href="<?php the_permalink(); ?>" class="text-sm font-medium text-[var(--color-primary)] hover:underline">
-					<?php esc_html_e('Read more', 'multiloquent'); ?> &rarr;
-				</a>
 			</div>
 		</article>
 	<?php
@@ -386,46 +391,62 @@ class MultiloquentBase
 		if (empty($featured_posts)) {
 			return '';
 		}
+
+		// Trim to a multiple of 3, max 21.
+		$count = (int) floor(min(count($featured_posts), 21) / 3) * 3;
+		if ($count === 0) {
+			return '';
+		}
+		$featured_posts = array_slice($featured_posts, 0, $count);
+
 		$featured_style = get_theme_mod('multiloquent_featured_style', 'tags');
 
 		ob_start();
 	?>
 		<section class="featured-slider bg-[var(--color-surface)] py-6 px-4 md:px-6"
 			aria-label="<?php esc_attr_e('Featured posts', 'multiloquent'); ?>">
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[var(--width-wide)] mx-auto">
-				<?php foreach ($featured_posts as $fp) :
-					$thumb = get_the_post_thumbnail_url($fp->ID, 'multiloquent-card');
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:[grid-auto-rows:14rem] max-w-[var(--width-wide)] mx-auto">
+				<?php foreach ($featured_posts as $i => $fp) :
+					$thumb   = get_the_post_thumbnail_url($fp->ID, 'multiloquent-card');
+					$is_hero = ($i === 0);
+					$card_classes = 'relative block rounded-lg overflow-hidden border border-[var(--color-border)] hover:shadow-md transition-shadow';
+					if ($is_hero) {
+						$card_classes .= ' lg:col-span-2 lg:row-span-2';
+					}
+					$img_classes = 'absolute inset-0 w-full h-full object-cover';
 				?>
 					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>"
-						class="block rounded-lg overflow-hidden border border-[var(--color-border)] bg-[var(--color-base)] hover:shadow-md transition-shadow">
-						<?php if ($thumb) : ?>
-							<div class="h-36 overflow-hidden">
+						class="<?php echo $card_classes; ?>">
+						<div class="<?php echo $is_hero ? 'h-64 lg:h-full' : 'h-48 lg:h-full'; ?> relative">
+							<?php if ($thumb) : ?>
 								<img src="<?php echo esc_url($thumb); ?>"
 									alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
-									class="w-full h-full object-cover"
-									loading="lazy">
-							</div>
-						<?php endif; ?>
-						<div class="p-3">
-							<h3 class="font-semibold text-sm leading-snug text-[var(--color-contrast)]">
-								<?php echo esc_html(get_the_title($fp->ID)); ?>
-							</h3>
-							<?php if ('excerpt' === $featured_style) : ?>
-								<p class="text-xs text-[var(--color-muted)] mt-1 line-clamp-2">
-									<?php echo esc_html(wp_trim_words(get_the_excerpt($fp->ID), 15)); ?>
-								</p>
-							<?php elseif ('tags' === $featured_style) : ?>
-								<div class="flex flex-wrap gap-1 mt-2">
-									<?php
-									$tags = get_the_tags($fp->ID);
-									if ($tags) {
-										foreach (array_slice($tags, 0, 3) as $tag) {
-											printf('<span class="tag-label text-xs">%s</span>', esc_html($tag->name));
-										}
-									}
-									?>
-								</div>
+									class="<?php echo $img_classes; ?>"
+									loading="<?php echo $i === 0 ? 'eager' : 'lazy'; ?>">
+							<?php else : ?>
+								<div class="absolute inset-0 bg-[var(--color-surface-alt)]"></div>
 							<?php endif; ?>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-3">
+								<h3 class="leading-snug text-white <?php echo $is_hero ? 'font-bold text-xl lg:text-2xl' : 'font-semibold text-sm'; ?>">
+									<?php echo esc_html(get_the_title($fp->ID)); ?>
+								</h3>
+								<?php if ('excerpt' === $featured_style && $is_hero) : ?>
+									<p class="text-xs text-white/80 mt-1 line-clamp-2">
+										<?php echo esc_html(wp_trim_words(get_the_excerpt($fp->ID), 20)); ?>
+									</p>
+								<?php elseif ('tags' === $featured_style) : ?>
+									<div class="flex flex-wrap gap-1 mt-1">
+										<?php
+										$tags = get_the_tags($fp->ID);
+										if ($tags) {
+											foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
+												printf('<span class="tag-label text-xs opacity-90">%s</span>', esc_html($tag->name));
+											}
+										}
+										?>
+									</div>
+								<?php endif; ?>
+							</div>
 						</div>
 					</a>
 				<?php endforeach; ?>
@@ -443,19 +464,20 @@ class MultiloquentBase
 
 	private function multiloquent_get_featured_posts(): array
 	{
-		// Try Top 10 plugin first.
-		if (function_exists('tptn_get_tptn_post_count')) {
-			$posts = get_posts([
-				'post_type'      => 'post',
-				'posts_per_page' => 8,
-				'meta_key'       => 'tptn_post_count_monthly',
-				'orderby'        => 'meta_value_num',
-				'order'          => 'DESC',
-			]);
-			if (! empty($posts)) {
-				return $posts;
-			}
+
+		// Pull posts from the 'featured' category.
+		$posts = get_posts([
+			'post_type'      => 'post',
+			'posts_per_page' => 8,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'category_name'  => 'featured',
+		]);
+
+		if (! empty($posts)) {
+			return $posts;
 		}
+
 
 		// Fall back to sticky posts, then latest posts.
 		$sticky = get_option('sticky_posts');
