@@ -8,11 +8,11 @@ Multiloquent is a classic WordPress theme that fully embraces the modern block e
 
 ## Requirements
 
-| Requirement   | Minimum  |
-|---------------|----------|
-| WordPress     | 6.4      |
-| PHP           | 8.1      |
-| Node.js       | 18+      |
+| Requirement | Minimum |
+| ----------- | ------- |
+| WordPress   | 6.4     |
+| PHP         | 8.1     |
+| Node.js     | 18+     |
 
 ## Quick start
 
@@ -49,14 +49,14 @@ The build compiles `src/tailwind.css` → `assets/css/main.css`. A minimal place
 
 Five built-in colour schemes selectable in **Appearance → Editor → Styles**:
 
-| Scheme       | Primary     | Flavour                    |
-|--------------|-------------|----------------------------|
-| **Default**  | Blue        | Classic blue/green          |
-| **Ocean**    | Cyan/Teal   | Cool ocean blues            |
-| **Forest**   | Green       | Deep natural greens         |
-| **Ember**    | Orange/Red  | Warm earthy tones           |
-| **Midnight** | Indigo      | Dark mode-ready purples     |
-| **Rose**     | Pink        | Soft pink/violet            |
+| Scheme       | Primary    | Flavour                 |
+| ------------ | ---------- | ----------------------- |
+| **Default**  | Blue       | Classic blue/green      |
+| **Ocean**    | Cyan/Teal  | Cool ocean blues        |
+| **Forest**   | Green      | Deep natural greens     |
+| **Ember**    | Orange/Red | Warm earthy tones       |
+| **Midnight** | Indigo     | Dark mode-ready purples |
+| **Rose**     | Pink       | Soft pink/violet        |
 
 Each variation ships in `styles/<name>.json` and overrides the full colour palette, gradients, and duotone presets.
 
@@ -80,23 +80,20 @@ Zero framework dependencies. `assets/js/theme.js` handles:
 
 ### Widget areas
 
-| ID                | Location                         |
-|-------------------|----------------------------------|
-| `sidebar-top`     | Sidebar — above navigation       |
-| `sidebar-primary` | Sidebar — main area              |
-| `sidebar-bottom`  | Sidebar — below main area        |
-| `footer-col-1`    | Footer — first column            |
-| `footer-col-2`    | Footer — second column           |
-| `footer-col-3`    | Footer — third column            |
-| `advert-primary`  | In-content advert area           |
-| `advert-secondary`| Secondary in-content advert area |
+| ID                | Location                   |
+| ----------------- | -------------------------- |
+| `sidebar-top`     | Sidebar — above navigation |
+| `sidebar-primary` | Sidebar — main area        |
+| `sidebar-bottom`  | Sidebar — below main area  |
+| `footer-col-1`    | Footer — first column      |
+| `footer-col-2`    | Footer — second column     |
 
 ### Navigation menus
 
-| Location        | Description                    |
-|-----------------|--------------------------------|
-| `primary-menu`  | Slide-in sidebar menu          |
-| `footer-menu`   | Inline footer links            |
+| Location       | Description           |
+| -------------- | --------------------- |
+| `primary-menu` | Slide-in sidebar menu |
+| `footer-menu`  | Inline footer links   |
 
 ### Customiser options
 
@@ -115,22 +112,22 @@ The homepage shows a featured posts grid. Posts are sourced from:
 
 ### Post templates
 
-| Template file                          | Description                                  |
-|----------------------------------------|----------------------------------------------|
-| `single.php`                           | Default single post                          |
-| `page.php`                             | Static page                                  |
-| `template-full-width-single.php`       | Full-width post (no sidebar)                 |
-| `template-full-width-no-header-single.php` | Full-width, no hero image or footer     |
-| `template-category-index.php`          | Lists all categories in hierarchy            |
-| `template-tag-index.php`               | Lists all tags alphabetically                |
+| Template file                              | Description                         |
+| ------------------------------------------ | ----------------------------------- |
+| `single.php`                               | Default single post                 |
+| `page.php`                                 | Static page                         |
+| `template-full-width-single.php`           | Full-width post (no sidebar)        |
+| `template-full-width-no-header-single.php` | Full-width, no hero image or footer |
+| `template-category-index.php`              | Lists all categories in hierarchy   |
+| `template-tag-index.php`                   | Lists all tags alphabetically       |
 
 ### Plugin compatibility
 
-| Plugin | Integration |
-|--------|-------------|
+| Plugin                                                                   | Integration                                           |
+| ------------------------------------------------------------------------ | ----------------------------------------------------- |
 | [YARPP](https://wordpress.org/plugins/yet-another-related-posts-plugin/) | Related posts auto-injected at bottom of single posts |
-| [Top 10](https://wordpress.org/plugins/top-10/) | Used as data source for the featured posts grid |
-| [Jetpack](https://wordpress.org/plugins/jetpack/) | Social sharing positioned correctly in post |
+| [Top 10](https://wordpress.org/plugins/top-10/)                          | Used as data source for the featured posts grid       |
+| [Jetpack](https://wordpress.org/plugins/jetpack/)                        | Social sharing positioned correctly in post           |
 
 ## Development
 
@@ -143,10 +140,10 @@ Design tokens are defined in the `@theme` block:
 
 ```css
 @theme {
-  --color-primary:      oklch(52% 0.22 264);
-  --color-secondary:    oklch(62% 0.16 150);
-  --width-sidebar:      18rem;
-  /* … */
+    --color-primary: oklch(52% 0.22 264);
+    --color-secondary: oklch(62% 0.16 150);
+    --width-sidebar: 18rem;
+    /* … */
 }
 ```
 

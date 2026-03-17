@@ -277,9 +277,19 @@
 
   "customTemplates": [
     {
+      "name": "page",
+      "postTypes": [ "page" ],
+      "title": "Default Page"
+    },
+    {
       "name": "template-full-width",
       "postTypes": [ "page", "post" ],
       "title": "Full Width"
+    },
+    {
+      "name": "template-full-width-no-header-single",
+      "postTypes": [ "page", "post" ],
+      "title": "Full Width (No Header)"
     }
   ],
 
