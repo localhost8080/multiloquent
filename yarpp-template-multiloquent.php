@@ -8,10 +8,9 @@ global $multiloquent;
 	<div>
 		<?php
 		if ( have_posts() ) {
-			$colour = $multiloquent->multiloquent_get_random_blue_class();
 			while ( have_posts() ) {
 				the_post();
-				$multiloquent->multiloquent_render_the_archive( $colour );
+				$multiloquent->multiloquent_render_the_archive();
 			}
 		} else {
 			echo '<p>';

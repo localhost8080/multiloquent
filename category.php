@@ -36,10 +36,9 @@ if (have_posts()) {
 	</div>
 	<section class="w-full max-w-[var(--width-wide)] mx-auto px-4 md:px-6">
 		<?php
-		$colour = $multiloquent->multiloquent_get_random_blue_class();
 		while (have_posts()) {
 			the_post();
-			$multiloquent->multiloquent_render_the_archive($colour);
+			$multiloquent->multiloquent_render_the_archive();
 		}
 		?>
 	</section>
