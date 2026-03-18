@@ -26,10 +26,12 @@ global $multiloquent;
 						<span><?php echo esc_html(get_the_date()); ?></span>
 						<span>&mdash;</span>
 						<?php the_author_posts_link(); ?>
-						<?php $cats = get_the_category_list(', ');
+						<?php $cats = get_the_category();
 						if ($cats) : ?>
 							<span>&mdash;</span>
-							<?php echo $cats; ?>
+							<?php foreach ($cats as $cat) : ?>
+								<a href="<?php echo esc_url(get_category_link($cat->term_id)); ?>" class="tag-label" rel="category tag"><?php echo esc_html($cat->name); ?></a>
+							<?php endforeach; ?>
 						<?php endif; ?>
 					</p>
 				</header>
