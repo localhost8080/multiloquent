@@ -151,6 +151,7 @@
 	height: 100%;
 	object-fit: cover;
 	display: block;
+	filter: brightness(0.5);
 }
 
 .archive-card-overlay {

@@ -415,7 +415,7 @@ class MultiloquentBase
 							<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
 						<?php endif; ?>
 						<div class="archive-card-overlay">
-							<h3 style="margin:0;line-height:1.3;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
+							<h3 style="margin:0;line-height:1.3;color:white;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
 								<?php echo esc_html(get_the_title($fp->ID)); ?>
 							</h3>
 							<?php if ('excerpt' === $featured_style && $is_hero) : ?>
