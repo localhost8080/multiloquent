@@ -286,8 +286,8 @@
 .entry-content pre,
 .entry-content code {
 	font-family: var(--font-family-mono);
-	background: var(--wp--preset--color-contrast);
-	border: 1px solid var(--wp--preset--color-contrast);
+	background: var(--wp--preset--color--contrast);
+	border: 1px solid var(--wp--preset--color--contrast);
 	color: var(--wp--preset--color--surface);
 	border-radius: 0.25rem;
 }
