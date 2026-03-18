@@ -455,7 +455,7 @@ class MultiloquentBase
 		// Pull posts from the 'featured' category.
 		$posts = get_posts([
 			'post_type'      => 'post',
-			'posts_per_page' => 8,
+			'posts_per_page' => 21,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 			'category_name'  => 'featured',
@@ -470,7 +470,7 @@ class MultiloquentBase
 		$sticky = get_option('sticky_posts');
 		$args   = [
 			'post_type'      => 'post',
-			'posts_per_page' => 8,
+			'posts_per_page' => 21,
 			'orderby'        => 'date',
 			'order'          => 'DESC',
 		];
