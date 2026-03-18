@@ -77,5 +77,5 @@
 
 	<!-- ===== Main content wrapper ===== -->
 	<div id="page-wrapper" class="flex flex-col min-h-screen"
-		style="padding-top:calc(4rem + <?php echo $admin_bar_offset; ?>);">
+		style="padding-top:calc(<?php echo $admin_bar_offset; ?>);">
 		<main id="main-content" class="flex-1 w-full">
