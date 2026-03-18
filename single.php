@@ -28,7 +28,6 @@ global $multiloquent;
 						<?php the_author_posts_link(); ?>
 						<?php $cats = get_the_category();
 						if ($cats) : ?>
-							<span>&mdash;</span>
 							<?php foreach ($cats as $cat) : ?>
 								<a href="<?php echo esc_url(get_category_link($cat->term_id)); ?>" class="tag-label" rel="category tag"><?php echo esc_html($cat->name); ?></a>
 							<?php endforeach; ?>
