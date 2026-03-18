@@ -49,7 +49,6 @@
 	--color-contrast: var(--wp--preset--color--contrast);
 	--color-muted: var(--wp--preset--color--muted);
 	--color-surface: var(--wp--preset--color--surface);
-	--color-surface-contrast: var(--wp--preset--color--surface-contrast);
 	--color-surface-alt: var(--wp--preset--color--surface-alt);
 	--color-border: var(--wp--preset--color--border);
 }
@@ -287,8 +286,8 @@
 .entry-content pre,
 .entry-content code {
 	font-family: var(--font-family-mono);
-	background: var(--color-surface-contrast);
-	border: 1px solid var(--color-surface-contrast);
+	background: var(--color-contrast);
+	border: 1px solid var(--color-contrast);
 	color: var(--wp--preset--color--surface);
 	border-radius: 0.25rem;
 }
