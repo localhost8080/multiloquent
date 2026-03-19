@@ -1,6 +1,6 @@
 {
     "name": "multiloquent",
-    "version": "26.1.6",
+    "version": "26.1.7",
     "description": "Multiloquent WordPress theme - modern block-editor ready theme with Tailwind CSS v4",
     "scripts": {
         "build": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --minify",
