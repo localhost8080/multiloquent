@@ -248,7 +248,9 @@
 	color: var(--color-base);
 	border-color: var(--color-primary);
 }
-
+.pagination-link:hover a {
+	color: var(--color-base);
+}
 /* =========================================================
    Prose / single post content
    ========================================================= */
