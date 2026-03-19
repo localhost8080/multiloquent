@@ -54,10 +54,7 @@
 		<!-- Spacer -->
 		<div class="flex-1"></div>
 
-		<!-- Header search (desktop) -->
-		<div class="hidden sm:block w-56">
-			<?php get_search_form(); ?>
-		</div>
+
 	</header>
 
 	<!-- ===== Sidebar overlay (mobile) ===== -->
