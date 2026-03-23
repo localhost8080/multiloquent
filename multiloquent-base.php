@@ -287,7 +287,7 @@ class MultiloquentBase
 		<article id="post-<?php the_ID(); ?>" <?php post_class($card_class); ?>>
 			<?php if (has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail('multiloquent-card', [
-					'loading' => $is_hero ? 'eager' : 'lazy',
+					'loading' => 'lazy',
 				]); ?>
 			<?php else : ?>
 				<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
@@ -410,15 +410,21 @@ class MultiloquentBase
 			aria-label="<?php esc_attr_e('Featured posts', 'multiloquent'); ?>">
 			<div class="archive-grid max-w-[var(--width-wide)] mx-auto">
 				<?php foreach ($featured_posts as $i => $fp) :
-					$thumb   = get_the_post_thumbnail_url($fp->ID, 'multiloquent-card');
-					$is_hero = ($i === 0);
+					$is_hero    = ($i === 0);
 					$card_class = $is_hero ? 'archive-card archive-card-hero' : 'archive-card';
+					$img_size   = $is_hero ? 'multiloquent-card' : 'multiloquent-thumb';
+					$thumb_id   = get_post_thumbnail_id($fp->ID);
+					$thumb      = get_the_post_thumbnail_url($fp->ID, $img_size);
+					$srcset     = $thumb_id ? wp_get_attachment_image_srcset($thumb_id, $img_size) : false;
+					$sizes      = $thumb_id ? wp_get_attachment_image_sizes($thumb_id, $img_size) : false;
 				?>
 					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>" class="<?php echo $card_class; ?>">
 						<?php if ($thumb) : ?>
 							<img src="<?php echo esc_url($thumb); ?>"
+								<?php if ($srcset) : ?>srcset="<?php echo esc_attr($srcset); ?>" <?php endif; ?>
+								<?php if ($sizes) : ?>sizes="<?php echo esc_attr($sizes); ?>" <?php endif; ?>
 								alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
-								loading="<?php echo $i === 0 ? 'eager' : 'lazy'; ?>">
+								loading="<?php echo $is_hero ? 'eager' : 'lazy'; ?>">
 						<?php else : ?>
 							<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
 						<?php endif; ?>
