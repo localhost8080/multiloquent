@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "multiloquent/breadcrumbs",
+    "version": "1.0.0",
+    "title": "Breadcrumbs",
+    "category": "theme",
+    "description": "Breadcrumb navigation trail.",
+    "textdomain": "multiloquent",
+    "editorScript": "multiloquent-blocks-editor",
+    "render": "file:./render.php"
+}

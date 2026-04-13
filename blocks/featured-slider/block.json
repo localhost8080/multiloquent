@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "multiloquent/featured-slider",
+    "version": "1.0.0",
+    "title": "Featured Slider",
+    "category": "theme",
+    "description": "Featured posts parallax slider.",
+    "textdomain": "multiloquent",
+    "editorScript": "multiloquent-blocks-editor",
+    "render": "file:./render.php"
+}

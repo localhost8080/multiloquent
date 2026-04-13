@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "multiloquent/archive-loop",
+    "version": "1.0.0",
+    "title": "Archive Loop",
+    "category": "theme",
+    "description": "Renders the current query using the theme's archive card style with hero first-post layout.",
+    "textdomain": "multiloquent",
+    "editorScript": "multiloquent-blocks-editor",
+    "render": "file:./render.php"
+}
