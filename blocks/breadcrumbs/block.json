@@ -7,6 +7,6 @@
     "category": "theme",
     "description": "Breadcrumb navigation trail.",
     "textdomain": "multiloquent",
-    "editorScript": "multiloquent-blocks-editor",
+    "editorScript": "file:./editor.js",
     "render": "file:./render.php"
 }

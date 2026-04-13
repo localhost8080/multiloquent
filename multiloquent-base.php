@@ -96,14 +96,6 @@ class MultiloquentBase
 
 	public function multiloquent_register_blocks(): void
 	{
-		wp_register_script(
-			'multiloquent-blocks-editor',
-			get_template_directory_uri() . '/blocks/editor.js',
-			['wp-blocks', 'wp-element'],
-			$this->multiloquent_version(),
-			true
-		);
-
 		register_block_type(get_template_directory() . '/blocks/featured-slider');
 		register_block_type(get_template_directory() . '/blocks/breadcrumbs');
 		register_block_type(get_template_directory() . '/blocks/archive-loop');

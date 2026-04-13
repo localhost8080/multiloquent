@@ -7,6 +7,6 @@
     "category": "theme",
     "description": "Renders the current query using the theme's archive card style with hero first-post layout.",
     "textdomain": "multiloquent",
-    "editorScript": "multiloquent-blocks-editor",
+    "editorScript": "file:./editor.js",
     "render": "file:./render.php"
 }
