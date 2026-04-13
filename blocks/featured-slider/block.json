@@ -7,6 +7,9 @@
     "category": "theme",
     "description": "Featured posts parallax slider.",
     "textdomain": "multiloquent",
+    "supports": {
+        "align": ["wide", "full"]
+    },
     "editorScript": "file:./editor.js",
     "render": "file:./render.php"
 }

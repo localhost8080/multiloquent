@@ -339,11 +339,11 @@
 	flex-wrap: wrap;
 	gap: 0.25rem;
 	font-size: 0.875rem;
-	color: var(--color-muted);
+	color: var(--color-base);
 	justify-content: center;
 }
 .breadcrumb a {
-	color: var(--color-primary);
+	color: var(--color-base);
 	text-decoration: none;
 }
 .breadcrumb a:hover {
