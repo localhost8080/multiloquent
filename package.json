@@ -4,7 +4,8 @@
     "description": "Multiloquent WordPress theme - modern block-editor ready theme with Tailwind CSS v4",
     "scripts": {
         "build": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --minify",
-        "dev": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --watch"
+        "dev": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./assets/css/main.css --watch",
+        "zip": "npm run build && cd .. && zip -r multiloquent.zip multiloquent --exclude '*.git*' --exclude '*node_modules*' --exclude '*.zip' && mv multiloquent.zip multiloquent/"
     },
     "devDependencies": {
         "@tailwindcss/cli": "^4.0.0",
