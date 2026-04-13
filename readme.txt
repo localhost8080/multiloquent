@@ -24,7 +24,7 @@ Key features:
 * Zero JavaScript dependencies — no jQuery, no Bootstrap JS
 * Eight widget areas (sidebar top/primary/bottom, three footer columns, two advert areas)
 * Featured posts grid on the homepage (integrates with Top 10 plugin)
-* Compatible with YARPP, Top 10, and Jetpack
+* Compatible with Top 10 and Jetpack
 
 == Installation ==
 
@@ -82,7 +82,6 @@ The homepage displays a featured posts grid sourced from:
 
 == Plugin Compatibility ==
 
-* YARPP (Yet Another Related Posts Plugin) — related posts auto-injected below single posts
 * Top 10 — used as the data source for the homepage featured posts grid
 * Jetpack — social sharing positioned correctly in posts
 

@@ -125,7 +125,6 @@ The homepage shows a featured posts grid. Posts are sourced from:
 
 | Plugin                                                                   | Integration                                           |
 | ------------------------------------------------------------------------ | ----------------------------------------------------- |
-| [YARPP](https://wordpress.org/plugins/yet-another-related-posts-plugin/) | Related posts auto-injected at bottom of single posts |
 | [Top 10](https://wordpress.org/plugins/top-10/)                          | Used as data source for the featured posts grid       |
 | [Jetpack](https://wordpress.org/plugins/jetpack/)                        | Social sharing positioned correctly in post           |
 
