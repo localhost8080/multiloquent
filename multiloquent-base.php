@@ -21,7 +21,7 @@ class MultiloquentBase
 
 	public function multiloquent_version(): string
 	{
-		return '26.1.7';
+		return '26.1.8';
 	}
 
 	// -------------------------------------------------------------------------
