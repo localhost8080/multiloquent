@@ -1,0 +1,37 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+
+	<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"},"text":{"align":"center"}}} -->
+	<div class="wp-block-group" style="text-align:center">
+
+		<!-- wp:heading {"level":1,"style":{"typography":{"fontWeight":"900","fontSize":"6rem"},"color":{"text":"var:preset|color|primary"},"spacing":{"margin":{"bottom":"0"}}}} -->
+		<h1 class="wp-block-heading has-primary-color has-text-color" style="font-weight:900;font-size:6rem;margin-bottom:0">404</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:heading {"level":2,"fontSize":"xx-large"} -->
+		<h2 class="wp-block-heading">Page not found</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"style":{"color":{"text":"var:preset|color|muted"}}} -->
+		<p class="has-text-color" style="color:var(--wp--preset--color--muted)">The page you were looking for doesn't exist.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search…","buttonText":"Search","buttonPosition":"button-outside"} /-->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/">← Back to home</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
