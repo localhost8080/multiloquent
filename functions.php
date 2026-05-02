@@ -33,6 +33,8 @@ require_once trailingslashit(get_template_directory()) . 'multiloquent-base.php'
 global $multiloquent;
 $multiloquent = new MultiloquentBase();
 
+add_action('wp_head', function () { echo '<!-- theme:multiloquent-debug -->'; }, 0);
+
 // Remove WordPress's title tag after core registers it at after_setup_theme PHP_INT_MAX.
 // Our theme loads after core, so at the same priority we run second and can remove it.
 // Yoast outputs its own <title> via wpseo_head and filters wp_get_document_title.
