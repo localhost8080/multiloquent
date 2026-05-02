@@ -33,9 +33,5 @@ require_once trailingslashit(get_template_directory()) . 'multiloquent-base.php'
 global $multiloquent;
 $multiloquent = new MultiloquentBase();
 
-// Yoast SEO outputs its own <title> tag; prevent WordPress from adding a duplicate.
-add_action('wp_head', function () {
-	if (has_action('wpseo_head')) {
-		remove_action('wp_head', '_wp_render_title_tag', 1);
-	}
-}, 0);
+// Suppress Yoast's own <title> output; WordPress handles it via _wp_render_title_tag.
+add_filter('wpseo_title', '__return_false');
