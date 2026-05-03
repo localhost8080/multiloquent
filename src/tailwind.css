@@ -1,463 +1,434 @@
 @import "tailwindcss";
 
 /* =========================================================
-   Multiloquent Theme — Tailwind v4 design tokens
+   Multiloquent — Tailwind v4 design tokens
+   Fallback values only; the :root bridge below overrides
+   these at runtime with live WP preset variables.
    ========================================================= */
 @theme {
-	/* Brand colours */
-	--color-primary: oklch(52% 0.22 264); /* blue */
-	--color-primary-dark: oklch(40% 0.22 264);
-	--color-primary-light: oklch(68% 0.18 264);
-	--color-secondary: oklch(62% 0.16 150); /* green */
-	--color-accent: oklch(76% 0.18 70); /* amber */
-	--color-danger: oklch(58% 0.22 29); /* red */
+    /* Brand & accent */
+    --color-primary:           #0066cc;
+    --color-primary-focus:     #0071e3;
+    --color-primary-on-dark:   #2997ff;
 
-	/* Neutral surface tokens */
-	--color-base: oklch(100% 0 0); /* white */
-	--color-contrast: oklch(17% 0 0); /* near-black */
-	--color-muted: oklch(55% 0 0); /* mid-gray */
-	--color-surface: oklch(97% 0 0); /* off-white */
-	--color-surface-alt: oklch(93% 0 0); /* slightly darker */
-	--color-border: oklch(88% 0 0);
+    /* Surfaces */
+    --color-canvas:                  #ffffff;
+    --color-canvas-parchment:        #f5f5f7;
+    --color-surface-pearl:           #fafafc;
+    --color-surface-tile-1:          #272729;
+    --color-surface-tile-2:          #2a2a2c;
+    --color-surface-tile-3:          #252527;
+    --color-surface-black:           #000000;
+    --color-surface-chip-translucent:#d2d2d7;
 
-	/* Typography */
-	--font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-	--font-family-serif: Georgia, "Times New Roman", serif;
-	--font-family-mono: "Fira Code", "Fira Mono", "Cascadia Code", Consolas, monospace;
+    /* Text */
+    --color-ink:          #1d1d1f;
+    --color-ink-muted-80: #333333;
+    --color-ink-muted-48: #7a7a7a;
+    --color-on-dark:      #ffffff;
+    --color-body-muted:   #cccccc;
 
-	/* Layout */
-	--width-sidebar: 18rem; /* 288px */
-	--width-content: 1000px;
-	--width-wide: 1600px;
+    /* Borders */
+    --color-hairline:     #e0e0e0;
+    --color-divider-soft: #f0f0f0;
+
+    /* Typography */
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-serif:  Georgia, "Times New Roman", serif;
+    --font-family-mono:   "Fira Code", "Fira Mono", "Cascadia Code", Consolas, monospace;
+
+    /* Layout */
+    --width-content: 980px;
+    --width-wide:    1440px;
 }
 
 /* =========================================================
-   Bridge: WP preset color tokens → Tailwind color tokens
+   Bridge: WP preset variables → Tailwind color tokens
    WordPress generates --wp--preset--color--* from theme.json
-   (and updates them when a style variation is active).
-   Overriding --color-* here makes every Tailwind utility that
-   references var(--color-*) react to Site Editor colour changes.
+   and updates them when a style variation is active.
+   Mapping here makes every Tailwind utility react to
+   Site Editor colour changes automatically.
    ========================================================= */
 :root {
-	--color-primary: var(--wp--preset--color--primary);
-	--color-primary-dark: var(--wp--preset--color--primary-dark);
-	--color-primary-light: var(--wp--preset--color--primary-light);
-	--color-secondary: var(--wp--preset--color--secondary);
-	--color-accent: var(--wp--preset--color--accent);
-	--color-danger: var(--wp--preset--color--danger);
-	--color-base: var(--wp--preset--color--base);
-	--color-contrast: var(--wp--preset--color--contrast);
-	--color-muted: var(--wp--preset--color--muted);
-	--color-surface: var(--wp--preset--color--surface);
-	--color-surface-alt: var(--wp--preset--color--surface-alt);
-	--color-border: var(--wp--preset--color--border);
+    --color-primary:                   var(--wp--preset--color--primary);
+    --color-primary-focus:             var(--wp--preset--color--primary-focus);
+    --color-primary-on-dark:           var(--wp--preset--color--primary-on-dark);
+    --color-canvas:                    var(--wp--preset--color--canvas);
+    --color-canvas-parchment:          var(--wp--preset--color--canvas-parchment);
+    --color-surface-pearl:             var(--wp--preset--color--surface-pearl);
+    --color-surface-tile-1:            var(--wp--preset--color--surface-tile-1);
+    --color-surface-tile-2:            var(--wp--preset--color--surface-tile-2);
+    --color-surface-tile-3:            var(--wp--preset--color--surface-tile-3);
+    --color-surface-black:             var(--wp--preset--color--surface-black);
+    --color-surface-chip-translucent:  var(--wp--preset--color--surface-chip-translucent);
+    --color-ink:                       var(--wp--preset--color--ink);
+    --color-ink-muted-80:              var(--wp--preset--color--ink-muted-80);
+    --color-ink-muted-48:              var(--wp--preset--color--ink-muted-48);
+    --color-on-dark:                   var(--wp--preset--color--on-dark);
+    --color-body-muted:                var(--wp--preset--color--body-muted);
+    --color-hairline:                  var(--wp--preset--color--hairline);
+    --color-divider-soft:              var(--wp--preset--color--divider-soft);
 }
 
 /* =========================================================
    WordPress required alignment helpers
    ========================================================= */
 .aligncenter {
-	margin-inline: auto;
-	display: block;
+    margin-inline: auto;
+    display: block;
 }
 .alignleft {
-	float: left;
-	margin-block: 0.625rem;
-	margin-inline-end: 1.25rem;
+    float: left;
+    margin-block: 0.625rem;
+    margin-inline-end: 1.25rem;
 }
 .alignright {
-	float: right;
-	margin-block: 0.625rem;
-	margin-inline-start: 1.25rem;
+    float: right;
+    margin-block: 0.625rem;
+    margin-inline-start: 1.25rem;
 }
 .alignwide {
-	max-width: var(--width-wide);
-	margin-inline: auto;
+    max-width: var(--width-wide);
+    margin-inline: auto;
 }
 .alignfull {
-	width: 100vw;
-	margin-inline: calc(50% - 50vw);
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
 }
 
 /* =========================================================
-   WordPress block editor base styles (editor-style.css)
+   WordPress block editor base
    ========================================================= */
 .wp-block-image img {
-	height: auto;
-	max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 /* =========================================================
    Sidebar layout
    ========================================================= */
 #sidebar {
-	width: var(--width-sidebar);
-	will-change: transform;
+    width: 18rem;
+    will-change: transform;
 }
 
 /* =========================================================
-   Site header (FSE block template part)
+   Site header
+   theme.json controls background and text colours.
+   Only structural/stacking rules belong here.
    ========================================================= */
 .site-header {
-	background: var(--color-base);
-	border-bottom: 1px solid var(--color-border);
-	box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
-	z-index: 50;
+    z-index: 50;
 }
 
 /* =========================================================
-   Navigation
+   Navigation brand
    ========================================================= */
 .navbar-brand {
-	font-weight: 700;
-	font-size: 1.125rem;
+    font-weight: 600;
+    font-size: 1.0625rem;
 }
 
 /* =========================================================
    Archive / featured grid
    ========================================================= */
 .archive-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* --spacing-lg */
 }
 
 @media (min-width: 1024px) {
-	.archive-grid {
-		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 14rem;
-	}
+    .archive-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 14rem;
+    }
 }
 
 .archive-card {
-	position: relative;
-	display: block;
-	overflow: hidden;
-	border-radius: 0.5rem;
-	border: 1px solid var(--color-border);
-	height: 12rem;
-	text-decoration: none;
-	transition: box-shadow 0.2s ease;
-}
-
-.archive-card:hover {
-	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 1.125rem; /* --rounded-lg = 18px */
+    border: 1px solid var(--color-hairline);
+    height: 12rem;
+    text-decoration: none;
 }
 
 .archive-card img {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	filter: brightness(0.5);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.5);
 }
 
+/* Functional overlay — makes text readable over varied photography */
 .archive-card-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	padding: 1rem;
-	color: white;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    color: var(--color-on-dark);
 }
 
 .archive-card-overlay a {
-	color: white;
-	text-decoration: none;
+    color: var(--color-on-dark);
+    text-decoration: none;
 }
 
 .archive-card-hero {
-	height: 16rem;
+    height: 16rem;
 }
 
 @media (min-width: 1024px) {
-	.archive-card,
-	.archive-card-hero {
-		height: auto;
-	}
+    .archive-card,
+    .archive-card-hero {
+        height: auto;
+    }
 
-	.archive-card-hero {
-		grid-column: span 2 / span 2;
-		grid-row: span 2 / span 2;
-	}
+    .archive-card-hero {
+        grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
+    }
 }
 
 /* =========================================================
-   Post / archive card styles (legacy — single post context)
+   Post / archive entry card
    ========================================================= */
 .entry-card {
-	border: 1px solid var(--color-border);
-	border-radius: 0.5rem;
-	overflow: hidden;
-	background: var(--color-base);
-	transition: box-shadow 0.2s ease;
-}
-.entry-card:hover {
-	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+    border: 1px solid var(--color-hairline);
+    border-radius: 1.125rem; /* --rounded-lg */
+    overflow: hidden;
+    background: var(--color-canvas);
 }
 
 .entry-card img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* =========================================================
-   Tag labels
+   Tag labels / taxonomy links
    ========================================================= */
 .tag-label,
 .wp-block-post-author-name__link,
 .taxonomy-category a {
-	display: inline-block;
-	padding: 0.2em 0.7em;
-	border-radius: 9999px;
-	font-size: 0.8125rem;
-	font-weight: 500;
-	line-height: 1.4;
-	text-decoration: none;
-	background: var(--color-primary);
-	color: var(--color-base);
-	transition: background 0.15s;
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    border-radius: 9999px; /* --rounded-pill */
+    font-size: 0.875rem;   /* --font-size-caption */
+    font-weight: 400;
+    line-height: 1.43;
+    text-decoration: none;
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    transition: background 0.15s;
 }
 .tag-label:hover,
 .wp-block-post-author-name__link:hover,
 .taxonomy-category a:hover {
-	background: var(--color-primary-dark);
+    background: var(--color-primary-focus);
 }
 
 /* =========================================================
    Pagination
    ========================================================= */
 .pagination-link {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.25rem;
-	padding: 0.4rem 0.9rem;
-	border: 1px solid var(--color-border);
-	border-radius: 0.375rem;
-	background: var(--color-base);
-	color: var(--color-primary);
-	font-size: 0.9375rem;
-	text-decoration: none;
-	transition:
-		background 0.15s,
-		color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 8px 15px; /* button-dark-utility padding */
+    border: 1px solid var(--color-hairline);
+    border-radius: 8px; /* --rounded-sm */
+    background: var(--color-canvas);
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
 }
 .pagination-link:hover {
-	background: var(--color-primary);
-	color: var(--color-base);
-	border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    border-color: var(--color-primary);
 }
 .pagination-link:hover a {
-	color: var(--color-base);
+    color: var(--color-on-dark);
 }
+
 /* =========================================================
-   Prose / single post content
+   Prose / post content
+   theme.json controls global body font-size, weight,
+   line-height, and letter-spacing. These rules handle
+   structural layout within arbitrary HTML content only.
    ========================================================= */
 .entry-content {
-	font-size: 1.0625rem;
-	line-height: 1.75;
-	color: var(--color-contrast);
+    line-height: 1.47;       /* --typography-body line-height */
+    color: var(--color-ink);
 }
 .entry-content a {
-	color: var(--color-primary);
-	text-decoration: underline;
+    color: var(--color-primary);
+    text-decoration: underline;
 }
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
-.entry-content h4 {
-	margin-block: 1.5em 0.5em;
-	font-weight: 700;
-	line-height: 1.3;
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    margin-block: 1.5em 0.5em;
+    font-weight: 600;  /* design ladder: 300/400/600/700 — headlines at 600 */
+    line-height: 1.1;
 }
 .entry-content p {
-	margin-block: 0 var(--wp--style--block-gap, 1em);
+    margin-block: 0 var(--wp--style--block-gap, 1em);
 }
 .entry-content ul,
 .entry-content ol {
-	margin-block: 0 1em;
-	padding-inline-start: 1.5em;
+    margin-block: 0 1em;
+    padding-inline-start: 1.5em;
 }
 .entry-content ul li {
-	list-style: disc;
+    list-style: disc;
 }
 .entry-content ol li {
-	list-style: decimal;
+    list-style: decimal;
 }
 .entry-content pre,
 .entry-content code {
-	font-family: var(--font-family-mono);
-	background: var(--wp--preset--color--contrast);
-	border: 1px solid var(--wp--preset--color--contrast);
-	color: var(--wp--preset--color--surface);
-	border-radius: 0.25rem;
+    font-family: var(--font-family-mono);
+    background: var(--color-surface-pearl);
+    border: 1px solid var(--color-hairline);
+    color: var(--color-ink);
+    border-radius: 8px; /* --rounded-sm */
 }
 .entry-content pre {
-	padding: 1em;
-	overflow-x: auto;
-	margin-block: 0 1em;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin-block: 0 1em;
 }
 .entry-content code {
-	padding: 0.15em 0.35em;
-	font-size: 0.9em;
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
 }
 .entry-content blockquote {
-	border-inline-start: 4px solid var(--color-primary);
-	padding-inline-start: 1rem;
-	margin-inline: 0;
-	color: var(--color-muted);
-	font-style: italic;
+    border-inline-start: 4px solid var(--color-primary);
+    padding-inline-start: 1.5rem;
+    margin-inline: 0;
+    color: var(--color-ink-muted-48);
+    font-style: italic;
 }
 .entry-content img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* --rounded-sm for inline imagery */
 }
 
 /* =========================================================
    Comments
    ========================================================= */
 .comment-list {
-	list-style: none;
-	padding: 0;
+    list-style: none;
+    padding: 0;
 }
 .comment-list .comment {
-	padding: 1rem 0;
-	border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-hairline);
 }
 
 /* =========================================================
-   Breadcrumb
+   Breadcrumb (used inside cover/hero — always on dark)
    ========================================================= */
 .breadcrumb {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.25rem;
-	font-size: 0.875rem;
-	color: var(--color-base);
-	justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--color-on-dark);
+    justify-content: center;
 }
 .breadcrumb a {
-	color: var(--color-base);
-	text-decoration: none;
+    color: var(--color-on-dark);
+    text-decoration: none;
 }
 .breadcrumb a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .breadcrumb-sep::after {
-	content: "/";
-	margin-inline-start: 0.25rem;
+    content: "/";
+    margin-inline-start: 0.25rem;
 }
 
 /* =========================================================
-   Footer
-   ========================================================= */
-.site-footer {
-	background: var(--color-contrast);
-	color: oklch(85% 0 0);
-}
-.site-footer a {
-	color: oklch(75% 0 0);
-	text-decoration: none;
-}
-.site-footer a:hover {
-	color: var(--color-base);
-	text-decoration: underline;
-}
-.site-footer .widget-title {
-	color: var(--color-base);
-	font-weight: 700;
-	margin-bottom: 0.75rem;
-}
-
-/* =========================================================
-   Featured image hero
+   Featured image hero (custom HTML structure — not WP Cover)
    ========================================================= */
 .entry-hero {
-	position: relative;
-	width: 100%;
-	height: 22rem;
-	overflow: hidden;
-	background: var(--color-surface-alt);
+    position: relative;
+    width: 100%;
+    height: 22rem;
+    overflow: hidden;
+    background: var(--color-surface-tile-1);
 }
 
 .entry-hero img {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	filter: brightness(0.5);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.5);
 }
 
+/* Functional overlay — text legibility over photography */
 .entry-hero-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	text-align: center;
-	padding: 1.5rem;
-	color: white;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 0; /* --spacing-section, no horizontal padding */
+    color: var(--color-on-dark);
 }
 
 .entry-hero-overlay a,
 .entry-hero-overlay h1,
 .entry-hero-overlay h2 {
-	color: white;
-	text-decoration: none;
+    color: var(--color-on-dark);
+    text-decoration: none;
 }
 
 .entry-hero-overlay .breadcrumb {
-	color: rgb(255 255 255 / 0.7);
+    color: rgb(255 255 255 / 0.7);
 }
 
 .entry-hero-overlay .breadcrumb a {
-	color: white;
-}
-
-/* =========================================================
-   Utility overrides for WP core blocks
-   ========================================================= */
-.wp-block-separator {
-	border: none;
-	border-top: 1px solid var(--color-border);
-	margin-block: 2rem;
-}
-.wp-block-quote {
-	border-inline-start: 4px solid var(--color-primary);
-	padding-inline-start: 1rem;
-	font-style: italic;
-}
-.wp-block-code {
-	background: var(--color-surface-alt);
-	border-radius: 0.375rem;
-	padding: 1rem;
-	overflow-x: auto;
+    color: var(--color-on-dark);
 }
 
 /* =========================================================
    Responsive helpers
    ========================================================= */
 @media print {
-	#sidebar,
-	nav[role="navigation"],
-	.site-footer {
-		display: none;
-	}
-	main {
-		margin-inline-start: 0 !important;
-	}
-	a {
-		color: inherit;
-		text-decoration: none;
-	}
+    #sidebar,
+    nav[role="navigation"],
+    .site-footer {
+        display: none;
+    }
+    main {
+        margin-inline-start: 0 !important;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 }
