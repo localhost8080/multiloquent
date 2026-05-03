@@ -299,6 +299,28 @@
                 },
                 "border": { "radius": "9999px" }
             },
+            "core/cover": {
+                "color": {
+                    "text": "var(--wp--preset--color--on-dark)"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "var(--wp--preset--spacing--section)",
+                        "bottom": "var(--wp--preset--spacing--section)",
+                        "left": "0",
+                        "right": "0"
+                    }
+                },
+                "elements": {
+                    "heading": {
+                        "color": { "text": "var(--wp--preset--color--on-dark)" }
+                    },
+                    "link": {
+                        "color": { "text": "var(--wp--preset--color--primary-on-dark)" },
+                        ":hover": { "color": { "text": "var(--wp--preset--color--on-dark)" } }
+                    }
+                }
+            },
             "core/comments": {
                 "spacing": {
                     "blockGap": "var(--wp--preset--spacing--lg)"

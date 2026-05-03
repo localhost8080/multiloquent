@@ -266,6 +266,12 @@ components:
         typography: "{typography.display-lg}"
         rounded: "{rounded.none}"
         padding: 80px
+    cover:
+        backgroundColor: "{colors.surface-tile-1}"
+        textColor: "{colors.on-dark}"
+        rounded: "{rounded.none}"
+        paddingHorizontal: 0
+        paddingVertical: 80px
     footer:
         backgroundColor: "{colors.canvas-parchment}"
         textColor: "{colors.ink-muted-80}"
@@ -474,6 +480,8 @@ Apple's whitespace is the product's pedestal. Every tile begins with at least 64
 
 **`text-link-on-dark`** — Inline body links on dark tiles in `{colors.primary-on-dark}` (Sky Link Blue #2997ff) — Action Blue would disappear against `{colors.surface-tile-1}`.
 
+**Button & pill text contrast rule** — Any button or pill whose background is as dark or darker than `{colors.primary}` (#0066cc) must use `{colors.on-dark}` (#ffffff) for its label. This applies to `{component.button-primary}` (Action Blue), `{component.button-dark-utility}` (Ink), `{component.button-store-hero}`, and any pill placed directly on a dark tile surface. Light-background variants (`{component.button-secondary-pill}`, `{component.button-pearl-capsule}`, `{component.configurator-option-chip}`) use `{colors.primary}` or `{colors.ink}` — never white, as it would disappear against the light fill.
+
 ### Cards & Containers
 
 **`product-tile-light`** — Full-bleed light tile. Background `{colors.canvas}` (white), text `{colors.ink}`, rounded `{rounded.none}` (0 — tiles touch edges), vertical padding `{spacing.section}` (80px). Centered stack: product name in `{typography.display-lg}` (40px / 600) → one-line tagline in `{typography.lead}` (28px / 400) → two `{component.button-primary}` CTAs ("Learn more" / "Buy") → product render resting on the surface with the system shadow.
@@ -496,6 +504,8 @@ Apple's whitespace is the product's pedestal. Every tile begins with at least 64
 
 **`floating-sticky-bar`** — Floats at the bottom of the viewport on the iPhone 17 Pro buy page during scroll. Background `{colors.canvas-parchment}` at 80% opacity with `backdrop-filter: blur(N)`, height 64px, padding 12px × 32px. Left: running price total in `{typography.body}`. Right: `{component.button-primary}` ("Add to Bag").
 
+**`cover`** — WordPress Cover block used as a full-bleed section hero (e.g., blog post featured header, page hero). Background is a full-bleed photographic image with `{colors.surface-tile-1}` as the CSS fallback. All text, headings, and inline links must use `{colors.on-dark}` (#ffffff) — the photographic background is always dark enough to require white text; use `{component.text-link-on-dark}` for any inline links. **No horizontal padding** — the cover block spans edge-to-edge with 0 left/right padding, matching the full-bleed tile grammar. Vertical padding follows `{spacing.section}` (80px). `{rounded.none}` — never round cover edges.
+
 ### Inputs & Forms
 
 **`search-input`** — The accessories search input. Background `{colors.canvas}`, text `{colors.ink}` in `{typography.body}` (17px), 1px solid `rgba(0, 0, 0, 0.08)` border, rounded `{rounded.pill}` (full pill — search is also pill-shaped, matching the CTA grammar), padding 12px × 20px, height 44px. Leading icon: search glyph at 14px, muted tint.
@@ -516,6 +526,9 @@ Error and validation states were not surfaced in the analyzed pages.
 - Alternate `{component.product-tile-light}` (or parchment) and `{component.product-tile-dark}` for full-bleed section rhythm. The color change IS the divider.
 - Reserve `{rounded.pill}` for the primary blue CTA and any other element that should read as an "action" (configurator chips, search input, sticky bar CTA).
 - Apply the single product-shadow (`rgba(0, 0, 0, 0.22) 3px 5px 30px`) only to product renders resting on a surface — never on cards, buttons, or text.
+- Use `{colors.on-dark}` (#ffffff) for all text, headings, and links inside Cover blocks and hero units — photographic backgrounds are always dark enough to require white text.
+- Use white (`{colors.on-dark}`) for button and pill labels whenever the button background is as dark or darker than `{colors.primary}` (Action Blue #0066cc).
+- Strip horizontal padding from Cover blocks — they are full-bleed with 0 left/right padding, matching the edge-to-edge tile grammar.
 - Use `transform: scale(0.95)` as the active/press state on every button — it's the system-wide micro-interaction.
 - Keep the global nav `{colors.surface-black}` (true black) — it's the only place pure black appears on most pages.
 
@@ -529,6 +542,9 @@ Error and validation states were not surfaced in the analyzed pages.
 - Don't tighten line-height below 1.47 for body copy — the editorial leading is part of the brand.
 - Don't mix radii grammars — use `{rounded.sm}` for compact utility, `{rounded.lg}` for utility cards, `{rounded.pill}` for pills, and nothing in between (except the rare `{rounded.md}` Pearl Button).
 - Don't use `{colors.primary-on-dark}` (Sky Link Blue) on light surfaces — it's the dark-tile-only variant. Action Blue is for light surfaces.
+- Don't add left or right padding to Cover blocks — horizontal padding breaks the full-bleed edge-to-edge treatment.
+- Don't use dark text (`{colors.ink}`) on photographic covers or hero units — always `{colors.on-dark}` (#ffffff).
+- Don't use dark text on button or pill labels when the background is dark (primary blue, ink, any surface-tile) — the label must be white.
 
 ## Responsive Behavior
 
