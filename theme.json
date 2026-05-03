@@ -273,6 +273,28 @@
                     "fontSize": "var(--wp--preset--font-size--xx-large)",
                     "fontWeight": "700"
                 }
+            },
+            "core/post-navigation-link": {
+                "color": {
+                    "background": "var(--wp--preset--color--primary)",
+                    "text": "var(--wp--preset--color--base)"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "0.5rem",
+                        "bottom": "0.5rem",
+                        "left": "1rem",
+                        "right": "1rem"
+                    }
+                },
+                "border": {
+                    "radius": "0.375rem"
+                }
+            },
+            "core/comments": {
+                "spacing": {
+                    "blockGap": "1rem"
+                }
             }
         }
     },
