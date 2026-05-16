@@ -421,8 +421,14 @@ select:focus {
 .wp-block-post-author-name__link:hover,
 .taxonomy-category a:hover,
 .taxonomy-post_tag a:hover {
-	box-shadow: var(--nm-inset-sm);
+	box-shadow: var(--nm-raised);
 	color: var(--color-primary-dark);
+}
+.tag-label:active,
+.wp-block-post-author-name__link:active,
+.taxonomy-category a:active,
+.taxonomy-post_tag a:active {
+	box-shadow: var(--nm-inset-sm);
 }
 
 /* terms containers — flex gap between pills, no separator dots */
@@ -563,6 +569,10 @@ select:focus {
 	background: var(--color-base);
 	box-shadow: var(--nm-raised-sm);
 	margin-bottom: 1rem;
+}
+
+.form-submit {
+	margin-top: 1.5rem;
 }
 
 /* =========================================================

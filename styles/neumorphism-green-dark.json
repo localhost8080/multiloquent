@@ -1,55 +1,55 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
-  "title": "Neumorphism — Green Dark",
+  "title": "Neumorphism — Petronas Dark",
   "settings": {
     "color": {
       "palette": [
-        { "color": "#22cc66", "name": "Primary",        "slug": "primary"       },
-        { "color": "#11994d", "name": "Primary Dark",   "slug": "primary-dark"  },
-        { "color": "#55dd88", "name": "Primary Light",  "slug": "primary-light" },
-        { "color": "#4488ff", "name": "Secondary",      "slug": "secondary"     },
+        { "color": "#38B09D", "name": "Primary",        "slug": "primary"       },
+        { "color": "#2C8A7A", "name": "Primary Dark",   "slug": "primary-dark"  },
+        { "color": "#72C8BB", "name": "Primary Light",  "slug": "primary-light" },
+        { "color": "#0F4C81", "name": "Secondary",      "slug": "secondary"     },
         { "color": "#ffaa22", "name": "Accent",         "slug": "accent"        },
-        { "color": "#ee4444", "name": "Danger",         "slug": "danger"        },
-        { "color": "#1e2a26", "name": "Base",           "slug": "base"          },
-        { "color": "#d5f0e0", "name": "Contrast",       "slug": "contrast"      },
-        { "color": "#7aab91", "name": "Muted",          "slug": "muted"         },
-        { "color": "#1e2a26", "name": "Surface",        "slug": "surface"       },
-        { "color": "#283832", "name": "Surface Alt",    "slug": "surface-alt"   },
-        { "color": "#2e4a3a", "name": "Border",         "slug": "border"        },
-        { "color": "#2d4838", "name": "Shadow Light",   "slug": "shadow-light"  },
-        { "color": "#111a14", "name": "Shadow Dark",    "slug": "shadow-dark"   }
+        { "color": "#BE3455", "name": "Danger",         "slug": "danger"        },
+        { "color": "#152A27", "name": "Base",           "slug": "base"          },
+        { "color": "#D8F2EE", "name": "Contrast",       "slug": "contrast"      },
+        { "color": "#5E9990", "name": "Muted",          "slug": "muted"         },
+        { "color": "#152A27", "name": "Surface",        "slug": "surface"       },
+        { "color": "#1D3834", "name": "Surface Alt",    "slug": "surface-alt"   },
+        { "color": "#254540", "name": "Border",         "slug": "border"        },
+        { "color": "#244540", "name": "Shadow Light",   "slug": "shadow-light"  },
+        { "color": "#0A1614", "name": "Shadow Dark",    "slug": "shadow-dark"   }
       ],
       "gradients": [
         {
-          "gradient": "linear-gradient(135deg, #22cc66 0%, #4488ff 100%)",
+          "gradient": "linear-gradient(135deg, #38B09D 0%, #0F4C81 100%)",
           "name": "Primary to Secondary",
           "slug": "primary-to-secondary"
         },
         {
-          "gradient": "linear-gradient(135deg, #11994d 0%, #22cc66 100%)",
+          "gradient": "linear-gradient(135deg, #2C8A7A 0%, #38B09D 100%)",
           "name": "Primary Fade",
           "slug": "primary-fade"
         },
         {
-          "gradient": "linear-gradient(180deg, #283832 0%, #1e2a26 100%)",
+          "gradient": "linear-gradient(180deg, #1D3834 0%, #152A27 100%)",
           "name": "Surface to Base",
           "slug": "surface-to-base"
         },
         {
-          "gradient": "linear-gradient(135deg, #111a14 0%, #22cc66 100%)",
+          "gradient": "linear-gradient(135deg, #0A1614 0%, #38B09D 100%)",
           "name": "Dark to Primary",
           "slug": "dark-to-primary"
         }
       ],
       "duotone": [
         {
-          "colors": ["#22cc66", "#1e2a26"],
+          "colors": ["#38B09D", "#152A27"],
           "name": "Primary and Base",
           "slug": "primary-and-white"
         },
         {
-          "colors": ["#111a14", "#55dd88"],
+          "colors": ["#0A1614", "#72C8BB"],
           "name": "Dark and Primary",
           "slug": "contrast-and-primary"
         }
