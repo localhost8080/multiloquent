@@ -169,7 +169,8 @@
 /* =========================================================
    Post navigation (previous / next post on single post pages)
    ========================================================= */
-.wp-block-post-navigation-link a {
+.wp-block-post-navigation-link a,
+.wp-block-post-navigation-link__label {
 	display: inline-flex;
 	align-items: center;
 	padding: 0.5rem 1.25rem;
@@ -181,11 +182,13 @@
 	box-shadow: var(--nm-raised);
 	transition: box-shadow 0.15s, color 0.15s;
 }
-.wp-block-post-navigation-link a:hover {
+.wp-block-post-navigation-link a:hover,
+.wp-block-post-navigation-link__label:hover {
 	box-shadow: var(--nm-raised-lg);
 	color: var(--color-primary-dark);
 }
-.wp-block-post-navigation-link a:active {
+.wp-block-post-navigation-link a:active,
+.wp-block-post-navigation-link__label:active {
 	box-shadow: var(--nm-inset);
 }
 
@@ -250,11 +253,16 @@ select:focus {
 /* Featured slider is PHP-rendered outside WP block layout,
    so it needs its own horizontal padding */
 .featured-slider {
-	padding-inline: 1rem;
+	padding-inline: 1.25rem;
 }
 @media (min-width: 768px) {
 	.featured-slider {
-		padding-inline: 1.5rem;
+		padding-inline: 2rem;
+	}
+}
+@media (min-width: 1024px) {
+	.featured-slider {
+		padding-inline: 3rem;
 	}
 }
 
@@ -397,9 +405,10 @@ select:focus {
    ========================================================= */
 .tag-label,
 .wp-block-post-author-name__link,
-.taxonomy-category a {
+.taxonomy-category a,
+.taxonomy-post_tag a {
 	display: inline-block;
-	padding: 0.2em 0.75em;
+	padding: 0.4em 1em;
 	border-radius: 9999px;
 	font-size: 0.75rem;
 	font-weight: 600;
@@ -412,9 +421,22 @@ select:focus {
 }
 .tag-label:hover,
 .wp-block-post-author-name__link:hover,
-.taxonomy-category a:hover {
+.taxonomy-category a:hover,
+.taxonomy-post_tag a:hover {
 	box-shadow: var(--nm-inset-sm);
 	color: var(--color-primary-dark);
+}
+
+/* terms containers — flex gap between pills, no separator dots */
+.taxonomy-category,
+.taxonomy-post_tag {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+	align-items: center;
+}
+.wp-block-post-terms__separator {
+	display: none;
 }
 
 /* =========================================================
@@ -480,30 +502,35 @@ select:focus {
 .entry-content ol li {
 	list-style: decimal;
 }
-.entry-content pre,
-.entry-content code {
+.entry-content pre {
 	font-family: var(--font-family-mono);
 	background: var(--color-base);
 	border: none;
-	border-radius: 0.5rem;
+	border-radius: 0.625rem;
 	box-shadow: var(--nm-inset-sm);
 	color: var(--color-contrast);
-}
-.entry-content pre {
-	padding: 1em;
+	padding: 1em 1.25em;
 	overflow-x: auto;
 	margin-block: 0 1em;
 }
 .entry-content code {
-	padding: 0.15em 0.35em;
-	font-size: 0.9em;
+	font-family: var(--font-family-mono);
+	background: var(--color-base);
+	border: none;
+	border-radius: 0.375rem;
+	box-shadow: var(--nm-inset-sm);
+	color: var(--color-contrast);
+	padding: 0.2em 0.5em;
+	font-size: 0.875em;
 }
-/* pre > code: remove double shadow — pre already provides the inset */
+/* code inside pre — pre provides the container, code gets no shadow/background */
 .entry-content pre code {
-	box-shadow: none;
 	background: transparent;
 	border-radius: 0;
+	box-shadow: none;
+	color: inherit;
 	padding: 0;
+	font-size: 1em;
 }
 .entry-content blockquote {
 	border-inline-start: none;
@@ -635,7 +662,9 @@ select:focus {
 .wp-block-separator {
 	border: none;
 	height: 2px;
-	background: linear-gradient(to right, transparent, var(--color-border), transparent);
+	background:
+		linear-gradient(to right, transparent, var(--color-shadow-dark), transparent) 0 0 / 100% 1px no-repeat,
+		linear-gradient(to right, transparent, var(--color-shadow-light), transparent) 0 100% / 100% 1px no-repeat;
 	margin-block: 2rem;
 }
 .wp-block-quote {
