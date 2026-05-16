@@ -407,7 +407,7 @@ class MultiloquentBase
 
 		ob_start();
 	?>
-		<section class="featured-slider bg-[var(--color-surface)] py-6 px-4 md:px-6"
+		<section class="featured-slider py-6"
 			aria-label="<?php esc_attr_e('Featured posts', 'multiloquent'); ?>">
 			<div class="archive-grid max-w-[var(--width-wide)] mx-auto">
 				<?php foreach ($featured_posts as $i => $fp) :
@@ -418,36 +418,35 @@ class MultiloquentBase
 					$thumb      = get_the_post_thumbnail_url($fp->ID, $img_size);
 					$srcset     = $thumb_id ? wp_get_attachment_image_srcset($thumb_id, $img_size) : false;
 					$sizes      = $thumb_id ? wp_get_attachment_image_sizes($thumb_id, $img_size) : false;
+					$tags       = get_the_tags($fp->ID);
 				?>
 					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>" class="<?php echo $card_class; ?>">
-						<?php if ($thumb) : ?>
-							<img src="<?php echo esc_url($thumb); ?>"
-								<?php if ($srcset) : ?>srcset="<?php echo esc_attr($srcset); ?>" <?php endif; ?>
-								<?php if ($sizes) : ?>sizes="<?php echo esc_attr($sizes); ?>" <?php endif; ?>
-								alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
-								loading="<?php echo $is_hero ? 'eager' : 'lazy'; ?>">
-						<?php else : ?>
-							<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
-						<?php endif; ?>
-						<div class="archive-card-overlay">
-							<h3 style="margin:0;line-height:1.3;color:white;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
+						<div class="archive-card-image">
+							<?php if ($thumb) : ?>
+								<img src="<?php echo esc_url($thumb); ?>"
+									<?php if ($srcset) : ?>srcset="<?php echo esc_attr($srcset); ?>"<?php endif; ?>
+									<?php if ($sizes) : ?>sizes="<?php echo esc_attr($sizes); ?>"<?php endif; ?>
+									alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
+									loading="<?php echo $is_hero ? 'eager' : 'lazy'; ?>">
+							<?php else : ?>
+								<div class="archive-card-placeholder"></div>
+							<?php endif; ?>
+						</div>
+						<div class="archive-card-body">
+							<?php if ('tags' === $featured_style && $tags) : ?>
+								<div class="archive-card-tags">
+									<?php foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) : ?>
+										<span class="tag-label"><?php echo esc_html($tag->name); ?></span>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+							<h3 class="archive-card-title <?php echo $is_hero ? 'archive-card-title-hero' : ''; ?>">
 								<?php echo esc_html(get_the_title($fp->ID)); ?>
 							</h3>
 							<?php if ('excerpt' === $featured_style && $is_hero) : ?>
-								<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.8;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
+								<p class="archive-card-excerpt">
 									<?php echo esc_html(wp_trim_words(get_the_excerpt($fp->ID), 20)); ?>
 								</p>
-							<?php elseif ('tags' === $featured_style) : ?>
-								<div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.25rem;">
-									<?php
-									$tags = get_the_tags($fp->ID);
-									if ($tags) {
-										foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
-											printf('<span class="tag-label" style="font-size:0.75rem;opacity:0.9;">%s</span>', esc_html($tag->name));
-										}
-									}
-									?>
-								</div>
 							<?php endif; ?>
 						</div>
 					</a>

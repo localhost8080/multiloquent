@@ -53,8 +53,8 @@
 	--color-surface: var(--wp--preset--color--surface);
 	--color-surface-alt: var(--wp--preset--color--surface-alt);
 	--color-border: var(--wp--preset--color--border);
-	--color-shadow-light: var(--wp--preset--color--shadow-light);
-	--color-shadow-dark: var(--wp--preset--color--shadow-dark);
+	--color-shadow-light: var(--wp--preset--color--shadow-light, #ffffff);
+	--color-shadow-dark: var(--wp--preset--color--shadow-dark, #a3b1c6);
 
 	/* Neumorphic shadow shorthands — all driven by the theme's shadow colours */
 	--nm-raised:
@@ -137,6 +137,29 @@
 	font-weight: 700;
 	font-size: 1.125rem;
 	color: var(--color-contrast);
+}
+
+/* =========================================================
+   Post navigation (previous / next post on single post pages)
+   ========================================================= */
+.wp-block-post-navigation-link a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 1.25rem;
+	border-radius: 0.625rem;
+	background: var(--color-base);
+	color: var(--color-primary);
+	font-weight: 600;
+	text-decoration: none;
+	box-shadow: var(--nm-raised);
+	transition: box-shadow 0.15s, color 0.15s;
+}
+.wp-block-post-navigation-link a:hover {
+	box-shadow: var(--nm-raised-lg);
+	color: var(--color-primary-dark);
+}
+.wp-block-post-navigation-link a:active {
+	box-shadow: var(--nm-inset);
 }
 
 /* =========================================================

@@ -212,6 +212,12 @@
             "lineHeight": "1.7"
         },
         "spacing": {
+            "padding": {
+                "top": "0",
+                "bottom": "0",
+                "left": "var(--wp--preset--spacing--40)",
+                "right": "var(--wp--preset--spacing--40)"
+            },
             "blockGap": "var(--wp--preset--spacing--50)"
         },
         "elements": {
