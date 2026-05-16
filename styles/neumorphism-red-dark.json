@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Neumorphism — Red Dark",
+  "settings": {
+    "color": {
+      "palette": [
+        { "color": "#ee4444", "name": "Primary",        "slug": "primary"       },
+        { "color": "#cc2222", "name": "Primary Dark",   "slug": "primary-dark"  },
+        { "color": "#ff7777", "name": "Primary Light",  "slug": "primary-light" },
+        { "color": "#22cc66", "name": "Secondary",      "slug": "secondary"     },
+        { "color": "#ffaa22", "name": "Accent",         "slug": "accent"        },
+        { "color": "#cc2222", "name": "Danger",         "slug": "danger"        },
+        { "color": "#2e2020", "name": "Base",           "slug": "base"          },
+        { "color": "#f0d8d8", "name": "Contrast",       "slug": "contrast"      },
+        { "color": "#a07070", "name": "Muted",          "slug": "muted"         },
+        { "color": "#2e2020", "name": "Surface",        "slug": "surface"       },
+        { "color": "#3a2828", "name": "Surface Alt",    "slug": "surface-alt"   },
+        { "color": "#4a3030", "name": "Border",         "slug": "border"        },
+        { "color": "#422e2e", "name": "Shadow Light",   "slug": "shadow-light"  },
+        { "color": "#1a1212", "name": "Shadow Dark",    "slug": "shadow-dark"   }
+      ],
+      "gradients": [
+        {
+          "gradient": "linear-gradient(135deg, #ee4444 0%, #ffaa22 100%)",
+          "name": "Primary to Secondary",
+          "slug": "primary-to-secondary"
+        },
+        {
+          "gradient": "linear-gradient(135deg, #cc2222 0%, #ee4444 100%)",
+          "name": "Primary Fade",
+          "slug": "primary-fade"
+        },
+        {
+          "gradient": "linear-gradient(180deg, #3a2828 0%, #2e2020 100%)",
+          "name": "Surface to Base",
+          "slug": "surface-to-base"
+        },
+        {
+          "gradient": "linear-gradient(135deg, #1a1212 0%, #ee4444 100%)",
+          "name": "Dark to Primary",
+          "slug": "dark-to-primary"
+        }
+      ],
+      "duotone": [
+        {
+          "colors": ["#ee4444", "#2e2020"],
+          "name": "Primary and Base",
+          "slug": "primary-and-white"
+        },
+        {
+          "colors": ["#1a1212", "#ff7777"],
+          "name": "Dark and Primary",
+          "slug": "contrast-and-primary"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--base)",
+      "text": "var(--wp--preset--color--contrast)"
+    },
+    "elements": {
+      "link": {
+        "color": { "text": "var(--wp--preset--color--primary)" },
+        ":hover": { "color": { "text": "var(--wp--preset--color--primary-light)" } }
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--base)",
+          "text": "var(--wp--preset--color--primary)"
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--base)",
+            "text": "var(--wp--preset--color--primary-light)"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "core/pullquote": { "border": { "color": "transparent" } },
+      "core/quote":     { "border": { "color": "transparent" } }
+    }
+  }
+}
