@@ -294,54 +294,44 @@ class MultiloquentBase
 		$is_hero        = (0 === $wp_query->current_post);
 		$featured_style = get_theme_mod('multiloquent_featured_style', 'tags');
 		$card_class     = $is_hero ? 'archive-card archive-card-hero' : 'archive-card';
+		$tags           = get_the_tags();
+		$cats           = get_the_category();
+		$tax_items      = $tags ? array_slice($tags, 0, $is_hero ? 4 : 2) : array_slice($cats ?: [], 0, $is_hero ? 4 : 2);
+		$is_tags        = (bool) $tags;
 ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class($card_class); ?>>
-			<?php if (has_post_thumbnail()) : ?>
-				<?php the_post_thumbnail('multiloquent-card', [
-					'loading' => 'lazy',
-				]); ?>
-			<?php else : ?>
-				<div style="position:absolute;inset:0;background:var(--color-surface-alt);"></div>
-			<?php endif; ?>
-			<div class="archive-card-overlay">
-				<header>
-					<h2 style="margin:0;line-height:1.3;font-weight:<?php echo $is_hero ? '700' : '600'; ?>;font-size:<?php echo $is_hero ? '1.125rem' : '0.875rem'; ?>;">
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					</h2>
-					<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.7;">
-						<?php echo esc_html(get_the_date()); ?>
-						<?php if (get_the_author()) : ?>
-							&mdash; <?php echo esc_html(get_the_author()); ?>
-						<?php endif; ?>
-					</p>
-				</header>
+			<div class="archive-card-image">
+				<?php if (has_post_thumbnail()) : ?>
+					<?php the_post_thumbnail('multiloquent-card', ['loading' => 'lazy']); ?>
+				<?php else : ?>
+					<div class="archive-card-placeholder"></div>
+				<?php endif; ?>
+			</div>
+			<div class="archive-card-body">
+				<?php if ('tags' === $featured_style && $tax_items) : ?>
+					<div class="archive-card-tags">
+						<?php foreach ($tax_items as $item) : ?>
+							<?php if ($is_tags) : ?>
+								<a href="<?php echo esc_url(get_tag_link($item->term_id)); ?>" class="tag-label"><?php echo esc_html($item->name); ?></a>
+							<?php else : ?>
+								<a href="<?php echo esc_url(get_category_link($item->term_id)); ?>" class="tag-label" rel="category tag"><?php echo esc_html($item->name); ?></a>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+				<h2 class="archive-card-title <?php echo $is_hero ? 'archive-card-title-hero' : ''; ?>">
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</h2>
+				<p class="archive-card-meta">
+					<?php echo esc_html(get_the_date()); ?>
+					<?php if (get_the_author()) : ?>
+						&mdash; <?php echo esc_html(get_the_author()); ?>
+					<?php endif; ?>
+				</p>
 				<?php if ('excerpt' === $featured_style && $is_hero) : ?>
-					<p style="font-size:0.75rem;margin:0.25rem 0 0;opacity:0.8;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
+					<p class="archive-card-excerpt">
 						<?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?>
 					</p>
-				<?php elseif ('tags' === $featured_style) : ?>
-					<div style="display:flex;flex-wrap:wrap;gap:0.25rem;margin-top:0.25rem;">
-						<?php
-						$tags = get_the_tags();
-						if ($tags) {
-							foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) {
-								printf(
-									'<a href="%s" class="tag-label" style="font-size:0.75rem;opacity:0.9;">%s</a>',
-									esc_url(get_tag_link($tag->term_id)),
-									esc_html($tag->name)
-								);
-							}
-						} else {
-							$cats = get_the_category();
-							if ($cats) : ?>
-
-								<?php foreach ($cats as $cat) : ?>
-									<a href="<?php echo esc_url(get_category_link($cat->term_id)); ?>" class="tag-label" rel="category tag"><?php echo esc_html($cat->name); ?></a>
-								<?php endforeach; ?>
-						<?php endif;
-						}
-						?>
-					</div>
 				<?php endif; ?>
 			</div>
 		</article>

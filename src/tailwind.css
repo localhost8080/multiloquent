@@ -1,24 +1,28 @@
 @import "tailwindcss";
 
 /* =========================================================
-   Multiloquent Theme — Tailwind v4 design tokens
+   Multiloquent Theme — Tailwind v4 design tokens (Neumorphism)
    ========================================================= */
 @theme {
-	/* Brand colours */
-	--color-primary: oklch(52% 0.22 264); /* blue */
-	--color-primary-dark: oklch(40% 0.22 264);
-	--color-primary-light: oklch(68% 0.18 264);
-	--color-secondary: oklch(62% 0.16 150); /* green */
-	--color-accent: oklch(76% 0.18 70); /* amber */
-	--color-danger: oklch(58% 0.22 29); /* red */
+	/* Brand colours — neumorphic blue light (fallback) */
+	--color-primary: #4488ff;
+	--color-primary-dark: #2266dd;
+	--color-primary-light: #77aaff;
+	--color-secondary: #22cc66;
+	--color-accent: #ffaa22;
+	--color-danger: #ee4444;
 
-	/* Neutral surface tokens */
-	--color-base: oklch(100% 0 0); /* white */
-	--color-contrast: oklch(17% 0 0); /* near-black */
-	--color-muted: oklch(55% 0 0); /* mid-gray */
-	--color-surface: oklch(97% 0 0); /* off-white */
-	--color-surface-alt: oklch(93% 0 0); /* slightly darker */
-	--color-border: oklch(88% 0 0);
+	/* Neumorphic surface tokens */
+	--color-base: #e0e5ec;
+	--color-contrast: #31344b;
+	--color-muted: #6c7283;
+	--color-surface: #e0e5ec;
+	--color-surface-alt: #d5dae4;
+	--color-border: #c8cdd6;
+
+	/* Neumorphic shadow tokens */
+	--color-shadow-light: #ffffff;
+	--color-shadow-dark: #a3b1c6;
 
 	/* Typography */
 	--font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -26,7 +30,7 @@
 	--font-family-mono: "Fira Code", "Fira Mono", "Cascadia Code", Consolas, monospace;
 
 	/* Layout */
-	--width-sidebar: 18rem; /* 288px */
+	--width-sidebar: 18rem;
 	--width-content: 1000px;
 	--width-wide: 1600px;
 }
@@ -34,9 +38,7 @@
 /* =========================================================
    Bridge: WP preset color tokens → Tailwind color tokens
    WordPress generates --wp--preset--color--* from theme.json
-   (and updates them when a style variation is active).
-   Overriding --color-* here makes every Tailwind utility that
-   references var(--color-*) react to Site Editor colour changes.
+   and updates them when a style variation is active.
    ========================================================= */
 :root {
 	--color-primary: var(--wp--preset--color--primary);
@@ -51,6 +53,25 @@
 	--color-surface: var(--wp--preset--color--surface);
 	--color-surface-alt: var(--wp--preset--color--surface-alt);
 	--color-border: var(--wp--preset--color--border);
+	--color-shadow-light: var(--wp--preset--color--shadow-light);
+	--color-shadow-dark: var(--wp--preset--color--shadow-dark);
+
+	/* Neumorphic shadow shorthands — all driven by the theme's shadow colours */
+	--nm-raised:
+		6px 6px 12px var(--color-shadow-dark),
+		-6px -6px 12px var(--color-shadow-light);
+	--nm-raised-lg:
+		10px 10px 20px var(--color-shadow-dark),
+		-10px -10px 20px var(--color-shadow-light);
+	--nm-raised-sm:
+		3px 3px 6px var(--color-shadow-dark),
+		-3px -3px 6px var(--color-shadow-light);
+	--nm-inset:
+		inset 4px 4px 8px var(--color-shadow-dark),
+		inset -4px -4px 8px var(--color-shadow-light);
+	--nm-inset-sm:
+		inset 2px 2px 5px var(--color-shadow-dark),
+		inset -2px -2px 5px var(--color-shadow-light);
 }
 
 /* =========================================================
@@ -80,11 +101,13 @@
 }
 
 /* =========================================================
-   WordPress block editor base styles (editor-style.css)
+   WordPress block editor base styles
    ========================================================= */
 .wp-block-image img {
 	height: auto;
 	max-width: 100%;
+	border-radius: 0.75rem;
+	box-shadow: var(--nm-raised);
 }
 
 /* =========================================================
@@ -96,12 +119,14 @@
 }
 
 /* =========================================================
-   Site header (FSE block template part)
+   Site header
    ========================================================= */
 .site-header {
 	background: var(--color-base);
-	border-bottom: 1px solid var(--color-border);
-	box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+	border-bottom: none;
+	box-shadow:
+		0 4px 8px var(--color-shadow-dark),
+		0 -2px 4px var(--color-shadow-light);
 	z-index: 50;
 }
 
@@ -111,6 +136,61 @@
 .navbar-brand {
 	font-weight: 700;
 	font-size: 1.125rem;
+	color: var(--color-contrast);
+}
+
+/* =========================================================
+   Global neumorphic buttons
+   ========================================================= */
+.wp-element-button,
+.wp-block-button__link {
+	background: var(--color-base) !important;
+	color: var(--color-primary) !important;
+	border: none !important;
+	border-radius: 0.625rem !important;
+	box-shadow: var(--nm-raised) !important;
+	font-weight: 600;
+	transition: box-shadow 0.15s, color 0.15s !important;
+}
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+	background: var(--color-base) !important;
+	color: var(--color-primary-dark) !important;
+	box-shadow: var(--nm-raised-lg) !important;
+}
+.wp-element-button:active,
+.wp-block-button__link:active {
+	box-shadow: var(--nm-inset) !important;
+}
+
+/* =========================================================
+   Global neumorphic input fields (inset = pressed into surface)
+   ========================================================= */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+	background: var(--color-base);
+	border: none;
+	border-radius: 0.625rem;
+	padding: 0.625rem 0.875rem;
+	color: var(--color-contrast);
+	box-shadow: var(--nm-inset);
+	font-family: var(--font-family-system);
+	font-size: 1rem;
+	outline: none;
+	width: 100%;
+	transition: box-shadow 0.15s;
+}
+input:focus,
+textarea:focus,
+select:focus {
+	box-shadow: var(--nm-inset), 0 0 0 2px var(--color-primary);
 }
 
 /* =========================================================
@@ -119,87 +199,131 @@
 .archive-grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1rem;
+	gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.archive-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (min-width: 1024px) {
 	.archive-grid {
 		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 14rem;
 	}
 }
 
 .archive-card {
-	position: relative;
-	display: block;
+	background: var(--color-base);
+	border-radius: 1rem;
 	overflow: hidden;
-	border-radius: 0.5rem;
-	border: 1px solid var(--color-border);
-	height: 12rem;
+	box-shadow: var(--nm-raised);
+	display: flex;
+	flex-direction: column;
 	text-decoration: none;
+	border: none;
 	transition: box-shadow 0.2s ease;
 }
-
 .archive-card:hover {
-	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+	box-shadow: var(--nm-raised-lg);
 }
 
-.archive-card img {
-	position: absolute;
-	inset: 0;
+.archive-card-image {
+	width: 100%;
+	height: 12rem;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+.archive-card-hero .archive-card-image {
+	height: 16rem;
+}
+@media (min-width: 1024px) {
+	.archive-card-hero {
+		grid-column: span 2 / span 2;
+	}
+	.archive-card-hero .archive-card-image {
+		height: 22rem;
+	}
+}
+
+.archive-card-image img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	display: block;
-	filter: brightness(0.5);
+	border-radius: 0;
+	box-shadow: none;
+}
+.archive-card-placeholder {
+	width: 100%;
+	height: 100%;
+	background: var(--color-surface-alt);
 }
 
-.archive-card-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
+.archive-card-body {
+	padding: 1rem 1.25rem 1.25rem;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	padding: 1rem;
-	color: white;
+	gap: 0.5rem;
 }
 
-.archive-card-overlay a {
-	color: white;
+.archive-card-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+}
+
+.archive-card-title {
+	margin: 0;
+	line-height: 1.3;
+	font-weight: 600;
+	font-size: 1rem;
+	color: var(--color-contrast);
+}
+.archive-card-title-hero {
+	font-size: 1.125rem;
+	font-weight: 700;
+}
+.archive-card-title a {
+	color: var(--color-contrast);
 	text-decoration: none;
+	transition: color 0.15s;
+}
+.archive-card-title a:hover {
+	color: var(--color-primary);
 }
 
-.archive-card-hero {
-	height: 16rem;
+.archive-card-meta {
+	font-size: 0.75rem;
+	margin: 0;
+	color: var(--color-muted);
 }
-
-@media (min-width: 1024px) {
-	.archive-card,
-	.archive-card-hero {
-		height: auto;
-	}
-
-	.archive-card-hero {
-		grid-column: span 2 / span 2;
-		grid-row: span 2 / span 2;
-	}
+.archive-card-excerpt {
+	font-size: 0.875rem;
+	color: var(--color-muted);
+	margin: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 /* =========================================================
-   Post / archive card styles (legacy — single post context)
+   Post / archive card styles (legacy single-post context)
    ========================================================= */
 .entry-card {
-	border: 1px solid var(--color-border);
-	border-radius: 0.5rem;
+	border: none;
+	border-radius: 1rem;
 	overflow: hidden;
 	background: var(--color-base);
+	box-shadow: var(--nm-raised);
 	transition: box-shadow 0.2s ease;
 }
 .entry-card:hover {
-	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+	box-shadow: var(--nm-raised-lg);
 }
-
 .entry-card img {
 	width: 100%;
 	height: 100%;
@@ -207,26 +331,28 @@
 }
 
 /* =========================================================
-   Tag labels
+   Tag labels (pills) — raised neumorphic, primary-coloured text
    ========================================================= */
 .tag-label,
 .wp-block-post-author-name__link,
 .taxonomy-category a {
 	display: inline-block;
-	padding: 0.2em 0.7em;
+	padding: 0.2em 0.75em;
 	border-radius: 9999px;
-	font-size: 0.8125rem;
-	font-weight: 500;
+	font-size: 0.75rem;
+	font-weight: 600;
 	line-height: 1.4;
 	text-decoration: none;
-	background: var(--color-primary);
-	color: var(--color-base);
-	transition: background 0.15s;
+	background: var(--color-base);
+	color: var(--color-primary);
+	box-shadow: var(--nm-raised-sm);
+	transition: box-shadow 0.15s, color 0.15s;
 }
 .tag-label:hover,
 .wp-block-post-author-name__link:hover,
 .taxonomy-category a:hover {
-	background: var(--color-primary-dark);
+	box-shadow: var(--nm-inset-sm);
+	color: var(--color-primary-dark);
 }
 
 /* =========================================================
@@ -236,25 +362,28 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.25rem;
-	padding: 0.4rem 0.9rem;
-	border: 1px solid var(--color-border);
-	border-radius: 0.375rem;
+	padding: 0.5rem 1.25rem;
+	border: none;
+	border-radius: 0.625rem;
 	background: var(--color-base);
 	color: var(--color-primary);
 	font-size: 0.9375rem;
+	font-weight: 600;
 	text-decoration: none;
-	transition:
-		background 0.15s,
-		color 0.15s;
+	box-shadow: var(--nm-raised);
+	transition: box-shadow 0.15s, color 0.15s;
 }
 .pagination-link:hover {
-	background: var(--color-primary);
-	color: var(--color-base);
-	border-color: var(--color-primary);
+	box-shadow: var(--nm-raised-lg);
+	color: var(--color-primary-dark);
+}
+.pagination-link:active {
+	box-shadow: var(--nm-inset);
 }
 .pagination-link:hover a {
-	color: var(--color-base);
+	color: var(--color-primary-dark);
 }
+
 /* =========================================================
    Prose / single post content
    ========================================================= */
@@ -292,10 +421,11 @@
 .entry-content pre,
 .entry-content code {
 	font-family: var(--font-family-mono);
-	background: var(--wp--preset--color--contrast);
-	border: 1px solid var(--wp--preset--color--contrast);
-	color: var(--wp--preset--color--surface);
-	border-radius: 0.25rem;
+	background: var(--color-base);
+	border: none;
+	border-radius: 0.5rem;
+	box-shadow: var(--nm-inset-sm);
+	color: var(--color-contrast);
 }
 .entry-content pre {
 	padding: 1em;
@@ -307,16 +437,20 @@
 	font-size: 0.9em;
 }
 .entry-content blockquote {
-	border-inline-start: 4px solid var(--color-primary);
-	padding-inline-start: 1rem;
+	border-inline-start: none;
+	border-radius: 0.625rem;
+	padding: 1rem 1.25rem;
 	margin-inline: 0;
+	background: var(--color-base);
+	box-shadow: var(--nm-inset);
 	color: var(--color-muted);
 	font-style: italic;
 }
 .entry-content img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 0.25rem;
+	border-radius: 0.75rem;
+	box-shadow: var(--nm-raised);
 }
 
 /* =========================================================
@@ -327,8 +461,12 @@
 	padding: 0;
 }
 .comment-list .comment {
-	padding: 1rem 0;
-	border-bottom: 1px solid var(--color-border);
+	padding: 1.25rem;
+	border-bottom: none;
+	border-radius: 0.75rem;
+	background: var(--color-base);
+	box-shadow: var(--nm-raised-sm);
+	margin-bottom: 1rem;
 }
 
 /* =========================================================
@@ -339,11 +477,11 @@
 	flex-wrap: wrap;
 	gap: 0.25rem;
 	font-size: 0.875rem;
-	color: var(--color-base);
+	color: var(--color-muted);
 	justify-content: center;
 }
 .breadcrumb a {
-	color: var(--color-base);
+	color: var(--color-primary);
 	text-decoration: none;
 }
 .breadcrumb a:hover {
@@ -355,37 +493,39 @@
 }
 
 /* =========================================================
-   Footer
+   Footer — inset shadow so it feels carved into the surface
    ========================================================= */
 .site-footer {
-	background: var(--color-contrast);
-	color: oklch(85% 0 0);
+	background: var(--color-base);
+	color: var(--color-muted);
+	box-shadow: inset 0 4px 10px var(--color-shadow-dark);
 }
 .site-footer a {
-	color: oklch(75% 0 0);
+	color: var(--color-primary);
 	text-decoration: none;
 }
 .site-footer a:hover {
-	color: var(--color-base);
+	color: var(--color-primary-dark);
 	text-decoration: underline;
 }
 .site-footer .widget-title {
-	color: var(--color-base);
+	color: var(--color-contrast);
 	font-weight: 700;
 	margin-bottom: 0.75rem;
 }
 
 /* =========================================================
-   Featured image hero
+   Featured image hero (single post) — neumorphic framed image
    ========================================================= */
 .entry-hero {
 	position: relative;
 	width: 100%;
-	height: 22rem;
 	overflow: hidden;
+	border-radius: 1rem;
+	box-shadow: var(--nm-raised);
 	background: var(--color-surface-alt);
+	margin-bottom: 2rem;
 }
-
 .entry-hero img {
 	position: absolute;
 	inset: 0;
@@ -393,33 +533,29 @@
 	height: 100%;
 	object-fit: cover;
 	display: block;
-	filter: brightness(0.5);
+	filter: brightness(0.65);
 }
-
 .entry-hero-overlay {
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.2) 50%, transparent);
+	position: relative;
+	min-height: 22rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: center;
 	text-align: center;
-	padding: 1.5rem;
+	padding: 2rem 1.5rem 1.5rem;
 	color: white;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) 60%, transparent);
 }
-
 .entry-hero-overlay a,
 .entry-hero-overlay h1,
 .entry-hero-overlay h2 {
 	color: white;
 	text-decoration: none;
 }
-
 .entry-hero-overlay .breadcrumb {
-	color: rgb(255 255 255 / 0.7);
+	color: rgba(255, 255, 255, 0.8);
 }
-
 .entry-hero-overlay .breadcrumb a {
 	color: white;
 }
@@ -429,19 +565,24 @@
    ========================================================= */
 .wp-block-separator {
 	border: none;
-	border-top: 1px solid var(--color-border);
+	height: 2px;
+	background: linear-gradient(to right, transparent, var(--color-border), transparent);
 	margin-block: 2rem;
 }
 .wp-block-quote {
-	border-inline-start: 4px solid var(--color-primary);
-	padding-inline-start: 1rem;
+	border-inline-start: none;
+	border-radius: 0.625rem;
+	padding: 1rem 1.25rem;
+	background: var(--color-base);
+	box-shadow: var(--nm-inset);
 	font-style: italic;
 }
 .wp-block-code {
-	background: var(--color-surface-alt);
-	border-radius: 0.375rem;
+	background: var(--color-base);
+	border-radius: 0.625rem;
 	padding: 1rem;
 	overflow-x: auto;
+	box-shadow: var(--nm-inset);
 }
 
 /* =========================================================
