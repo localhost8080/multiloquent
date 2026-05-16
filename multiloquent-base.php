@@ -306,6 +306,7 @@ class MultiloquentBase
 				<?php else : ?>
 					<div class="archive-card-placeholder"></div>
 				<?php endif; ?>
+				<span aria-hidden="true" class="archive-card-overlay"></span>
 			</div>
 			<div class="archive-card-body">
 				<?php if ('tags' === $featured_style && $tax_items) : ?>
@@ -431,6 +432,7 @@ class MultiloquentBase
 							<?php else : ?>
 								<div class="archive-card-placeholder"></div>
 							<?php endif; ?>
+							<span aria-hidden="true" class="archive-card-overlay"></span>
 						</div>
 						<div class="archive-card-body">
 							<?php if ('tags' === $featured_style && $cats) : ?>

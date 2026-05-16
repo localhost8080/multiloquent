@@ -11,14 +11,14 @@
         { "color": "#38B09D", "name": "Secondary",      "slug": "secondary"     },
         { "color": "#ffaa22", "name": "Accent",         "slug": "accent"        },
         { "color": "#BE3455", "name": "Danger",         "slug": "danger"        },
-        { "color": "#ECF2F8", "name": "Base",           "slug": "base"          },
+        { "color": "#DBE4EC", "name": "Base",           "slug": "base"          },
         { "color": "#192530", "name": "Contrast",       "slug": "contrast"      },
         { "color": "#5A7090", "name": "Muted",          "slug": "muted"         },
-        { "color": "#ECF2F8", "name": "Surface",        "slug": "surface"       },
-        { "color": "#DDE8F3", "name": "Surface Alt",    "slug": "surface-alt"   },
-        { "color": "#C8D9EB", "name": "Border",         "slug": "border"        },
+        { "color": "#DBE4EC", "name": "Surface",        "slug": "surface"       },
+        { "color": "#CFDBE6", "name": "Surface Alt",    "slug": "surface-alt"   },
+        { "color": "#BECFDD", "name": "Border",         "slug": "border"        },
         { "color": "#ffffff", "name": "Shadow Light",   "slug": "shadow-light"  },
-        { "color": "#9AADC3", "name": "Shadow Dark",    "slug": "shadow-dark"   }
+        { "color": "#8EA6B8", "name": "Shadow Dark",    "slug": "shadow-dark"   }
       ],
       "gradients": [
         {
@@ -32,7 +32,7 @@
           "slug": "primary-fade"
         },
         {
-          "gradient": "linear-gradient(180deg, #ECF2F8 0%, #DDE8F3 100%)",
+          "gradient": "linear-gradient(180deg, #DBE4EC 0%, #CFDBE6 100%)",
           "name": "Surface to Base",
           "slug": "surface-to-base"
         },
@@ -44,7 +44,7 @@
       ],
       "duotone": [
         {
-          "colors": ["#0F4C81", "#ECF2F8"],
+          "colors": ["#0F4C81", "#DBE4EC"],
           "name": "Primary and Base",
           "slug": "primary-and-white"
         },

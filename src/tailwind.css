@@ -300,6 +300,14 @@ select:focus {
 	height: 12rem;
 	overflow: hidden;
 	flex-shrink: 0;
+	position: relative;
+}
+.archive-card-overlay {
+	position: absolute;
+	inset: 0;
+	background-color: var(--color-contrast);
+	opacity: 0.5;
+	pointer-events: none;
 }
 .archive-card-hero .archive-card-image {
 	height: 16rem;
