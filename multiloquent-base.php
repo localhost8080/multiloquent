@@ -418,7 +418,7 @@ class MultiloquentBase
 					$thumb      = get_the_post_thumbnail_url($fp->ID, $img_size);
 					$srcset     = $thumb_id ? wp_get_attachment_image_srcset($thumb_id, $img_size) : false;
 					$sizes      = $thumb_id ? wp_get_attachment_image_sizes($thumb_id, $img_size) : false;
-					$tags       = get_the_tags($fp->ID);
+					$cats       = get_the_category($fp->ID);
 				?>
 					<a href="<?php echo esc_url(get_permalink($fp->ID)); ?>" class="<?php echo $card_class; ?>">
 						<div class="archive-card-image">
@@ -433,10 +433,10 @@ class MultiloquentBase
 							<?php endif; ?>
 						</div>
 						<div class="archive-card-body">
-							<?php if ('tags' === $featured_style && $tags) : ?>
+							<?php if ('tags' === $featured_style && $cats) : ?>
 								<div class="archive-card-tags">
-									<?php foreach (array_slice($tags, 0, $is_hero ? 4 : 2) as $tag) : ?>
-										<span class="tag-label"><?php echo esc_html($tag->name); ?></span>
+									<?php foreach (array_slice($cats, 0, $is_hero ? 4 : 2) as $cat) : ?>
+										<span class="tag-label"><?php echo esc_html($cat->name); ?></span>
 									<?php endforeach; ?>
 								</div>
 							<?php endif; ?>

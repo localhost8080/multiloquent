@@ -250,11 +250,16 @@ select:focus {
 /* Featured slider is PHP-rendered outside WP block layout,
    so it needs its own horizontal padding */
 .featured-slider {
-	padding-inline: 1rem;
+	padding-inline: 1.25rem;
 }
 @media (min-width: 768px) {
 	.featured-slider {
-		padding-inline: 1.5rem;
+		padding-inline: 2rem;
+	}
+}
+@media (min-width: 1024px) {
+	.featured-slider {
+		padding-inline: 3rem;
 	}
 }
 
