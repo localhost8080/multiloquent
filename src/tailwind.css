@@ -405,7 +405,8 @@ select:focus {
    ========================================================= */
 .tag-label,
 .wp-block-post-author-name__link,
-.taxonomy-category a {
+.taxonomy-category a,
+.taxonomy-post_tag a {
 	display: inline-block;
 	padding: 0.4em 1em;
 	border-radius: 9999px;
@@ -420,9 +421,22 @@ select:focus {
 }
 .tag-label:hover,
 .wp-block-post-author-name__link:hover,
-.taxonomy-category a:hover {
+.taxonomy-category a:hover,
+.taxonomy-post_tag a:hover {
 	box-shadow: var(--nm-inset-sm);
 	color: var(--color-primary-dark);
+}
+
+/* terms containers — flex gap between pills, no separator dots */
+.taxonomy-category,
+.taxonomy-post_tag {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+	align-items: center;
+}
+.wp-block-post-terms__separator {
+	display: none;
 }
 
 /* =========================================================
@@ -648,7 +662,9 @@ select:focus {
 .wp-block-separator {
 	border: none;
 	height: 2px;
-	background: linear-gradient(to right, transparent, var(--color-border), transparent);
+	background:
+		linear-gradient(to right, transparent, var(--color-shadow-dark), transparent) 0 0 / 100% 1px no-repeat,
+		linear-gradient(to right, transparent, var(--color-shadow-light), transparent) 0 100% / 100% 1px no-repeat;
 	margin-block: 2rem;
 }
 .wp-block-quote {
