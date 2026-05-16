@@ -21,7 +21,7 @@ class MultiloquentBase
 
 	public function multiloquent_version(): string
 	{
-		return '26.1.11';
+		return '26.1.12';
 	}
 
 	// -------------------------------------------------------------------------
@@ -424,8 +424,8 @@ class MultiloquentBase
 						<div class="archive-card-image">
 							<?php if ($thumb) : ?>
 								<img src="<?php echo esc_url($thumb); ?>"
-									<?php if ($srcset) : ?>srcset="<?php echo esc_attr($srcset); ?>"<?php endif; ?>
-									<?php if ($sizes) : ?>sizes="<?php echo esc_attr($sizes); ?>"<?php endif; ?>
+									<?php if ($srcset) : ?>srcset="<?php echo esc_attr($srcset); ?>" <?php endif; ?>
+									<?php if ($sizes) : ?>sizes="<?php echo esc_attr($sizes); ?>" <?php endif; ?>
 									alt="<?php echo esc_attr(get_the_title($fp->ID)); ?>"
 									loading="<?php echo $is_hero ? 'eager' : 'lazy'; ?>">
 							<?php else : ?>

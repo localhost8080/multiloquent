@@ -57,21 +57,11 @@
 	--color-shadow-dark: var(--wp--preset--color--shadow-dark, #a3b1c6);
 
 	/* Neumorphic shadow shorthands — all driven by the theme's shadow colours */
-	--nm-raised:
-		6px 6px 12px var(--color-shadow-dark),
-		-6px -6px 12px var(--color-shadow-light);
-	--nm-raised-lg:
-		10px 10px 20px var(--color-shadow-dark),
-		-10px -10px 20px var(--color-shadow-light);
-	--nm-raised-sm:
-		3px 3px 6px var(--color-shadow-dark),
-		-3px -3px 6px var(--color-shadow-light);
-	--nm-inset:
-		inset 4px 4px 8px var(--color-shadow-dark),
-		inset -4px -4px 8px var(--color-shadow-light);
-	--nm-inset-sm:
-		inset 2px 2px 5px var(--color-shadow-dark),
-		inset -2px -2px 5px var(--color-shadow-light);
+	--nm-raised: 6px 6px 12px var(--color-shadow-dark), -6px -6px 12px var(--color-shadow-light);
+	--nm-raised-lg: 10px 10px 20px var(--color-shadow-dark), -10px -10px 20px var(--color-shadow-light);
+	--nm-raised-sm: 3px 3px 6px var(--color-shadow-dark), -3px -3px 6px var(--color-shadow-light);
+	--nm-inset: inset 4px 4px 8px var(--color-shadow-dark), inset -4px -4px 8px var(--color-shadow-light);
+	--nm-inset-sm: inset 2px 2px 5px var(--color-shadow-dark), inset -2px -2px 5px var(--color-shadow-light);
 }
 
 /* =========================================================
@@ -180,7 +170,9 @@
 	font-weight: 600;
 	text-decoration: none;
 	box-shadow: var(--nm-raised);
-	transition: box-shadow 0.15s, color 0.15s;
+	transition:
+		box-shadow 0.15s,
+		color 0.15s;
 }
 .wp-block-post-navigation-link a:hover,
 .wp-block-post-navigation-link__label:hover {
@@ -203,7 +195,9 @@
 	border-radius: 0.625rem !important;
 	box-shadow: var(--nm-raised) !important;
 	font-weight: 600;
-	transition: box-shadow 0.15s, color 0.15s !important;
+	transition:
+		box-shadow 0.15s,
+		color 0.15s !important;
 }
 .wp-element-button:hover,
 .wp-block-button__link:hover {
@@ -243,7 +237,9 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-	box-shadow: var(--nm-inset), 0 0 0 2px var(--color-primary);
+	box-shadow:
+		var(--nm-inset),
+		0 0 0 2px var(--color-primary);
 }
 
 /* =========================================================
@@ -417,7 +413,9 @@ select:focus {
 	background: var(--color-base);
 	color: var(--color-primary);
 	box-shadow: var(--nm-raised-sm);
-	transition: box-shadow 0.15s, color 0.15s;
+	transition:
+		box-shadow 0.15s,
+		color 0.15s;
 }
 .tag-label:hover,
 .wp-block-post-author-name__link:hover,
@@ -455,7 +453,9 @@ select:focus {
 	font-weight: 600;
 	text-decoration: none;
 	box-shadow: var(--nm-raised);
-	transition: box-shadow 0.15s, color 0.15s;
+	transition:
+		box-shadow 0.15s,
+		color 0.15s;
 }
 .pagination-link:hover {
 	box-shadow: var(--nm-raised-lg);
@@ -594,7 +594,6 @@ select:focus {
 .site-footer {
 	background: var(--color-base);
 	color: var(--color-muted);
-	box-shadow: inset 0 4px 10px var(--color-shadow-dark);
 }
 .site-footer a {
 	color: var(--color-primary);
