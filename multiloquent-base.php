@@ -44,6 +44,7 @@ class MultiloquentBase
 		]);
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-thumbnails');
+		add_theme_support('title-tag');
 
 		// Post formats
 		add_theme_support('post-formats', ['image', 'gallery', 'video', 'audio', 'quote', 'link']);
