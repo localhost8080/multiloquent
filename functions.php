@@ -32,5 +32,3 @@ require_once trailingslashit(get_template_directory()) . 'multiloquent-base.php'
 
 global $multiloquent;
 $multiloquent = new MultiloquentBase();
-
-remove_action('wp_head', '_wp_render_title_tag', 1);
