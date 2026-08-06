@@ -32,3 +32,9 @@ require_once trailingslashit(get_template_directory()) . 'multiloquent-base.php'
 
 global $multiloquent;
 $multiloquent = new MultiloquentBase();
+
+// RankMath (like Yoast) force-enables title-tag support internally and
+// prints its own complete <title> tag directly via wp_head, independent
+// of core's renderer — so core's renderer must stay unhooked or the
+// title tag is duplicated.
+remove_action('wp_head', '_wp_render_title_tag', 1);
