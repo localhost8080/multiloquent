@@ -57,6 +57,7 @@
     }
   },
   "styles": {
+    "css": ":root{--shadow-sm:3px 3px 6px var(--wp--preset--color--shadow-dark), -3px -3px 6px var(--wp--preset--color--shadow-light);--shadow-md:6px 6px 12px var(--wp--preset--color--shadow-dark), -6px -6px 12px var(--wp--preset--color--shadow-light);--shadow-lg:10px 10px 20px var(--wp--preset--color--shadow-dark), -10px -10px 20px var(--wp--preset--color--shadow-light);--shadow-inset:inset 4px 4px 8px var(--wp--preset--color--shadow-dark), inset -4px -4px 8px var(--wp--preset--color--shadow-light);--shadow-inset-sm:inset 2px 2px 5px var(--wp--preset--color--shadow-dark), inset -2px -2px 5px var(--wp--preset--color--shadow-light);--card-bg:var(--wp--preset--color--base);--card-radius:1rem;--button-bg:var(--wp--preset--color--base);--button-text:var(--wp--preset--color--primary);--button-bg-hover:var(--wp--preset--color--base);--button-text-hover:var(--wp--preset--color--primary-dark);--button-radius:0.625rem;--button-shadow-active:var(--shadow-inset);--pill-bg:var(--wp--preset--color--base);--pill-text:var(--wp--preset--color--primary);--pill-text-hover:var(--wp--preset--color--primary-dark);--pill-shadow:var(--shadow-sm);--pill-shadow-active:var(--shadow-inset-sm);--input-bg:var(--wp--preset--color--base);--input-border:none;--input-shadow:var(--shadow-inset);--input-radius:0.625rem;}",
     "color": {
       "background": "var(--wp--preset--color--base)",
       "text": "var(--wp--preset--color--contrast)"

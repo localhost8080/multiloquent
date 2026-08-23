@@ -21,7 +21,7 @@ class MultiloquentBase
 
 	public function multiloquent_version(): string
 	{
-		return '26.1.12';
+		return '26.2.0';
 	}
 
 	// -------------------------------------------------------------------------
@@ -98,6 +98,14 @@ class MultiloquentBase
 		register_block_type(get_template_directory() . '/blocks/featured-slider');
 		register_block_type(get_template_directory() . '/blocks/breadcrumbs');
 		register_block_type(get_template_directory() . '/blocks/archive-loop');
+
+		// "Inverted" button style — cream pill / dark-green text, for buttons
+		// placed on a forest-green (or dark-green) section background, e.g.
+		// the bundled CTA-band pattern.
+		register_block_style('core/button', [
+			'name'  => 'inverted',
+			'label' => esc_html__('Inverted', 'multiloquent'),
+		]);
 	}
 
 	// -------------------------------------------------------------------------

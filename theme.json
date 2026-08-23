@@ -1,6 +1,7 @@
 {
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
+    "title": "Forest & Cream",
     "settings": {
         "appearanceTools": true,
         "useRootPaddingAwareAlignments": true,
@@ -13,52 +14,52 @@
             "defaultGradients": false,
             "defaultPalette": false,
             "palette": [
-                { "color": "#4488ff", "name": "Primary",        "slug": "primary"       },
-                { "color": "#2266dd", "name": "Primary Dark",   "slug": "primary-dark"  },
-                { "color": "#77aaff", "name": "Primary Light",  "slug": "primary-light" },
-                { "color": "#22cc66", "name": "Secondary",      "slug": "secondary"     },
-                { "color": "#ffaa22", "name": "Accent",         "slug": "accent"        },
-                { "color": "#ee4444", "name": "Danger",         "slug": "danger"        },
-                { "color": "#e0e5ec", "name": "Base",           "slug": "base"          },
-                { "color": "#31344b", "name": "Contrast",       "slug": "contrast"      },
-                { "color": "#6c7283", "name": "Muted",          "slug": "muted"         },
-                { "color": "#e0e5ec", "name": "Surface",        "slug": "surface"       },
-                { "color": "#d5dae4", "name": "Surface Alt",    "slug": "surface-alt"   },
-                { "color": "#c8cdd6", "name": "Border",         "slug": "border"        },
-                { "color": "#ffffff", "name": "Shadow Light",   "slug": "shadow-light"  },
-                { "color": "#a3b1c6", "name": "Shadow Dark",    "slug": "shadow-dark"   }
+                { "color": "#2E6F40", "name": "Forest Green",      "slug": "primary"       },
+                { "color": "#1E482A", "name": "Forest Green Dark", "slug": "primary-dark"  },
+                { "color": "#E6EEE8", "name": "Light Green",       "slug": "primary-light" },
+                { "color": "#8C6B26", "name": "Gold",              "slug": "secondary"     },
+                { "color": "#A35022", "name": "Terracotta",        "slug": "accent"        },
+                { "color": "#B3402B", "name": "Danger",            "slug": "danger"        },
+                { "color": "#FEFBEA", "name": "Cream",             "slug": "base"          },
+                { "color": "#15321D", "name": "Dark Green",        "slug": "contrast"      },
+                { "color": "#677865", "name": "Muted Green",       "slug": "muted"         },
+                { "color": "#F2F6F4", "name": "Surface",           "slug": "surface"       },
+                { "color": "#D5E2D9", "name": "Surface Alt",       "slug": "surface-alt"   },
+                { "color": "#DEE8E0", "name": "Border",            "slug": "border"        },
+                { "color": "#FFFFFF", "name": "Shadow Light",      "slug": "shadow-light"  },
+                { "color": "#15321D", "name": "Shadow Dark",       "slug": "shadow-dark"   }
             ],
             "gradients": [
                 {
-                    "gradient": "linear-gradient(135deg, #4488ff 0%, #22cc66 100%)",
-                    "name": "Primary to Secondary",
+                    "gradient": "linear-gradient(135deg, #2E6F40 0%, #1E482A 100%)",
+                    "name": "Forest Fade",
                     "slug": "primary-to-secondary"
                 },
                 {
-                    "gradient": "linear-gradient(135deg, #4488ff 0%, #77aaff 100%)",
-                    "name": "Primary Fade",
+                    "gradient": "linear-gradient(135deg, #2E6F40 0%, #E6EEE8 100%)",
+                    "name": "Forest to Light Green",
                     "slug": "primary-fade"
                 },
                 {
-                    "gradient": "linear-gradient(180deg, #e0e5ec 0%, #d5dae4 100%)",
-                    "name": "Surface to Base",
+                    "gradient": "linear-gradient(180deg, #FEFBEA 0%, #E6EEE8 100%)",
+                    "name": "Cream to Light Green",
                     "slug": "surface-to-base"
                 },
                 {
-                    "gradient": "linear-gradient(135deg, #31344b 0%, #4488ff 100%)",
-                    "name": "Dark to Primary",
+                    "gradient": "linear-gradient(135deg, #15321D 0%, #2E6F40 100%)",
+                    "name": "Dark Green to Forest",
                     "slug": "dark-to-primary"
                 }
             ],
             "duotone": [
                 {
-                    "colors": ["#4488ff", "#e0e5ec"],
-                    "name": "Primary and Base",
+                    "colors": ["#2E6F40", "#FEFBEA"],
+                    "name": "Forest and Cream",
                     "slug": "primary-and-white"
                 },
                 {
-                    "colors": ["#31344b", "#77aaff"],
-                    "name": "Contrast and Primary",
+                    "colors": ["#15321D", "#E6EEE8"],
+                    "name": "Dark Green and Light Green",
                     "slug": "contrast-and-primary"
                 }
             ]
@@ -69,9 +70,25 @@
             "fluid": true,
             "fontFamilies": [
                 {
-                    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
-                    "name": "System Sans-Serif",
-                    "slug": "system"
+                    "fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+                    "name": "Inter",
+                    "slug": "system",
+                    "fontFace": [
+                        { "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "400", "src": ["file:./assets/fonts/inter/inter-400.woff2"] },
+                        { "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "500", "src": ["file:./assets/fonts/inter/inter-500.woff2"] },
+                        { "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "600", "src": ["file:./assets/fonts/inter/inter-600.woff2"] },
+                        { "fontFamily": "Inter", "fontStyle": "normal", "fontWeight": "700", "src": ["file:./assets/fonts/inter/inter-700.woff2"] }
+                    ]
+                },
+                {
+                    "fontFamily": "'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                    "name": "Plus Jakarta Sans",
+                    "slug": "heading",
+                    "fontFace": [
+                        { "fontFamily": "Plus Jakarta Sans", "fontStyle": "normal", "fontWeight": "600", "src": ["file:./assets/fonts/plus-jakarta-sans/plus-jakarta-sans-600.woff2"] },
+                        { "fontFamily": "Plus Jakarta Sans", "fontStyle": "normal", "fontWeight": "700", "src": ["file:./assets/fonts/plus-jakarta-sans/plus-jakarta-sans-700.woff2"] },
+                        { "fontFamily": "Plus Jakarta Sans", "fontStyle": "normal", "fontWeight": "800", "src": ["file:./assets/fonts/plus-jakarta-sans/plus-jakarta-sans-800.woff2"] }
+                    ]
                 },
                 {
                     "fontFamily": "Georgia, 'Times New Roman', serif",
@@ -79,9 +96,14 @@
                     "slug": "serif"
                 },
                 {
-                    "fontFamily": "'Fira Code', 'Fira Mono', 'Cascadia Code', Consolas, monospace",
-                    "name": "Monospace",
-                    "slug": "mono"
+                    "fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace",
+                    "name": "JetBrains Mono",
+                    "slug": "mono",
+                    "fontFace": [
+                        { "fontFamily": "JetBrains Mono", "fontStyle": "normal", "fontWeight": "400", "src": ["file:./assets/fonts/jetbrains-mono/jetbrains-mono-400.woff2"] },
+                        { "fontFamily": "JetBrains Mono", "fontStyle": "normal", "fontWeight": "500", "src": ["file:./assets/fonts/jetbrains-mono/jetbrains-mono-500.woff2"] },
+                        { "fontFamily": "JetBrains Mono", "fontStyle": "normal", "fontWeight": "600", "src": ["file:./assets/fonts/jetbrains-mono/jetbrains-mono-600.woff2"] }
+                    ]
                 }
             ],
             "fontSizes": [
@@ -164,18 +186,18 @@
         "shadow": {
             "presets": [
                 {
-                    "name": "Raised",
-                    "shadow": "6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff",
+                    "name": "Soft",
+                    "shadow": "0 1px 2px rgba(21,50,29,0.10), 0 12px 28px -8px rgba(21,50,29,0.28)",
                     "slug": "natural"
                 },
                 {
-                    "name": "Raised Large",
-                    "shadow": "10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff",
+                    "name": "Soft Large",
+                    "shadow": "0 2px 4px rgba(21,50,29,0.12), 0 20px 44px -10px rgba(21,50,29,0.34)",
                     "slug": "deep"
                 },
                 {
-                    "name": "Inset",
-                    "shadow": "inset 4px 4px 8px #a3b1c6, inset -4px -4px 8px #ffffff",
+                    "name": "Hairline",
+                    "shadow": "0 1px 2px rgba(21,50,29,0.08)",
                     "slug": "sharp"
                 }
             ]
@@ -202,6 +224,7 @@
     },
 
     "styles": {
+        "css": ":root{--shadow-sm:0 1px 3px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 16%, transparent);--shadow-md:0 1px 2px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 10%, transparent), 0 14px 30px -10px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 32%, transparent);--shadow-lg:0 2px 4px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 12%, transparent), 0 22px 46px -12px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 38%, transparent);--shadow-inset:inset 0 1px 2px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 20%, transparent);--shadow-inset-sm:inset 0 1px 1px color-mix(in srgb, var(--wp--preset--color--shadow-dark) 16%, transparent);--card-bg:var(--wp--preset--color--surface);--card-radius:1.25rem;--button-bg:var(--wp--preset--color--primary);--button-text:var(--wp--preset--color--base);--button-bg-hover:var(--wp--preset--color--primary-dark);--button-text-hover:var(--wp--preset--color--base);--button-radius:9999px;--button-shadow-active:var(--shadow-sm);--pill-bg:var(--wp--preset--color--primary-light);--pill-text:var(--wp--preset--color--primary-dark);--pill-text-hover:var(--wp--preset--color--primary-dark);--pill-shadow:none;--pill-shadow-active:none;--input-bg:var(--wp--preset--color--base);--input-border:1px solid var(--wp--preset--color--border);--input-shadow:none;--input-radius:0.75rem;}",
         "color": {
             "background": "var(--wp--preset--color--base)",
             "text": "var(--wp--preset--color--contrast)"
@@ -223,13 +246,14 @@
         "elements": {
             "heading": {
                 "typography": {
-                    "fontFamily": "var(--wp--preset--font-family--system)",
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
                     "fontWeight": "700",
-                    "lineHeight": "1.25"
+                    "lineHeight": "1.15",
+                    "letterSpacing": "-0.01em"
                 }
             },
             "h1": {
-                "typography": { "fontSize": "var(--wp--preset--font-size--xxx-large)" }
+                "typography": { "fontSize": "var(--wp--preset--font-size--xxx-large)", "fontWeight": "800" }
             },
             "h2": {
                 "typography": { "fontSize": "var(--wp--preset--font-size--xx-large)" }
@@ -247,17 +271,17 @@
             },
             "button": {
                 "color": {
-                    "background": "var(--wp--preset--color--base)",
-                    "text": "var(--wp--preset--color--primary)"
+                    "background": "var(--wp--preset--color--primary)",
+                    "text": "var(--wp--preset--color--base)"
                 },
-                "border": { "radius": "0.625rem" },
+                "border": { "radius": "9999px" },
                 "spacing": {
-                    "padding": { "top": "0.5rem", "bottom": "0.5rem", "left": "1.25rem", "right": "1.25rem" }
+                    "padding": { "top": "0.625rem", "bottom": "0.625rem", "left": "1.5rem", "right": "1.5rem" }
                 },
                 ":hover": {
                     "color": {
-                        "background": "var(--wp--preset--color--base)",
-                        "text": "var(--wp--preset--color--primary-dark)"
+                        "background": "var(--wp--preset--color--primary-dark)",
+                        "text": "var(--wp--preset--color--base)"
                     }
                 }
             }
@@ -277,8 +301,8 @@
                 "typography": { "fontStyle": "italic" }
             },
             "core/code": {
-                "color": { "background": "var(--wp--preset--color--base)" },
-                "border": { "radius": "0.625rem" },
+                "color": { "background": "var(--wp--preset--color--surface)" },
+                "border": { "radius": "0.75rem", "color": "var(--wp--preset--color--border)", "width": "1px", "style": "solid" },
                 "spacing": { "padding": { "top": "1rem", "bottom": "1rem", "left": "1rem", "right": "1rem" } },
                 "typography": { "fontFamily": "var(--wp--preset--font-family--mono)" }
             },
@@ -293,13 +317,14 @@
             },
             "core/post-title": {
                 "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
                     "fontSize": "var(--wp--preset--font-size--xx-large)",
-                    "fontWeight": "700"
+                    "fontWeight": "800"
                 }
             },
             "core/post-navigation-link": {
                 "color": {
-                    "background": "var(--wp--preset--color--base)",
+                    "background": "var(--wp--preset--color--surface)",
                     "text": "var(--wp--preset--color--primary)"
                 },
                 "spacing": {
@@ -311,7 +336,7 @@
                     }
                 },
                 "border": {
-                    "radius": "0.625rem"
+                    "radius": "9999px"
                 }
             },
             "core/comments": {
