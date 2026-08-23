@@ -4,7 +4,7 @@ Tags: block-editor-support, custom-colors, custom-menu, custom-header, featured-
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 8.1
-Stable tag: 26.2.0
+Stable tag: 26.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,11 @@ Colour schemes are defined in the styles/ directory.
 To add a new scheme, copy an existing file and update the palette, gradients, and duotone arrays.
 
 == Changelog ==
+
+= 26.2.1 =
+* Previous/Next post navigation and archive pagination links now use the solid button colours (forest-green background, cream text) instead of the pale outline treatment
+* Code blocks (<pre>/<code>) now use the light-green pill colours instead of a plain grey surface
+* Version bump only, to force browsers/caches to fetch the updated stylesheet
 
 = 26.2.0 =
 * New default design system: "Forest & Cream" — replaces Neumorphism as the default look
