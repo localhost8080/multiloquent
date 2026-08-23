@@ -174,27 +174,29 @@
 
 /* =========================================================
    Post navigation (previous / next post on single post pages)
-   Secondary pill treatment — outlined, not the solid CTA colour.
+   Same solid-pill treatment as the main button.
    ========================================================= */
 .wp-block-post-navigation-link a,
 .wp-block-post-navigation-link__label {
 	display: inline-flex;
 	align-items: center;
 	padding: 0.5rem 1.25rem;
-	border-radius: 9999px;
-	background: var(--card-bg);
-	color: var(--color-primary);
+	border-radius: var(--button-radius);
+	background: var(--button-bg);
+	color: var(--button-text);
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--shadow-md);
 	transition:
 		box-shadow 0.15s,
+		background-color 0.15s,
 		color 0.15s;
 }
 .wp-block-post-navigation-link a:hover,
 .wp-block-post-navigation-link__label:hover {
-	box-shadow: var(--shadow-md);
-	color: var(--color-primary-dark);
+	background: var(--button-bg-hover);
+	color: var(--button-text-hover);
+	box-shadow: var(--shadow-lg);
 }
 .wp-block-post-navigation-link a:active,
 .wp-block-post-navigation-link__label:active {
@@ -519,26 +521,28 @@ select:focus {
 	gap: 0.25rem;
 	padding: 0.5rem 1.25rem;
 	border: none;
-	border-radius: 9999px;
-	background: var(--card-bg);
-	color: var(--color-primary);
+	border-radius: var(--button-radius);
+	background: var(--button-bg);
+	color: var(--button-text);
 	font-size: 0.9375rem;
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--shadow-md);
 	transition:
 		box-shadow 0.15s,
+		background-color 0.15s,
 		color 0.15s;
 }
 .pagination-link:hover {
-	box-shadow: var(--shadow-md);
-	color: var(--color-primary-dark);
+	background: var(--button-bg-hover);
+	color: var(--button-text-hover);
+	box-shadow: var(--shadow-lg);
 }
 .pagination-link:active {
 	box-shadow: var(--button-shadow-active);
 }
 .pagination-link:hover a {
-	color: var(--color-primary-dark);
+	color: var(--button-text-hover);
 }
 
 /* =========================================================
@@ -578,20 +582,22 @@ select:focus {
 }
 .entry-content pre {
 	font-family: var(--font-family-mono);
-	background: var(--card-bg);
-	border: 1px solid var(--color-border);
+	background: var(--pill-bg);
+	border: none;
 	border-radius: 0.75rem;
-	color: var(--color-contrast);
+	box-shadow: var(--pill-shadow);
+	color: var(--pill-text);
 	padding: 1em 1.25em;
 	overflow-x: auto;
 	margin-block: 0 1em;
 }
 .entry-content code {
 	font-family: var(--font-family-mono);
-	background: var(--card-bg);
-	border: 1px solid var(--color-border);
+	background: var(--pill-bg);
+	border: none;
 	border-radius: 0.375rem;
-	color: var(--color-contrast);
+	box-shadow: var(--pill-shadow);
+	color: var(--pill-text);
 	padding: 0.2em 0.5em;
 	font-size: 0.875em;
 }
@@ -755,9 +761,10 @@ select:focus {
 	font-style: italic;
 }
 .wp-block-code {
-	background: var(--card-bg);
-	border: 1px solid var(--color-border);
+	background: var(--pill-bg);
+	border: none;
 	border-radius: 0.75rem;
+	box-shadow: var(--pill-shadow);
 	padding: 1rem;
 	overflow-x: auto;
 }
