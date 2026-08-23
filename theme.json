@@ -322,23 +322,6 @@
                     "fontWeight": "800"
                 }
             },
-            "core/post-navigation-link": {
-                "color": {
-                    "background": "var(--wp--preset--color--surface)",
-                    "text": "var(--wp--preset--color--primary)"
-                },
-                "spacing": {
-                    "padding": {
-                        "top": "0.5rem",
-                        "bottom": "0.5rem",
-                        "left": "1.25rem",
-                        "right": "1.25rem"
-                    }
-                },
-                "border": {
-                    "radius": "9999px"
-                }
-            },
             "core/comments": {
                 "spacing": {
                     "blockGap": "1rem"
