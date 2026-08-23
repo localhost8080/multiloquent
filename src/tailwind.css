@@ -1,33 +1,42 @@
 @import "tailwindcss";
 
 /* =========================================================
-   Multiloquent Theme — Tailwind v4 design tokens (Neumorphism)
+   Multiloquent Theme — Tailwind v4 design tokens
+   Default look: "Forest & Cream" — flat surfaces, soft warm
+   drop-shadows, pill buttons. (Inspired by huzzle.com.)
+
+   The six legacy Neumorphism style variations in styles/ plug
+   back into this same component CSS by re-declaring the shadow,
+   card, button, pill and input tokens below via their own
+   theme.json "styles.css" block — see DESIGN.md "Two design
+   languages, one stylesheet".
    ========================================================= */
 @theme {
-	/* Brand colours — neumorphic blue light (fallback) */
-	--color-primary: #4488ff;
-	--color-primary-dark: #2266dd;
-	--color-primary-light: #77aaff;
-	--color-secondary: #22cc66;
-	--color-accent: #ffaa22;
-	--color-danger: #ee4444;
+	/* Brand colours — Forest & Cream (fallback, mirrors theme.json) */
+	--color-primary: #2E6F40;
+	--color-primary-dark: #1E482A;
+	--color-primary-light: #E6EEE8;
+	--color-secondary: #8C6B26;
+	--color-accent: #A35022;
+	--color-danger: #B3402B;
 
-	/* Neumorphic surface tokens */
-	--color-base: #e0e5ec;
-	--color-contrast: #31344b;
-	--color-muted: #6c7283;
-	--color-surface: #e0e5ec;
-	--color-surface-alt: #d5dae4;
-	--color-border: #c8cdd6;
+	/* Surface tokens */
+	--color-base: #FEFBEA;
+	--color-contrast: #15321D;
+	--color-muted: #677865;
+	--color-surface: #F2F6F4;
+	--color-surface-alt: #D5E2D9;
+	--color-border: #DEE8E0;
 
-	/* Neumorphic shadow tokens */
-	--color-shadow-light: #ffffff;
-	--color-shadow-dark: #a3b1c6;
+	/* Shadow tint source */
+	--color-shadow-light: #FFFFFF;
+	--color-shadow-dark: #15321D;
 
 	/* Typography */
-	--font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-family-system: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-family-heading: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	--font-family-serif: Georgia, "Times New Roman", serif;
-	--font-family-mono: "Fira Code", "Fira Mono", "Cascadia Code", Consolas, monospace;
+	--font-family-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
 
 	/* Layout */
 	--width-sidebar: 18rem;
@@ -54,15 +63,22 @@
 	--color-surface-alt: var(--wp--preset--color--surface-alt);
 	--color-border: var(--wp--preset--color--border);
 	--color-shadow-light: var(--wp--preset--color--shadow-light, #ffffff);
-	--color-shadow-dark: var(--wp--preset--color--shadow-dark, #a3b1c6);
-
-	/* Neumorphic shadow shorthands — all driven by the theme's shadow colours */
-	--nm-raised: 6px 6px 12px var(--color-shadow-dark), -6px -6px 12px var(--color-shadow-light);
-	--nm-raised-lg: 10px 10px 20px var(--color-shadow-dark), -10px -10px 20px var(--color-shadow-light);
-	--nm-raised-sm: 3px 3px 6px var(--color-shadow-dark), -3px -3px 6px var(--color-shadow-light);
-	--nm-inset: inset 4px 4px 8px var(--color-shadow-dark), inset -4px -4px 8px var(--color-shadow-light);
-	--nm-inset-sm: inset 2px 2px 5px var(--color-shadow-dark), inset -2px -2px 5px var(--color-shadow-light);
+	--color-shadow-dark: var(--wp--preset--color--shadow-dark, #15321d);
 }
+
+/* ---------------------------------------------------------------
+   NOTE on the shadow, card, button, pill and input "skin" tokens
+   -----------------------------------------------------------------
+   These tokens are deliberately NOT defined here. They live
+   entirely in theme.json's top-level `styles.css` (Forest & Cream
+   defaults) and are re-declared, same names, by each of the 6
+   Neumorphism style variations in styles/*.json. WordPress merges
+   a variation's `styles.css` as a full replacement of the base's —
+   a deterministic, order-independent swap — rather than relying on
+   two separate stylesheets racing in the cascade. Component rules
+   below only ever *read* these vars via var(...); see DESIGN.md,
+   "Two design languages, one stylesheet".
+   ----------------------------------------------------------------- */
 
 /* =========================================================
    WordPress required alignment helpers
@@ -97,7 +113,7 @@
 	height: auto;
 	max-width: 100%;
 	border-radius: 0.75rem;
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-md);
 }
 
 /* =========================================================
@@ -109,14 +125,12 @@
 }
 
 /* =========================================================
-   Site header
+   Site header — light surface, hairline bottom edge, soft lift
    ========================================================= */
 .site-header {
 	background: var(--color-base);
-	border-bottom: none;
-	box-shadow:
-		0 4px 8px var(--color-shadow-dark),
-		0 -2px 4px var(--color-shadow-light);
+	border-bottom: 1px solid var(--color-border);
+	box-shadow: var(--shadow-sm);
 	z-index: 50;
 }
 
@@ -124,30 +138,32 @@
    Navigation
    ========================================================= */
 .navbar-brand {
-	font-weight: 700;
-	font-size: 1.125rem;
+	font-family: var(--font-family-heading);
+	font-weight: 800;
+	font-size: 1.25rem;
+	letter-spacing: -0.01em;
 	color: var(--color-contrast);
 }
 
 /* WordPress navigation block — hamburger / close toggle buttons */
 .wp-block-navigation__responsive-container-open,
 .wp-block-navigation__responsive-container-close {
-	background: var(--color-base);
+	background: var(--card-bg);
 	color: var(--color-contrast);
 	border: none;
-	border-radius: 0.5rem;
-	padding: 0.375rem;
-	box-shadow: var(--nm-raised-sm);
+	border-radius: 9999px;
+	padding: 0.5rem;
+	box-shadow: var(--shadow-sm);
 	cursor: pointer;
 	transition: box-shadow 0.15s;
 }
 .wp-block-navigation__responsive-container-open:hover,
 .wp-block-navigation__responsive-container-close:hover {
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-md);
 }
 .wp-block-navigation__responsive-container-open:active,
 .wp-block-navigation__responsive-container-close:active {
-	box-shadow: var(--nm-inset-sm);
+	box-shadow: var(--button-shadow-active);
 }
 
 /* Mobile nav overlay panel */
@@ -158,60 +174,90 @@
 
 /* =========================================================
    Post navigation (previous / next post on single post pages)
+   Secondary pill treatment — outlined, not the solid CTA colour.
    ========================================================= */
 .wp-block-post-navigation-link a,
 .wp-block-post-navigation-link__label {
 	display: inline-flex;
 	align-items: center;
 	padding: 0.5rem 1.25rem;
-	border-radius: 0.625rem;
-	background: var(--color-base);
+	border-radius: 9999px;
+	background: var(--card-bg);
 	color: var(--color-primary);
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-sm);
 	transition:
 		box-shadow 0.15s,
 		color 0.15s;
 }
 .wp-block-post-navigation-link a:hover,
 .wp-block-post-navigation-link__label:hover {
-	box-shadow: var(--nm-raised-lg);
+	box-shadow: var(--shadow-md);
 	color: var(--color-primary-dark);
 }
 .wp-block-post-navigation-link a:active,
 .wp-block-post-navigation-link__label:active {
-	box-shadow: var(--nm-inset);
+	box-shadow: var(--button-shadow-active);
 }
 
 /* =========================================================
-   Global neumorphic buttons
+   Global buttons — solid pill CTA (primary) + outline (secondary)
    ========================================================= */
 .wp-element-button,
 .wp-block-button__link {
-	background: var(--color-base) !important;
-	color: var(--color-primary) !important;
+	background: var(--button-bg) !important;
+	color: var(--button-text) !important;
 	border: none !important;
-	border-radius: 0.625rem !important;
-	box-shadow: var(--nm-raised) !important;
+	border-radius: var(--button-radius) !important;
+	box-shadow: var(--shadow-md) !important;
 	font-weight: 600;
 	transition:
 		box-shadow 0.15s,
+		transform 0.15s,
+		background-color 0.15s,
 		color 0.15s !important;
 }
 .wp-element-button:hover,
 .wp-block-button__link:hover {
-	background: var(--color-base) !important;
-	color: var(--color-primary-dark) !important;
-	box-shadow: var(--nm-raised-lg) !important;
+	background: var(--button-bg-hover) !important;
+	color: var(--button-text-hover) !important;
+	box-shadow: var(--shadow-lg) !important;
 }
 .wp-element-button:active,
 .wp-block-button__link:active {
-	box-shadow: var(--nm-inset) !important;
+	box-shadow: var(--button-shadow-active) !important;
+	transform: translateY(1px);
+}
+
+/* Core "Outline" button style — secondary pill, sits on --card-bg */
+.wp-block-button.is-style-outline .wp-block-button__link {
+	background: var(--card-bg) !important;
+	color: var(--color-primary) !important;
+	border: 1px solid var(--color-border) !important;
+	box-shadow: var(--shadow-sm) !important;
+}
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+	color: var(--color-primary-dark) !important;
+	box-shadow: var(--shadow-md) !important;
+}
+
+/* "Inverted" button style — cream pill / dark-green text, for use on a
+   forest-green or dark-green section background (e.g. the CTA-band pattern) */
+.wp-block-button.is-style-inverted .wp-block-button__link {
+	background: var(--color-base) !important;
+	color: var(--color-contrast) !important;
+	border: none !important;
+	border-radius: var(--button-radius) !important;
+	box-shadow: var(--shadow-md) !important;
+}
+.wp-block-button.is-style-inverted .wp-block-button__link:hover {
+	color: var(--color-primary) !important;
+	box-shadow: var(--shadow-lg) !important;
 }
 
 /* =========================================================
-   Global neumorphic input fields (inset = pressed into surface)
+   Global input fields
    ========================================================= */
 input[type="text"],
 input[type="email"],
@@ -222,24 +268,23 @@ input[type="tel"],
 input[type="number"],
 textarea,
 select {
-	background: var(--color-base);
-	border: none;
-	border-radius: 0.625rem;
+	background: var(--input-bg);
+	border: var(--input-border);
+	border-radius: var(--input-radius);
 	padding: 0.625rem 0.875rem;
 	color: var(--color-contrast);
-	box-shadow: var(--nm-inset);
+	box-shadow: var(--input-shadow);
 	font-family: var(--font-family-system);
 	font-size: 1rem;
 	outline: none;
 	width: 100%;
-	transition: box-shadow 0.15s;
+	transition: box-shadow 0.15s, border-color 0.15s;
 }
 input:focus,
 textarea:focus,
 select:focus {
-	box-shadow:
-		var(--nm-inset),
-		0 0 0 2px var(--color-primary);
+	border-color: var(--color-primary);
+	box-shadow: var(--input-shadow), 0 0 0 3px color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 /* =========================================================
@@ -281,18 +326,19 @@ select:focus {
 }
 
 .archive-card {
-	background: var(--color-base);
-	border-radius: 1rem;
+	background: var(--card-bg);
+	border-radius: var(--card-radius);
 	overflow: hidden;
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-md);
 	display: flex;
 	flex-direction: column;
 	text-decoration: none;
 	border: none;
-	transition: box-shadow 0.2s ease;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 .archive-card:hover {
-	box-shadow: var(--nm-raised-lg);
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-2px);
 }
 
 .archive-card-image {
@@ -302,12 +348,19 @@ select:focus {
 	flex-shrink: 0;
 	position: relative;
 }
+/* Photography stays clean by default; a faint tint only on hover
+   gives the same "hover affordance" the overlay used to provide
+   permanently under neumorphism. */
 .archive-card-overlay {
 	position: absolute;
 	inset: 0;
 	background-color: var(--color-contrast);
-	opacity: 0.5;
+	opacity: 0;
 	pointer-events: none;
+	transition: opacity 0.2s ease;
+}
+.archive-card:hover .archive-card-overlay {
+	opacity: 0.08;
 }
 .archive-card-hero .archive-card-image {
 	height: 16rem;
@@ -352,13 +405,14 @@ select:focus {
 .archive-card-title {
 	margin: 0;
 	line-height: 1.3;
-	font-weight: 600;
+	font-family: var(--font-family-heading);
+	font-weight: 700;
 	font-size: 1rem;
 	color: var(--color-contrast);
 }
 .archive-card-title-hero {
-	font-size: 1.125rem;
-	font-weight: 700;
+	font-size: 1.25rem;
+	font-weight: 800;
 }
 .archive-card-title a {
 	color: var(--color-contrast);
@@ -370,7 +424,10 @@ select:focus {
 }
 
 .archive-card-meta {
-	font-size: 0.75rem;
+	font-family: var(--font-family-mono);
+	font-size: 0.6875rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 	margin: 0;
 	color: var(--color-muted);
 }
@@ -389,14 +446,14 @@ select:focus {
    ========================================================= */
 .entry-card {
 	border: none;
-	border-radius: 1rem;
+	border-radius: var(--card-radius);
 	overflow: hidden;
-	background: var(--color-base);
-	box-shadow: var(--nm-raised);
+	background: var(--card-bg);
+	box-shadow: var(--shadow-md);
 	transition: box-shadow 0.2s ease;
 }
 .entry-card:hover {
-	box-shadow: var(--nm-raised-lg);
+	box-shadow: var(--shadow-lg);
 }
 .entry-card img {
 	width: 100%;
@@ -405,22 +462,25 @@ select:focus {
 }
 
 /* =========================================================
-   Tag labels (pills) — raised neumorphic, primary-coloured text
+   Tag labels (pills) — flat mono-labelled badges
    ========================================================= */
 .tag-label,
 .wp-block-post-author-name__link,
 .taxonomy-category a,
 .taxonomy-post_tag a {
 	display: inline-block;
-	padding: 0.4em 1em;
+	padding: 0.4em 0.9em;
 	border-radius: 9999px;
-	font-size: 0.75rem;
+	font-family: var(--font-family-mono);
+	font-size: 0.6875rem;
 	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 	line-height: 1.4;
 	text-decoration: none;
-	background: var(--color-base);
-	color: var(--color-primary);
-	box-shadow: var(--nm-raised-sm);
+	background: var(--pill-bg);
+	color: var(--pill-text);
+	box-shadow: var(--pill-shadow);
 	transition:
 		box-shadow 0.15s,
 		color 0.15s;
@@ -429,14 +489,13 @@ select:focus {
 .wp-block-post-author-name__link:hover,
 .taxonomy-category a:hover,
 .taxonomy-post_tag a:hover {
-	box-shadow: var(--nm-raised);
-	color: var(--color-primary-dark);
+	color: var(--pill-text-hover);
 }
 .tag-label:active,
 .wp-block-post-author-name__link:active,
 .taxonomy-category a:active,
 .taxonomy-post_tag a:active {
-	box-shadow: var(--nm-inset-sm);
+	box-shadow: var(--pill-shadow-active);
 }
 
 /* terms containers — flex gap between pills, no separator dots */
@@ -460,23 +519,23 @@ select:focus {
 	gap: 0.25rem;
 	padding: 0.5rem 1.25rem;
 	border: none;
-	border-radius: 0.625rem;
-	background: var(--color-base);
+	border-radius: 9999px;
+	background: var(--card-bg);
 	color: var(--color-primary);
 	font-size: 0.9375rem;
 	font-weight: 600;
 	text-decoration: none;
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-sm);
 	transition:
 		box-shadow 0.15s,
 		color 0.15s;
 }
 .pagination-link:hover {
-	box-shadow: var(--nm-raised-lg);
+	box-shadow: var(--shadow-md);
 	color: var(--color-primary-dark);
 }
 .pagination-link:active {
-	box-shadow: var(--nm-inset);
+	box-shadow: var(--button-shadow-active);
 }
 .pagination-link:hover a {
 	color: var(--color-primary-dark);
@@ -498,6 +557,7 @@ select:focus {
 .entry-content h2,
 .entry-content h3,
 .entry-content h4 {
+	font-family: var(--font-family-heading);
 	margin-block: 1.5em 0.5em;
 	font-weight: 700;
 	line-height: 1.3;
@@ -518,10 +578,9 @@ select:focus {
 }
 .entry-content pre {
 	font-family: var(--font-family-mono);
-	background: var(--color-base);
-	border: none;
-	border-radius: 0.625rem;
-	box-shadow: var(--nm-inset-sm);
+	background: var(--card-bg);
+	border: 1px solid var(--color-border);
+	border-radius: 0.75rem;
 	color: var(--color-contrast);
 	padding: 1em 1.25em;
 	overflow-x: auto;
@@ -529,30 +588,28 @@ select:focus {
 }
 .entry-content code {
 	font-family: var(--font-family-mono);
-	background: var(--color-base);
-	border: none;
+	background: var(--card-bg);
+	border: 1px solid var(--color-border);
 	border-radius: 0.375rem;
-	box-shadow: var(--nm-inset-sm);
 	color: var(--color-contrast);
 	padding: 0.2em 0.5em;
 	font-size: 0.875em;
 }
-/* code inside pre — pre provides the container, code gets no shadow/background */
+/* code inside pre — pre provides the container, code gets no border/background */
 .entry-content pre code {
 	background: transparent;
+	border: none;
 	border-radius: 0;
-	box-shadow: none;
 	color: inherit;
 	padding: 0;
 	font-size: 1em;
 }
 .entry-content blockquote {
-	border-inline-start: none;
-	border-radius: 0.625rem;
+	border-inline-start: 3px solid var(--color-primary);
+	border-radius: 0 0.75rem 0.75rem 0;
 	padding: 1rem 1.25rem;
 	margin-inline: 0;
-	background: var(--color-base);
-	box-shadow: var(--nm-inset);
+	background: var(--card-bg);
 	color: var(--color-muted);
 	font-style: italic;
 }
@@ -560,7 +617,7 @@ select:focus {
 	max-width: 100%;
 	height: auto;
 	border-radius: 0.75rem;
-	box-shadow: var(--nm-raised);
+	box-shadow: var(--shadow-md);
 }
 
 /* =========================================================
@@ -574,8 +631,8 @@ select:focus {
 	padding: 1.25rem;
 	border-bottom: none;
 	border-radius: 0.75rem;
-	background: var(--color-base);
-	box-shadow: var(--nm-raised-sm);
+	background: var(--card-bg);
+	box-shadow: var(--shadow-sm);
 	margin-bottom: 1rem;
 }
 
@@ -584,13 +641,15 @@ select:focus {
 }
 
 /* =========================================================
-   Breadcrumb
+   Breadcrumb — small mono "eyebrow" label
    ========================================================= */
 .breadcrumb {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.25rem;
-	font-size: 0.875rem;
+	font-family: var(--font-family-mono);
+	font-size: 0.75rem;
+	letter-spacing: 0.02em;
 	color: var(--color-muted);
 	justify-content: center;
 }
@@ -607,35 +666,36 @@ select:focus {
 }
 
 /* =========================================================
-   Footer — inset shadow so it feels carved into the surface
+   Footer — deep dark-green band (the theme's "inverted" zone)
    ========================================================= */
 .site-footer {
-	background: var(--color-base);
-	color: var(--color-muted);
+	background: var(--color-contrast);
+	color: var(--color-primary-light);
 }
 .site-footer a {
-	color: var(--color-primary);
+	color: var(--color-base);
 	text-decoration: none;
 }
 .site-footer a:hover {
-	color: var(--color-primary-dark);
+	color: var(--color-primary-light);
 	text-decoration: underline;
 }
 .site-footer .widget-title {
-	color: var(--color-contrast);
+	color: var(--color-base);
+	font-family: var(--font-family-heading);
 	font-weight: 700;
 	margin-bottom: 0.75rem;
 }
 
 /* =========================================================
-   Featured image hero (single post) — neumorphic framed image
+   Featured image hero (single post) — dark-green tinted overlay
    ========================================================= */
 .entry-hero {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	border-radius: 1rem;
-	box-shadow: var(--nm-raised);
+	border-radius: var(--card-radius);
+	box-shadow: var(--shadow-md);
 	background: var(--color-surface-alt);
 	margin-bottom: 2rem;
 }
@@ -646,7 +706,7 @@ select:focus {
 	height: 100%;
 	object-fit: cover;
 	display: block;
-	filter: brightness(0.65);
+	filter: brightness(0.7);
 }
 .entry-hero-overlay {
 	position: relative;
@@ -657,20 +717,25 @@ select:focus {
 	align-items: center;
 	text-align: center;
 	padding: 2rem 1.5rem 1.5rem;
-	color: white;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1) 60%, transparent);
+	color: var(--color-base);
+	background: linear-gradient(
+		to top,
+		color-mix(in srgb, var(--color-contrast) 85%, black) 0%,
+		color-mix(in srgb, var(--color-contrast) 40%, transparent) 60%,
+		transparent 100%
+	);
 }
 .entry-hero-overlay a,
 .entry-hero-overlay h1,
 .entry-hero-overlay h2 {
-	color: white;
+	color: var(--color-base);
 	text-decoration: none;
 }
 .entry-hero-overlay .breadcrumb {
-	color: rgba(255, 255, 255, 0.8);
+	color: color-mix(in srgb, var(--color-base) 80%, transparent);
 }
 .entry-hero-overlay .breadcrumb a {
-	color: white;
+	color: var(--color-base);
 }
 
 /* =========================================================
@@ -678,32 +743,49 @@ select:focus {
    ========================================================= */
 .wp-block-separator {
 	border: none;
-	height: 2px;
-	background:
-		linear-gradient(to right, transparent, var(--color-shadow-dark), transparent) 0 0 / 100% 1px no-repeat,
-		linear-gradient(to right, transparent, var(--color-shadow-light), transparent) 0 100% / 100% 1px no-repeat;
+	height: 1px;
+	background: var(--color-border);
 	margin-block: 2rem;
 }
 .wp-block-quote {
-	border-inline-start: none;
-	border-radius: 0.625rem;
+	border-inline-start: 3px solid var(--color-primary);
+	border-radius: 0 0.625rem 0.625rem 0;
 	padding: 1rem 1.25rem;
-	background: var(--color-base);
-	box-shadow: var(--nm-inset);
+	background: var(--card-bg);
 	font-style: italic;
 }
 .wp-block-code {
-	background: var(--color-base);
-	border-radius: 0.625rem;
+	background: var(--card-bg);
+	border: 1px solid var(--color-border);
+	border-radius: 0.75rem;
 	padding: 1rem;
 	overflow-x: auto;
-	box-shadow: var(--nm-inset);
 }
 .wp-block-code code {
-	box-shadow: none;
 	background: transparent;
+	border: none;
 	border-radius: 0;
 	padding: 0;
+}
+
+/* =========================================================
+   Hero / CTA section helpers (used by the bundled patterns)
+   ========================================================= */
+.bg-grid-texture {
+	background-image:
+		linear-gradient(color-mix(in srgb, var(--color-primary) 8%, transparent) 1px, transparent 1px),
+		linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 8%, transparent) 1px, transparent 1px);
+	background-size: 56px 56px;
+}
+.eyebrow-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	font-family: var(--font-family-mono);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 }
 
 /* =========================================================

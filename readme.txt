@@ -4,7 +4,7 @@ Tags: block-editor-support, custom-colors, custom-menu, custom-header, featured-
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 8.1
-Stable tag: 11.0.0
+Stable tag: 26.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,11 +14,19 @@ A modern, block-editor-ready WordPress theme built with Tailwind CSS v4 and them
 
 Multiloquent is a classic WordPress theme built for the modern block editor. It replaces Bootstrap and LESS with Tailwind CSS v4 and a comprehensive theme.json configuration that controls colours, typography and spacing in both the editor and the frontend.
 
+The default look is **Forest & Cream** — a flat, warm design system (forest
+green, cream, light green and dark green) with soft single-tone drop-shadows,
+pill buttons, and a self-hosted Inter / Plus Jakarta Sans / JetBrains Mono
+type system, inspired by huzzle.com. Six legacy **Neumorphism** (soft-UI)
+colour variations remain available in the Styles panel.
+
 Key features:
 
 * Full Gutenberg block editor support (align-wide, wp-block-styles, responsive-embeds, appearance-tools)
 * theme.json v3 — fluid typography, spacing scale, colour palette, element styles, shadow presets
-* Five colour schemes selectable in the Styles panel (Default, Ocean, Forest, Ember, Midnight, Rose)
+* Seven style variations selectable in the Styles panel: Forest & Cream (default) plus six Neumorphism colour schemes (Blue/Green/Red × Light/Dark)
+* Two bundled patterns — Hero (default scheme) and CTA Band (inverted forest-green scheme) — demonstrating both colour directions
+* Self-hosted Google Fonts (Inter, Plus Jakarta Sans, JetBrains Mono) — no external font requests
 * Slide-in sidebar navigation — accessible, keyboard-friendly, works on all viewport sizes
 * Tailwind CSS v4 — zero framework lock-in, compiled from source
 * Zero JavaScript dependencies — no jQuery, no Bootstrap JS
@@ -39,16 +47,18 @@ To build from source (recommended for customisation):
 
 == Colour Schemes ==
 
-Six colour schemes are available in Appearance → Editor → Styles:
+Seven style variations are available in Appearance → Editor → Styles:
 
-* Default — Classic blue primary, green secondary
-* Ocean   — Cyan and teal, amber accent
-* Forest  — Deep green primary, sky blue secondary
-* Ember   — Warm orange-red, pink secondary
-* Midnight — Indigo/violet palette, dark mode-ready
-* Rose    — Pink primary, violet secondary
+* Forest & Cream (default) — Forest green primary, cream background, dark-green text; flat surfaces with soft drop-shadows and pill buttons
+* Neumorphism — Blue Light / Blue Dark
+* Neumorphism — Green Light / Green Dark
+* Neumorphism — Red Light / Red Dark
 
-Each scheme overrides the full 12-colour semantic palette, gradients, and duotone presets.
+The six Neumorphism variations are the classic soft-UI look (dual light/dark
+shadows, every element the same colour as the page background). Each
+variation overrides the full 14-colour semantic palette, gradients, and
+duotone presets — see DESIGN.md for the full token reference and how the
+default and Neumorphism skins share one compiled stylesheet.
 
 == Widget Areas ==
 
@@ -105,6 +115,16 @@ Colour schemes are defined in the styles/ directory.
 To add a new scheme, copy an existing file and update the palette, gradients, and duotone arrays.
 
 == Changelog ==
+
+= 26.2.0 =
+* New default design system: "Forest & Cream" — replaces Neumorphism as the default look
+* New default palette: Forest Green, Cream, Light Green, Dark Green (plus Gold/Terracotta/Danger accents)
+* New default typography: self-hosted Inter (body), Plus Jakarta Sans (headings), JetBrains Mono (code, tag pills, breadcrumbs, captions) — no external font requests
+* New soft single-tone drop-shadow system and pill-shaped buttons, replacing the dual-shadow neumorphic look site-wide by default
+* Added "Inverted" button style (cream pill / dark-green text) for use on forest-green or dark-green section backgrounds
+* Added two bundled patterns: "Hero — Forest & Cream" and "CTA Band — Forest Green (inverted)"
+* The six Neumorphism colour variations remain fully selectable and unchanged in appearance
+* Featured-image hero overlay (single/page templates) re-tinted from black to the theme's dark green
 
 = 11.0.0 =
 * Complete overhaul — Bootstrap/LESS replaced with Tailwind CSS v4
