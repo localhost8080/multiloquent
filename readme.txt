@@ -4,7 +4,7 @@ Tags: block-editor-support, custom-colors, custom-menu, custom-header, featured-
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 8.1
-Stable tag: 26.2.2
+Stable tag: 26.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,9 @@ Colour schemes are defined in the styles/ directory.
 To add a new scheme, copy an existing file and update the palette, gradients, and duotone arrays.
 
 == Changelog ==
+
+= 26.2.3 =
+* Removed extra top/bottom padding on the front page's main content wrapper (templates/front-page.html)
 
 = 26.2.2 =
 * Fixed a pale "halo" showing behind the Previous/Next post navigation buttons — theme.json was still painting the wrapping element with the old surface background/padding/radius, independent of the pill button rendered by the compiled CSS on the link itself. Removed the now-redundant block style override.
