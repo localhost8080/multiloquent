@@ -15,6 +15,8 @@ class MultiloquentBase
 		add_action('init',              [$this, 'multiloquent_register_blocks']);
 		add_action('admin_menu',        [$this, 'multiloquent_cookie_banner_admin_menu']);
 		add_action('admin_init',        [$this, 'multiloquent_cookie_banner_register_settings']);
+		add_action('init',              [$this, 'multiloquent_cookie_apply_default_consent']);
+		add_action('wp_head',           [$this, 'multiloquent_cookie_scripts_output']);
 		add_action('wp_footer',         [$this, 'multiloquent_cookie_banner_render']);
 	}
 
@@ -152,6 +154,10 @@ class MultiloquentBase
 				$ver,
 				['strategy' => 'defer', 'in_footer' => true]
 			);
+			wp_localize_script('multiloquent-cookie-banner', 'multiloquentConsent', [
+				'categories' => get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults()),
+				'consentMap' => $this->multiloquent_cookie_category_consent_map(),
+			]);
 		}
 	}
 
@@ -301,6 +307,18 @@ class MultiloquentBase
 			'default'           => esc_html__('We use cookies to improve your experience. By continuing to use this site, you agree to our use of cookies.', 'multiloquent'),
 		]);
 
+		register_setting('multiloquent_cookie_banner', 'multiloquent_cookie_categories', [
+			'type'              => 'array',
+			'sanitize_callback' => [$this, 'sanitize_cookie_categories'],
+			'default'           => $this->multiloquent_cookie_category_defaults(),
+		]);
+
+		register_setting('multiloquent_cookie_banner', 'multiloquent_cookie_analytics_code', [
+			'type'              => 'string',
+			'sanitize_callback' => [$this, 'sanitize_cookie_analytics_code'],
+			'default'           => '',
+		]);
+
 		add_settings_section(
 			'multiloquent_cookie_banner_section',
 			'',
@@ -323,6 +341,106 @@ class MultiloquentBase
 			'multiloquent-cookie-banner',
 			'multiloquent_cookie_banner_section'
 		);
+
+		add_settings_field(
+			'multiloquent_cookie_categories',
+			esc_html__('Cookie categories', 'multiloquent'),
+			[$this, 'multiloquent_cookie_categories_field'],
+			'multiloquent-cookie-banner',
+			'multiloquent_cookie_banner_section'
+		);
+
+		add_settings_field(
+			'multiloquent_cookie_analytics_code',
+			esc_html__('Analytics code', 'multiloquent'),
+			[$this, 'multiloquent_cookie_analytics_code_field'],
+			'multiloquent-cookie-banner',
+			'multiloquent_cookie_banner_section'
+		);
+	}
+
+	/**
+	 * Cookie categories the banner offers, and whether each is granted by
+	 * default (i.e. does not wait for a visitor to accept the banner).
+	 */
+	private function multiloquent_cookie_category_defaults(): array
+	{
+		return [
+			'functional' => true,
+			'analytics'  => false,
+			'marketing'  => false,
+		];
+	}
+
+	private function multiloquent_cookie_category_labels(): array
+	{
+		return [
+			'functional' => esc_html__('Functional', 'multiloquent'),
+			'analytics'  => esc_html__('Analytics', 'multiloquent'),
+			'marketing'  => esc_html__('Marketing', 'multiloquent'),
+		];
+	}
+
+	/**
+	 * Maps our own category keys to the WP Consent API's standard category
+	 * names (https://github.com/WordPress/wp-consent-level-api) — the ones
+	 * consent-aware plugins (e.g. Site Kit by Google) actually read. Notably
+	 * "analytics" here is "statistics" over there.
+	 */
+	private function multiloquent_cookie_category_consent_map(): array
+	{
+		return [
+			'functional' => 'functional',
+			'analytics'  => 'statistics',
+			'marketing'  => 'marketing',
+		];
+	}
+
+	/**
+	 * Signals consent for every category enabled by default, on every
+	 * request, via the WP Consent API's wp_set_consent() — the same
+	 * function its own JS uses. This is what lets a consent-aware plugin
+	 * (e.g. Site Kit by Google) run its own tags automatically, without the
+	 * visitor needing to click Accept and without this theme having to
+	 * output any tracking code itself.
+	 *
+	 * Requires the WP Consent API plugin (https://wordpress.org/plugins/wp-consent-api/)
+	 * to be installed and active — it defines wp_set_consent(). Without it
+	 * there is nothing for other plugins to read, so this is a no-op.
+	 */
+	public function multiloquent_cookie_apply_default_consent(): void
+	{
+		if (is_admin() || ! get_option('multiloquent_cookie_banner_enabled', false)) {
+			return;
+		}
+		if (! function_exists('wp_set_consent')) {
+			return;
+		}
+
+		$categories = get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults());
+		foreach ($this->multiloquent_cookie_category_consent_map() as $key => $consent_category) {
+			if (! empty($categories[$key])) {
+				wp_set_consent($consent_category, 'allow');
+			}
+		}
+	}
+
+	public function sanitize_cookie_categories($value): array
+	{
+		$value = is_array($value) ? $value : [];
+		$out   = [];
+		foreach ($this->multiloquent_cookie_category_defaults() as $key => $default) {
+			$out[$key] = ! empty($value[$key]);
+		}
+		return $out;
+	}
+
+	public function sanitize_cookie_analytics_code(string $value): string
+	{
+		// Not passed through wp_kses_post: this field exists to hold a raw
+		// tracking snippet (e.g. Google Analytics' <script> tags), and it's
+		// only reachable by users with the manage_options capability.
+		return trim($value);
 	}
 
 	public function multiloquent_cookie_banner_enabled_field(): void
@@ -345,6 +463,46 @@ class MultiloquentBase
 	<?php
 	}
 
+	public function multiloquent_cookie_categories_field(): void
+	{
+		$categories = get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults());
+		$labels     = $this->multiloquent_cookie_category_labels();
+	?>
+		<fieldset>
+			<legend class="screen-reader-text"><?php esc_html_e('Cookie categories', 'multiloquent'); ?></legend>
+			<?php foreach ($labels as $key => $label) : ?>
+				<label style="display:block;margin-bottom:0.4em;">
+					<input type="checkbox" name="multiloquent_cookie_categories[<?php echo esc_attr($key); ?>]" value="1" <?php checked(! empty($categories[$key])); ?>>
+					<?php
+					printf(
+						/* translators: %s: cookie category name, e.g. "Analytics" */
+						esc_html__('%s — enabled by default (runs for every visitor, no opt-in required)', 'multiloquent'),
+						esc_html($label)
+					);
+					?>
+				</label>
+			<?php endforeach; ?>
+			<p class="description">
+				<?php esc_html_e('A category left unchecked stays off for a visitor until they click Accept on the banner — most privacy regulations require this for anything beyond strictly necessary functionality.', 'multiloquent'); ?>
+			</p>
+			<p class="description">
+				<?php esc_html_e('Checking a category here calls the WP Consent API\'s wp_set_consent() for it on every page load, so plugins that already read that API — e.g. Site Kit by Google\'s Consent Mode — run their own tags automatically. You only need the "Analytics code" field below for a tracking snippet that isn\'t already wired up to a plugin like that.', 'multiloquent'); ?>
+			</p>
+		</fieldset>
+	<?php
+	}
+
+	public function multiloquent_cookie_analytics_code_field(): void
+	{
+		$code = get_option('multiloquent_cookie_analytics_code', '');
+	?>
+		<textarea id="multiloquent_cookie_analytics_code" name="multiloquent_cookie_analytics_code" rows="6" class="large-text code" cols="50"><?php echo esc_textarea($code); ?></textarea>
+		<p class="description">
+			<?php esc_html_e('Optional: paste a tracking snippet here (e.g. a hand-rolled Google Analytics / gtag.js embed code) if you\'re not already using a plugin that reads consent itself. It runs immediately if Analytics is enabled by default above; otherwise it only runs after a visitor accepts the banner. Leave blank if a plugin like Site Kit by Google is handling this.', 'multiloquent'); ?>
+		</p>
+	<?php
+	}
+
 	public function multiloquent_cookie_banner_settings_page(): void
 	{
 		if (! current_user_can('manage_options')) {
@@ -354,8 +512,24 @@ class MultiloquentBase
 		<div class="wrap">
 			<h1><?php esc_html_e('Cookie Banner', 'multiloquent'); ?></h1>
 			<p>
-				<?php esc_html_e('A lightweight cookie consent banner. Accept/decline choices are reported through the WP Consent API, so any other consent-aware plugin or script on the site respects the same decision.', 'multiloquent'); ?>
+				<?php esc_html_e('A lightweight cookie consent banner. Accept/decline choices are reported through the WP Consent API, so any other consent-aware plugin or script on the site respects the same decision. Categories and the analytics code below only take effect while the banner is enabled.', 'multiloquent'); ?>
 			</p>
+			<?php if (! function_exists('wp_set_consent')) : ?>
+				<div class="notice notice-warning inline">
+					<p>
+						<?php
+						printf(
+							wp_kses(
+								/* translators: %s: URL to the WP Consent API plugin on wordpress.org */
+								__('The <a href="%s" target="_blank" rel="noopener noreferrer">WP Consent API</a> plugin isn\'t active. Install and activate it so other consent-aware plugins (e.g. Site Kit by Google) can see the choices made below — without it, the categories here have no effect outside this site.', 'multiloquent'),
+								['a' => ['href' => [], 'target' => [], 'rel' => []]]
+							),
+							esc_url('https://wordpress.org/plugins/wp-consent-api/')
+						);
+						?>
+					</p>
+				</div>
+			<?php endif; ?>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields('multiloquent_cookie_banner');
@@ -370,6 +544,47 @@ class MultiloquentBase
 	// -------------------------------------------------------------------------
 	// Cookie banner — frontend
 	// -------------------------------------------------------------------------
+
+	/**
+	 * Prints the admin-configured analytics snippet.
+	 *
+	 * Runs unmodified if the "analytics" category is enabled by default;
+	 * otherwise each <script> tag is rewritten to type="text/plain" so the
+	 * browser parses but does not execute it — cookie-banner.js swaps the
+	 * matching tags back to real, running scripts once a visitor accepts.
+	 */
+	public function multiloquent_cookie_scripts_output(): void
+	{
+		if (! get_option('multiloquent_cookie_banner_enabled', false)) {
+			return;
+		}
+
+		$code = get_option('multiloquent_cookie_analytics_code', '');
+		if ('' === trim($code)) {
+			return;
+		}
+
+		$categories = get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults());
+
+		echo "\n<!-- Multiloquent: analytics code -->\n";
+
+		if (! empty($categories['analytics'])) {
+			echo $code . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput -- intentional raw tracking snippet, see sanitize_cookie_analytics_code().
+			return;
+		}
+
+		$gated = preg_replace_callback(
+			'/<script\b([^>]*)>/i',
+			function (array $matches): string {
+				if (false !== stripos($matches[1], 'type=')) {
+					return $matches[0];
+				}
+				return '<script type="text/plain" data-multiloquent-consent="analytics"' . $matches[1] . '>';
+			},
+			$code
+		);
+		echo $gated . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput -- intentional raw tracking snippet, see sanitize_cookie_analytics_code().
+	}
 
 	public function multiloquent_cookie_banner_render(): void
 	{
