@@ -1,0 +1,87 @@
+/**
+ * Multiloquent cookie banner
+ *
+ * Hand-authored (not part of the Tailwind build) — enqueued only while the
+ * banner is enabled under Settings > Cookie Banner.
+ */
+
+.multiloquent-cookie-banner {
+	position: fixed;
+	inset-inline: 0;
+	bottom: 0;
+	z-index: 9999;
+	background: var(--color-base, #fff);
+	border-top: 1px solid var(--color-border, #ddd);
+	box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+	font-family: var(--font-family-system, sans-serif);
+}
+
+.multiloquent-cookie-banner[hidden] {
+	display: none;
+}
+
+.multiloquent-cookie-banner-inner {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 1rem 1.25rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem 1.5rem;
+}
+
+.multiloquent-cookie-banner-message {
+	flex: 1 1 320px;
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--color-contrast, #222);
+}
+
+.multiloquent-cookie-banner-message a {
+	color: var(--color-primary, #2e6f40);
+	text-decoration: underline;
+}
+
+.multiloquent-cookie-banner-actions {
+	display: flex;
+	gap: 0.5rem;
+	flex-shrink: 0;
+}
+
+.multiloquent-cookie-banner-actions button {
+	border: 1px solid var(--color-border, #ddd);
+	border-radius: 0.375rem;
+	padding: 0.5rem 1.25rem;
+	font-size: 0.875rem;
+	font-family: inherit;
+	cursor: pointer;
+	background: transparent;
+	color: var(--color-contrast, #222);
+}
+
+.multiloquent-cookie-banner-accept {
+	background: var(--color-primary, #2e6f40);
+	border-color: var(--color-primary, #2e6f40);
+	color: #fff;
+}
+
+.multiloquent-cookie-banner-accept:hover {
+	background: var(--color-primary-dark, #1e482a);
+	border-color: var(--color-primary-dark, #1e482a);
+}
+
+.multiloquent-cookie-banner-decline:hover {
+	background: var(--color-surface-alt, #eee);
+}
+
+@media (max-width: 600px) {
+	.multiloquent-cookie-banner-inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.multiloquent-cookie-banner-actions {
+		justify-content: flex-end;
+	}
+}
