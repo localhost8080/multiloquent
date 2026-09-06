@@ -15,6 +15,7 @@ class MultiloquentBase
 		add_action('init',              [$this, 'multiloquent_register_blocks']);
 		add_action('admin_menu',        [$this, 'multiloquent_cookie_banner_admin_menu']);
 		add_action('admin_init',        [$this, 'multiloquent_cookie_banner_register_settings']);
+		add_action('init',              [$this, 'multiloquent_cookie_apply_default_consent']);
 		add_action('wp_head',           [$this, 'multiloquent_cookie_scripts_output']);
 		add_action('wp_footer',         [$this, 'multiloquent_cookie_banner_render']);
 	}
@@ -155,6 +156,7 @@ class MultiloquentBase
 			);
 			wp_localize_script('multiloquent-cookie-banner', 'multiloquentConsent', [
 				'categories' => get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults()),
+				'consentMap' => $this->multiloquent_cookie_category_consent_map(),
 			]);
 		}
 	}
@@ -379,6 +381,50 @@ class MultiloquentBase
 		];
 	}
 
+	/**
+	 * Maps our own category keys to the WP Consent API's standard category
+	 * names (https://github.com/WordPress/wp-consent-level-api) — the ones
+	 * consent-aware plugins (e.g. Site Kit by Google) actually read. Notably
+	 * "analytics" here is "statistics" over there.
+	 */
+	private function multiloquent_cookie_category_consent_map(): array
+	{
+		return [
+			'functional' => 'functional',
+			'analytics'  => 'statistics',
+			'marketing'  => 'marketing',
+		];
+	}
+
+	/**
+	 * Signals consent for every category enabled by default, on every
+	 * request, via the WP Consent API's wp_set_consent() — the same
+	 * function its own JS uses. This is what lets a consent-aware plugin
+	 * (e.g. Site Kit by Google) run its own tags automatically, without the
+	 * visitor needing to click Accept and without this theme having to
+	 * output any tracking code itself.
+	 *
+	 * Requires the WP Consent API plugin (https://wordpress.org/plugins/wp-consent-api/)
+	 * to be installed and active — it defines wp_set_consent(). Without it
+	 * there is nothing for other plugins to read, so this is a no-op.
+	 */
+	public function multiloquent_cookie_apply_default_consent(): void
+	{
+		if (is_admin() || ! get_option('multiloquent_cookie_banner_enabled', false)) {
+			return;
+		}
+		if (! function_exists('wp_set_consent')) {
+			return;
+		}
+
+		$categories = get_option('multiloquent_cookie_categories', $this->multiloquent_cookie_category_defaults());
+		foreach ($this->multiloquent_cookie_category_consent_map() as $key => $consent_category) {
+			if (! empty($categories[$key])) {
+				wp_set_consent($consent_category, 'allow');
+			}
+		}
+	}
+
 	public function sanitize_cookie_categories($value): array
 	{
 		$value = is_array($value) ? $value : [];
@@ -439,6 +485,9 @@ class MultiloquentBase
 			<p class="description">
 				<?php esc_html_e('A category left unchecked stays off for a visitor until they click Accept on the banner — most privacy regulations require this for anything beyond strictly necessary functionality.', 'multiloquent'); ?>
 			</p>
+			<p class="description">
+				<?php esc_html_e('Checking a category here calls the WP Consent API\'s wp_set_consent() for it on every page load, so plugins that already read that API — e.g. Site Kit by Google\'s Consent Mode — run their own tags automatically. You only need the "Analytics code" field below for a tracking snippet that isn\'t already wired up to a plugin like that.', 'multiloquent'); ?>
+			</p>
 		</fieldset>
 	<?php
 	}
@@ -449,7 +498,7 @@ class MultiloquentBase
 	?>
 		<textarea id="multiloquent_cookie_analytics_code" name="multiloquent_cookie_analytics_code" rows="6" class="large-text code" cols="50"><?php echo esc_textarea($code); ?></textarea>
 		<p class="description">
-			<?php esc_html_e('Paste a tracking snippet here (e.g. a Google Analytics / gtag.js embed code). It runs immediately if Analytics is enabled by default above; otherwise it only runs after a visitor accepts the banner.', 'multiloquent'); ?>
+			<?php esc_html_e('Optional: paste a tracking snippet here (e.g. a hand-rolled Google Analytics / gtag.js embed code) if you\'re not already using a plugin that reads consent itself. It runs immediately if Analytics is enabled by default above; otherwise it only runs after a visitor accepts the banner. Leave blank if a plugin like Site Kit by Google is handling this.', 'multiloquent'); ?>
 		</p>
 	<?php
 	}
@@ -465,6 +514,22 @@ class MultiloquentBase
 			<p>
 				<?php esc_html_e('A lightweight cookie consent banner. Accept/decline choices are reported through the WP Consent API, so any other consent-aware plugin or script on the site respects the same decision. Categories and the analytics code below only take effect while the banner is enabled.', 'multiloquent'); ?>
 			</p>
+			<?php if (! function_exists('wp_set_consent')) : ?>
+				<div class="notice notice-warning inline">
+					<p>
+						<?php
+						printf(
+							wp_kses(
+								/* translators: %s: URL to the WP Consent API plugin on wordpress.org */
+								__('The <a href="%s" target="_blank" rel="noopener noreferrer">WP Consent API</a> plugin isn\'t active. Install and activate it so other consent-aware plugins (e.g. Site Kit by Google) can see the choices made below — without it, the categories here have no effect outside this site.', 'multiloquent'),
+								['a' => ['href' => [], 'target' => [], 'rel' => []]]
+							),
+							esc_url('https://wordpress.org/plugins/wp-consent-api/')
+						);
+						?>
+					</p>
+				</div>
+			<?php endif; ?>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields('multiloquent_cookie_banner');

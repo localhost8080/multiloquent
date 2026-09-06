@@ -2,12 +2,15 @@
  * Multiloquent cookie banner
  *
  * Lightweight consent banner with per-category defaults (Settings > Cookie
- * Banner). A category marked "enabled by default" runs on every page load
- * without waiting for a decision; any other category stays gated until a
- * visitor clicks Accept. Decisions are also reported through the WP Consent
- * API (https://wordpress.org/plugins/wp-consent-api/) via the global
+ * Banner). A category marked "enabled by default" is also asserted straight
+ * from PHP on every request (see multiloquent_cookie_apply_default_consent()
+ * in multiloquent-base.php) — this client-side pass mainly covers the
+ * "waiting on a decision" categories, decided here via Accept/Decline. Every
+ * decision is reported through the WP Consent API
+ * (https://wordpress.org/plugins/wp-consent-api/) via the global
  * `wp_set_consent()` function that plugin exposes, when present, so other
- * consent-aware plugins/scripts on the site respect the same choice.
+ * consent-aware plugins (e.g. Site Kit by Google) respect the same choice
+ * without this theme having to load any tracking script itself.
  */
 (function () {
 	'use strict';
@@ -18,6 +21,10 @@
 	var STORAGE_KEY = 'multiloquent_cookie_consent';
 	var CATEGORIES  = ['functional', 'analytics', 'marketing'];
 	var defaults    = (window.multiloquentConsent && window.multiloquentConsent.categories) || {};
+	// Maps our own category keys to the WP Consent API's standard category
+	// names (e.g. our "analytics" is its "statistics") — see
+	// multiloquent_cookie_category_consent_map() in multiloquent-base.php.
+	var consentMap  = (window.multiloquentConsent && window.multiloquentConsent.consentMap) || {};
 
 	function hasWpConsentApi() {
 		return typeof window.wp_set_consent === 'function';
@@ -58,12 +65,12 @@
 	}
 
 	function grant(category) {
-		if (hasWpConsentApi()) window.wp_set_consent(category, 'allow');
+		if (hasWpConsentApi()) window.wp_set_consent(consentMap[category] || category, 'allow');
 		unblockScripts(category);
 	}
 
 	function deny(category) {
-		if (hasWpConsentApi()) window.wp_set_consent(category, 'deny');
+		if (hasWpConsentApi()) window.wp_set_consent(consentMap[category] || category, 'deny');
 	}
 
 	function applyState(state) {
