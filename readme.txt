@@ -4,7 +4,7 @@ Tags: block-editor-support, custom-colors, custom-menu, custom-header, featured-
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 8.1
-Stable tag: 26.2.4
+Stable tag: 26.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,9 @@ Colour schemes are defined in the styles/ directory.
 To add a new scheme, copy an existing file and update the palette, gradients, and duotone arrays.
 
 == Changelog ==
+
+= 26.2.5 =
+* Cookie banner: added per-category defaults (Functional/Analytics/Marketing) and an optional analytics code field. Categories enabled by default now call the WP Consent API's wp_set_consent() automatically on every page load, so plugins that read it (e.g. Site Kit by Google) run their own tags without a click or a hand-rolled snippet.
 
 = 26.2.4 =
 * Added a cookie banner: Settings > Cookie Banner lets you enable/disable it and set the message shown. Accept/decline is reported through the WP Consent API when present.
