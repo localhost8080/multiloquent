@@ -13,6 +13,9 @@ class MultiloquentBase
 	{
 		add_action('after_setup_theme', [$this, 'multiloquent_register']);
 		add_action('init',              [$this, 'multiloquent_register_blocks']);
+		add_action('admin_menu',        [$this, 'multiloquent_cookie_banner_admin_menu']);
+		add_action('admin_init',        [$this, 'multiloquent_cookie_banner_register_settings']);
+		add_action('wp_footer',         [$this, 'multiloquent_cookie_banner_render']);
 	}
 
 	// -------------------------------------------------------------------------
@@ -133,6 +136,23 @@ class MultiloquentBase
 			$ver,
 			['strategy' => 'defer', 'in_footer' => true]
 		);
+
+		// Cookie banner (only while enabled in Settings > Cookie Banner).
+		if (get_option('multiloquent_cookie_banner_enabled', false)) {
+			wp_enqueue_style(
+				'multiloquent-cookie-banner',
+				$uri . '/assets/css/cookie-banner.css',
+				[],
+				$ver
+			);
+			wp_enqueue_script(
+				'multiloquent-cookie-banner',
+				$uri . '/assets/js/cookie-banner.js',
+				[],
+				$ver,
+				['strategy' => 'defer', 'in_footer' => true]
+			);
+		}
 	}
 
 	// -------------------------------------------------------------------------
@@ -250,6 +270,128 @@ class MultiloquentBase
 	public function sanitize_sidebar_position(string $value): string
 	{
 		return in_array($value, ['left', 'right'], true) ? $value : 'left';
+	}
+
+	// -------------------------------------------------------------------------
+	// Cookie banner — admin settings
+	// -------------------------------------------------------------------------
+
+	public function multiloquent_cookie_banner_admin_menu(): void
+	{
+		add_options_page(
+			esc_html__('Cookie Banner', 'multiloquent'),
+			esc_html__('Cookie Banner', 'multiloquent'),
+			'manage_options',
+			'multiloquent-cookie-banner',
+			[$this, 'multiloquent_cookie_banner_settings_page']
+		);
+	}
+
+	public function multiloquent_cookie_banner_register_settings(): void
+	{
+		register_setting('multiloquent_cookie_banner', 'multiloquent_cookie_banner_enabled', [
+			'type'              => 'boolean',
+			'sanitize_callback' => 'rest_sanitize_boolean',
+			'default'           => false,
+		]);
+
+		register_setting('multiloquent_cookie_banner', 'multiloquent_cookie_banner_message', [
+			'type'              => 'string',
+			'sanitize_callback' => 'wp_kses_post',
+			'default'           => esc_html__('We use cookies to improve your experience. By continuing to use this site, you agree to our use of cookies.', 'multiloquent'),
+		]);
+
+		add_settings_section(
+			'multiloquent_cookie_banner_section',
+			'',
+			'__return_false',
+			'multiloquent-cookie-banner'
+		);
+
+		add_settings_field(
+			'multiloquent_cookie_banner_enabled',
+			esc_html__('Enable cookie banner', 'multiloquent'),
+			[$this, 'multiloquent_cookie_banner_enabled_field'],
+			'multiloquent-cookie-banner',
+			'multiloquent_cookie_banner_section'
+		);
+
+		add_settings_field(
+			'multiloquent_cookie_banner_message',
+			esc_html__('Banner message', 'multiloquent'),
+			[$this, 'multiloquent_cookie_banner_message_field'],
+			'multiloquent-cookie-banner',
+			'multiloquent_cookie_banner_section'
+		);
+	}
+
+	public function multiloquent_cookie_banner_enabled_field(): void
+	{
+		$enabled = get_option('multiloquent_cookie_banner_enabled', false);
+	?>
+		<label for="multiloquent_cookie_banner_enabled">
+			<input type="checkbox" id="multiloquent_cookie_banner_enabled" name="multiloquent_cookie_banner_enabled" value="1" <?php checked($enabled); ?>>
+			<?php esc_html_e('Show a cookie consent banner on the site.', 'multiloquent'); ?>
+		</label>
+	<?php
+	}
+
+	public function multiloquent_cookie_banner_message_field(): void
+	{
+		$message = get_option('multiloquent_cookie_banner_message', '');
+	?>
+		<textarea id="multiloquent_cookie_banner_message" name="multiloquent_cookie_banner_message" rows="4" class="large-text" cols="50"><?php echo esc_textarea($message); ?></textarea>
+		<p class="description"><?php esc_html_e('Message shown on the banner. Basic HTML (e.g. a link to your privacy policy) is allowed.', 'multiloquent'); ?></p>
+	<?php
+	}
+
+	public function multiloquent_cookie_banner_settings_page(): void
+	{
+		if (! current_user_can('manage_options')) {
+			return;
+		}
+	?>
+		<div class="wrap">
+			<h1><?php esc_html_e('Cookie Banner', 'multiloquent'); ?></h1>
+			<p>
+				<?php esc_html_e('A lightweight cookie consent banner. Accept/decline choices are reported through the WP Consent API, so any other consent-aware plugin or script on the site respects the same decision.', 'multiloquent'); ?>
+			</p>
+			<form method="post" action="options.php">
+				<?php
+				settings_fields('multiloquent_cookie_banner');
+				do_settings_sections('multiloquent-cookie-banner');
+				submit_button();
+				?>
+			</form>
+		</div>
+	<?php
+	}
+
+	// -------------------------------------------------------------------------
+	// Cookie banner — frontend
+	// -------------------------------------------------------------------------
+
+	public function multiloquent_cookie_banner_render(): void
+	{
+		if (! get_option('multiloquent_cookie_banner_enabled', false)) {
+			return;
+		}
+
+		$message = get_option('multiloquent_cookie_banner_message', '');
+		if ('' === trim(wp_strip_all_tags($message))) {
+			return;
+		}
+	?>
+		<div id="multiloquent-cookie-banner" class="multiloquent-cookie-banner" role="region" aria-label="<?php esc_attr_e('Cookie notice', 'multiloquent'); ?>" hidden>
+			<div class="multiloquent-cookie-banner-inner">
+				<div class="multiloquent-cookie-banner-message"><?php echo wp_kses_post($message); ?></div>
+				<div class="multiloquent-cookie-banner-actions">
+					<button type="button" class="multiloquent-cookie-banner-decline"><?php esc_html_e('Decline', 'multiloquent'); ?></button>
+					<button type="button" class="multiloquent-cookie-banner-accept"><?php esc_html_e('Accept', 'multiloquent'); ?></button>
+				</div>
+			</div>
+		</div>
+	<?php
 	}
 
 	// -------------------------------------------------------------------------
